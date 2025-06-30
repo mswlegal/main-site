@@ -72,7 +72,7 @@ export default function Banner() {
             </video>
           </div>
 
-          <Container className={styles.container}>
+          <Container fluid className={styles.container}>
             <div className={styles['main-slider-one__single']}>
               <div className={styles['main-slider-one__content']}>
                 <h3>Your</h3>
