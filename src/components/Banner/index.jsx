@@ -1,7 +1,6 @@
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from './index.module.scss';
-import Image from 'next/image';
 import ModalForm from '../Forms/ModalForm';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
@@ -71,10 +70,6 @@ export default function Banner() {
               <source src="/video/header_video.mp4" type="video/mp4" />
               Your browser does not support HTML5 video.
             </video>
-          </div>
-
-          <div className={styles['shape1']}>
-            <Image src="/img/shape/slider-v1-shape1.png" alt="" width={1000} height={500} />
           </div>
 
           <Container className={styles.container}>
