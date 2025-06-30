@@ -2,6 +2,7 @@
 
 $color-white: #fff;
 $color_dark: #15111e;
+$color_red: #d71a20;
 
 .swiper {
   height: 100vh;
@@ -55,18 +56,14 @@ $color_dark: #15111e;
   }
 
   .container {
-    @include responsive.device-max('sm') {
-      padding: 0 20px;
-    }
+    padding: 0 20px;
   }
   .main-slider-one__content {
     position: relative;
     display: block;
     z-index: 3;
-    @include responsive.device-max('sm') {
-      text-align: center;
-      width: 100%;
-    }
+    text-align: center;
+    width: 100%;
 
     h2,
     h3 {
@@ -83,13 +80,12 @@ $color_dark: #15111e;
     h2 {
       font-size: 110px;
       transition-duration: 1500ms;
-      mask-image: linear-gradient(to bottom, white 30%, transparent);
+      color: $color_red;
+      mask-image: linear-gradient(to bottom, white 40%, transparent);
       animation: textRoll 1.5s forwards;
-      white-space: nowrap;
 
       @include responsive.device-max('lg') {
         font-size: 75px;
-        white-space: unset;
       }
 
       @include responsive.device-max('sm') {
@@ -295,6 +291,7 @@ $color_dark: #15111e;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
   position: relative;
+  margin: 0 auto;
 
   svg {
     transform: scale(1.4);
@@ -304,12 +301,11 @@ $color_dark: #15111e;
 
   @include responsive.device-max('sm') {
     font-size: 16px;
-    margin: 0 auto;
   }
 
   &:hover {
     background-color: #d71a204f;
-    border-color: #d71a20;
+    border-color: $color_red;
   }
 
   &:focus {
