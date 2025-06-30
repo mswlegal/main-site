@@ -1,0 +1,56 @@
+@use '/styles/responsive/_devicesMixins.scss' as responsive;
+
+$color_1: #f4f5fe;
+$font-family_1: 'Josefin Sans';
+$background-color_1: #231F20;
+
+.basic_section {
+  position: relative;
+  background-color: $background-color_1;
+}
+
+.counter {
+  padding: 50px 0;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    .value {
+      span {
+        font-family: $font-family_1;
+        font-size: 72px;
+        color: $color_1;
+        font-weight: 700;
+        position: relative;
+        @include responsive.device-max('md') {
+          font-size: 60px;
+        }
+      }
+      .big {
+        font-family: $font-family_1;
+        font-size: 72px;
+        color: $color_1;
+        font-weight: 700;
+        @include responsive.device-max('md') {
+          font-size: 42px;
+        }
+      }
+    }
+    .text {
+      position: relative;
+      margin-top: -24px;
+      h3 {
+        font-size: 26px;
+        font-weight: 600;
+        color: $color_1;
+        letter-spacing: -0.2px;
+        line-height: 1.4;
+        @include responsive.device-max('md') {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

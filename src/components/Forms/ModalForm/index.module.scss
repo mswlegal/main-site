@@ -1,0 +1,198 @@
+@use '/styles/responsive/_devicesMixins.scss' as responsive;
+
+.cardModal {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  width: 100%;
+  max-width: 425px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px 0 rgba(#999, 0.25);
+  padding: 0.75rem;
+
+  @include responsive.device-max('md') {
+    min-width: unset;
+    max-height: 90vh;
+    margin-bottom: 0;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+  }
+
+  .cardImage {
+    border-radius: 16px;
+    overflow: hidden;
+    padding-bottom: 55%;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3)),
+      url('https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/c4/e9/15/54/84/v1_E10/E104AUJE.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=aaae97f13bab54c45d344ff765d2ca3b14af002f8f0990e1ddb7387a75efde18');
+    background-repeat: no-repeat;
+    background-size: 140%;
+    background-position: 100% 20%;
+    position: relative;
+    @include responsive.device-max('md') {
+        padding-bottom: 45%;
+        background-position: 100% 35%;
+    }
+  }
+
+  .cardHeading {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    right: 10%;
+    font-size: 32px;
+    font-weight: 700;
+    color: #15111e;
+    line-height: 1.222;
+
+    small {
+      display: block;
+      font-size: 20px;
+      font-weight: 400;
+      margin-top: 0.25em;
+    }
+  }
+
+  .cardForm {
+    padding: 2rem 1rem 0;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    padding-top: 1.5rem;
+    input,
+    textarea {
+      width: 100%;
+      border-radius: 10px;
+      padding: 30px 25px;
+      background-color: transparent;
+      border: none;
+      font-size: 18px;
+      color: #15111e;
+      letter-spacing: 0px;
+      box-shadow:
+        rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+        rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input {
+      height: 60px;
+      @include responsive.device-max('md') {
+        height: 48px;
+      }
+    }
+  }
+
+  .inputLabel {
+    color: #8597a3;
+    position: absolute;
+    top: 40%;
+    left: 20px;
+    transition: 0.25s ease;
+    font-size: 18px;
+    @include responsive.device-max('md') {
+      font-size: 16px;
+    }
+  }
+
+  .inputField {
+    border: 0;
+    z-index: 1;
+    background-color: transparent;
+    border-bottom: 2px solid #eee;
+    font: inherit;
+    font-size: 18px;
+    padding: 0.25rem 0;
+    @include responsive.device-max('md') {
+      font-size: 16px !important;
+    }
+
+    &:focus,
+    &:valid {
+      outline: 0;
+      box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+      & + .inputLabel {
+        color: #15111e;
+        top: 14px;
+        left: 12px;
+        font-size: 13px;
+        @include responsive.device-max('md') {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+
+  .action {
+    margin-top: 2rem;
+  }
+
+  .actionButton {
+    font: inherit;
+    font-size: 18px;
+    padding: 0.5em 1em;
+    width: 100%;
+    font-weight: 500;
+    background-color: #d71a20;
+    border-radius: 6px;
+    color: #fff;
+    border: 0;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .cardInfo {
+    padding: 1rem 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #8597a3;
+    justify-content: center;
+    a {
+      display: block;
+      color: #d71a20;
+      text-decoration: none;
+    }
+  }
+}
+
+@keyframes modalFadeIn {
+  0% {
+    opacity: 0.8;
+    top:100%
+  }
+  100% {
+    opacity: 1;
+    top:0;
+  }
+}
+
+@keyframes modalFadeOut {
+  0% {
+    opacity: 1;
+    top: 0
+  }
+  100% {
+    opacity: 0.8;
+    top:100%;
+  }
+}
+
+.modalDialog {
+  animation: modalFadeIn 0.6s ease-in-out;
+  @include responsive.device-max('md') {
+    display: flex;
+    align-items: flex-end;
+  }
+  &.isExiting {
+    animation: modalFadeOut 0.6s ease-in-out;
+  }
+}

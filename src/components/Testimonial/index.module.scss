@@ -1,0 +1,243 @@
+@use '/styles/responsive/_devicesMixins.scss' as responsive;
+
+$color_1:#15111e;
+$color_2:#ba3c3c;
+$font-family_1: 'Open Sans';
+$background-color_1: #F9F9F9;
+$background-color_3: #3c3c3c;
+
+.basic_section {
+  background-color: $background-color_1;
+  position: relative;
+  @include responsive.device-max('md') {
+    padding: 50px 10px;
+    padding-bottom: 0;
+  }
+}
+
+.testimonials {
+  position: relative;
+  display: flex;
+  padding: 10px 0;
+  .row {
+    width: 100%;
+  }
+  .left {
+    .image {
+      text-align: center;
+      img {
+        width: 100%;
+        object-fit: contain;
+        max-width: 85%;
+        height: auto;
+      }
+    }
+    @include responsive.device-max('md') {
+      order: 1;
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include responsive.device-max('md') {
+      order: 0;
+    }
+  }
+
+  .title {
+    .small {
+      font-size: 24px;
+      font-weight: 700;
+      color: $color_2;
+      letter-spacing: -0.2px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    h3 {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      color: $color_1;
+
+      @include responsive.device-max('md') {
+        font-size: 42px;
+      }
+    }
+  }
+
+  .direct {
+    width: 100%;
+    float: left;
+    position: relative;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    a {
+      text-decoration: none;
+      color: $color_2;
+      font-size: 25px;
+      display: block;
+      margin: 0 8px;
+    }
+  }
+  .prev_button {
+    left: 0px;
+  }
+  .next_button {
+    left: 56px;
+  }
+  .direct.prev {
+    .next_button {
+      transform: translateY(-50%) translateX(30px);
+    }
+  }
+
+  .quote {
+    position: absolute;
+    width: 170px;
+    height: 200px;
+    border: 6px solid $color_2;
+    right: -150px;
+    top: -50px;
+    @include responsive.device-max('md') {
+      right: -50px;
+      top: -100px;
+    }
+    i {
+      color: $color_2;
+      font-size: 77px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotateY(180deg);
+    }
+  }
+  .swiper {
+    margin: 70px 0px 0px 0px;
+    list-style-type: none;
+    .swiper-slide {
+      margin: 0px;
+      .text {
+        width: 100%;
+        height: auto;
+        float: left;
+        margin-bottom: 40px;
+        p {
+          font-size: 30px;
+          color: $color_1;
+          font-style: italic;
+          line-height: 1.6;
+        }
+      }
+      .name {
+        width: 100%;
+        float: left;
+        position: relative;
+        padding-left: 60px;
+        margin-bottom: 55px;
+        -webkit-transition: all 0.6s ease;
+        -moz-transition: all 0.6s ease;
+        -ms-transition: all 0.6s ease;
+        -o-transition: all 0.6s ease;
+        transition: all 0.6s ease;
+        &:before {
+          position: absolute;
+          content: '';
+          width: 36px;
+          height: 3px;
+          background-color: $color_2;
+          left: 0px;
+          top: 50%;
+          transform: translateY(-50%);
+          -webkit-transition: all 0.6s ease;
+          -moz-transition: all 0.6s ease;
+          -ms-transition: all 0.6s ease;
+          -o-transition: all 0.6s ease;
+          transition: all 0.6s ease;
+        }
+        h3 {
+          font-size: 21px;
+          font-weight: 700;
+          color: $color_2;
+          letter-spacing: -0.2px;
+          span {
+            font-family: $font-family_1;
+            font-size: 18px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1400px) {
+  .testimonials {
+    .swiper {
+      .swiper-slide {
+        .text {
+          p {
+            font-size: 23px;
+          }
+          font-size: 30px;
+        }
+      }
+      margin-top: 60px;
+    }
+    ul {
+      li {
+        .text {
+          p {
+            font-size: 23px;
+          }
+          font-size: 30px;
+        }
+      }
+      margin-top: 60px;
+    }
+    .quote {
+      i {
+        font-size: 60px;
+      }
+      width: 150px;
+      height: 210px;
+    }
+  }
+}
+@media (max-width: 1040px) {
+  .testimonials {
+    ul {
+      li {
+        .text {
+          p {
+            font-size: 23px;
+          }
+          font-size: 30px;
+        }
+      }
+      margin-top: 60px;
+    }
+    .quote {
+      i {
+        font-size: 50px;
+      }
+      width: 100px;
+      height: 150px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .testimonials {
+    ul {
+      li {
+        .text {
+          p {
+            font-size: 19px;
+          }
+        }
+      }
+    }
+  }
+}
