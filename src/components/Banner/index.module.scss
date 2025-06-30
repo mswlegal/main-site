@@ -81,7 +81,7 @@ $color_red: #d71a20;
       font-size: 110px;
       transition-duration: 1500ms;
       color: $color_red;
-      mask-image: linear-gradient(to bottom, white 40%, transparent);
+      mask-image: linear-gradient(to bottom, white 60%, transparent);
       animation: textRoll 1.5s forwards;
 
       @include responsive.device-max('lg') {
