@@ -276,9 +276,9 @@ $color_red: #d71a20;
     font-size: 16px;
   }
 
-  &:hover {
-    background-color: #d71a204f;
-    border-color: $color_red;
+  &:hover, &:active, &:focus-visible {
+    background-color: #d71a204f !important;
+    border-color: $color_red !important;
   }
 
   &:focus {

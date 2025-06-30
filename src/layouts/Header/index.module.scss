@@ -164,9 +164,9 @@ $font-family_1: "Nunito", sans-serif;
         font-size: 16px;
       }
 
-      &:hover {
-        background-color: #d71a204f;
-        border-color: #d71a20;
+      &:hover, &:active, &:focus-visible {
+        background-color: #d71a204f !important;
+        border-color: #d71a20 !important;
       }
 
       &:focus {
@@ -220,8 +220,8 @@ $font-family_1: "Nunito", sans-serif;
       .button {
         background-color: $color_red;
         border-color: $color_red;
-        &:hover {
-          background-color: #d71a204f;
+        &:hover, &:active, &:focus-visible {
+          background-color: #d71a204f !important;
           color: $color_dark;
           border-color: $color_dark;
         }

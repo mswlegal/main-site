@@ -182,9 +182,9 @@
       font-size: 16px;
     }
 
-    &:hover {
-      background-color: #d71a204f;
-      border-color: #d71a20;
+    &:hover, &:active, &:focus-visible {
+      background-color: #d71a204f !important;
+      border-color: #d71a20 !important;
     }
 
     &:focus {
