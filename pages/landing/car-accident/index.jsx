@@ -2,10 +2,17 @@ import React from 'react';
 import styles from './index.module.scss';
 import cx from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane, faMapMarkedAlt, faEnvelope, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPaperPlane,
+  faMapMarkedAlt,
+  faEnvelope,
+  faMobileAlt,
+  faQuestionCircle
+} from '@fortawesome/free-solid-svg-icons';
 import { faTwitter, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import LandingPageHeader from '@/layouts/Header/landingPageHeader';
 import { scrollToSection } from '@/utilities';
+import Faq from './Faq';
 
 function CarAccident() {
   return (
@@ -180,9 +187,9 @@ function CarAccident() {
             </div>
           </div>
           <div className="row gx-0 mb-4 mb-lg-5 align-items-center">
-            <div className="col-lg-5">
+            <div className="col-lg-5 order-md-0 order-1">
               <div className={cx(styles['featured-text'], 'text-left')}>
-                <h2>What We’ll Handle For You</h2>
+                <h2>What We'll Handle For You</h2>
 
                 <ul className="text-black-50">
                   <li>
@@ -201,7 +208,7 @@ function CarAccident() {
                 </ul>
               </div>
             </div>
-            <div className="col-lg-7">
+            <div className="col-lg-7 oder-md-1 order-0">
               <img
                 className="img-fluid mb-3 mb-lg-0"
                 src="/img/landing/demo-image-01.webp"
@@ -209,96 +216,16 @@ function CarAccident() {
               />
             </div>
           </div>
-
-          {/* Project One Row */}
-          {/* <div className="row gx-0 mb-5 mb-lg-0 justify-content-center">
-            <div className="col-lg-6">
-              <img className="img-fluid" src="/img/landing/demo-image-01.webp" alt="Project 1" />
-            </div>
-            <div className="col-lg-6">
-              <div className="bg-black text-center h-100 project">
-                <div className="d-flex h-100">
-                  <div className="project-text w-100 my-auto text-center text-lg-left">
-                    <h4 className="text-white">Misty</h4>
-                    <p className="mb-0 text-white-50">
-                      An example of where you can put an image of a project, or anything else, along with a
-                      description.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
-
-          {/* Project Two Row */}
-          {/* <div className="row gx-0 justify-content-center">
-            <div className="col-lg-6">
-              <img className="img-fluid" src="/img/landing/demo-image-02.webp" alt="Project 2" />
-            </div>
-            <div className="col-lg-6 order-lg-first">
-              <div className="bg-black text-center h-100 project">
-                <div className="d-flex h-100">
-                  <div className="project-text w-100 my-auto text-center text-lg-right">
-                    <h4 className="text-white">Mountains</h4>
-                    <p className="mb-0 text-white-50">
-                      Another example of a project with its respective description. These sections work well
-                      responsively as well!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div>
       </section>
 
-      <section className={styles['signup-section']} id="signup">
+      <section className={styles.faq} id="signup">
         <div className="container px-4 px-lg-5">
           <div className="row gx-4 gx-lg-5">
             <div className="col-md-10 col-lg-8 mx-auto text-center">
-              <FontAwesomeIcon icon={faPaperPlane} className="fa-2x mb-2 text-white" />
-              <h2 className="text-white mb-5">Subscribe to receive updates!</h2>
-              <form className={styles['form-signup']} id="contactForm" data-sb-form-api-token="API_TOKEN">
-                <div className="row input-group-newsletter">
-                  <div className="col">
-                    <input
-                      className="form-control"
-                      id="emailAddress"
-                      type="email"
-                      placeholder="Enter email address..."
-                      aria-label="Enter email address..."
-                      data-sb-validations="required,email"
-                    />
-                  </div>
-                  <div className="col-auto">
-                    <button className={styles.button} id="submitButton" type="submit">
-                      Notify Me!
-                    </button>
-                  </div>
-                </div>
-
-                <div className="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">
-                  An email is required.
-                </div>
-                <div className="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">
-                  Email is not valid.
-                </div>
-
-                <div className="d-none" id="submitSuccessMessage">
-                  <div className="text-center mb-3 mt-2 text-white">
-                    <div className="fw-bolder">Form submission successful!</div>
-                    To activate this form, sign up at
-                    <br />
-                    <a href="https://startbootstrap.com/solution/contact-forms">
-                      https://startbootstrap.com/solution/contact-forms
-                    </a>
-                  </div>
-                </div>
-
-                <div className="d-none" id="submitErrorMessage">
-                  <div className="text-center text-danger mb-3 mt-2">Error sending message!</div>
-                </div>
-              </form>
+              <FontAwesomeIcon icon={faQuestionCircle} className="fa-2x mb-2 text-white" />
+              <h2 className="mb-5">What You Need to Know Right Now</h2>
+              <Faq />
             </div>
           </div>
         </div>
@@ -313,7 +240,7 @@ function CarAccident() {
                   <FontAwesomeIcon icon={faMapMarkedAlt} className="fas mb-2 text-primary" />
                   <h4 className="text-uppercase m-0">Address</h4>
                   <hr className="my-4 mx-auto" />
-                  <div className="small text-black-50">4923 Market Street, Orlando FL</div>
+                  <div className="small text-black-50">1146 E. Green St. Pasadena, CA 91106</div>
                 </div>
               </div>
             </div>
@@ -335,7 +262,7 @@ function CarAccident() {
                   <FontAwesomeIcon icon={faMobileAlt} className="fas mb-2 text-primary" />
                   <h4 className="text-uppercase m-0">Phone</h4>
                   <hr className="my-4 mx-auto" />
-                  <div className="small text-black-50">+1 (555) 902-8832</div>
+                  <div className="small text-black-50">+1234 5678 9000</div>
                 </div>
               </div>
             </div>
@@ -356,7 +283,7 @@ function CarAccident() {
       </section>
 
       <footer className={cx(styles.footer, 'bg-black small text-center text-white-50')}>
-        <div className="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div>
+        <div className="container px-4 px-lg-5">© 2025 Mendez & Sanchez - All Rights Reserved</div>
       </footer>
     </>
   );
