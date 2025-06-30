@@ -2,9 +2,9 @@
   "name": "mendez-and-sanchez-main",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 5440",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 5440",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"pages/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" \"pages/**/*.{js,jsx,ts,tsx}\"",
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,mjs}\" \"pages/**/*.{js,jsx,ts,tsx}\"",
