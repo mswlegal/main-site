@@ -6,6 +6,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import cx from 'classnames';
 import Container from 'react-bootstrap/Container';
+import { scrollToSection } from '@/utilities';
 
 const swiperOptions = {
   modules: [Autoplay, Pagination, Navigation],
@@ -92,7 +93,7 @@ export default function Banner() {
         </SwiperSlide>
       </Swiper>
       <div className={styles.button_down}>
-        <a className="anchor" href="#about">
+        <a className="anchor" onClick={() => scrollToSection('about')}>
           <svg
             width="26px"
             height="100%"
