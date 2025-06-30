@@ -49,9 +49,13 @@
     flex-wrap: nowrap;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
+    @include responsive.device-min('xxxl') {
+      justify-content: center;
+    }
   }
 
   .card {
+    max-width: 450px;
     scroll-snap-align: center;
     border-radius: 4px;
     position: relative;
