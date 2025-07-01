@@ -81,7 +81,6 @@ export default function Banner() {
                   <h2 className={cx({ ['d-none']: index !== currentText })}>{item}</h2>
                 ))}
                 <h3>Allies</h3>
-
                 <div className={styles['btn-box']}>
                   <Button className={styles.button} onClick={() => toggleForm()}>
                     <span className="txt">Get Free Consultation</span>
