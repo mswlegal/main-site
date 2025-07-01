@@ -12,7 +12,7 @@ $header_height: 40vh;
     padding-bottom: 50px;
 
     @include responsive.device-max('md') {
-      padding: 0 20px;
+      padding: 50px 20px;
     }
   }
 
@@ -45,14 +45,21 @@ $header_height: 40vh;
       align-items: center;
     }
 
+    h3 {
+      @include responsive.device-max('md') {
+        font-size: 22px;
+      }
+    }
+
     p {
       margin-bottom: 16px;
       color: $color_dark;
       font-size: 18px;
+      line-height: 2.6rem;
 
       strong,
       a {
-        color: #b21318;
+        color: #d71a20;
       }
     }
 
@@ -65,6 +72,10 @@ $header_height: 40vh;
       margin-left: 36px;
       li {
         font-size: 16px;
+        list-style-type: circle;
+        &::marker {
+          color: #d71a20;
+        }
       }
     }
   }
