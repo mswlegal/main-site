@@ -45,7 +45,7 @@ const Portfolio = () => {
   ];
 
   return (
-    <section className={styles.basic_section} id="portfolio">
+    <section className={styles.basic_section} id="services">
       <Container fluid className={styles.portfolio}>
         <Row>
           <Col xs={12}>

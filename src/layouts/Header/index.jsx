@@ -5,6 +5,7 @@ import styles from './index.module.scss';
 import cx from 'classnames';
 import Head from 'next/head';
 import Container from 'react-bootstrap/Container';
+import { scrollToSection } from '../../utilities';
 
 const Header = ({ dark }) => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -26,6 +27,11 @@ const Header = ({ dark }) => {
 
   function toggleMobileMenu() {
     setShowMobileMenu(!showMobileMenu);
+  }
+
+  function handleMenuOnClick(id) {
+    scrollToSection(id);
+    setShowMobileMenu(false);
   }
 
   React.useEffect(() => {
@@ -79,25 +85,24 @@ const Header = ({ dark }) => {
                 onClick={() => setShowMobileMenu(false)}
               ></button>
               <ul className={styles['anchor_nav']}>
-                <li className={styles['current']}>
-                  <a href="/">Home</a>
+                <li>
+                  <a onClick={() => handleMenuOnClick('about')}>About</a>
                 </li>
                 <li>
-                  <a href="">About</a>
+                  <a onClick={() => handleMenuOnClick('services')}>Services</a>
                 </li>
                 <li>
-                  <a href="">Services</a>
+                  <a onClick={() => handleMenuOnClick('testimonial')}>Clients</a>
                 </li>
                 <li>
-                  <a href="">Careers</a>
-                </li>
-                <li>
-                  <a href="#blog">Blog</a>
-                </li>
-                <li>
-                  <a href="#contact">Contact</a>
+                  <a onClick={() => handleMenuOnClick('contact')}>Contact</a>
                 </li>
               </ul>
+              <div className={cx(styles.cta, 'd-xl-block d-none')}>
+                <a className={styles.button}>
+                  <span>213-123-1234 </span>
+                </a>
+              </div>
               <div className={cx(styles.footer, 'd-xl-none d-block')}>
                 <Image
                   src="/img/logo/logo-dark.webp"

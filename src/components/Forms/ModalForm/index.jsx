@@ -60,7 +60,10 @@ function ModalForm(props) {
         </Modal.Body>
         <Modal.Footer className={styles.cardInfo}>
           <p className="text-center">
-            By submitting this form you are agreeing to our <a href="#">Terms and Conditions</a>
+            By providing your phone number, you agree to start receiving SMS messages, including appointment
+            updates, appointment reminders, and follow-ups. Message and data rates may apply & message
+            frequency varies. You are free to opt-out at any time by texting STOP in reply to your messages.
+            <a href="#">Terms and Conditions.</a>
           </p>
         </Modal.Footer>
       </Modal>

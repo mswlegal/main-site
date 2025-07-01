@@ -156,15 +156,15 @@
     font-size: 0.875rem;
     color: #8597a3;
     justify-content: center;
-    @include responsive.device-max('md') {
-      p {
-        font-size: 12px;
-        a {
-          display: block;
-          color: #d71a20;
-          text-decoration: none;
-          font-size: inherit;
-        }
+    p {
+      font-size: 12px;
+      line-height: 1.1em;
+      a {
+        color: #d71a20;
+        text-decoration: none;
+        font-size: inherit;
+        line-height: inherit;
+        margin-left: 2px;
       }
     }
   }
