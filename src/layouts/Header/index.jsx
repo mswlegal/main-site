@@ -7,7 +7,7 @@ import Head from 'next/head';
 import Container from 'react-bootstrap/Container';
 import { scrollToSection } from '../../utilities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMobileAlt, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
+import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 
 const Header = ({ dark }) => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);

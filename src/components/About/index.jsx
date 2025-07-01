@@ -52,7 +52,7 @@ const About = () => {
             </div>
 
             <Button className={styles.button} onClick={() => toggleForm()}>
-              <span className="txt">Discover More</span>
+              <span className="txt">Get Free Consultation</span>
             </Button>
           </Col>
         </Row>

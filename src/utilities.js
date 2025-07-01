@@ -198,3 +198,23 @@ export const scrollToSection = (id) => {
     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 };
+
+export function getFirstAndLastName(fullName) {
+  const trimmedName = fullName.trim();
+  const nameParts = trimmedName.split(' ');
+
+  // Handle cases with only a single name or no name
+  if (nameParts.length === 0) {
+    return { firstName: '', lastName: '' };
+  } else if (nameParts.length === 1) {
+    return { firstName: nameParts[0], lastName: '' };
+  } else {
+    // The first element is the first name
+    const firstName = nameParts[0];
+
+    // The last element is the last name (handles multi-word last names)
+    const lastName = nameParts[nameParts.length - 1];
+
+    return { firstName: firstName, lastName: lastName };
+  }
+}

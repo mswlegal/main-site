@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styles from './index.module.scss';
 import Head from 'next/head';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMobileAlt, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
+import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import Container from 'react-bootstrap/Container';
 import cx from 'classnames';
 

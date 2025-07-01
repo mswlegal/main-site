@@ -23,7 +23,10 @@ $background-color_2: #3c3c3c;
   position: relative;
 
   @include responsive.device-max('md') {
-    padding: 50px 0;
+    padding: 50px 20px;
+    .container {
+      padding: 0;
+    }
   }
 
   .title {
@@ -53,25 +56,23 @@ $background-color_2: #3c3c3c;
 
     @include responsive.device-max('md') {
       span {
-        font-size: 18px;
+        font-size: 24px;
       }
 
       h3 {
-        font-size: 40px;
+        font-size: 33px;
       }
     }
   }
   .contact_inner {
     display: flex;
-    margin-top: 60px;
     flex-wrap: wrap;
+    text-align: center;
   }
-
   .left {
     flex: 1;
-    padding-right: 50px;
+    padding-left: 0;
     .text {
-      max-width: 450px;
       margin-bottom: 38px;
     }
     ul {
@@ -85,16 +86,6 @@ $background-color_2: #3c3c3c;
         }
         .list_inner {
           position: relative;
-          padding-left: 75px;
-        }
-        svg {
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 50px;
-          height: 50px;
-          color: $color_1;
         }
         span {
           font-family: $font-family_1;
@@ -103,15 +94,17 @@ $background-color_2: #3c3c3c;
           color: $color_2;
           letter-spacing: -0.2px;
         }
-        h3 {
-          font-size: 30px;
-          font-weight: 700;
-          color: $color_3;
-          letter-spacing: -0.2px;
-        }
         a {
           text-decoration: none;
           color: $color_3;
+          display: block;
+          &.phone {
+            font-size: 30px;
+            font-weight: 700;
+            color: $color_3;
+            letter-spacing: -0.2px;
+            font-family: 'Josefin Sans';
+          }
         }
       }
     }
@@ -193,7 +186,6 @@ $background-color_2: #3c3c3c;
     cursor: pointer;
     margin-top: 1.5rem;
     text-decoration: none;
-    color: #fff;
     font-size: 18px;
     font-family: 'Josefin Sans';
     font-weight: 700;
@@ -206,10 +198,13 @@ $background-color_2: #3c3c3c;
     border: 2px solid #d71a20;
     white-space: nowrap;
     transition: all 0.3s ease-in-out;
+    width: auto;
     svg {
-      transform: scale(1.2);
       margin-left: 8px;
       margin-bottom: 5px;
+    }
+    span {
+      color: inherit !important;
     }
     @include responsive.device-max('sm') {
       font-size: 16px;
