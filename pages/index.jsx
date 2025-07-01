@@ -6,7 +6,7 @@ import Testimonial from '../src/components/Testimonial';
 import Layout from '../src/layouts/Layout';
 import Banner from '../src/components/Banner';
 
-const Portfolio = dynamic(() => import('../src/components/Portfolio'), {
+const Services = dynamic(() => import('../src/components/Services'), {
   ssr: false
 });
 
@@ -16,7 +16,7 @@ const Index = () => {
       <Banner />
       <About />
       <Counter />
-      <Portfolio />
+      <Services />
       <Testimonial />
       <Contact />
     </Layout>

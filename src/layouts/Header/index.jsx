@@ -6,6 +6,8 @@ import cx from 'classnames';
 import Head from 'next/head';
 import Container from 'react-bootstrap/Container';
 import { scrollToSection } from '../../utilities';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMobileAlt, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 
 const Header = ({ dark }) => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -56,7 +58,7 @@ const Header = ({ dark }) => {
               </div>
             ) : (
               <div className={styles['logo']}>
-                <a className={styles['light']} href="#">
+                <a className={styles['light']} href="/">
                   <Image
                     src="/img/logo/logo-light.webp"
                     alt="logo white"
@@ -65,7 +67,7 @@ const Header = ({ dark }) => {
                     loading="eager"
                   />
                 </a>
-                <a className={styles['dark']} href="#">
+                <a className={styles['dark']} href="/">
                   <Image
                     src="/img/logo/logo-dark.webp"
                     alt="logo black"
@@ -99,8 +101,9 @@ const Header = ({ dark }) => {
                 </li>
               </ul>
               <div className={cx(styles.cta, 'd-xl-block d-none')}>
-                <a className={styles.button}>
-                  <span>213-123-1234 </span>
+                <a href="tel:32383814444" className={styles.button}>
+                  <FontAwesomeIcon icon={faPhoneVolume} className="fas" />
+                  <span>323-838-1444</span>
                 </a>
               </div>
               <div className={cx(styles.footer, 'd-xl-none d-block')}>

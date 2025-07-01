@@ -177,11 +177,6 @@ $font-family_1: "Nunito", sans-serif;
         background-color: #d71a204f !important;
         border-color: #d71a20 !important;
       }
-
-      &:focus {
-        outline: 1px dashed #fff;
-        outline-offset: 3px;
-      }
     }
   }
 
@@ -233,11 +228,6 @@ $font-family_1: "Nunito", sans-serif;
           background-color: #d71a204f !important;
           color: $color_dark;
           border-color: $color_dark;
-        }
-
-        &:focus {
-          outline: 1px dashed #fff;
-          outline-offset: 3px;
         }
       }
     }

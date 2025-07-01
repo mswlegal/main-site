@@ -6,7 +6,7 @@
   padding: 100px 0px 150px 0;
 }
 
-.portfolio {
+.services {
   .title {
     text-align: center;
     span {
@@ -182,7 +182,9 @@
       font-size: 16px;
     }
 
-    &:hover, &:active, &:focus-visible {
+    &:hover,
+    &:active,
+    &:focus-visible {
       background-color: #d71a204f !important;
       border-color: #d71a20 !important;
     }
@@ -209,38 +211,40 @@
     }
   }
 
-  .card:hover,
-  .card:focus-within {
-    align-items: center;
+  @include responsive.device-min('md') {
+    .card:hover,
+    .card:focus-within {
+      align-items: center;
 
-    &:before {
-      transform: translateY(-4%);
-    }
-    &:after {
-      transform: translateY(-50%);
-    }
+      &:before {
+        transform: translateY(-4%);
+      }
+      &:after {
+        transform: translateY(-50%);
+      }
 
-    .content {
-      transform: translateY(0);
-
-      > *:not(.title) {
-        opacity: 1;
+      .content {
         transform: translateY(0);
-        transition-delay: calc(700ms / 8);
+
+        > *:not(.title) {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: calc(700ms / 8);
+        }
+      }
+    }
+
+    .card:focus-within {
+      &:before,
+      &:after,
+      .content,
+      .content > *:not(.title) {
+        transition-duration: 0s;
       }
     }
   }
 
-  .card:focus-within {
-    &:before,
-    &:after,
-    .content,
-    .content > *:not(.title) {
-      transition-duration: 0s;
-    }
-  }
-
-  @include responsive.device-max('sm') {
+  @include responsive.device-max('md') {
     .card {
       &:global(.isInViewport) {
         align-items: center;

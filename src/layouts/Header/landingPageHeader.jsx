@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styles from './index.module.scss';
 import Head from 'next/head';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faMobileAlt, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import Container from 'react-bootstrap/Container';
 import cx from 'classnames';
 
@@ -69,9 +69,9 @@ const LandingPageHeader = ({ dark }) => {
             )}
 
             <div className={styles.cta}>
-              <a className={styles.button}>
-                <FontAwesomeIcon icon={faMobileAlt} className="fas" />
-                <span>213-123-1234 </span>
+              <a href="tel:32383814444" className={styles.button}>
+                <FontAwesomeIcon icon={faPhoneVolume} className="fas" />
+                <span>323-838-1444</span>
               </a>
             </div>
           </div>
