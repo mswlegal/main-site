@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 const page_preloader = () => {
   let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
   let preloader = document.getElementById('preloader');
@@ -16,13 +14,6 @@ const page_preloader = () => {
       preloader.remove();
     }
   }
-};
-
-export const wowJsAnimation = () => {
-  if (typeof window !== 'undefined') {
-    window.WOW = require('wowjs');
-  }
-  // new WOW.WOW().init();
 };
 
 export const isMobileDevice = () => {
@@ -147,48 +138,6 @@ export const movingAnimation = () => {
         element.style.transform = `translate3d(${x}px,${y}px, 0px)`;
       }
     });
-  });
-};
-
-// parallax
-export const parallax = () => {
-  let parallax = document.querySelector('.parallax');
-  let Parallax = require('parallax-js');
-  new Parallax(parallax, {
-    relativeInput: true,
-    selector: '.layer'
-  });
-};
-
-// jarallax
-export const jarallaxContent = () => {
-  let { jarallax, jarallaxVideo } = require('jarallax');
-  jarallaxVideo();
-  jarallax(document.querySelectorAll('.jarallax'), {
-    speed: 0.5,
-    keepImg: true,
-    automaticResize: true,
-    videoVolume: 0
-  });
-};
-
-export const scroll_ = () => {
-  const sections = document.querySelectorAll('.basic_section');
-  const navLi = document.querySelectorAll('.anchor_nav li');
-  let current = '';
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (pageYOffset >= sectionTop - sectionHeight / 3) {
-      current = section.getAttribute('id');
-    }
-  });
-
-  navLi.forEach((li) => {
-    li.classList.remove('current');
-    if (li.getElementsByTagName('a')[0].getAttribute('href') == `#${current}`) {
-      li.classList.add('current');
-    }
   });
 };
 

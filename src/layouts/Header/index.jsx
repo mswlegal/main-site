@@ -1,5 +1,4 @@
 import React from 'react';
-import { scroll_ } from '../../utilities';
 import Image from 'next/image';
 import styles from './index.module.scss';
 import cx from 'classnames';
@@ -38,7 +37,6 @@ const Header = ({ dark }) => {
 
   React.useEffect(() => {
     window.addEventListener('scroll', stickyNav);
-    window.addEventListener('scroll', scroll_);
   }, []);
 
   return (
