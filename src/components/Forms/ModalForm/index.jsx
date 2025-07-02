@@ -3,6 +3,7 @@ import styles from './index.module.scss';
 import Button from 'react-bootstrap/Button';
 import React from 'react';
 import cx from 'classnames';
+import { useFormSubmit } from '@/hooks/formSubmit';
 
 function ModalForm(props) {
   const { show, setShow } = props;
@@ -17,6 +18,31 @@ function ModalForm(props) {
   };
 
   const handleModalExit = () => setIsExiting(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = {
+      First: 'John',
+      Last: 'Doe',
+      Email: 'john@example.com',
+      Phone: '2222222222',
+      Summary: 'TEST'
+    };
+    mutate(formData);
+  };
+
+  const handleFormSubmitSuccess = () => {
+    console.log('SUCCESS');
+  };
+
+  const handleFormSubmitError = () => {
+    console.log('ERROR');
+  };
+
+  const { mutate, isLoading, error, data } = useFormSubmit({
+    onSuccess: handleFormSubmitSuccess,
+    onError: handleFormSubmitError
+  });
 
   return (
     <>
@@ -36,7 +62,7 @@ function ModalForm(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form className={styles.cardForm}>
+          <form className={styles.cardForm} onSubmit={handleSubmit}>
             <div className={styles.input}>
               <input type="text" className={styles.inputField} required />
               <label className={styles.inputLabel}>Full name</label>
@@ -54,7 +80,9 @@ function ModalForm(props) {
               <label className={styles.inputLabel}>Details of your case</label>
             </div>
             <div className={styles.action}>
-              <Button className={styles.actionButton}>Get started</Button>
+              <Button type="submit" className={styles.actionButton}>
+                Get started
+              </Button>
             </div>
           </form>
         </Modal.Body>

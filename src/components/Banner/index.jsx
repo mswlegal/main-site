@@ -78,7 +78,9 @@ export default function Banner() {
               <div className={styles['main-slider-one__content']}>
                 <h3>Your</h3>
                 {accidentTypes.map((item, index) => (
-                  <h2 className={cx({ ['d-none']: index !== currentText })}>{item}</h2>
+                  <h2 key={`header-${index}`} className={cx({ ['d-none']: index !== currentText })}>
+                    {item}
+                  </h2>
                 ))}
                 <h3>Allies</h3>
                 <div className={styles['btn-box']}>

@@ -16,7 +16,6 @@ const Layout = ({ children, headName, dark }) => {
     dataImage();
     movingAnimation();
     aTagClick();
-    console.log('Tests');
   }, []);
 
   return (
