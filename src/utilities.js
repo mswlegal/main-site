@@ -164,6 +164,19 @@ export function getFirstAndLastName(fullName) {
     // The last element is the last name (handles multi-word last names)
     const lastName = nameParts[nameParts.length - 1];
 
-    return { firstName: firstName, lastName: lastName };
+    return { firstName, lastName };
   }
+}
+
+export function sanitizeInput(input) {
+  return input.replace(/</g, '').replace(/>/g, '').replace(/'/g, '').replace(/"/g, '');
+}
+
+export function formatPhoneNumber(value) {
+  const number = value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+  if (!number) return value;
+  if (number[2]) {
+    return `(${number[1]}) ${number[2]}${number[3] ? ' - ' + number[3] : ''}`;
+  }
+  return number[1];
 }

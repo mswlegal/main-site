@@ -1,14 +1,26 @@
 import { useMutation } from '@tanstack/react-query';
-import { formSubmit } from '@/api/formSubmit';
 
-export const useFormSubmit = ({ onSuccess, onError }) => {
-  return useMutation({
-    mutationFn: formSubmit,
-    onSuccess: (_, variables, context) => {
-      if (onSuccess) onSuccess(variables, context);
+const postToFormSubmit = async (data) => {
+  const response = await fetch(`/api/form-submit`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
     },
-    onError: (error, variables, context) => {
-      if (onError) onError(error, variables, context);
-    }
+    body: JSON.stringify(data)
   });
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error(result.message || 'Submission failed');
+  }
+
+  return result;
 };
+
+export const useFormSubmit = ({ onSuccess, onError }) =>
+  useMutation({
+    mutationFn: postToFormSubmit,
+    onSuccess,
+    onError
+  });

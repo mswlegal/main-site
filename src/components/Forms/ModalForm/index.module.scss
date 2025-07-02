@@ -26,10 +26,10 @@
     padding-bottom: 55%;
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3)),
-      url('https://elements-resized.envatousercontent.com/envato-dam-assets-production/EVA/TRX/c4/e9/15/54/84/v1_E10/E104AUJE.jpg?w=1600&cf_fit=scale-down&mark-alpha=18&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark4.png&q=85&format=auto&s=aaae97f13bab54c45d344ff765d2ca3b14af002f8f0990e1ddb7387a75efde18');
+      url('../../../../public/img/intro/ms-banner.webp');
     background-repeat: no-repeat;
     background-size: 140%;
-    background-position: 100% 20%;
+    background-position: center top;
     position: relative;
     @include responsive.device-max('md') {
       padding-bottom: 45%;
@@ -39,13 +39,14 @@
 
   .cardHeading {
     position: absolute;
-    left: 10%;
-    top: 10%;
-    right: 10%;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 32px;
     font-weight: 700;
-    color: #15111e;
+    color: #FFF;
     line-height: 1.222;
+    text-align: center;
 
     small {
       display: block;
@@ -166,6 +167,19 @@
         line-height: inherit;
         margin-left: 2px;
       }
+    }
+  }
+
+  .success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+    svg {
+      height: 80px;
+      width: 80px;
+      color: #20a286 !important;
     }
   }
 }
