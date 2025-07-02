@@ -1,6 +1,6 @@
-import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 export function IsInViewProvider({ children, horizontal, center }) {
   const [isInViewport, setIsInViewport] = React.useState(false);

@@ -1,9 +1,9 @@
 @use '/styles/responsive/_devicesMixins.scss' as responsive;
 
-$color_1:#15111e;
-$color_2:#ba3c3c;
+$color_1: #15111e;
+$color_2: #ba3c3c;
 $font-family_1: 'Open Sans';
-$background-color_1: #F9F9F9;
+$background-color_1: #f9f9f9;
 $background-color_3: #3c3c3c;
 
 .basic_section {
@@ -88,17 +88,32 @@ $background-color_3: #3c3c3c;
       display: block;
       margin: 0 8px;
     }
-  }
-  .prev_button {
-    left: 0px;
-  }
-  .next_button {
-    left: 56px;
-  }
-  .direct.prev {
-    .next_button {
-      transform: translateY(-50%) translateX(30px);
+
+    .slideControls {
+      background-color: #e8e8ed;
+      color: $color_2;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      svg {
+        color: inherit !important;
+        font-size: 1.3em;
+        margin-top: 2px;
+      }
+      &:hover,
+      &:active,
+      &:focus-visible {
+        background-color: #d71a204f !important;
+        border-color: $color_2 !important;
+      }
     }
+  }
+  .prev {
+    margin-right: 8px;
+  }
+  .next {
+    margin-left: 8px;
   }
 
   .quote {

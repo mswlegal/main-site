@@ -8,6 +8,9 @@ import Image from 'next/image';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Testimonial = () => {
   const props = {
@@ -15,8 +18,8 @@ const Testimonial = () => {
     loop: true,
     pagination: false,
     navigation: {
-      prevEl: `.${styles.prev_button}`,
-      nextEl: `.${styles.next_button}`
+      prevEl: `.${styles.prev}`,
+      nextEl: `.${styles.next}`
     },
     autoplay: {
       delay: 2500,
@@ -123,12 +126,12 @@ const Testimonial = () => {
                 </SwiperSlide>
               </Swiper>
               <div className={styles.direct}>
-                <a className={styles.prev_button}>
-                  <i className="icon-left" />
-                </a>
-                <a className={styles.next_button}>
-                  <i className="icon-right" />
-                </a>
+                <Button className={cx(styles.slideControls, styles.prev)}>
+                  <FontAwesomeIcon icon={faChevronLeft} className="fas text-white" />
+                </Button>
+                <Button className={cx(styles.slideControls, styles.next)}>
+                  <FontAwesomeIcon icon={faChevronRight} className="fas text-white" />
+                </Button>
               </div>
             </div>
           </Col>

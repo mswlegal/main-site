@@ -6,8 +6,12 @@ import { IsInViewProvider } from '../../hooks/viewportListener';
 import ModalForm from '../Forms/ModalForm';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Services = () => {
+  const scrollContainerRef = React.useRef(null);
+
   const items = [
     {
       title: 'Motor Vehicle Accidents',
@@ -53,6 +57,20 @@ const Services = () => {
     setOpenForm(!openForm);
   }
 
+  const handleScroll = (direction) => {
+    if (scrollContainerRef.current) {
+      const containerWidth = scrollContainerRef.current.clientWidth;
+      const scrollPercentage = 0.25;
+      const scrollAmount = containerWidth * scrollPercentage;
+
+      if (direction === 'next') {
+        scrollContainerRef.current.scrollLeft += scrollAmount;
+      } else if (direction === 'prev') {
+        scrollContainerRef.current.scrollLeft -= scrollAmount;
+      }
+    }
+  };
+
   return (
     <section className={styles.basic_section} id="services">
       <Container fluid className={styles.services}>
@@ -68,7 +86,7 @@ const Services = () => {
           <Col md={4} xs={12}></Col>
         </Row>
 
-        <Row className={styles.pageContent}>
+        <Row ref={scrollContainerRef} className={styles.pageContent}>
           {items.map((item, index) => (
             <IsInViewProvider key={`item-${index}`}>
               <Col
@@ -94,6 +112,17 @@ const Services = () => {
               </Col>
             </IsInViewProvider>
           ))}
+        </Row>
+
+        <Row className="d-md-block d-none">
+          <Col xs={12} className="d-flex justify-content-center">
+            <Button onClick={() => handleScroll('prev')} className={styles.slideControls}>
+              <FontAwesomeIcon icon={faChevronLeft} className="fas text-white" />
+            </Button>
+            <Button onClick={() => handleScroll('next')} className={styles.slideControls}>
+              <FontAwesomeIcon icon={faChevronRight} className="fas text-white" />
+            </Button>
+          </Col>
         </Row>
       </Container>
       <ModalForm show={openForm} setShow={setOpenForm} />
