@@ -15,7 +15,7 @@ export default function Custom404() {
         <h1>404</h1>
         <h2>Oops! The page you're looking for doesn't exist.</h2>
         <p>It might have been removed, renamed, or did not exist in the first place.</p>
-        <div style={{ display: 'flex', gap: '1rem' }}>
+        <div className="mt-4" style={{ display: 'flex', gap: '1rem' }}>
           <Link href="/" className={styles.button}>
             Go to Homepage
           </Link>

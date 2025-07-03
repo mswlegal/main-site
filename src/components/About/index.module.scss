@@ -1,4 +1,5 @@
 @use '/styles/responsive/_devicesMixins.scss' as responsive;
+@use '/styles/mixins/buttonMixins' as button;
 
 $color_1: #d71a20;
 $color_2: #15111e;
@@ -41,8 +42,8 @@ $background-color_1: #d71a20;
         background-position: center;
         border-radius: 10px;
         z-index: 1;
-        mask-image: linear-gradient(to top, rgba(255,255,255,0), rgb(244, 245, 254, 1) 30%);
-        -webkit-mask-image: linear-gradient(to top, rgba(255,255,255,0), rgb(244, 245, 254, 1) 30%);
+        mask-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(244, 245, 254, 1) 30%);
+        -webkit-mask-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(244, 245, 254, 1) 30%);
         width: 100%;
         max-width: 650px;
         height: 500px;
@@ -104,8 +105,14 @@ $background-color_1: #d71a20;
 
     .title {
       width: 100%;
-      float: left;
       margin-bottom: 34px;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.8s ease-in-out;
+      &:global(.isInViewport) {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .small {
@@ -144,8 +151,14 @@ $background-color_1: #d71a20;
 
   .text {
     width: 100%;
-    float: left;
     margin-bottom: 12px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-in-out;
+    &:global(.isInViewport) {
+      transform: translateY(0);
+      opacity: 1;
+    }
 
     p {
       margin-bottom: 31px;
@@ -188,37 +201,17 @@ $background-color_1: #d71a20;
 }
 
 .button {
-  cursor: pointer;
-  margin-top: 1.5rem;
-  text-decoration: none;
-  color: #fff;
-  font-size: 18px;
-  font-family: 'Josefin Sans';
-  font-weight: 700;
-  display: inline-block;
-  background-color: #d71a20;
-  position: relative;
-  padding: 15px 40px;
-  border-radius: 6px;
-  border: 2px solid #d71a20;
-  white-space: nowrap;
-  transition: all 0.3s ease-in-out;
-  svg {
-    transform: scale(1.4);
-    margin-left: 8px;
-    margin-bottom: 5px;
-  }
-  @include responsive.device-max('sm') {
-    font-size: 16px;
+  @include button.mainButton();
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
   }
 
-  &:hover, &:active, &:focus-visible {
-    background-color: #d71a204f !important;
-    border-color: #d71a20 !important;
-  }
-
-  &:focus {
-    outline: 1px dashed #fff;
-    outline-offset: 3px;
+  100% {
+    opacity: 1;
+    transform: translateY(60px);
   }
 }

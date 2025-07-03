@@ -1,4 +1,3 @@
-import { call } from '../../svgImage';
 import styles from './index.module.scss';
 import cx from 'classnames';
 import Container from 'react-bootstrap/Container';
@@ -7,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import ModalForm from '../Forms/ModalForm';
 import Button from 'react-bootstrap/Button';
 import React from 'react';
+import { IsInViewProvider } from '../../hooks/viewportListener';
 
 const About = () => {
   const [openForm, setOpenForm] = React.useState(false);
@@ -29,27 +29,31 @@ const About = () => {
             </div>
           </Col>
           <Col lg={6} xs={12} className={styles.center}>
-            <div className={`${styles.title} wow fadeInUp`} data-wow-duration="1s">
-              <span className={styles.small}>About Us</span>
-              <h3>
-                NO <span>Fees</span>
-              </h3>
-              <h3>
-                Unless <span>We WIN</span>
-              </h3>
-            </div>
-            <div className={`${styles.text} wow fadeInUp`} data-wow-duration="1s" data-wow-delay="0.2s">
-              <p>
-                At <strong>Mendez & Sanchez</strong>, we operate on a contingency fee basis. Our policy allows
-                us to guarantee that our clients aren’t putting their own finances at risk.
-              </p>
-              <p>
-                We have successfully handled and <strong>settled OVER 5,000 cases</strong>, skillfully
-                navigating everything from tough negotiations to courtroom battles. Our clients only gets the
-                best from us, <strong>recovering OVER $1Billion</strong> fighting for them along side every
-                step.
-              </p>
-            </div>
+            <IsInViewProvider>
+              <div className={styles.title} data-wow-duration="1s">
+                <span className={styles.small}>About Us</span>
+                <h3>
+                  NO <span>Fees</span>
+                </h3>
+                <h3>
+                  Unless <span>We WIN</span>
+                </h3>
+              </div>
+            </IsInViewProvider>
+            <IsInViewProvider>
+              <div className={styles.text} data-wow-duration="1s" data-wow-delay="0.2s">
+                <p>
+                  At <strong>Mendez & Sanchez</strong>, we operate on a contingency fee basis. Our policy
+                  allows us to guarantee that our clients aren’t putting their own finances at risk.
+                </p>
+                <p>
+                  We have successfully handled and <strong>settled OVER 5,000 cases</strong>, skillfully
+                  navigating everything from tough negotiations to courtroom battles. Our clients only gets
+                  the best from us, <strong>recovering OVER $1Billion</strong> fighting for them along side
+                  every step.
+                </p>
+              </div>
+            </IsInViewProvider>
 
             <Button className={styles.button} onClick={() => toggleForm()}>
               <span className="txt">Get Free Consultation</span>

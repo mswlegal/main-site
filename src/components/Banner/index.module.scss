@@ -1,4 +1,5 @@
 @use '/styles/responsive/_devicesMixins.scss' as responsive;
+@use '/styles/mixins/buttonMixins' as button;
 
 $color-white: #fff;
 $color_dark: #15111e;
@@ -256,42 +257,10 @@ $color_red: #d71a20;
 }
 
 .button {
-  cursor: pointer;
-  margin-top: 1.5rem;
-  color: #fff;
-  font-size: 18px;
-  font-family: 'Josefin Sans';
-  font-weight: 700;
-  display: inline-block;
-  background-color: #d71a20;
-  padding: 15px 40px;
-  border-radius: 6px;
-  border: 2px solid #d71a20;
-  white-space: nowrap;
-  transition: all 0.3s ease-in-out;
-  text-decoration: none;
-  position: relative;
-  margin: 0 auto;
-
+  @include button.mainButton();
   svg {
     transform: scale(1.4);
     margin-left: 8px;
     margin-bottom: 5px;
-  }
-
-  @include responsive.device-max('sm') {
-    font-size: 16px;
-  }
-
-  &:hover,
-  &:active,
-  &:focus-visible {
-    background-color: #d71a204f !important;
-    border-color: $color_red !important;
-  }
-
-  &:focus {
-    outline: 1px dashed #fff;
-    outline-offset: 3px;
   }
 }
