@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 import ModalForm from '../Forms/ModalForm';
+import { IsInViewProvider } from '@/hooks/viewportListener';
 
 const Contact = () => {
   const [openForm, setOpenForm] = React.useState(false);
@@ -21,22 +22,26 @@ const Contact = () => {
         <Container className={styles.container}>
           <Row className="justify-content-center">
             <Col md={12} xs={12}>
-              <div className={styles.title} data-text-align="center" data-color="dark">
-                <span>Get in Touch</span>
-                <h3>Contact Us with Confidence</h3>
-              </div>
+              <IsInViewProvider>
+                <div className={styles.title} data-text-align="center" data-color="dark">
+                  <span>Get in Touch</span>
+                  <h3>Contact Us with Confidence</h3>
+                </div>
+              </IsInViewProvider>
             </Col>
           </Row>
 
           <Row className={styles.contact_inner}>
             <Col md={12} xs={12} className={styles.left} data-wow-duration="1s">
-              <div className={styles.text}>
-                <p>
-                  Fill out the form on this section to get your case reviewed.{' '}
-                  <br className="d-block-md d-none" />
-                  Or call us, <strong>We are available 24/7</strong>
-                </p>
-              </div>
+              <IsInViewProvider>
+                <div className={styles.text}>
+                  <p>
+                    Fill out the form on this section to get your case reviewed.{' '}
+                    <br className="d-block-md d-none" />
+                    Or call us, <strong>We are available 24/7</strong>
+                  </p>
+                </div>
+              </IsInViewProvider>
               <ul>
                 <li className={styles.list_inner}>
                   <Button className={styles.button} onClick={() => toggleForm()}>

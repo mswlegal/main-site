@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import ModalForm from '../Forms/ModalForm';
 import Button from 'react-bootstrap/Button';
 import React from 'react';
-import { IsInViewProvider } from '../../hooks/viewportListener';
+import { IsInViewProvider } from '@/hooks/viewportListener';
 
 const About = () => {
   const [openForm, setOpenForm] = React.useState(false);
