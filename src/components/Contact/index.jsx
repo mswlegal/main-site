@@ -23,7 +23,7 @@ const Contact = () => {
             <Col md={12} xs={12}>
               <div className={styles.title} data-text-align="center" data-color="dark">
                 <span>Get in Touch</span>
-                <h3>Connect with Us with Confidence</h3>
+                <h3>Contact Us with Confidence</h3>
               </div>
             </Col>
           </Row>
