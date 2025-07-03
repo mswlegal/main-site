@@ -188,7 +188,6 @@ function CarAccident() {
             <div className="col-lg-6 order-md-0 order-1">
               <div className={cx(styles['featured-text'], 'text-left')}>
                 <h2>What We'll Handle For You</h2>
-
                 <ul className="text-black-50">
                   <li>
                     <strong>Full accident investigation</strong> and liability analysis
@@ -207,10 +206,13 @@ function CarAccident() {
               </div>
             </div>
             <div className="col-lg-6 oder-md-1 order-0">
-              <img
+              <Image
+                src={require('../../../public/img/landing/hand-shake.webp').default.src}
+                width={800}
+                height={600}
+                data-depth="0.18"
                 className="img-fluid mb-3 mb-lg-0"
-                src="/img/landing/signing.webp"
-                alt="Featured project"
+                alt="injury settlement"
               />
             </div>
           </div>
