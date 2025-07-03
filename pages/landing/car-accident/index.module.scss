@@ -50,7 +50,8 @@ $color_red: #d71a20;
     line-height: 0.9em;
     letter-spacing: 0.5rem;
     color: #fff;
-    mask-image: linear-gradient(to bottom, white 60%, transparent);
+    mask-image: linear-gradient(to bottom, white 77%, transparent);
+    
     background-clip: text;
     animation: slideIn 0.8s forwards;
     @include responsive.device-max('lg') {
