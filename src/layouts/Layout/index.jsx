@@ -29,7 +29,7 @@ const Layout = ({ children, headName, dark }) => {
           rel="stylesheet"
         ></link>
       </Head>
-      <Preloader />
+      {!isLandingPage && <Preloader />}
       <div className={styles.layout} data-magic-cursor="show">
         {!isLandingPage && <Header dark={dark} />}
         {children}

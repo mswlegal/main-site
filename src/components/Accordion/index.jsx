@@ -9,7 +9,12 @@ export default function Accordion(props) {
 
   return (
     <>
-      <BootstrapAccordion alwaysOpen={alwaysOpen} className={cx(styles.accordion, className)} {...extraProps}>
+      <BootstrapAccordion
+        alwaysOpen={alwaysOpen}
+        className={cx(styles.accordion, className)}
+        {...extraProps}
+        defaultActiveKey={0}
+      >
         {items.map((item, index) => (
           <BootstrapAccordion.Item key={index} eventKey={index} className={styles.accordionItem}>
             <BootstrapAccordion.Header className={styles.accordionHeader}>

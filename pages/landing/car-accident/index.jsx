@@ -2,14 +2,8 @@ import React from 'react';
 import styles from './index.module.scss';
 import cx from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faPaperPlane,
-  faMapMarkedAlt,
-  faEnvelope,
-  faMobileAlt,
-  faQuestionCircle
-} from '@fortawesome/free-solid-svg-icons';
-import { faTwitter, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faMapMarkedAlt, faEnvelope, faMobileAlt, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTwitter, faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import LandingPageHeader from '@/layouts/Header/landingPageHeader';
 import { scrollToSection } from '@/utilities';
 import Faq from './Faq';
@@ -152,14 +146,14 @@ function CarAccident() {
         <div className="container px-4 px-lg-5">
           {/* Featured Project Row */}
           <div className="row gx-0 mb-4 mb-lg-5 align-items-center">
-            <div className="col-lg-7">
+            <div className="col-lg-6 col-12">
               <img
                 className="img-fluid mb-3 mb-lg-0"
-                src="/img/landing/bg-masthead.webp"
+                src="/img/landing/hand-shake.webp"
                 alt="Featured project"
               />
             </div>
-            <div className="col-lg-5">
+            <div className="col-lg-6 col-12">
               <div className={cx(styles['featured-text'], 'text-left')}>
                 <h2>
                   Why Californians Trust <br />
@@ -187,7 +181,7 @@ function CarAccident() {
             </div>
           </div>
           <div className="row gx-0 mb-4 mb-lg-5 align-items-center">
-            <div className="col-lg-5 order-md-0 order-1">
+            <div className="col-lg-6 order-md-0 order-1">
               <div className={cx(styles['featured-text'], 'text-left')}>
                 <h2>What We'll Handle For You</h2>
 
@@ -208,10 +202,10 @@ function CarAccident() {
                 </ul>
               </div>
             </div>
-            <div className="col-lg-7 oder-md-1 order-0">
+            <div className="col-lg-6 oder-md-1 order-0">
               <img
                 className="img-fluid mb-3 mb-lg-0"
-                src="/img/landing/demo-image-01.webp"
+                src="/img/landing/signing.webp"
                 alt="Featured project"
               />
             </div>
@@ -262,20 +256,25 @@ function CarAccident() {
                   <FontAwesomeIcon icon={faMobileAlt} className="fas mb-2 text-primary" />
                   <h4 className="text-uppercase m-0">Phone</h4>
                   <hr className="my-4 mx-auto" />
-                  <div className="small text-black-50">+1234 5678 9000</div>
+                  <a href="tel:32383814444" className="small text-black-50">
+                    {'(323) 838-1444'}
+                  </a>
                 </div>
               </div>
             </div>
           </div>
           <div className={cx(styles.social, 'd-flex justify-content-center')}>
-            <a className="mx-2" href="#!">
-              <i className="fab fa-twitter"></i>
-              <FontAwesomeIcon icon={faTwitter} className="fab text-white" />
+            <a className="mx-2" href="https://www.linkedin.com/company/mendez-sanchez" target="_blank">
+              <FontAwesomeIcon icon={faLinkedinIn} className="fab text-white" />
             </a>
-            <a className="mx-2" href="#!">
+            <a
+              className="mx-2"
+              href="https://www.facebook.com/people/Mendez-Sanchez-APC/61556121532307/!"
+              target="_blank"
+            >
               <FontAwesomeIcon icon={faFacebookF} className="fab text-white" />
             </a>
-            <a className="mx-2" href="#!">
+            <a className="mx-2" href="https://www.instagram.com/mendezsanchezlaw/#" target="_blank">
               <FontAwesomeIcon icon={faInstagram} className="fab text-white" />
             </a>
           </div>
