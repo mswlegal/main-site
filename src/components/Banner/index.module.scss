@@ -7,7 +7,7 @@ $color_red: #d71a20;
 .swiper {
   height: 100vh;
   @include responsive.device-max('md') {
-    height: 100dvh;
+    height: 100svh;
   }
 }
 
@@ -29,7 +29,7 @@ $color_red: #d71a20;
       object-fit: cover;
       opacity: 0.7;
       @include responsive.device-max('md') {
-        height: 100dvh;
+        height: 100svh;
       }
     }
 
@@ -131,7 +131,7 @@ $color_red: #d71a20;
     height: 100vh;
     z-index: 1;
     @include responsive.device-max('md') {
-      height: 100dvh;
+      height: 100svh;
     }
   }
 
