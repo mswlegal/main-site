@@ -19,7 +19,7 @@ function Disclaimer() {
         <Container className={styles.container}>
           <Row className={styles.row}>
             <Col>
-              <p class="paragraph-12">
+              <p>
                 The information found on this website is for general informational, educational, and
                 advertising purposes only. Any information found on this website does not constitute legal
                 advice or a direct solicitation of clients, nor does it create an attorney-client relationship

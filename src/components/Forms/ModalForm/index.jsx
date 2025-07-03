@@ -11,37 +11,41 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-const InputField = React.memo(({ label, type = 'text', name, value, onChange, required = false, rows }) => {
-  const inputId = `input-${name}`;
-  return (
-    <div className={styles.input}>
-      {type === 'textarea' ? (
-        <textarea
-          id={inputId}
-          name={name}
-          className={styles.inputField}
-          rows={rows}
-          required={required}
-          value={value}
-          onChange={onChange}
-        />
-      ) : (
-        <input
-          id={inputId}
-          type={type}
-          name={name}
-          className={styles.inputField}
-          required={required}
-          value={value}
-          onChange={onChange}
-        />
-      )}
-      <label htmlFor={inputId} className={styles.inputLabel}>
-        {label}
-      </label>
-    </div>
-  );
-});
+const InputField = React.memo(
+  ({ label, type = 'text', name, value, onChange, required = false, rows, placeholder }) => {
+    const inputId = `input-${name}`;
+    return (
+      <div className={styles.input}>
+        {type === 'textarea' ? (
+          <textarea
+            id={inputId}
+            name={name}
+            className={styles.inputField}
+            rows={rows}
+            required={required}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder || name}
+          />
+        ) : (
+          <input
+            id={inputId}
+            type={type}
+            name={name}
+            className={styles.inputField}
+            required={required}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder || name}
+          />
+        )}
+        <label htmlFor={inputId} className={styles.inputLabel}>
+          {label}
+        </label>
+      </div>
+    );
+  }
+);
 
 const initialData = {
   fullName: '',
@@ -141,18 +145,18 @@ function ModalForm({ show, setShow }) {
           <form className={styles.cardForm} onSubmit={handleSubmit}>
             <InputField label="Full name" name="fullName" value={fullName} onChange={handleChange} required />
             <InputField
-              label="Email"
-              type="email"
-              name="email"
-              value={email}
-              onChange={handleChange}
-              required
-            />
-            <InputField
               label="Phone"
               type="tel"
               name="phone"
               value={phone}
+              onChange={handleChange}
+              required
+            />
+            <InputField
+              label="Email"
+              type="email"
+              name="email"
+              value={email}
               onChange={handleChange}
               required
             />
@@ -179,7 +183,10 @@ function ModalForm({ show, setShow }) {
         <p className="text-center">
           By providing your phone number, you agree to receive SMS messages, including appointment updates,
           reminders, and follow-ups. Message/data rates may apply. Frequency varies. You may opt out anytime
-          by texting STOP. <a href="#">Terms and Conditions.</a>
+          by texting STOP.{' '}
+          <a href="/legal/terms-conditions" target="_blank" rel="noopener noreferrer">
+            Terms and Conditions.
+          </a>
         </p>
       </Modal.Footer>
     </Modal>

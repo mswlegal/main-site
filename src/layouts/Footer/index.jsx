@@ -92,16 +92,19 @@ const Footer = () => {
               <h5>Legal</h5>
               <ul>
                 <li>
-                  <a href="#">Terms & Condition</a>
+                  <a href="/legal/terms-conditions" target="_blank" rel="noopener noreferrer">
+                    Terms & Condition
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Privacy Policy</a>
+                  <a href="/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
+                    Privacy Policy
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Legal Disclaimer</a>
-                </li>
-                <li>
-                  <a href="#">Accessibility</a>
+                  <a href="/legal/disclaimer" target="_blank" rel="noopener noreferrer">
+                    Legal Disclaimer
+                  </a>
                 </li>
               </ul>
             </Col>

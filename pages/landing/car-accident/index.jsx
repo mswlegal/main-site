@@ -3,10 +3,11 @@ import styles from './index.module.scss';
 import cx from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkedAlt, faEnvelope, faMobileAlt, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-import { faTwitter, faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import LandingPageHeader from '@/layouts/Header/landingPageHeader';
 import { scrollToSection } from '@/utilities';
 import Faq from './Faq';
+import Image from 'next/image';
 
 function CarAccident() {
   return (
@@ -145,12 +146,15 @@ function CarAccident() {
       <section className={cx(styles['projects-section'], 'bg-light')} id="projects">
         <div className="container px-4 px-lg-5">
           {/* Featured Project Row */}
-          <div className="row gx-0 mb-4 mb-lg-5 align-items-center">
+          <div className="row gx-0 mb-4 mb-lg-5 py-5 align-items-center">
             <div className="col-lg-6 col-12">
-              <img
+              <Image
+                src={require('../../../public/img/landing/car-accident/injured-settlement.webp').default.src}
+                width={800}
+                height={600}
+                data-depth="0.18"
                 className="img-fluid mb-3 mb-lg-0"
-                src="/img/landing/hand-shake.webp"
-                alt="Featured project"
+                alt="injury settlement"
               />
             </div>
             <div className="col-lg-6 col-12">
@@ -180,7 +184,7 @@ function CarAccident() {
               </div>
             </div>
           </div>
-          <div className="row gx-0 mb-4 mb-lg-5 align-items-center">
+          <div className="row gx-0 mb-4 mb-lg-5 py-5 align-items-center">
             <div className="col-lg-6 order-md-0 order-1">
               <div className={cx(styles['featured-text'], 'text-left')}>
                 <h2>What We'll Handle For You</h2>
