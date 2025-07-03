@@ -37,7 +37,7 @@ $color_red: #d71a20;
 
   @include responsive.device-max('md') {
     min-height: unset;
-    height: 100dvh;
+    height: 100svh;
     .container {
       padding-left: 0;
       padding-right: 0;
