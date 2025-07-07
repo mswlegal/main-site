@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import styles from './index.module.scss';
 import cx from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
