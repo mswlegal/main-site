@@ -8,6 +8,7 @@ import LandingPageHeader from '@/layouts/Header/landingPageHeader';
 import { scrollToSection } from '@/utilities';
 import Faq from './Faq';
 import Image from 'next/image';
+import Form from './Form';
 
 function CarAccident() {
   return (
@@ -43,87 +44,8 @@ function CarAccident() {
         <div className="container px-4 px-lg-5">
           <div id="headerForm" className={cx(styles['form-row'], styles['animate-slide-in'], 'row')}>
             <div className="col-12 mx-auto text-center">
-              <h2 className="text-white mb-5">Request a free case review</h2>
-              <form className={styles['form-signup']} data-sb-form-api-token="API_TOKEN">
-                {/* Email address input */}
-                <div className="row justify-content-center align-items-center flex-column">
-                  <div className="col-lg-5 col-12 mb-4">
-                    <input
-                      className="form-control"
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="FULL NAME"
-                      aria-label="FULL NAME"
-                    />
-                  </div>
-                  <div className="col-lg-5 col-12 mb-4">
-                    <input
-                      className="form-control"
-                      id="phone"
-                      name="phone"
-                      type="text"
-                      placeholder="PHONE NUMBER"
-                      aria-label="PHONE NUMBER"
-                    />
-                  </div>
-                  <div className="col-lg-5 col-12 mb-4">
-                    <input
-                      className="form-control"
-                      id="phone"
-                      name="phone"
-                      type="email"
-                      placeholder="EMAIL ADDRESS"
-                      aria-label="EMAIL ADDRESS"
-                    />
-                  </div>
-                  <div className="col-lg-5 col-12 mb-4">
-                    <textarea
-                      className="form-control"
-                      id="message"
-                      name="message"
-                      placeholder="TELL US ABOUT YOUR CASE..."
-                      aria-label="TELL US ABOUT YOUR CASE..."
-                      rows={5}
-                    />
-                  </div>
-                  <div className="col-12">
-                    <span className={styles.disclaimer}>
-                      By contacting us, you agree to receive communications from Mendez & Sanchez, APC.
-                      Message and data rates may apply. Text "STOP" to opt out. Communication does not
-                      establish an attorney-client relationship.
-                    </span>
-                    <button className={styles.button} id="submitButton" type="submit">
-                      Submit for a Free Evaluation
-                    </button>
-                  </div>
-                </div>
-
-                {/* Validation messages */}
-                <div className="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">
-                  An email is required.
-                </div>
-                <div className="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">
-                  Email is not valid.
-                </div>
-
-                {/* Submit success message */}
-                <div className="d-none" id="submitSuccessMessage">
-                  <div className="text-center mb-3 mt-2 text-white">
-                    <div className="fw-bolder">Form submission successful!</div>
-                    To activate this form, sign up at
-                    <br />
-                    <a href="https://startbootstrap.com/solution/contact-forms">
-                      https://startbootstrap.com/solution/contact-forms
-                    </a>
-                  </div>
-                </div>
-
-                {/* Submit error message */}
-                <div className="d-none" id="submitErrorMessage">
-                  <div className="text-center text-danger mb-3 mt-2">Error sending message!</div>
-                </div>
-              </form>
+              <h2 className="text-white mb-5">Get your free case review</h2>
+              <Form />
             </div>
           </div>
           <div className="row gx-4 gx-lg-5 justify-content-center">

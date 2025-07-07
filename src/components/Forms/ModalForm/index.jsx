@@ -25,7 +25,7 @@ const InputField = React.memo(
             required={required}
             value={value}
             onChange={onChange}
-            placeholder={placeholder || name}
+            placeholder={placeholder || label}
           />
         ) : (
           <input
@@ -36,7 +36,7 @@ const InputField = React.memo(
             required={required}
             value={value}
             onChange={onChange}
-            placeholder={placeholder || name}
+            placeholder={placeholder || label}
           />
         )}
         <label htmlFor={inputId} className={styles.inputLabel}>
@@ -161,13 +161,12 @@ function ModalForm({ show, setShow }) {
               required
             />
             <InputField
-              label="Details of your case"
+              label="Details of your case (OPTIONAL)"
               type="textarea"
               name="summary"
               rows={3}
               value={summary}
               onChange={handleChange}
-              required
             />
 
             <div className={styles.action}>
