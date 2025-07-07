@@ -7,6 +7,7 @@ import Footer from '../Footer';
 import Header from '../Header';
 import Preloader from '../Preloader';
 import styles from './index.module.scss';
+import LandingPageHeader from '../Header/landingPageHeader';
 
 const Layout = ({ children, headName, dark }) => {
   const router = useRouter();
@@ -31,7 +32,7 @@ const Layout = ({ children, headName, dark }) => {
       </Head>
       {!isLandingPage && <Preloader />}
       <div className={styles.layout} data-magic-cursor="show">
-        {!isLandingPage && <Header dark={dark} />}
+        {!isLandingPage ? <Header dark={dark} /> : <LandingPageHeader />}
         {children}
         {!isLandingPage && <Footer />}
         <Cursor />

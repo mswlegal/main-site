@@ -1,19 +1,27 @@
 import React from 'react';
+import Head from 'next/head';
 import styles from './index.module.scss';
 import cx from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkedAlt, faEnvelope, faMobileAlt, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import LandingPageHeader from '@/layouts/Header/landingPageHeader';
 import { scrollToSection } from '@/utilities';
 import Faq from './Faq';
 import Image from 'next/image';
 import Form from './Form';
+import Seo from '@/components/Seo';
 
 function CarAccident() {
   return (
     <>
-      <LandingPageHeader />
+      <Seo
+        title="Car Accident Lawyers in California | Mendez & Sanchez APC"
+        description="Get the compensation you deserve after a car accident. Contact our experienced California legal team today."
+        ogImage={require('../../../public/img/landing/car-accident/car-crash.webp').default.src}
+        keywords="car accident attorney, personal injury lawyer, legal help California"
+        noIndex={true}
+      />
+
       <header className={styles.masthead}>
         <div
           className={cx(
