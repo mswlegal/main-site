@@ -50,9 +50,9 @@ $color_red: #d71a20;
     font-size: 140px;
     line-height: 0.9em;
     letter-spacing: 0.5rem;
-    color: #fff;
-    mask-image: linear-gradient(to bottom, white 77%, transparent);
-    
+    color: #ffffff;
+    mask-image: linear-gradient(to bottom, white 85%, transparent);
+
     background-clip: text;
     animation: slideIn 0.8s forwards;
     @include responsive.device-max('lg') {
@@ -102,8 +102,8 @@ $color_red: #d71a20;
 .projects-section {
   padding: 100px 0;
   @include responsive.device-max('md') {
-      padding: 50px 0;
-    }
+    padding: 50px 0;
+  }
   h2 {
     display: inline-block;
     @include responsive.device-max('md') {
@@ -112,7 +112,7 @@ $color_red: #d71a20;
   }
   .featured-text {
     padding: 35px;
-    
+
     @include responsive.device-max('md') {
       padding: 0 8px;
       text-align: center;
@@ -156,7 +156,7 @@ $color_red: #d71a20;
 .faq {
   padding: 100px 0;
   @include responsive.device-max('md') {
-      padding: 50px 0
+    padding: 50px 0;
   }
   background-position: center;
   background-repeat: no-repeat;
@@ -229,7 +229,6 @@ $color_red: #d71a20;
   padding: 87.5px 0;
 }
 
-
 .button {
   @include button.mainButton();
 
@@ -237,48 +236,5 @@ $color_red: #d71a20;
     transform: scale(1.4);
     margin-left: 8px;
     margin-bottom: 5px;
-  }
-}
-
-.form-signup {
-  input,
-  textarea {
-    box-shadow: 0 3.28px 3.28px 0 rgba(0, 0, 0, 0.1) !important;
-    padding: 20px !important;
-    height: auto;
-    font-family: $font-family_1;
-    font-size: 80%;
-    letter-spacing: 2.625px;
-    border: 0;
-    border-radius: 8px;
-  }
-
-  .disclaimer {
-    font-size: 12px;
-    display: block;
-    max-width: 47%;
-    text-align: center;
-    margin: 8px auto;
-    color: #ffffffaf;
-    @include responsive.device-max('sm') {
-      max-width: 100%;
-    }
-  }
-}
-
-.animate-slide-in {
-  transform: translateY(100%);
-  animation: slideIn 0.8s forwards;
-  animation-delay: 1s;
-}
-
-@keyframes slideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
