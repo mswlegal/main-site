@@ -19,7 +19,13 @@ function Seo({ title, description, canonicalUrl, ogImage, noIndex, keywords }) {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
-      {ogImage && <meta property="og:image" content={ogImage} />}
+      {ogImage && (
+        <>
+          <meta property="og:image" content={ogImage} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+        </>
+      )}
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
