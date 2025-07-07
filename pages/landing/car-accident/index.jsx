@@ -179,7 +179,7 @@ function CarAccident() {
                   <h4 className="text-uppercase m-0">Email</h4>
                   <hr className="my-4 mx-auto" />
                   <div className="small text-black-50">
-                    <a href="#!">hello@yourdomain.com</a>
+                    <a href="mailto:info@mswlegal.com">info@mswlegal.com</a>
                   </div>
                 </div>
               </div>

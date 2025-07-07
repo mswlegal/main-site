@@ -61,8 +61,8 @@ const Contact = () => {
                   <div className={styles.list_inner}>
                     <span>Email us</span>
                     <h3>
-                      <a className={styles.line_anim} href="contact@mswlegal.com">
-                        contact@mswlegal.com
+                      <a className={styles.line_anim} href="mailto:info@mswlegal.com">
+                        info@mswlegal.com
                       </a>
                     </h3>
                   </div>

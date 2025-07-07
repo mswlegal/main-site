@@ -31,17 +31,20 @@ const Footer = () => {
             <div className={styles.footer_icons}>
               <ul>
                 <li>
-                  <a href="#">
+                  <a
+                    href="https://www.facebook.com/people/Mendez-Sanchez-APC/61556121532307/!"
+                    target="_blank"
+                  >
                     <i className="icon-facebook-1" />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i className="icon-twitter-1" />
+                  <a href="https://www.linkedin.com/company/mendez-sanchez" target="_blank">
+                    <i className="icon-linkedin-1" />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="https://www.instagram.com/mendezsanchezlaw/#" target="_blank">
                     <i className="icon-instagram-3" />
                   </a>
                 </li>
@@ -78,13 +81,13 @@ const Footer = () => {
               <h5>Contact Us</h5>
               <ul>
                 <li>
-                  <p>{call}Los Angeles CA </p>
+                  <a href="tel:32383814444">{call} Los Angeles CA </a>
                 </li>
                 <li>
-                  <a href="#">{call}Pasedna CA </a>
+                  <a href="tel:32383814444">{call} Pasedna CA </a>
                 </li>
                 <li>
-                  <a href="#">{call}Las Vegas NV</a>
+                  <a href="tel:7028007002">{call} Las Vegas NV</a>
                 </li>
               </ul>
             </Col>
