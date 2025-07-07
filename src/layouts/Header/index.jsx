@@ -7,10 +7,13 @@ import Container from 'react-bootstrap/Container';
 import { scrollToSection } from '../../utilities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'next/router';
 
 const Header = ({ dark }) => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
   const headerRef = React.useRef(null);
+  const router = useRouter();
+  const isHomePage = router.pathname === '/';
 
   const stickyNav = () => {
     let offset = window.scrollY;
@@ -26,14 +29,19 @@ const Header = ({ dark }) => {
     }
   };
 
-  function toggleMobileMenu() {
+  const toggleMobileMenu = () => {
     setShowMobileMenu(!showMobileMenu);
-  }
+  };
 
-  function handleMenuOnClick(id) {
+  const handleMenuOnClick = (id) => {
     scrollToSection(id);
     setShowMobileMenu(false);
-  }
+  };
+
+  const handleChangeRoute = (path) => {
+    setShowMobileMenu(false);
+    router.push(path);
+  };
 
   React.useEffect(() => {
     window.addEventListener('scroll', stickyNav);
@@ -84,20 +92,41 @@ const Header = ({ dark }) => {
                 aria-label="Close"
                 onClick={() => setShowMobileMenu(false)}
               ></button>
+
               <ul className={styles['anchor_nav']}>
-                <li>
-                  <a onClick={() => handleMenuOnClick('about')}>About</a>
-                </li>
-                <li>
-                  <a onClick={() => handleMenuOnClick('services')}>Services</a>
-                </li>
-                <li>
-                  <a onClick={() => handleMenuOnClick('testimonial')}>Clients</a>
-                </li>
-                <li>
-                  <a onClick={() => handleMenuOnClick('contact')}>Contact</a>
-                </li>
+                {isHomePage ? (
+                  <>
+                    <li>
+                      <a onClick={() => handleMenuOnClick('about')}>About</a>
+                    </li>
+                    <li>
+                      <a onClick={() => handleMenuOnClick('services')}>Services</a>
+                    </li>
+                    <li>
+                      <a onClick={() => handleMenuOnClick('testimonial')}>Clients</a>
+                    </li>
+                    <li>
+                      <a onClick={() => handleMenuOnClick('contact')}>Contact</a>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <a onClick={() => handleChangeRoute('/')}>Home</a>
+                    </li>
+                    <li>
+                      <a onClick={() => handleChangeRoute('/legal/terms-conditions')}>Terms & Conditions</a>
+                    </li>
+                    <li>
+                      <a onClick={() => handleChangeRoute('/legal/privacy-policy')}>Privacy Policy</a>
+                    </li>
+                    <li>
+                      <a onClick={() => handleChangeRoute('/legal/disclaimer')}>Disclaimer</a>
+                    </li>
+                  </>
+                )}
               </ul>
+
               <div className={cx(styles.cta, 'd-xl-block d-none')}>
                 <a href="tel:32383814444" className={styles.button}>
                   <FontAwesomeIcon icon={faPhoneVolume} className="fas" />
