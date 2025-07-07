@@ -77,7 +77,7 @@ function CarAccident() {
           <div className="row gx-0 mb-4 mb-lg-5 py-5 align-items-center">
             <div className="col-lg-6 col-12">
               <Image
-                src={require('../../../public/img/landing/car-accident/injured-settlement.webp').default.src}
+                src={require('../../../public/img/landing/car-accident/girl-with-phone.webp').default.src}
                 width={800}
                 height={600}
                 data-depth="0.18"
