@@ -15,13 +15,13 @@ const Services = () => {
   const items = [
     {
       title: 'Motor Vehicle Accidents',
-      copy: 'The injuries sustained in pedestrian accidents can be catastrophic, and the cost of medical care and lost income can be exorbitant. To reduce their liability, the insurance company or defendant may try to coerce you into providing a recorded statement that can be used to dispute liability or your damages.',
+      copy: 'Car accidents can lead to serious injuries and financial stress. Insurance companies may push you to give a recorded statement to reduce their liability. Don’t go through it alone—reach out to us today for a free consultation.',
       backgroundImage: require('../../../public/img/portfolio/car-accident.webp').default.src,
       call: true
     },
     {
       title: 'Traumatic Brain Injury',
-      copy: "If you or someone you love sustained a brain injury due to another person's or company's negligence, contact our East Los Angeles Personal Injury Lawyers to discuss your case",
+      copy: 'If you or a loved one suffered a brain injury due to someone else’s negligence, contact our experienced personal injury attorneys today to discuss your case.',
       backgroundImage: require('../../../public/img/portfolio/brain-injury.webp').default.src,
       call: true
     },

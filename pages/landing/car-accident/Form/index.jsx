@@ -142,7 +142,7 @@ function Form() {
                 attorney-client relationship.
               </span>
               <button className={styles.button} id="submitButton" type="submit">
-                Submit for Evaluation
+                Start Your Case
               </button>
             </Col>
           </Row>

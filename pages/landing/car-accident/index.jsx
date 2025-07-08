@@ -57,8 +57,8 @@ function CarAccident() {
           <div className="row gx-4 gx-lg-5 justify-content-center">
             <div className="col-lg-8 col-12">
               <h2 className="text-white mb-4">
-                Don’t Settle for Less Compensation from Insurance. <br className="d-md-none d-block" />
-                Call Us First.
+                Get the Full Compensation You Deserve. <br />
+                Call Us Before the Insurance Company.
               </h2>
               <p className="text-white">
                 If you’ve been injured in a car accident anywhere in California, time is critical. Insurance
@@ -168,7 +168,7 @@ function CarAccident() {
                   <FontAwesomeIcon icon={faMapMarkedAlt} className="fas mb-2 text-primary" />
                   <h4 className="text-uppercase m-0">Address</h4>
                   <hr className="my-4 mx-auto" />
-                  <div className="small text-black-50">1146 E. Green St. Pasadena, CA 91106</div>
+                  <div className="small text-black-50">5440 E. Beverly Blvd, Los Angeles, CA 90022</div>
                 </div>
               </div>
             </div>
