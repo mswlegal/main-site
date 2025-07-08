@@ -88,7 +88,6 @@ function Form() {
           <Row className="justify-content-center align-items-center flex-column">
             <Col lg={5} xs={12} className="mb-4">
               <BootstrapForm.Control
-                controlId="fullName"
                 label="Full name"
                 name="fullName"
                 type="text"
@@ -101,7 +100,6 @@ function Form() {
             </Col>
             <Col lg={5} xs={12} className="mb-4">
               <BootstrapForm.Control
-                controlId="phone"
                 name="phone"
                 type="text"
                 placeholder="PHONE NUMBER"
@@ -113,7 +111,6 @@ function Form() {
             </Col>
             <Col lg={5} xs={12} className="mb-4">
               <BootstrapForm.Control
-                controlId="phone"
                 name="email"
                 type="email"
                 placeholder="EMAIL ADDRESS"
@@ -126,7 +123,6 @@ function Form() {
             <Col lg={5} xs={12} className="mb-4">
               <BootstrapForm.Control
                 as="textarea"
-                controlId="summary"
                 name="summary"
                 value={summary}
                 onChange={handleChange}

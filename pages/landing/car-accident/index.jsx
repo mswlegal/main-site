@@ -9,8 +9,12 @@ import Faq from './Faq';
 import Image from 'next/image';
 import Form from './Form';
 import Seo from '@/components/Seo';
+import { formatPhoneNumber } from '@/utilities';
+import LandingPageHeader from '@/layouts/Header/landingPageHeader';
 
 function CarAccident() {
+  const phone = '4244671777';
+
   return (
     <>
       <Seo
@@ -19,6 +23,8 @@ function CarAccident() {
         ogImage={require('../../../public/img/landing/car-accident/hero.webp').default.src}
         keywords="car accident attorney, personal injury lawyer, legal help California, legal help Las Vegas, legal help Pasadena, car accident help"
       />
+
+      <LandingPageHeader phone={phone} />
 
       <header className={styles.masthead}>
         <div
@@ -190,8 +196,8 @@ function CarAccident() {
                   <FontAwesomeIcon icon={faMobileAlt} className="fas mb-2 text-primary" />
                   <h4 className="text-uppercase m-0">Phone</h4>
                   <hr className="my-4 mx-auto" />
-                  <a href="tel:32383814444" className="small text-black-50">
-                    {'(323) 838-1444'}
+                  <a href={`tel:${phone}`} className="small text-black-50">
+                    {formatPhoneNumber(phone)}
                   </a>
                 </div>
               </div>

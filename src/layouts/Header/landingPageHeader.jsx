@@ -6,8 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import Container from 'react-bootstrap/Container';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
+import { formatPhoneNumber } from '@/utilities';
 
-const LandingPageHeader = ({ dark }) => {
+export default function LandingPageHeader({ dark, phone }) {
   const headerRef = React.useRef(null);
 
   const stickyNav = () => {
@@ -40,7 +42,14 @@ const LandingPageHeader = ({ dark }) => {
             {dark ? (
               <div className={styles['logo']}>
                 <a href="#">
-                  <Image src="/img/logo/logo-light.webp" alt="" width={200} height={70} loading="eager" />
+                  <Image
+                    src="/img/logo/logo-light.webp"
+                    alt=""
+                    width={200}
+                    height={70}
+                    loading="eager"
+                    priority
+                  />
                 </a>
               </div>
             ) : (
@@ -52,6 +61,7 @@ const LandingPageHeader = ({ dark }) => {
                     width={200}
                     height={70}
                     loading="eager"
+                    priority
                   />
                 </a>
                 <a className={styles['dark']} href="#">
@@ -61,6 +71,7 @@ const LandingPageHeader = ({ dark }) => {
                     width={200}
                     height={70}
                     loading="eager"
+                    priority
                   />
                 </a>
               </div>
@@ -69,7 +80,7 @@ const LandingPageHeader = ({ dark }) => {
             <div className={styles.cta}>
               <a href="tel:32383814444" className={styles.button}>
                 <FontAwesomeIcon icon={faPhoneVolume} className="fas" />
-                <span>323-838-1444</span>
+                <span>{formatPhoneNumber(phone)}</span>
               </a>
             </div>
           </div>
@@ -77,6 +88,8 @@ const LandingPageHeader = ({ dark }) => {
       </div>
     </>
   );
-};
+}
 
-export default LandingPageHeader;
+LandingPageHeader.propTypes = {
+  phone: PropTypes.string.isRequired
+};

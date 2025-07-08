@@ -8,6 +8,7 @@ import { scrollToSection } from '../../utilities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
+import { formatPhoneNumber } from '../../utilities';
 
 const Header = ({ dark }) => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -59,7 +60,14 @@ const Header = ({ dark }) => {
             {dark ? (
               <div className={styles['logo']}>
                 <a href="#">
-                  <Image src="/img/logo/logo-light.webp" alt="" width={200} height={70} loading="eager" />
+                  <Image
+                    src="/img/logo/logo-light.webp"
+                    alt=""
+                    width={200}
+                    height={70}
+                    loading="eager"
+                    priority
+                  />
                 </a>
               </div>
             ) : (
@@ -71,6 +79,7 @@ const Header = ({ dark }) => {
                     width={200}
                     height={70}
                     loading="eager"
+                    priority
                   />
                 </a>
                 <a className={styles['dark']} href="/">
@@ -80,6 +89,7 @@ const Header = ({ dark }) => {
                     width={200}
                     height={70}
                     loading="eager"
+                    priority
                   />
                 </a>
               </div>
@@ -130,7 +140,7 @@ const Header = ({ dark }) => {
               <div className={cx(styles.cta, 'd-xl-block d-none')}>
                 <a href="tel:32383814444" className={styles.button}>
                   <FontAwesomeIcon icon={faPhoneVolume} className="fas" />
-                  <span>323-838-1444</span>
+                  <span>{formatPhoneNumber('32383814444')}</span>
                 </a>
               </div>
               <div className={cx(styles.footer, 'd-xl-none d-block')}>

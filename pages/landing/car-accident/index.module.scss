@@ -33,7 +33,6 @@ $color_red: #d71a20;
     url('../../../public/img/landing/car-accident/hero.webp');
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll;
   background-size: cover;
 
   @include responsive.device-max('md') {
@@ -158,10 +157,6 @@ $color_red: #d71a20;
   @include responsive.device-max('md') {
     padding: 50px 0;
   }
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
   svg {
     color: $color_red !important;
     width: 50px;

@@ -8,6 +8,7 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 import ModalForm from '../Forms/ModalForm';
 import { IsInViewProvider } from '@/hooks/viewportListener';
+import { formatPhoneNumber } from '@/utilities';
 
 const Contact = () => {
   const [openForm, setOpenForm] = React.useState(false);
@@ -53,7 +54,7 @@ const Contact = () => {
                   <div className={styles.list_inner}>
                     <span>Call us</span>
                     <a className={styles.phone} href="tel:32383814444">
-                      +1 323-838-1444
+                      {`+1 ${formatPhoneNumber('32383814444')}`}
                     </a>
                   </div>
                 </li>
