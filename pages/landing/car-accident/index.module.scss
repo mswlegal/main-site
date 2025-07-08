@@ -80,6 +80,9 @@ $color_red: #d71a20;
     margin-bottom: 50px;
     position: relative;
     margin-top: -160px;
+    @include responsive.device-max('lg') {
+      margin-top: -120px;
+    }
   }
 
   background: linear-gradient(to bottom, #000 40%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
