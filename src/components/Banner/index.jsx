@@ -20,12 +20,12 @@ export default function Banner() {
 
   const accidentTypes = [
     'Personal Injury',
-    'Car Accidents',
+    'Car Accident',
     'Truck Accident',
     'Motorcycle Accident',
     'Rideshare Accident',
     'Slip & Fall',
-    'Dog Bites',
+    'Dog Bite',
     'Pedestrian Accident',
     'Wrongful Death'
   ];
