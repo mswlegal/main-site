@@ -85,7 +85,7 @@ export default function Banner() {
                 <h3>Allies</h3>
                 <div className={styles['btn-box']}>
                   <Button className={styles.button} onClick={() => toggleForm()}>
-                    <span className="txt">Get Free Consultation</span>
+                    <span className="txt">Get Free a Consultation</span>
                   </Button>
                 </div>
               </div>
