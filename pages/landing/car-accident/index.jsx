@@ -27,7 +27,7 @@ function CarAccident() {
 
       {/* Google Analytics gtag script */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=G-L0NXZFD17B`}
+        src={`https://www.googletagmanager.com/gtag/js?id=AW-10869537885`}
         strategy="afterInteractive" // Loads after the page becomes interactive
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -36,7 +36,7 @@ function CarAccident() {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-L0NXZFD17B');
+          gtag('config', 'AW-10869537885');
         `}
       </Script>
 
