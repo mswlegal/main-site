@@ -1,5 +1,5 @@
-// import AboutPage from 'pages/about';
+import AboutPage from 'pages/about';
 
-// export default function AboutYourLawyersPage() {
-//   return <AboutPage />;
-// }
+export default function AboutYourLawyersPage() {
+  return <AboutPage />;
+}
