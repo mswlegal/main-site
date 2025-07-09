@@ -1,0 +1,132 @@
+@use '/styles/responsive/_devicesMixins.scss' as responsive;
+@use '/styles/mixins/animations' as animation;
+
+$color_dark: #15111e;
+$color_white: #fff;
+$color_red: #d71a20;
+$header_height: 45vh;
+
+.section {
+  background-color: $color_dark;
+
+  .container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @include responsive.device-max('md') {
+      padding: 50px 20px;
+    }
+  }
+
+  &.header {
+    background:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%, #000 100%),
+      url('../..//public/img/hero/hero.webp');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    @include responsive.device-max('md') {
+      background-attachment: unset;
+      background-size: cover;
+      background-position: 30%;
+    }
+    .row {
+      min-height: $header_height;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      @include responsive.device-max('lg') {
+        height: 550px;
+        min-height: unset;
+      }
+      h1 {
+        color: $color_white;
+        text-transform: uppercase;
+        font-size: 60px;
+        @include animation.slideInUpInViewport();
+        span {
+          color: $color_red;
+          border-bottom: 5px solid;
+        }
+        @include responsive.device-max('lg') {
+          font-size: 40px;
+        }
+
+        @include responsive.device-max('sm') {
+          font-size: 30px;
+          margin-bottom: 20px;
+          margin-top: 60px;
+        }
+      }
+
+      p {
+        color: $color_white;
+        @include animation.slideInUpInViewport();
+        transition-delay: 0.5s;
+      }
+    }
+  }
+
+  &.content {
+    background-color: #f4f5fe;
+    position: relative;
+
+    &.bg-light {
+      background-color: #fff;
+    }
+
+    h3 {
+      @include responsive.device-max('md') {
+        font-size: 22px;
+      }
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: $color_dark;
+      font-size: 18px;
+      line-height: 2.6rem;
+
+      strong,
+      a {
+        color: #d71a20;
+      }
+    }
+
+    p + h3,
+    ul + h3 {
+      margin-top: 24px;
+    }
+
+    ul {
+      margin-left: 36px;
+      li {
+        font-size: 16px;
+        list-style-type: circle;
+        &::marker {
+          color: #d71a20;
+        }
+      }
+    }
+
+    .partners {
+      &:nth-child(odd) {
+        :global([class*='Team_card']) {
+          margin-right: 16px;
+          @include responsive.device-max('md') {
+            margin: 0 auto;
+          }
+        }
+      }
+      &:nth-child(even) {
+        :global([class*='Team_card']) {
+          margin-left: 16px;
+          @include responsive.device-max('md') {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}

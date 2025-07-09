@@ -25,7 +25,7 @@ const Layout = ({ children, headName, dark }) => {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
       </Head>
-      {!isLandingPage && <Preloader />}
+      <Preloader />
       <div className={styles.layout} data-magic-cursor="show">
         {!isLandingPage && <Header dark={dark} />}
         {children}
