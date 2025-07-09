@@ -3,7 +3,7 @@ import styles from './index.module.scss';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import BootstrapForm from 'react-bootstrap/Form';
-import { useFormSubmit } from '@/hooks/formSubmit';
+import { useFormSubmitLanding } from '@/hooks/formSubmit';
 import { getFirstAndLastName } from '@/utilities';
 import { sanitizeInput, formatPhoneNumber } from '@/utilities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -29,7 +29,7 @@ function Form() {
     setFormData(initialData);
   };
 
-  const { mutate, isLoading } = useFormSubmit({
+  const { mutate: submitForm } = useFormSubmitLanding({
     onSuccess: handleFormSubmitSuccess,
     onError: (err) => console.error(err)
   });
@@ -39,16 +39,20 @@ function Form() {
       e.preventDefault();
 
       const { firstName, lastName } = getFirstAndLastName(fullName);
+      const params = new URLSearchParams(window?.location?.search);
 
-      mutate({
+      submitForm({
         First: firstName,
         Last: lastName,
         Email: email,
         Phone: phone.replace(/\D/g, ''),
-        Summary: summary
+        Summary: summary,
+        Marketing_Campaign_Name: params?.get('utm_campaign'),
+        Marketing_Campaign_Source: params?.get('utm_source'),
+        Marketing_Campaign_Medium: params?.get('utm_medium')
       });
     },
-    [fullName, email, phone, summary, mutate]
+    [fullName, email, phone, summary, submitForm]
   );
 
   const handleChange = React.useCallback((e) => {
