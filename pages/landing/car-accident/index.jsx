@@ -9,6 +9,7 @@ import Faq from './Faq';
 import Image from 'next/image';
 import Form from './Form';
 import Seo from '@/components/Seo';
+import Script from 'next/script';
 import { formatPhoneNumber } from '@/utilities';
 import LandingPageHeader from '@/layouts/Header/landingPageHeader';
 
@@ -23,6 +24,21 @@ function CarAccident() {
         ogImage={require('../../../public/img/landing/car-accident/hero.webp').default.src}
         keywords="car accident attorney, personal injury lawyer, legal help California, legal help Las Vegas, legal help Pasadena, car accident help"
       />
+
+      {/* Google Analytics gtag script */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=G-L0NXZFD17B`}
+        strategy="afterInteractive" // Loads after the page becomes interactive
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+              window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L0NXZFD17B');
+            `}
+      </Script>
 
       <LandingPageHeader phone={phone} />
 
