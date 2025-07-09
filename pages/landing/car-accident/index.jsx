@@ -32,12 +32,12 @@ function CarAccident() {
       />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
-              window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-  gtag('config', 'G-L0NXZFD17B');
-            `}
+          gtag('config', 'G-L0NXZFD17B');
+        `}
       </Script>
 
       <LandingPageHeader phone={phone} />
