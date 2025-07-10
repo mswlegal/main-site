@@ -18,6 +18,21 @@ const initialData = {
   summary: ''
 };
 
+function gtag_report_conversion(url) {
+  const callback = function () {
+    if (typeof url !== 'undefined') {
+      window.location = url;
+    }
+  };
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'conversion', {
+      send_to: 'AW-10869537885/POz1CIPbhu4aEN34_74o',
+      event_callback: callback
+    });
+  }
+  return false;
+}
+
 function Form() {
   const [formData, setFormData] = React.useState(initialData);
   const [hasSubmitted, setHasSubmitted] = React.useState(false);
@@ -27,6 +42,9 @@ function Form() {
   const handleFormSubmitSuccess = () => {
     setHasSubmitted(true);
     setFormData(initialData);
+
+    // Call conversion tracking
+    gtag_report_conversion();
   };
 
   const { mutate: submitForm } = useFormSubmitLanding({

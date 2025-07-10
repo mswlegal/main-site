@@ -26,9 +26,11 @@ function CarAccident() {
       />
 
       {/* Google Analytics gtag script */}
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=AW-10869537885`} />
-      {/* strategy="afterInteractive" // Loads after the page becomes interactive */}
-      <Script id="google-analytics">
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=AW-10869537885`}
+        strategy="afterInteractive" // Loads after the page becomes interactive
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
