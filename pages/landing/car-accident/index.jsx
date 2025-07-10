@@ -9,7 +9,7 @@ import Faq from './Faq';
 import Image from 'next/image';
 import Form from './Form';
 import Seo from '@/components/Seo';
-import Script from 'next/script';
+// import Script from 'next/script';
 import { formatPhoneNumber } from '@/utilities';
 import LandingPageHeader from '@/layouts/Header/landingPageHeader';
 
@@ -26,7 +26,7 @@ function CarAccident() {
       />
 
       {/* Google Analytics gtag script */}
-      <Script
+      {/* <Script
         src={`https://www.googletagmanager.com/gtag/js?id=AW-10869537885`}
         strategy="afterInteractive" // Loads after the page becomes interactive
       />
@@ -38,7 +38,7 @@ function CarAccident() {
 
           gtag('config', 'AW-10869537885');
         `}
-      </Script>
+      </Script> */}
 
       <LandingPageHeader phone={phone} />
 
