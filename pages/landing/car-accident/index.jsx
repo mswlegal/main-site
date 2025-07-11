@@ -9,12 +9,15 @@ import Faq from './Faq';
 import Image from 'next/image';
 import Form from './Form';
 import Seo from '@/components/Seo';
-// import Script from 'next/script';
 import { formatPhoneNumber } from '@/utilities';
 import LandingPageHeader from '@/layouts/Header/landingPageHeader';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { Trans as Translate } from 'next-i18next'; // Import Trans as Translate
 
 function CarAccident() {
   const phone = '4244671777';
+  const { t } = useTranslation('carAccident');
 
   return (
     <>
@@ -24,21 +27,6 @@ function CarAccident() {
         ogImage={require('../../../public/img/landing/car-accident/hero.webp').default.src}
         keywords="car accident attorney, personal injury lawyer, legal help California, legal help Las Vegas, legal help Pasadena, car accident help"
       />
-
-      {/* Google Analytics gtag script */}
-      {/* <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=AW-10869537885`}
-        strategy="afterInteractive" // Loads after the page becomes interactive
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'AW-10869537885');
-        `}
-      </Script> */}
 
       <LandingPageHeader phone={phone} />
 
@@ -52,15 +40,13 @@ function CarAccident() {
           <div className="row justify-content-center">
             <div className="col-12 text-center">
               <h1 className="mx-auto my-0 mb-3 text-uppercase">
-                Injured in a <br />
-                <span>Car Accident?</span>
+                <Translate>{t('title')}</Translate>
               </h1>
               <h2 className="mx-auto mt-2 mb-5">
-                Get Legal Help Today <br className="d-md-block d-none" />
-                from a Car Accident Lawyer of Mendez & Sanchez APC
+                <Translate>{t('subtitle')}</Translate>
               </h2>
               <a className={styles.button} onClick={() => scrollToSection('headerForm')}>
-                Get Started
+                <Translate>{t('get_started')}</Translate>
               </a>
             </div>
           </div>
@@ -72,21 +58,20 @@ function CarAccident() {
         <div className="container px-4 px-lg-5">
           <div id="headerForm" className={cx(styles['form-row'], styles['animate-slide-in'], 'row')}>
             <div className="col-12 mx-auto text-center">
-              <h2 className="text-white mb-5">Get your free case review</h2>
+              <h2 className="text-white mb-5">
+                <Translate>{t('free_case_review')}</Translate>
+              </h2>
               <Form />
             </div>
           </div>
           <div className="row gx-4 gx-lg-5 justify-content-center">
             <div className="col-lg-8 col-12">
               <h2 className="text-white mb-4">
-                Get the Full Compensation You Deserve. <br />
-                Call Us Before the Insurance Company.
+                <Translate>{t('compensation_message')}</Translate>
               </h2>
               <p className="text-white">
-                If you’ve been injured in a car accident anywhere in California, time is critical. Insurance
-                companies work fast to limit what they pay—don’t face them without legal help. At Mendez &
-                Sanchez, APC, our experienced California car accident lawyers are ready to fight for maximum
-                compensation and justice on your behalf.
+                <Translate>{t('urgent_cases.intro')}</Translate>{' '}
+                <Translate>{t('urgent_cases.team')}</Translate>
               </p>
             </div>
           </div>
@@ -110,26 +95,14 @@ function CarAccident() {
             <div className="col-lg-6 col-12">
               <div className={cx(styles['featured-text'], 'text-left')}>
                 <h2>
-                  Why Californians Trust <br />
-                  Mendez & Sanchez APC
+                  <Translate>{t('why_choose_us.title')}</Translate>
                 </h2>
                 <ul className="text-black-50">
-                  <li>
-                    <strong>Millions recovered</strong> for accident victims across California
-                  </li>
-                  <li>No win, no fee—guaranteed</li>
-
-                  <li>
-                    <strong>Available 24/7</strong> for urgent case evaluations
-                  </li>
-
-                  <li>Fluent in English and Spanish</li>
-
-                  <li>Local team in East LA—serving all of California</li>
-
-                  <li>
-                    <strong>We handle everything</strong> from minor crashes to catastrophic injuries
-                  </li>
+                  {t('why_choose_us.points', { returnObjects: true }).map((item, index) => (
+                    <li key={`choose-${index}`}>
+                      <Translate>{item}</Translate>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -137,21 +110,15 @@ function CarAccident() {
           <div className="row gx-0 mb-4 mb-lg-5 py-5 align-items-center">
             <div className="col-lg-6 order-md-0 order-1">
               <div className={cx(styles['featured-text'], 'text-left')}>
-                <h2>What We'll Handle For You</h2>
+                <h2>
+                  <Translate>{t('what_we_handle.title')}</Translate>
+                </h2>
                 <ul className="text-black-50">
-                  <li>
-                    <strong>Full accident investigation</strong> and liability analysis
-                  </li>
-                  <li>Medical treatment coordination</li>
-                  <li>All claims paperwork, deadlines, and insurance negotiations</li>
-                  <li>
-                    <strong>Help with lost wages</strong> and future earnings documentation
-                  </li>
-                  <li>Connect you with doctors and specialists statewide</li>
-                  <li>
-                    Virtual, phone, or in-home consultations—<strong>anywhere in California</strong>
-                  </li>
-                  <li>Apply for pre-settlement funding so you're never pressured to settle early</li>
+                  {t('what_we_handle.points', { returnObjects: true }).map((item, index) => (
+                    <li key={`handle-${index}`}>
+                      <Translate>{item}</Translate>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -174,7 +141,9 @@ function CarAccident() {
           <div className="row gx-4 gx-lg-5">
             <div className="col-md-10 col-lg-8 mx-auto text-center">
               <FontAwesomeIcon icon={faQuestionCircle} className="fa-2x mb-2 text-white" />
-              <h2 className="mb-5">What You Need to Know Right Now</h2>
+              <h2 className="mb-5">
+                <Translate>{t('what_you_need_to_know.title')}</Translate>
+              </h2>
               <Faq />
             </div>
           </div>
@@ -188,7 +157,9 @@ function CarAccident() {
               <div className={cx(styles.card, 'card py-4 h-100')}>
                 <div className="card-body text-center">
                   <FontAwesomeIcon icon={faMapMarkedAlt} className="fas mb-2 text-primary" />
-                  <h4 className="text-uppercase m-0">Address</h4>
+                  <h4 className="text-uppercase m-0">
+                    <Translate>{t('contact_info.address')}</Translate>
+                  </h4>
                   <hr className="my-4 mx-auto" />
                   <div className="small text-black-50">5440 E. Beverly Blvd, Los Angeles, CA 90022</div>
                 </div>
@@ -198,7 +169,9 @@ function CarAccident() {
               <div className={cx(styles.card, 'card py-4 h-100')}>
                 <div className="card-body text-center">
                   <FontAwesomeIcon icon={faEnvelope} className="fas mb-2 text-primary" />
-                  <h4 className="text-uppercase m-0">Email</h4>
+                  <h4 className="text-uppercase m-0">
+                    <Translate>{t('contact_info.email')}</Translate>
+                  </h4>
                   <hr className="my-4 mx-auto" />
                   <div className="small text-black-50">
                     <a href="mailto:info@mswlegal.com">info@mswlegal.com</a>
@@ -210,7 +183,9 @@ function CarAccident() {
               <div className={cx(styles.card, 'card py-4 h-100')}>
                 <div className="card-body text-center">
                   <FontAwesomeIcon icon={faMobileAlt} className="fas mb-2 text-primary" />
-                  <h4 className="text-uppercase m-0">Phone</h4>
+                  <h4 className="text-uppercase m-0">
+                    <Translate>{t('contact_info.phone')}</Translate>
+                  </h4>
                   <hr className="my-4 mx-auto" />
                   <a href={`tel:${phone}`} className="small text-black-50">
                     {formatPhoneNumber(phone)}
@@ -238,10 +213,20 @@ function CarAccident() {
       </section>
 
       <footer className={cx(styles.footer, 'bg-black small text-center text-white-50')}>
-        <div className="container px-4 px-lg-5">© 2025 Mendez & Sanchez - All Rights Reserved</div>
+        <div className="container px-4 px-lg-5">
+          <Translate>{t('copyright')}</Translate>
+        </div>
       </footer>
     </>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['carAccident']))
+    }
+  };
 }
 
 export default CarAccident;

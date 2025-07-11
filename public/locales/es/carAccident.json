@@ -1,0 +1,79 @@
+{
+  "title": "¿HERIDO EN UN <br /> ACCIDENTE DE CARRO?",
+  "subtitle": "Obtenga ayuda legals <br className='d-md-block d-none' /> hoy con un abogado de accidentes automovilísticos de Méndez & Sánchez APC",
+  "get_started": "Comienza Aquí",
+  "free_case_review": "Obtenga revisión gratuita de tu caso",
+  "fields": {
+    "full_name": "Nombre Completo",
+    "phone_number": "Número Télefonico",
+    "email": "Correo Electrónico",
+    "summary": "Cuéntanos acerca de tu caso…"
+  },
+  "disclaimer": "Al contactarnos, usted acepta recibir comunicaciones de Méndez & Sánchez, APC. Es posible que se apliquen tarifas de mensajes y datos. Envíe un mensaje de texto con 'STOP' para cancelar su participación. La comunicación no establece una relación abogado-cliente.",
+  "settlements": {
+    "title": "Acuerdos",
+    "milestone": "Más de mil millones recuperados para clientes en acuerdos y veredictos.",
+    "cases": {
+      "motorcycle_accidents": "$14M - Accidentes de Motocicleta",
+      "traumatic_brain_injury": "$IOM - Daño Cerebral Traumático",
+      "wrongful_death": "$5M - Homicidio Culposo",
+      "car_accident": "$5M - Accidente de Automóvil"
+    }
+  },
+  "start_case": "Comience su caso",
+  "compensation_message": "Obtenga la compensación completa que se merece. <br/>Llámanos antes que la compañía de seguros.",
+  "urgent_cases": {
+    "intro": "Si resultó lesionado en un accidente automovilístico en cualquier lugar de California, el tiempo es fundamental. Las compañías de seguros trabajan rápidamente para limitar lo que pagan; no los enfrente sin ayuda legal.",
+    "team": "En Méndez & Sanchez, APC, nuestros abogados con experiencia en accidentes automovilísticos en California están listos para luchar por la máxima compensación y justicia en su nombre."
+  },
+  "why_choose_us": {
+    "title": "Por qué los californianos confían <br />en Méndez & Sánchez APC",
+    "points": [
+      "<strong>Millones recuperados</strong> para víctimas de accidentes en California",
+      "No ganamos, no pagas: garantizado",
+      "<strong>Disponible las 24 horas del día, los 7 días de la semana</strong> para evaluaciones de casos urgentes",
+      "Fluido en inglés y español",
+      "Equipo local en el este de Los Ángeles, al servicio de toda California",
+      "<strong>Nos encargamos de todo</strong>, desde accidentes menores hasta lesiones catastróficas"
+    ]
+  },
+  "what_we_handle": {
+    "title": "Lo que manejaremos por usted",
+    "points": [
+      "<strong>Investigación completa de accidentes</strong> y análisis de responsabilidad",
+      "Coordinación de tratamientos médicos",
+      "Todos los trámites de reclamos, plazos y negociaciones de seguros",
+      "<strong>Ayuda con salarios perdidos</strong> y documentación de ingresos futuros",
+      "Conectarlo con médicos y especialistas en todo el estado",
+      "Consultas virtuales, telefónicas o a domicilio, en <strong>cualquier lugar de California</strong>",
+      "Solicite financiación previa a la liquidación para que nunca se sienta presionado a llegar a un acuerdo anticipado"
+    ]
+  },
+  "what_you_need_to_know": {
+    "title": "Lo que necesitas saber ahora mismo",
+    "questions": [
+      {
+        "title": "¿Realmente necesito un abogado de accidentes automovilísticos en California?",
+        "content": "<p>Sí. Sin representación legal, corre el riesgo de aceptar mucho menos de lo que vale su caso. Nivelamos el campo de juego.</p>"
+      },
+      {
+        "title": "¿Cuánto tiempo tengo para presentar una demanda por accidente automovilístico en California?",
+        "content": "<ul> <li>Hasta 2 años por lesiones personales</li> <li>Sólo 6 meses para demandas que involucran entidades gubernamentales</li> </ul>"
+      },
+      {
+        "title": "¿Qué pasa si no tengo seguro médico?",
+        "content": "<p>No hay problema: lo conectamos con médicos y proveedores médicos de confianza.</p>"
+      },
+      {
+        "title": "¿A qué compensaciones tengo derecho?",
+        "content": "<p><strong>Daños Económicos:</strong></p><ul> <li>Sala de emergencias y atención médica a largo plazo</li> <li>Salarios perdidos o reducción de la capacidad de generar ingresos</li> <li>Reparación o reemplazo de daños a la propiedad</li> </ul> <p><strong>Daños no económicos:</strong></p><ul> <li>Dolor y sufrimiento</li> <li>Trauma emocional</li> <li>Pérdida del disfrute de la vida</li> </ul>"
+      }
+    ]
+  },
+  "contact_info": {
+    "address": "Dirección",
+    "email": "Correo",
+    "phone": "Número"
+  },
+  "copyright": "© 2025 Méndez & Sánchez - Todos Los Derechos Reservados"
+}

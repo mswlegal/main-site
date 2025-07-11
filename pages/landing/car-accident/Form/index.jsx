@@ -8,6 +8,7 @@ import { getFirstAndLastName } from '@/utilities';
 import { sanitizeInput, formatPhoneNumber } from '@/utilities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'next-i18next';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -31,6 +32,7 @@ function gtag_report_conversion() {
 }
 
 function Form() {
+  const { t } = useTranslation('carAccident');
   const [formData, setFormData] = React.useState(initialData);
   const [hasSubmitted, setHasSubmitted] = React.useState(false);
 
@@ -111,7 +113,7 @@ function Form() {
                 label="Full name"
                 name="fullName"
                 type="text"
-                placeholder="FULL NAME"
+                placeholder={t('fields.full_name')}
                 aria-label="FULL NAME"
                 value={fullName}
                 onChange={handleChange}
@@ -122,7 +124,7 @@ function Form() {
               <BootstrapForm.Control
                 name="phone"
                 type="text"
-                placeholder="PHONE NUMBER"
+                placeholder={t('fields.phone_number')}
                 aria-label="PHONE NUMBER"
                 value={phone}
                 onChange={handleChange}
@@ -133,7 +135,7 @@ function Form() {
               <BootstrapForm.Control
                 name="email"
                 type="email"
-                placeholder="EMAIL ADDRESS"
+                placeholder={t('fields.email')}
                 aria-label="EMAIL ADDRESS"
                 value={email}
                 onChange={handleChange}
@@ -146,19 +148,15 @@ function Form() {
                 name="summary"
                 value={summary}
                 onChange={handleChange}
-                placeholder="TELL US ABOUT YOUR CASE..."
-                aria-label="TELL US ABOUT YOUR CASE..."
+                placeholder={t('fields.summary')}
+                aria-label="case summary"
                 rows={5}
               />
             </Col>
             <Col xs={12}>
-              <span className={styles.disclaimer}>
-                By contacting us, you agree to receive communications from Mendez & Sanchez, APC. Message and
-                data rates may apply. Text "STOP" to opt out. Communication does not establish an
-                attorney-client relationship.
-              </span>
+              <span className={styles.disclaimer}>{t('disclaimer')}</span>
               <button className={styles.button} id="submitButton" type="submit">
-                Start Your Case
+                {t('start_case')}
               </button>
             </Col>
           </Row>

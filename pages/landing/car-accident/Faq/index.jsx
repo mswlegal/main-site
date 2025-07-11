@@ -3,29 +3,13 @@ import PropTypes from 'prop-types';
 import styles from './index.module.scss';
 import Accordion from '@/components/Accordion';
 import cx from 'classnames';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Faq() {
-  const items = [
-    {
-      title: 'Do I really need a car accident lawyer in California?',
-      content:
-        '<p> Yes. Without legal representation, you risk accepting far less than your case is worth. We level the playing field.</p>'
-    },
-    {
-      title: 'How long do I have to file a car accident claim in California?',
-      content:
-        '<ul> <li>Up to 2 years for personal injury</li> <li>Only 6 months for claims involving government entities</li> </ul>'
-    },
-    {
-      title: 'What if I don’t have health insurance?',
-      content: '<p>No problem—we connect you with trusted doctors and medical providers.</p>'
-    },
-    {
-      title: 'What compensations am I Eligible For',
-      content:
-        '<p><strong>Economic Damages:</strong></p><ul> <li>Emergency room and long-term medical care</li> <li>Lost wages or reduced earning ability</li> <li>Property damage repair or replacement</li> </ul> <p><strong>Non-Economic Damages:</strong></p><ul> <li>Pain and suffering</li> <li>Emotional trauma </li> <li>Loss of enjoyment of life</li> </ul>'
-    }
-  ];
+  const { t } = useTranslation('carAccident');
+
+  const items = t('what_you_need_to_know.questions', { returnObjects: true });
 
   return (
     <>
@@ -37,3 +21,11 @@ export default function Faq() {
 Faq.propTypes = {
   className: PropTypes.string
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['carAccident']))
+    }
+  };
+}

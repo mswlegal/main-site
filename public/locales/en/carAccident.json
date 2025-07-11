@@ -1,0 +1,79 @@
+{
+  "title": "Injured in a <br /> <span>Car Accident?</span> ",
+  "subtitle": "Get legal help today <br className='d-md-block d-none' />from a car accident lawyer from Méndez & Sánchez APC",
+  "get_started": "Get Started",
+  "free_case_review": "Get your free case review",
+  "fields": {
+    "full_name": "Full Name",
+    "phone_number": "Phone Number",
+    "email": "Email",
+    "summary": "Tell us about your case..."
+  },
+  "disclaimer": "By contacting us, you agree to receive communications from Méndez & Sánchez, APC. Message and data rates may apply. Text ‘STOP’ to opt-out. Communication does not establish an attorney-client relationship.",
+  "settlements": {
+    "title": "Settlements",
+    "milestone": "Over a billion dollars recovered for clients in settlements and verdicts.",
+    "cases": {
+      "motorcycle_accidents": "$14M - Motorcycle Accidents",
+      "traumatic_brain_injury": "$IOM - Traumatic Brain Injury",
+      "wrongful_death": "$5M - Wrongful Death",
+      "car_accident": "$5M - Car Accident"
+    }
+  },
+  "start_case": "Start your case",
+  "compensation_message": "Get the full compensation you deserve. <br/>Call us before the insurance company does.",
+  "urgent_cases": {
+    "intro": "If you’ve been injured in a car accident anywhere in California, time is critical. Insurance companies work fast to limit what they pay—don’t face them without legal help.",
+    "team": "At Méndez & Sánchez, APC, our experienced California car accident lawyers are ready to fight for the maximum compensation and justice on your behalf."
+  },
+  "why_choose_us": {
+    "title": "Why Californians Trust<br />Méndez & Sánchez APC",
+    "points": [
+      "<strong>Millions recovered</strong> for accident victims across California",
+      "No win, no fee—guaranteed",
+      "<strong>Available 24/7</strong> for urgent case evaluations",
+      "Fluent in English and Spanish",
+      "Local team in East LA—serving all of California",
+      "<strong>We handle everything</strong> from minor crashes to catastrophic injuries"
+    ]
+  },
+  "what_we_handle": {
+    "title": "What we will handle for you",
+    "points": [
+      "<strong>Full accident investigation</strong> and liability analysis",
+      "Medical treatment coordination",
+      "All claims paperwork, deadlines, and insurance negotiations",
+      "<strong>Help with lost wages</strong> and future earnings documentation",
+      "Connect you with doctors and specialists statewide",
+      "Virtual, phone, or in-home consultations—<strong>anywhere in California</strong>",
+      "Apply for pre-settlement funding so you're never pressured to settle early"
+    ]
+  },
+  "what_you_need_to_know": {
+    "title": "What you need to know right now",
+    "questions": [
+      {
+        "title": "Do I really need a car accident lawyer in California?",
+        "content": "<p> Yes. Without legal representation, you risk accepting far less than your case is worth. We level the playing field.</p>"
+      },
+      {
+        "title": "How long do I have to file a car accident claim in California?",
+        "content": "<ul> <li>Up to 2 years for personal injury</li> <li>Only 6 months for claims involving government entities</li> </ul>"
+      },
+      {
+        "title": "What if I don’t have health insurance?",
+        "content": "<p>No problem—we connect you with trusted doctors and medical providers.</p>"
+      },
+      {
+        "title": "What compensations am I Eligible For",
+        "content": "<p><strong>Economic Damages:</strong></p><ul> <li>Emergency room and long-term medical care</li> <li>Lost wages or reduced earning ability</li> <li>Property damage repair or replacement</li> </ul> <p><strong>Non-Economic Damages:</strong></p><ul> <li>Pain and suffering</li> <li>Emotional trauma </li> <li>Loss of enjoyment of life</li> </ul>"
+      }
+    ]
+  },
+  "contact_info": {
+    "address": "address",
+    "email": "email",
+    "phone": "phone"
+  },
+  "copyright": "© 2025 Méndez & Sánchez - All Rights Reserved"
+}

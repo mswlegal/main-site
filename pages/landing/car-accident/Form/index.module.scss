@@ -26,6 +26,9 @@ $font-family_1:
     letter-spacing: 2.625px;
     border: 0;
     border-radius: 8px;
+    &::placeholder {
+      text-transform: uppercase;
+    }
   }
 
   .disclaimer {

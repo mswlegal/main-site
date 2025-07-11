@@ -4,6 +4,10 @@ import '../styles/globals.css';
 import Layout from '@/layouts/Layout';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Script from 'next/script';
+import { appWithTranslation } from 'next-i18next';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useLocalePath } from '@/hooks/routeResolver';
 
 /* eslint react/prop-types: 0 */
 const queryClient = new QueryClient({
@@ -20,6 +24,10 @@ const queryClient = new QueryClient({
 });
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  useLocalePath();
+
   return (
     <QueryClientProvider client={queryClient}>
       <Script
@@ -42,4 +50,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
