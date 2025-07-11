@@ -18,19 +18,12 @@ const initialData = {
   summary: ''
 };
 
-function gtag_report_conversion(url) {
-  const callback = function () {
-    if (typeof url !== 'undefined') {
-      window.location = url;
-    }
-  };
+function gtag_report_conversion() {
   if (typeof window.gtag === 'function') {
     window.gtag('event', 'conversion', {
-      send_to: 'AW-10869537885/POz1CIPbhu4aEN34_74o',
-      event_callback: callback
+      send_to: 'AW-10869537885/POz1CIPbhu4aEN34_74o'
     });
   }
-  return false;
 }
 
 function Form() {
@@ -40,11 +33,11 @@ function Form() {
   const { fullName, email, phone, summary } = formData;
 
   const handleFormSubmitSuccess = () => {
-    setHasSubmitted(true);
-    setFormData(initialData);
-
     // Call conversion tracking
     gtag_report_conversion();
+
+    setHasSubmitted(true);
+    setFormData(initialData);
   };
 
   const { mutate: submitForm } = useFormSubmitLanding({
