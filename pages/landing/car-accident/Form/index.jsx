@@ -67,7 +67,7 @@ function Form() {
         Marketing_Campaign_Name: params?.get('utm_campaign'),
         Marketing_Campaign_Source: params?.get('utm_source'),
         Marketing_Campaign_Medium: params?.get('utm_medium'),
-        Marketing_Source: sources[params?.get('utm_source').toLowerCase().trim()]
+        Marketing_Source: sources[params?.get('utm_source')?.toLowerCase().trim()]
       });
     },
     [fullName, email, phone, summary, submitForm]
