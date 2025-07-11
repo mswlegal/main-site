@@ -22,10 +22,10 @@ function CarAccident() {
   return (
     <>
       <Seo
-        title="Car Accident Lawyers in California | Mendez & Sanchez APC"
-        description="Get the compensation you deserve after a car accident. Contact our experienced California legal team today."
+        title={`${t('metadata.title')} | Mendez & Sanchez APC`}
+        description={t('metadata.description')}
         ogImage={require('../../../public/img/landing/car-accident/hero.webp').default.src}
-        keywords="car accident attorney, personal injury lawyer, legal help California, legal help Las Vegas, legal help Pasadena, car accident help"
+        keywords={t('metatdata.keywords')}
       />
 
       <LandingPageHeader phone={phone} />
