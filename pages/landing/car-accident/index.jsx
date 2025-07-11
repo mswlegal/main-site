@@ -25,7 +25,7 @@ function CarAccident() {
         title={`${t('metadata.title')} | Mendez & Sanchez APC`}
         description={t('metadata.description')}
         ogImage={require('../../../public/img/landing/car-accident/hero.webp').default.src}
-        keywords={t('metatdata.keywords')}
+        keywords={t('metadata.keywords')}
       />
 
       <LandingPageHeader phone={phone} />
