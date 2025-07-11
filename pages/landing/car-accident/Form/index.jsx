@@ -18,6 +18,10 @@ const initialData = {
   summary: ''
 };
 
+const sources = {
+  google: 'Google Ads'
+};
+
 function gtag_report_conversion() {
   if (typeof window.gtag === 'function') {
     window.gtag('event', 'conversion', {
@@ -60,7 +64,8 @@ function Form() {
         Summary: summary,
         Marketing_Campaign_Name: params?.get('utm_campaign'),
         Marketing_Campaign_Source: params?.get('utm_source'),
-        Marketing_Campaign_Medium: params?.get('utm_medium')
+        Marketing_Campaign_Medium: params?.get('utm_medium'),
+        Marketing_Source: sources[params?.get('utm_source').toLowerCase().trim()]
       });
     },
     [fullName, email, phone, summary, submitForm]
