@@ -116,7 +116,7 @@ const Header = ({ dark }) => {
                       <a onClick={() => handleMenuOnClick('testimonial')}>Clients</a>
                     </li>
                     <li>
-                      <a onClick={() => handleMenuOnClick('contact')}>Contact</a>
+                      <a onClick={() => handleChangeRoute('/contact')}>Contact</a>
                     </li>
                   </>
                 ) : (
