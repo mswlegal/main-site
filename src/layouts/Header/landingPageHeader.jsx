@@ -14,7 +14,6 @@ export default function LandingPageHeader({ dark, phone }) {
   const headerRef = React.useRef(null);
 
   const handlePhoneClick = (e) => {
-    e.preventDefault();
     if (typeof window !== 'undefined' && typeof window.gtag_report_header_phone_click === 'function') {
       window.gtag_report_header_phone_click();
     }
