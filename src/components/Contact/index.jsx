@@ -9,8 +9,11 @@ import Button from 'react-bootstrap/Button';
 import ModalForm from '../Forms/ModalForm';
 import { IsInViewProvider } from '@/hooks/viewportListener';
 import { formatPhoneNumber } from '@/utilities';
+import cx from 'classnames';
+import PropTypes from 'prop-types';
 
-const Contact = () => {
+const Contact = (props) => {
+  const { className, header = 'Contact Us with Confidence' } = props;
   const [openForm, setOpenForm] = React.useState(false);
 
   function toggleForm() {
@@ -18,7 +21,7 @@ const Contact = () => {
   }
 
   return (
-    <section className={styles.basic_section} id="contact">
+    <section className={cx(styles.basic_section, className)} id="contact">
       <div className={styles.contact}>
         <Container className={styles.container}>
           <Row className="justify-content-center">
@@ -26,7 +29,7 @@ const Contact = () => {
               <IsInViewProvider>
                 <div className={styles.title} data-text-align="center" data-color="dark">
                   <span>Get in Touch</span>
-                  <h3>Contact Us with Confidence</h3>
+                  <h3>{header}</h3>
                 </div>
               </IsInViewProvider>
             </Col>
@@ -76,6 +79,11 @@ const Contact = () => {
       <ModalForm show={openForm} setShow={setOpenForm} />
     </section>
   );
+};
+
+Contact.propTypes = {
+  className: PropTypes.string,
+  header: PropTypes.string
 };
 
 export default Contact;

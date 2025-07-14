@@ -14,18 +14,15 @@ function ContactPage() {
             <Col lg={10} xs={12}>
               <IsInViewProvider>
                 <h1>
-                  Your <span>Winning</span> Team
+                  Free Case Evaluation <br /> <span>No Fees</span> Unless <span>We Win</span>
                 </h1>
               </IsInViewProvider>
               <IsInViewProvider>
-                <p>
-                  Mendez & Sanchez APC is known for its strong commitment to helping clients win the justice
-                  and compensation they deserve. With a proven history of recovering millions of dollars, the
-                  firm has earned a reputation for being dependable, professional, and relentless in its
-                  efforts. Clients trust Mendez & Sanchez with their most difficult cases because they know
-                  the team works hard, pays attention to every detail, and truly cares about the people they
-                  represent. At Mendez & Sanchez, it's not just about handling legal cases — it's about
-                  standing up for what’s right and supporting clients every step of the way.
+                <p className="mt-4">
+                  If you’ve been injured in an accident, don’t wait to take action. Mendez & Sanchez APC is
+                  ready to help you pursue the justice and compensation you deserve in California or Nevada.
+                  Fill out the form below or call us today for a free, no-obligation consultation. One of our
+                  experienced attorneys will review your case and reach out promptly.
                 </p>
               </IsInViewProvider>
             </Col>
@@ -46,7 +43,7 @@ function ContactPage() {
           </Row>
         </Container>
       </section> */}
-      <Contact />
+      <Contact header="Start Your Free Case Review" />
     </>
   );
 }
