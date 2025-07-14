@@ -9,6 +9,7 @@ import { sanitizeInput, formatPhoneNumber } from '@/utilities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'next-i18next';
+import Script from 'next/script';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -23,14 +24,6 @@ const sources = {
   google: 'Google Ads'
 };
 
-function gtag_report_conversion() {
-  if (typeof window.gtag === 'function') {
-    window.gtag('event', 'conversion', {
-      send_to: 'AW-10869537885/POz1CIPbhu4aEN34_74o'
-    });
-  }
-}
-
 function Form() {
   const { t } = useTranslation('carAccident');
   const [formData, setFormData] = React.useState(initialData);
@@ -39,8 +32,10 @@ function Form() {
   const { fullName, email, phone, summary } = formData;
 
   const handleFormSubmitSuccess = () => {
-    // Call conversion tracking
-    gtag_report_conversion();
+    // conversion tracking
+    if (typeof window !== 'undefined' && typeof window.gtag_report_form_submit === 'function') {
+      window.gtag_report_form_submit();
+    }
 
     setHasSubmitted(true);
     setFormData(initialData);
@@ -99,12 +94,24 @@ function Form() {
 
   return (
     <>
+      <Script
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            function gtag_report_form_submit() {
+              gtag('event', 'conversion', {
+                'send_to': 'AW-10869537885/POz1CIPbhu4aEN34_74o'
+              });
+            }
+          `
+        }}
+      />
       <BootstrapForm className={styles['form-signup']} onSubmit={handleSubmit}>
         {hasSubmitted ? (
           <Row className={styles.success}>
             <FontAwesomeIcon icon={faCheckCircle} className="fas text-primary mb-4" />
             <h3>Thank you {getFirstAndLastName(fullName)?.firstName}</h3>
-            <p className="mb-5">Out team will contact you shortly!</p>
+            <p className="mb-5">Our team will contact you shortly!</p>
           </Row>
         ) : (
           <Row className="justify-content-center align-items-center flex-column">

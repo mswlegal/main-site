@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './index.module.scss';
 import Head from 'next/head';
+import Script from 'next/script';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import Container from 'react-bootstrap/Container';
@@ -11,6 +12,13 @@ import { formatPhoneNumber } from '@/utilities';
 
 export default function LandingPageHeader({ dark, phone }) {
   const headerRef = React.useRef(null);
+
+  const handlePhoneClick = (e) => {
+    e.preventDefault();
+    if (typeof window !== 'undefined' && typeof window.gtag_report_header_phone_click === 'function') {
+      window.gtag_report_header_phone_click();
+    }
+  };
 
   const stickyNav = () => {
     let offset = window.scrollY;
@@ -36,6 +44,18 @@ export default function LandingPageHeader({ dark, phone }) {
         <link rel="preload" href="/img/logo/logo-light.webp" as="image" />
         <link rel="preload" href="/img/logo/logo-dark.webp" as="image" />
       </Head>
+      <Script
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            function gtag_report_header_phone_click() {
+              gtag('event', 'conversion', {
+                'send_to': 'AW-10869537885/nbSVCJz24vAaEN34_74o'
+              });
+            }
+          `
+        }}
+      />
       <div ref={headerRef} className={cx(styles.navbar, styles.landing)}>
         <Container>
           <div className={styles.inner}>
@@ -78,7 +98,7 @@ export default function LandingPageHeader({ dark, phone }) {
             )}
 
             <div className={styles.cta}>
-              <a href="tel:32383814444" className={styles.button}>
+              <a href="tel:32383814444" onClick={handlePhoneClick} className={styles.button}>
                 <FontAwesomeIcon icon={faPhoneVolume} className="fas" />
                 <span>{formatPhoneNumber(phone)}</span>
               </a>
