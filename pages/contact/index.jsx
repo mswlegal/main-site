@@ -4,7 +4,6 @@ import styles from './index.module.scss';
 import cx from 'classnames';
 import { IsInViewProvider } from '@/hooks/viewportListener';
 import ContactSection from './ContactSection';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 function ContactPage() {
   return (
@@ -34,14 +33,6 @@ function ContactPage() {
       <ContactSection />
     </>
   );
-}
-
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['carAccident']))
-    }
-  };
 }
 
 export default ContactPage;

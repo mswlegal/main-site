@@ -8,7 +8,6 @@ import { getFirstAndLastName } from '@/utilities';
 import { sanitizeInput, formatPhoneNumber } from '@/utilities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { useTranslation } from 'next-i18next';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -24,7 +23,6 @@ const sources = {
 };
 
 function Form() {
-  const { t } = useTranslation('carAccident');
   const [formData, setFormData] = React.useState(initialData);
   const [hasSubmitted, setHasSubmitted] = React.useState(false);
 
@@ -87,10 +85,8 @@ function Form() {
         {hasSubmitted ? (
           <Row className={styles.success}>
             <FontAwesomeIcon icon={faCheckCircle} className="fas text-primary mb-4" />
-            <h3>
-              {t('thank_you.header')} {getFirstAndLastName(fullName)?.firstName}
-            </h3>
-            <p className="mb-5">{t('thank_you.subheader')}</p>
+            <h3>Thank you! {getFirstAndLastName(fullName)?.firstName}</h3>
+            <p className="mb-5">Our team will contact you shortly!</p>
           </Row>
         ) : (
           <Row className="justify-content-center align-items-center flex-column">
@@ -99,7 +95,7 @@ function Form() {
                 label="Full name"
                 name="fullName"
                 type="text"
-                placeholder={t('fields.full_name')}
+                placeholder="Full Name"
                 aria-label="FULL NAME"
                 value={fullName}
                 onChange={handleChange}
@@ -110,7 +106,7 @@ function Form() {
               <BootstrapForm.Control
                 name="phone"
                 type="text"
-                placeholder={t('fields.phone_number')}
+                placeholder="Phone Number"
                 aria-label="PHONE NUMBER"
                 value={phone}
                 onChange={handleChange}
@@ -121,7 +117,7 @@ function Form() {
               <BootstrapForm.Control
                 name="email"
                 type="email"
-                placeholder={t('fields.email')}
+                placeholder="Email"
                 aria-label="EMAIL ADDRESS"
                 value={email}
                 onChange={handleChange}
@@ -134,15 +130,19 @@ function Form() {
                 name="summary"
                 value={summary}
                 onChange={handleChange}
-                placeholder={t('fields.summary')}
+                placeholder="Tell us about your case..."
                 aria-label="case summary"
                 rows={5}
               />
             </Col>
             <Col xs={12} className="text-center">
-              <span className={styles.disclaimer}>{t('disclaimer')}</span>
+              <span className={styles.disclaimer}>
+                By contacting us, you agree to receive communications from Méndez & Sánchez, APC. Message and
+                data rates may apply. Text ‘STOP’ to opt-out. Communication does not establish an
+                attorney-client relationship.
+              </span>
               <button className={styles.button} id="submitButton" type="submit">
-                {t('start_case')}
+                Start Case
               </button>
             </Col>
           </Row>
