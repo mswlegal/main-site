@@ -39,7 +39,7 @@ $header_height: 45vh;
       text-align: center;
 
       @include responsive.device-max('lg') {
-        height: 550px;
+        height: 420px;
         min-height: unset;
       }
 
@@ -52,7 +52,6 @@ $header_height: 45vh;
 
         span {
           color: $color_red;
-          border-bottom: 5px solid;
         }
 
         @include responsive.device-max('lg') {
@@ -69,6 +68,7 @@ $header_height: 45vh;
       p {
         color: $color_white;
         transition-delay: 0.5s;
+        line-height: 1.1em;
 
         @include animation.slideInUpInViewport();
       }

@@ -9,6 +9,10 @@
     "email": "Correo Electrónico",
     "summary": "Cuéntanos acerca de tu caso…"
   },
+  "thank_you": {
+    "header": "Gracias",
+    "subheader": "¡Nuestro equipo se pondrá en contacto contigo pronto!"
+  },
   "disclaimer": "Al contactarnos, usted acepta recibir comunicaciones de Méndez & Sánchez, APC. Es posible que se apliquen tarifas de mensajes y datos. Envíe un mensaje de texto con 'STOP' para cancelar su participación. La comunicación no establece una relación abogado-cliente.",
   "settlements": {
     "title": "Acuerdos",

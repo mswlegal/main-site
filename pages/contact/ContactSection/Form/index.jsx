@@ -3,13 +3,12 @@ import styles from './index.module.scss';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import BootstrapForm from 'react-bootstrap/Form';
-import { useFormSubmitLanding } from '@/hooks/formSubmit';
+import { useFormSubmit } from '@/hooks/formSubmit';
 import { getFirstAndLastName } from '@/utilities';
 import { sanitizeInput, formatPhoneNumber } from '@/utilities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'next-i18next';
-import Script from 'next/script';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -32,17 +31,12 @@ function Form() {
   const { fullName, email, phone, summary } = formData;
 
   const handleFormSubmitSuccess = async () => {
-    // conversion tracking
-    if (typeof window !== 'undefined' && typeof window.gtag_report_form_submit === 'function') {
-      window.gtag_report_form_submit();
-    }
-
     setHasSubmitted(true);
     await delay(2500);
     setFormData(initialData);
   };
 
-  const { mutate: submitForm } = useFormSubmitLanding({
+  const { mutate: submitForm } = useFormSubmit({
     onSuccess: handleFormSubmitSuccess,
     onError: (err) => console.error(err)
   });
@@ -50,20 +44,14 @@ function Form() {
   const handleSubmit = React.useCallback(
     (e) => {
       e.preventDefault();
-
       const { firstName, lastName } = getFirstAndLastName(fullName);
-      const params = new URLSearchParams(window?.location?.search);
 
       submitForm({
         First: firstName,
         Last: lastName,
         Email: email,
         Phone: phone.replace(/\D/g, ''),
-        Summary: summary,
-        Marketing_Campaign_Name: params?.get('utm_campaign'),
-        Marketing_Campaign_Source: params?.get('utm_source'),
-        Marketing_Campaign_Medium: params?.get('utm_medium'),
-        Marketing_Source: sources[params?.get('utm_source')?.toLowerCase().trim()]
+        Summary: summary
       });
     },
     [fullName, email, phone, summary, submitForm]
@@ -95,18 +83,6 @@ function Form() {
 
   return (
     <>
-      <Script
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            function gtag_report_form_submit() {
-              gtag('event', 'conversion', {
-                'send_to': 'AW-10869537885/POz1CIPbhu4aEN34_74o'
-              });
-            }
-          `
-        }}
-      />
       <BootstrapForm className={styles['form-signup']} onSubmit={handleSubmit}>
         {hasSubmitted ? (
           <Row className={styles.success}>
@@ -118,7 +94,7 @@ function Form() {
           </Row>
         ) : (
           <Row className="justify-content-center align-items-center flex-column">
-            <Col lg={5} xs={12} className="mb-4">
+            <Col xs={12} className="mb-4">
               <BootstrapForm.Control
                 label="Full name"
                 name="fullName"
@@ -130,7 +106,7 @@ function Form() {
                 required
               />
             </Col>
-            <Col lg={5} xs={12} className="mb-4">
+            <Col xs={12} className="mb-4">
               <BootstrapForm.Control
                 name="phone"
                 type="text"
@@ -141,7 +117,7 @@ function Form() {
                 required
               />
             </Col>
-            <Col lg={5} xs={12} className="mb-4">
+            <Col xs={12} className="mb-4">
               <BootstrapForm.Control
                 name="email"
                 type="email"
@@ -152,7 +128,7 @@ function Form() {
                 required
               />
             </Col>
-            <Col lg={5} xs={12} className="mb-4">
+            <Col xs={12} className="mb-4">
               <BootstrapForm.Control
                 as="textarea"
                 name="summary"
@@ -163,7 +139,7 @@ function Form() {
                 rows={5}
               />
             </Col>
-            <Col xs={12}>
+            <Col xs={12} className="text-center">
               <span className={styles.disclaimer}>{t('disclaimer')}</span>
               <button className={styles.button} id="submitButton" type="submit">
                 {t('start_case')}

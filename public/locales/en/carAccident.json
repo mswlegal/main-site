@@ -9,6 +9,10 @@
     "email": "Email",
     "summary": "Tell us about your case..."
   },
+  "thank_you": {
+    "header": "Thank you",
+    "subheader": "Our team will contact you shortly!"
+  },
   "disclaimer": "By contacting us, you agree to receive communications from Méndez & Sánchez, APC. Message and data rates may apply. Text ‘STOP’ to opt-out. Communication does not establish an attorney-client relationship.",
   "settlements": {
     "title": "Settlements",

@@ -3,7 +3,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import styles from './index.module.scss';
 import cx from 'classnames';
 import { IsInViewProvider } from '@/hooks/viewportListener';
-import Contact from '@/components/Contact';
+import ContactSection from './ContactSection';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 function ContactPage() {
   return (
@@ -14,7 +15,8 @@ function ContactPage() {
             <Col lg={10} xs={12}>
               <IsInViewProvider>
                 <h1>
-                  Free Case Evaluation <br /> <span>No Fees</span> Unless <span>We Win</span>
+                  Free Case Evaluation <br /> <span>No Fees</span> Unless <br className="d-md-none d-block" />
+                  <span>We Win</span>
                 </h1>
               </IsInViewProvider>
               <IsInViewProvider>
@@ -29,23 +31,17 @@ function ContactPage() {
           </Row>
         </Container>
       </section>
-      {/* 
-      <section className={cx(styles.section, styles.content)}>
-        <Container className={styles.container}>
-          <Row className={cx(styles.row, 'justify-content-center')}>
-            <Col lg={8} xs={12} className="text-center">
-              <h2 className="mb-3">Meet Your Attorneys</h2>
-              <p>
-                Founded on a bedrock of unwavering commitment and relentless dedication, Mendez & Sanchez APC
-                stands as a testament to the vision and perseverance of its founders, Giancarlo and Michael.
-              </p>
-            </Col>
-          </Row>
-        </Container>
-      </section> */}
-      <Contact header="Start Your Free Case Review" />
+      <ContactSection />
     </>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['carAccident']))
+    }
+  };
 }
 
 export default ContactPage;
