@@ -85,7 +85,7 @@ const Footer = () => {
                   <a href="tel:32383814444">{call} Los Angeles CA </a>
                 </li>
                 <li>
-                  <a href="tel:32383814444">{call} Pasedna CA </a>
+                  <a href="tel:32383814444">{call} Pasadena CA </a>
                 </li>
                 <li>
                   <a href="tel:7028007002">{call} Las Vegas NV</a>
