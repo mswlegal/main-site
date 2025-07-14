@@ -71,21 +71,33 @@ function PrivacyPolicy() {
                 damages arising out of or related to your use of this website or any linked third-party site.
               </p>
 
-              <h3>8. Governing Law</h3>
+              <h3>8. SMS and Phone Communications</h3>
+              <p>
+                By opting into SMS messaging, you agree to receive appointment reminders, schedule updates,
+                service reminders, customer appreciation texts, review requests, and follow-ups. Message and
+                data rates may apply, and message frequency may vary. You can opt out anytime by replying
+                "STOP" to any message, and we will confirm your unsubscription. To rejoin, simply sign up
+                again. For assistance, reply with "HELP" or contact support at{' '}
+                <a href="mailto:info@mendezsanchezlaw.com">info@mendezsanchezlaw.com</a>. We do not share your
+                information with third parties for their marketing purposes. Carriers are not responsible for
+                delayed or undelivered messages.
+              </p>
+
+              <h3>9. Governing Law</h3>
               <p>
                 These Terms and Conditions are governed by the laws of the State of California, without regard
                 to its conflict of law provisions. Any disputes shall be resolved in the courts located in Los
                 Angeles County, California.
               </p>
 
-              <h3>9. Changes to Terms</h3>
+              <h3>10. Changes to Terms</h3>
               <p>
                 We reserve the right to modify these Terms and Conditions at any time. Changes become
                 effective immediately upon posting. Your continued use of the website constitutes your
                 acceptance of the revised terms.
               </p>
 
-              <h3>10. Contact Us</h3>
+              <h3>11. Contact Us</h3>
               <p>If you have any questions about these Terms and Conditions, please contact us at:</p>
               <p>
                 <strong>Mendez & Sanchez APC</strong>
