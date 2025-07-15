@@ -15,6 +15,10 @@ $color-border: rgb(219, 215, 215);
   }
 
   .footer_container {
+    @include responsive.device-max('md') {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
     .footer_navbar_container {
       margin-bottom: 3rem;
 
@@ -88,6 +92,9 @@ $color-border: rgb(219, 215, 215);
       line-height: 1.2em;
       font-style: italic;
       font-weight: 500;
+      @include responsive.device-max('md') {
+        text-align: center;
+      }
     }
   }
 

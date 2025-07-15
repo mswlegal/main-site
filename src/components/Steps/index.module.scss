@@ -9,7 +9,12 @@ $color_dark: #15111e;
 
   @include responsive.device-max('md') {
     padding: 50px 0;
+    .container {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
   }
+
   h2 {
     font-size: 40px;
     font-weight: 700;
@@ -106,14 +111,13 @@ $color_dark: #15111e;
 
     &.gradient3 {
       background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
-      transform: rotate(15deg);
+      svg {
+        transform: rotate(15deg);
+      }
     }
   }
 }
 
-.bounce-in {
-  animation: bounce-in 2s ease infinite;
-}
 @keyframes bounce-in {
   0% {
     opacity: 0;

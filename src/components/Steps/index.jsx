@@ -39,7 +39,7 @@ const steps = [
 export default function Steps() {
   return (
     <section className={styles.steps}>
-      <Container>
+      <Container className={styles.container}>
         <div className="text-center mb-5">
           <h2 className="mb-1">Our Approach</h2>
           <p className="mx-auto">

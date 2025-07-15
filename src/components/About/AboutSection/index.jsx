@@ -32,7 +32,7 @@ const benefits = [
 export default function AboutSection() {
   return (
     <section className={cx(styles.about, 'bg-white')}>
-      <Container>
+      <Container className={styles.container}>
         <Row className="align-items-center gy-4 gy-md-0">
           {/* Left Column - Text Content */}
           <Col md={6}>
