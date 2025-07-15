@@ -21,6 +21,7 @@ $font-family_1:
   textarea {
     box-shadow: 0 3.28px 3.28px 0 rgba(0, 0, 0, 0.1) !important;
     padding: 20px !important;
+    min-height: 62px;
     height: auto;
     font-family: $font-family_1;
     font-size: 14px;
@@ -35,10 +36,6 @@ $font-family_1:
     &:not(:placeholder-shown) {
       font-size: 16px;
     }
-  }
-  
-  input {
-    max-height: 60px;
   }
 
   .disclaimer {
