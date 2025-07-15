@@ -6,11 +6,18 @@ import { IsInViewProvider } from '@/hooks/viewportListener';
 import Form from './Form';
 import AboutSection from '@/components/About/AboutSection';
 import StepsSection from '@/components/Steps';
-import { formatPhoneNumber } from '@/utilities';
+import Seo from '@/components/Seo';
 
 function ContactPage() {
   return (
     <>
+      <Seo
+        title="Contact a Personal Injury Lawyers in Los Angeles & Las Vegas | Mendez & Sanchez APC"
+        description="Injured in an accident? Mendez & Sanchez APC provides aggressive, experienced legal representation for personal injury, car accidents, and workers' compensation in Los Angeles & Las Vegas. No fee unless we win!"
+        ogImage={require('@images/intro/ms-banner.webp').default.src}
+        keywords="Los Angeles personal injury lawyer, Las Vegas injury attorney, car accident lawyer LA, workers compensation attorney, injury law firm California, slip and fall lawyer, best personal injury attorney, accident attorney near me, free case review injury lawyer, Mendez & Sanchez law firm"
+        noIndex={false}
+      />
       <section className={cx(styles.section, styles.header)}>
         <Container className={styles.container}>
           <Row className={styles.row}>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-function Seo({ title, description, canonicalUrl, ogImage, noIndex, keywords }) {
+function Seo({ title, description, canonicalUrl, ogImage, noIndex, keywords, children }) {
   return (
     <Head>
       <title>{title}</title>
@@ -32,6 +32,7 @@ function Seo({ title, description, canonicalUrl, ogImage, noIndex, keywords }) {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       {ogImage && <meta name="twitter:image" content={ogImage} />}
+      {children}
     </Head>
   );
 }
@@ -42,7 +43,8 @@ Seo.propTypes = {
   canonicalUrl: PropTypes.string,
   ogImage: PropTypes.string,
   noIndex: PropTypes.bool,
-  keywords: PropTypes.string
+  keywords: PropTypes.string,
+  children: PropTypes.node
 };
 
 Seo.defaultProps = {
