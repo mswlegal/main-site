@@ -26,6 +26,7 @@ function CarAccident() {
         description={t('metadata.description')}
         ogImage={require('../../../public/img/landing/car-accident/hero.webp').default.src}
         keywords={t('metadata.keywords')}
+        noIndex={true}
       />
 
       <LandingPageHeader phone={phone} />

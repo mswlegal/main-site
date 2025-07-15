@@ -18,7 +18,7 @@ const Index = () => {
         description="Get the compensation you deserve after a car accident. Contact our experienced California legal team today."
         ogImage={require('../public/img/intro/ms-banner.webp').default.src}
         keywords="car accident attorney, personal injury lawyer, legal help California"
-        noIndex={true}
+        noIndex={false}
       />
       <Banner />
       <About />
