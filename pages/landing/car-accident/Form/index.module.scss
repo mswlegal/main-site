@@ -36,8 +36,8 @@ $font-family_1:
     }
   }
   
-  input {
-    max-height: 60px;
+  input, textarea {
+    touch-action: manipulation;
   }
 
   .disclaimer {
