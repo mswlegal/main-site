@@ -2,15 +2,11 @@
 @use '/styles/mixins/buttonMixins' as button;
 @use '/styles/mixins/animations' as animation;
 
-$color_1: #33303a;
-$color_2: #15111e;
-$color_3: #ea4343;
-$color_4: #aaa6b2;
-$color_5: #f52225;
-$color_6: #3a00ff;
+$color_black: #15111e;
+$color_red: #ea4343;
+$color_white: #fff;
 $font-family_1: 'Josefin Sans', sans-serif;
 $font-family_2: 'Open Sans', sans-serif;
-$background-color_1: #fff;
 $background-color_2: #3c3c3c;
 
 .basic_section {
@@ -95,17 +91,17 @@ $background-color_2: #3c3c3c;
           font-family: $font-family_1;
           font-size: 18px;
           font-weight: 700;
-          color: $color_2;
+          color: $color_black;
           letter-spacing: -0.2px;
         }
         a {
           text-decoration: none;
-          color: $color_3;
+          color: $color_red;
           display: block;
           &.phone {
             font-size: 30px;
             font-weight: 700;
-            color: $color_3;
+            color: $color_red;
             letter-spacing: -0.2px;
             font-family: 'Josefin Sans';
           }
@@ -113,82 +109,11 @@ $background-color_2: #3c3c3c;
       }
     }
   }
-  .right {
-    flex: 1;
-    .fields {
-      width: 100%;
-    }
-    .input_list {
-      width: 100%;
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        li {
-          margin-bottom: 18px;
-          input {
-            width: 100%;
-            height: 60px;
-            border-radius: 10px;
-            padding: 25px;
-            background-color: $background-color_1;
-            box-shadow: 13px 13px 21px rgba(131, 4, 4, 0.05);
-            border: none;
-            font-family: $font-family_2;
-            font-size: 18px;
-            color: $color_4;
-            letter-spacing: 0px;
-            &:focus {
-              outline: none;
-            }
-          }
-        }
-      }
-    }
-  }
-  .message_area {
-    textarea {
-      width: 100%;
-      height: 60px;
-      border-radius: 10px;
-      padding: 25px;
-      background-color: $background-color_1;
-      box-shadow: 13px 13px 21px rgba(131, 4, 4, 0.05);
-      border: none;
-      font-family: $font-family_2;
-      font-size: 18px;
-      color: $color_4;
-      letter-spacing: 0px;
-      height: 230px;
-      resize: none;
-      &:focus {
-        outline: none;
-      }
-    }
-    margin-bottom: 10px;
-  }
-  .empty_notice {
-    font-weight: 500;
-    text-align: left;
-    margin-bottom: 7px;
-    color: $color_5;
-  }
-  .contact_error {
-    font-weight: 500;
-    text-align: left;
-    margin-bottom: 7px;
-    color: $color_5;
-  }
-  .returnmessage {
-    font-weight: 500;
-    text-align: left;
-    margin-bottom: 7px;
-    color: $color_6;
-  }
 
   .button {
+    display: inline-block !important;
+    color: #fff !important;
     @include button.mainButton();
-
     svg {
       margin-left: 8px;
       transform: translateY(2px);
@@ -220,23 +145,6 @@ $background-color_2: #3c3c3c;
     .left {
       padding-right: 0;
       margin-bottom: 50px;
-    }
-    .right {
-      margin-top: 30px;
-      .input_list {
-        ul {
-          li {
-            input {
-              height: 50px;
-            }
-          }
-        }
-      }
-    }
-    .message_area {
-      textarea {
-        height: 200px;
-      }
     }
   }
 }
