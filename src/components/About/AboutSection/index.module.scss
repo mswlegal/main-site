@@ -1,0 +1,54 @@
+@use '/styles/responsive/_devicesMixins.scss' as responsive;
+@use '/styles/mixins/buttonMixins' as button;
+@use '/styles/mixins/animations' as animation;
+
+$color_primary: #d71a20;
+$color_dark: #15111e;
+
+.about {
+  position: relative;
+  background-color: #f4f5fe;
+  padding: 100px 0;
+
+  @include responsive.device-max('md') {
+    padding: 50px 0;
+  }
+  h2 {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    line-height: 1.3;
+    color: $color_dark;
+    @include responsive.device-max('md') {
+      font-size: 35px;
+    }
+  }
+
+  p {
+    color: $color_dark;
+    line-height: 1.2em;
+    color: $color_dark;
+    &.description {
+      color: #495057;
+    }
+
+    @include responsive.device-max('lg') {
+      font-size: 16px;
+    }
+  }
+
+  .list-item {
+    @include animation.slideInUpInViewport();
+    transition-duration: 1.5s;
+  }
+
+  .badge {
+    background: $color_primary !important;
+  }
+
+  .icon {
+    width: 25px;
+    height: 25px;
+    color: $color_primary;
+  }
+}

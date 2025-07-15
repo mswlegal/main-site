@@ -1,6 +1,7 @@
 @use '/styles/responsive/_devicesMixins.scss' as responsive;
 @use '/styles/mixins/buttonMixins' as button;
 
+$color_white: #FFF;
 $font-family_1:
   'Varela Round',
   -apple-system,
@@ -37,6 +38,8 @@ $font-family_1:
     text-align: center;
     margin: 8px auto;
     margin-bottom: 24px;
+    color: $color_white;
+    line-height: 1.2em;
     @include responsive.device-max('sm') {
       max-width: 100%;
     }

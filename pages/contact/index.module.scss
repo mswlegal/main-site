@@ -1,5 +1,6 @@
 @use '/styles/responsive/_devicesMixins.scss' as responsive;
 @use '/styles/mixins/animations' as animation;
+@use '/styles/mixins/buttonMixins' as button;
 
 $color_dark: #15111e;
 $color_white: #fff;
@@ -10,8 +11,8 @@ $header_height: 45vh;
   background-color: $color_dark;
 
   .container {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 150px;
+    padding-bottom: 80px;
 
     @include responsive.device-max('md') {
       padding: 50px 20px;
@@ -20,7 +21,9 @@ $header_height: 45vh;
 
   &.header {
     background-color: $color_dark;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%, #000 100%), url('../../public/img/hero/hero.webp');
+    background:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%, #000 100%),
+      url('../../public/img/hero/hero.webp');
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -34,19 +37,19 @@ $header_height: 45vh;
 
     .row {
       min-height: $header_height;
-      justify-content: center;
       align-items: center;
-      text-align: center;
+      justify-content: space-between;
 
       @include responsive.device-max('lg') {
-        height: 420px;
+        height: auto;
         min-height: unset;
       }
 
       h1 {
         color: $color_white;
         text-transform: uppercase;
-        font-size: 60px;
+        font-size: 45px;
+        font-family: 'Josefin Sans';
 
         @include animation.slideInUpInViewport();
 
@@ -68,10 +71,11 @@ $header_height: 45vh;
       p {
         color: $color_white;
         transition-delay: 0.5s;
-        line-height: 1.1em;
+        line-height: 1.2em;
 
         @include responsive.device-max('lg') {
           font-size: 16px;
+          margin-bottom: 48px;
         }
 
         @include animation.slideInUpInViewport();

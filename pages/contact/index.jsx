@@ -3,7 +3,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 import styles from './index.module.scss';
 import cx from 'classnames';
 import { IsInViewProvider } from '@/hooks/viewportListener';
-import ContactSection from './ContactSection';
+import Form from './Form';
+import AboutSection from '@/components/About/AboutSection';
+import StepsSection from '@/components/Steps';
+import { formatPhoneNumber } from '@/utilities';
 
 function ContactPage() {
   return (
@@ -11,13 +14,14 @@ function ContactPage() {
       <section className={cx(styles.section, styles.header)}>
         <Container className={styles.container}>
           <Row className={styles.row}>
-            <Col lg={10} xs={12}>
+            <Col lg={6} xs={12}>
               <IsInViewProvider>
                 <h1>
                   Free Case Evaluation <br /> <span>No Fees</span> Unless <br className="d-md-none d-block" />
                   <span>We Win</span>
                 </h1>
               </IsInViewProvider>
+
               <IsInViewProvider>
                 <p className="mt-4">
                   If you’ve been injured in an accident, don’t wait to take action. Mendez & Sanchez APC is
@@ -27,10 +31,14 @@ function ContactPage() {
                 </p>
               </IsInViewProvider>
             </Col>
+            <Col lg={5} xs={12}>
+              <Form />
+            </Col>
           </Row>
         </Container>
       </section>
-      <ContactSection />
+      <StepsSection />
+      <AboutSection />
     </>
   );
 }
