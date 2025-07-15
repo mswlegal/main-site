@@ -23,10 +23,12 @@ class MyDocument extends Document {
               __html: JSON.stringify({
                 '@context': 'https://schema.org',
                 '@type': 'LegalService',
+                '@id': 'https://www.mendezsanchezlaw.com/#legalservice',
                 name: 'Mendez & Sanchez APC',
                 image: 'https://www.mendezsanchezlaw.com/img/logo/logo-light.webp',
                 url: 'https://www.mendezsanchezlaw.com',
                 telephone: '+1-323-838-1444',
+                email: 'info@mendezsanchezlaw.com',
                 priceRange: '$$$',
                 address: {
                   '@type': 'PostalAddress',
@@ -41,12 +43,59 @@ class MyDocument extends Document {
                   latitude: 34.0173976,
                   longitude: -118.1576871
                 },
+                hasMap: 'https://www.google.com/maps/place/5440+E+Beverly+Blvd,+Los+Angeles,+CA+90022',
                 openingHoursSpecification: [
                   {
                     '@type': 'OpeningHoursSpecification',
-                    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                    dayOfWeek: 'Monday',
                     opens: '00:00',
                     closes: '23:59'
+                  },
+                  {
+                    '@type': 'OpeningHoursSpecification',
+                    dayOfWeek: 'Tuesday',
+                    opens: '00:00',
+                    closes: '23:59'
+                  },
+                  {
+                    '@type': 'OpeningHoursSpecification',
+                    dayOfWeek: 'Wednesday',
+                    opens: '00:00',
+                    closes: '23:59'
+                  },
+                  {
+                    '@type': 'OpeningHoursSpecification',
+                    dayOfWeek: 'Thursday',
+                    opens: '00:00',
+                    closes: '23:59'
+                  },
+                  {
+                    '@type': 'OpeningHoursSpecification',
+                    dayOfWeek: 'Friday',
+                    opens: '00:00',
+                    closes: '23:59'
+                  },
+                  {
+                    '@type': 'OpeningHoursSpecification',
+                    dayOfWeek: 'Saturday',
+                    opens: '00:00',
+                    closes: '23:59'
+                  },
+                  {
+                    '@type': 'OpeningHoursSpecification',
+                    dayOfWeek: 'Sunday',
+                    opens: '00:00',
+                    closes: '23:59'
+                  }
+                ],
+                areaServed: [
+                  {
+                    '@type': 'Place',
+                    name: 'Los Angeles'
+                  },
+                  {
+                    '@type': 'Place',
+                    name: 'Las Vegas'
                   }
                 ],
                 sameAs: [
