@@ -100,7 +100,7 @@ const Services = () => {
                   <h2 className={styles.title}>{item.title}</h2>
                   <p className={styles.copy}>{item.copy}</p>
                   {item.call ? (
-                    <a href="tel:32383814444" className={styles.btn}>
+                    <a href="tel:+132383814444" className={styles.btn}>
                       Call Us Now
                     </a>
                   ) : (

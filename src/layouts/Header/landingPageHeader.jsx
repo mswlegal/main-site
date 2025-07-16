@@ -97,7 +97,7 @@ export default function LandingPageHeader({ dark, phone }) {
             )}
 
             <div className={styles.cta}>
-              <a href={`tel:${phone}`} onClick={handlePhoneClick} className={styles.button}>
+              <a href={`tel:+1${phone}`} onClick={handlePhoneClick} className={styles.button}>
                 <FontAwesomeIcon icon={faPhoneVolume} className="fas" />
                 <span>{formatPhoneNumber(phone)}</span>
               </a>

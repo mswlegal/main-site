@@ -56,7 +56,7 @@ const Contact = (props) => {
                 <li>
                   <div className={styles.list_inner}>
                     <span>Call us</span>
-                    <a className={styles.phone} href="tel:32383814444">
+                    <a className={styles.phone} href="tel:+132383814444">
                       {`+1 ${formatPhoneNumber('32383814444')}`}
                     </a>
                   </div>
