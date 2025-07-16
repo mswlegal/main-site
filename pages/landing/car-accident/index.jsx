@@ -13,7 +13,9 @@ import { formatPhoneNumber } from '@/utilities';
 import LandingPageHeader from '@/layouts/Header/landingPageHeader';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { Trans as Translate } from 'next-i18next'; // Import Trans as Translate
+import { Trans as Translate } from 'next-i18next';
+import { Container, Row, Col } from 'react-bootstrap';
+import Link from 'next/link';
 
 function CarAccident() {
   const phone = '4244671777';
@@ -32,14 +34,14 @@ function CarAccident() {
       <LandingPageHeader phone={phone} />
 
       <header className={styles.masthead}>
-        <div
+        <Container
           className={cx(
             styles.container,
-            'container d-flex h-100 align-items-center justify-content-center flex-column'
+            'd-flex h-100 align-items-center justify-content-center flex-column'
           )}
         >
-          <div className="row justify-content-center">
-            <div className="col-12 text-center">
+          <Row className="justify-content-center">
+            <Col xs={12} className="text-center">
               <h1 className="mx-auto my-0 mb-3 text-uppercase">
                 <Translate>{t('title')}</Translate>
               </h1>
@@ -49,24 +51,24 @@ function CarAccident() {
               <a className={styles.button} onClick={() => scrollToSection('headerForm')}>
                 <Translate>{t('get_started')}</Translate>
               </a>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </header>
 
-      {/* About */}
+      {/* About Section */}
       <section className={cx(styles['about-section'], 'text-center')}>
-        <div className="container px-4 px-lg-5">
-          <div id="headerForm" className={cx(styles['form-row'], styles['animate-slide-in'], 'row')}>
-            <div className="col-12 mx-auto text-center">
+        <Container className={styles.container}>
+          <Row className={cx(styles['form-row'], styles['animate-slide-in'])}>
+            <Col xs={12} className="mx-auto text-center">
               <h2 className="text-white mb-5">
                 <Translate>{t('free_case_review')}</Translate>
               </h2>
               <Form />
-            </div>
-          </div>
-          <div className="row gx-4 gx-lg-5 justify-content-center">
-            <div className="col-lg-8 col-12">
+            </Col>
+          </Row>
+          <Row className="gx-4 gx-lg-5 justify-content-center">
+            <Col lg={8} xs={12}>
               <h2 className="text-white mb-4">
                 <Translate>{t('compensation_message')}</Translate>
               </h2>
@@ -74,16 +76,16 @@ function CarAccident() {
                 <Translate>{t('urgent_cases.intro')}</Translate>{' '}
                 <Translate>{t('urgent_cases.team')}</Translate>
               </p>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </section>
 
+      {/* Featured Projects Section */}
       <section className={cx(styles['projects-section'], 'bg-light')} id="projects">
-        <div className="container px-4 px-lg-5">
-          {/* Featured Project Row */}
-          <div className="row gx-0 mb-4 mb-lg-5 py-5 align-items-center">
-            <div className="col-lg-6 col-12">
+        <Container className={styles.container}>
+          <Row className="gx-0 mb-4 mb-lg-5 py-5 align-items-center">
+            <Col lg={6} xs={12}>
               <Image
                 src={require('../../../public/img/landing/car-accident/girl-with-phone.webp').default.src}
                 width={800}
@@ -92,8 +94,8 @@ function CarAccident() {
                 className="img-fluid mb-3 mb-lg-0"
                 alt="injury settlement"
               />
-            </div>
-            <div className="col-lg-6 col-12">
+            </Col>
+            <Col lg={6} xs={12}>
               <div className={cx(styles['featured-text'], 'text-left')}>
                 <h2>
                   <Translate>{t('why_choose_us.title')}</Translate>
@@ -106,10 +108,10 @@ function CarAccident() {
                   ))}
                 </ul>
               </div>
-            </div>
-          </div>
-          <div className="row gx-0 mb-4 mb-lg-5 py-5 align-items-center">
-            <div className="col-lg-6 order-md-0 order-1">
+            </Col>
+          </Row>
+          <Row className="gx-0 mb-4 mb-lg-5 py-5 align-items-center">
+            <Col lg={6} xs={12} className="order-md-0 order-1">
               <div className={cx(styles['featured-text'], 'text-left')}>
                 <h2>
                   <Translate>{t('what_we_handle.title')}</Translate>
@@ -122,8 +124,8 @@ function CarAccident() {
                   ))}
                 </ul>
               </div>
-            </div>
-            <div className="col-lg-6 oder-md-1 order-0">
+            </Col>
+            <Col lg={6} xs={12} className="order-md-1 order-0">
               <Image
                 src={require('../../../public/img/landing/hand-shake.webp').default.src}
                 width={800}
@@ -132,29 +134,39 @@ function CarAccident() {
                 className="img-fluid mb-3 mb-lg-0"
                 alt="injury settlement"
               />
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </section>
 
+      {/* FAQ Section */}
       <section className={styles.faq} id="signup">
-        <div className="container px-4 px-lg-5">
-          <div className="row gx-4 gx-lg-5">
-            <div className="col-md-10 col-lg-8 mx-auto text-center">
+        <Container className={styles.container}>
+          <Row className="gx-4 gx-lg-5">
+            <Col md={10} lg={8} className="mx-auto text-center">
               <FontAwesomeIcon icon={faQuestionCircle} className="fa-2x mb-2 text-white" />
               <h2 className="mb-5">
                 <Translate>{t('what_you_need_to_know.title')}</Translate>
               </h2>
               <Faq />
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </section>
 
+      {/* Contact Section */}
       <section className={cx(styles['contact-section'], 'bg-black')}>
-        <div className="container px-4 px-lg-5">
-          <div className="row gx-4 gx-lg-5">
-            <div className="col-md-4 mb-3 mb-md-0">
+        <Container className={styles.container}>
+          <Row className="text-center mb-5">
+            <Col xs={12}>
+              <h2 className="text-white mb-5">
+                <Translate>{t('free_case_review')}</Translate>
+              </h2>
+              <Form />
+            </Col>
+          </Row>
+          <Row className="gx-4 gx-lg-5">
+            <Col md={4} className="mb-3 mb-md-0">
               <div className={cx(styles.card, 'card py-4 h-100')}>
                 <div className="card-body text-center">
                   <FontAwesomeIcon icon={faMapMarkedAlt} className="fas mb-2 text-primary" />
@@ -165,8 +177,8 @@ function CarAccident() {
                   <div className="small text-black-50">5440 E. Beverly Blvd, Los Angeles, CA 90022</div>
                 </div>
               </div>
-            </div>
-            <div className="col-md-4 mb-3 mb-md-0">
+            </Col>
+            <Col md={4} className="mb-3 mb-md-0">
               <div className={cx(styles.card, 'card py-4 h-100')}>
                 <div className="card-body text-center">
                   <FontAwesomeIcon icon={faEnvelope} className="fas mb-2 text-primary" />
@@ -179,8 +191,8 @@ function CarAccident() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-md-4 mb-3 mb-md-0">
+            </Col>
+            <Col md={4} className="mb-3 mb-md-0">
               <div className={cx(styles.card, 'card py-4 h-100')}>
                 <div className="card-body text-center">
                   <FontAwesomeIcon icon={faMobileAlt} className="fas mb-2 text-primary" />
@@ -193,8 +205,8 @@ function CarAccident() {
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
+            </Col>
+          </Row>
           <div className={cx(styles.social, 'd-flex justify-content-center')}>
             <a className="mx-2" href="https://www.linkedin.com/company/mendez-sanchez" target="_blank">
               <FontAwesomeIcon icon={faLinkedinIn} className="fab text-white" />
@@ -206,17 +218,30 @@ function CarAccident() {
             >
               <FontAwesomeIcon icon={faFacebookF} className="fab text-white" />
             </a>
-            <a className="mx-2" href="https://www.instagram.com/mendezsanchezlaw/#" target="_blank">
+            <a className="mx-2" href="https://www.instagram.com/mswlegal" target="_blank">
               <FontAwesomeIcon icon={faInstagram} className="fab text-white" />
             </a>
           </div>
-        </div>
+        </Container>
       </section>
 
       <footer className={cx(styles.footer, 'bg-black small text-center text-white-50')}>
-        <div className="container px-4 px-lg-5">
-          <Translate>{t('copyright')}</Translate>
-        </div>
+        <Container className="px-4 px-lg-5">
+          <Row>
+            <Col xs={12}>
+              <Link href="/legal/terms-conditions" target="_blank" rel="noopener noreferrer">
+                Terms & Condition
+              </Link>
+              {' | '}
+              <Link href="/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
+                Privacy Policy
+              </Link>
+            </Col>
+            <Col xs={12}>
+              <Translate>{t('copyright')}</Translate>
+            </Col>
+          </Row>
+        </Container>
       </footer>
     </>
   );
