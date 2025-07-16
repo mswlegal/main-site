@@ -18,7 +18,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Link from 'next/link';
 
 function AmazonTruckAccident() {
-  const phone = '4244671777';
+  const phone = '4242768825';
   const { t } = useTranslation('amazonTruckAccident');
 
   return (
