@@ -1,0 +1,96 @@
+{
+  "title": "Accidente con un<br /> Camión de Amazon",
+  "subtitle": "¡Te conseguimos la compensación que mereces! <br className='d-md-block d-none' /> Mendez y Sanchez, APC te ayudarán a obtener la justicia y compensación que te corresponde.",
+  "get_started": "Comienza Aquí",
+  "free_case_review": "Obtenga revisión gratuita de tu caso",
+  "read_more": "Descubre más",
+  "fields": {
+    "full_name": "Nombre Completo",
+    "phone_number": "Número Télefonico",
+    "email": "Correo Electrónico",
+    "summary": "Cuéntanos acerca de tu caso…"
+  },
+  "thank_you": {
+    "header": "Gracias",
+    "subheader": "¡Nuestro equipo se pondrá en contacto contigo pronto!"
+  },
+  "disclaimer": "Al contactarnos, usted acepta recibir comunicaciones de Méndez & Sánchez, APC. Es posible que se apliquen tarifas de mensajes y datos. Envíe un mensaje de texto con 'STOP' para cancelar su participación. La comunicación no establece una relación abogado-cliente.",
+  "settlements": {
+    "title": "Acuerdos",
+    "milestone": "Más de mil millones de dólares recuperados para clientes en acuerdos y veredictos.",
+    "cases": {
+      "motorcycle_accidents": "$14M - Accidentes de Motocicleta",
+      "traumatic_brain_injury": "$IOM - Lesión Cerebral Traumática",
+      "wrongful_death": "$5M - Muerte Injusta",
+      "car_accident": "$5M - Accidente de Coche"
+    }
+  },
+  "start_case": "Comience su caso",
+  "compensation_message": "¿Lesionado en un Accidente con un Camión de Entrega de Amazon? <br/> Esto es lo que necesitas saber",
+  "urgent_cases": {
+    "intro": "El auge de los servicios de entrega de Amazon ha hecho que las compras en línea sean más convenientes que nunca para millones de estadounidenses, con opciones de envío asequibles o gratuitas al alcance de la mano. Sin embargo, el aumento de vehículos de entrega en las carreteras, algunos operados por empleados de Amazon y otros por contratistas independientes, ha llevado a un mayor riesgo de accidentes. Si has estado involucrado en un choque con un camión de entrega de Amazon, navegar por el proceso legal complejo puede ser un reto. Un abogado experimentado en accidentes con camiones de entrega de Amazon puede guiarte a través de los pasos necesarios para obtener una compensación, ya sea que tu reclamación sea contra un contratista independiente o Amazon mismo, y asegurarse de que recibas el apoyo financiero necesario para recuperarte."
+  },
+  "why_choose_us": {
+    "title": "¿Qué hacer a continuación?",
+    "points": [
+      "<strong>Consulta Gratis 24/7</strong>",
+      "<strong>Revisamos tu Caso</strong> - Te explicaremos todo sobre tu caso desde el momento en que hablamos.",
+      "<strong>Recibe Pago, Recibe Justicia</strong> - Obtén la atención médica y la compensación que mereces."
+    ]
+  },
+  "what_we_handle": {
+    "title": "Lo que manejaremos por ti",
+    "points": [
+      "<strong>Sin Dinero Adelantado</strong> - No pagas a menos que ganemos tu caso.",
+      "<strong>Acceso a Atención Médica de Primera</strong> - Te conectamos con médicos experimentados y de alta calidad, sin costos de bolsillo.",
+      "<strong>Compensación Máxima</strong> - Estamos comprometidos a obtener el acuerdo más alto posible.",
+      "<strong>Representación Discreta</strong> - Tu historia se mantiene privada y confidencial.",
+      "<strong>Avance en Efectivo</strong> - Te ayudamos a acceder a fondos antes de que se resuelva tu caso.",
+      "<strong>Vamos a tu Encuentro</strong> - Viajamos para encontrarnos contigo si es necesario."
+    ]
+  },
+  "what_you_need_to_know": {
+    "title": "Lo que necesitas saber ahora",
+    "questions": [
+      {
+        "title": "¿Necesito un abogado después de un accidente con un camión de entrega de Amazon?",
+        "content": "<p>Sí. Un abogado especializado en accidentes con camiones de entrega de Amazon puede ayudarte a navegar por el complejo proceso legal y maximizar tu compensación por lesiones y daños.</p>"
+      },
+      {
+        "title": "¿Cuáles son los pasos a seguir después de un accidente con un camión de entrega de Amazon?",
+        "content": "<ul> <li>Busca atención médica inmediatamente</li> <li>Recoge evidencia y declaraciones de testigos</li> <li>Contacta a un abogado especializado en accidentes con camiones de entrega de Amazon</li> </ul>"
+      },
+      {
+        "title": "¿Qué pasa si el conductor de Amazon era un contratista independiente?",
+        "content": "<p>Si el conductor de Amazon era un contratista independiente, el proceso para presentar una reclamación puede ser diferente al que se lleva a cabo contra Amazon directamente. Un abogado puede ayudarte a navegar por estos detalles.</p>"
+      },
+      {
+        "title": "¿Qué seguro tiene un conductor de Amazon?",
+        "content": "<p>Amazon proporciona a sus socios de entrega una Póliza de Seguro Comercial de Automóviles en muchos estados, que cubre la responsabilidad del automóvil, cobertura de conductores sin seguro o con seguro insuficiente, y cobertura integral y de colisión contingente.</p>"
+      },
+      {
+        "title": "¿Puedo obtener compensación si me lesioné en un accidente con un camión de entrega de Amazon?",
+        "content": "<p>Sí. Con la ayuda de un abogado especializado en accidentes con camiones de entrega de Amazon, puedes buscar compensación por gastos médicos, salarios perdidos, dolor y sufrimiento, y otros daños relacionados.</p>"
+      },
+      {
+        "title": "¿Cómo puede un abogado ayudarme después de un accidente con un camión de Amazon?",
+        "content": "<p>Un abogado puede ayudarte a reunir evidencia, tratar con las compañías de seguros y asegurarse de que sigas los pasos legales correctos para maximizar tu compensación por el accidente.</p>"
+      },
+      {
+        "title": "¿Qué hago si no sé por dónde empezar con mi caso de accidente con un camión de Amazon?",
+        "content": "<p>No te preocupes. Mendez y Sanchez ofrece una revisión gratuita de tu caso para ayudarte a determinar tus opciones legales y proporcionarte orientación sobre los siguientes pasos en tu proceso de recuperación.</p>"
+      }
+    ]
+  },
+  "contact_info": {
+    "address": "Dirección",
+    "email": "Correo",
+    "phone": "Número"
+  },
+  "copyright": "© 2025 Méndez & Sánchez - Todos Los Derechos Reservados",
+  "metadata": {
+    "title": "Abogado de Accidente con Camión de Entrega de Amazon",
+    "description": "¿Lesionado en un accidente con un camión de entrega de Amazon? Nuestros abogados experimentados te guiarán en el proceso legal y te ayudarán a obtener la compensación que mereces, ya sea contra Amazon o un contratista independiente.",
+    "keywords": "Accidente de camión de entrega de Amazon, Abogado de accidente de camión de Amazon, Lesiones por accidente con camión de Amazon, Accidente con camión de Amazon en [city/state], Abogado para accidente con camión de Amazon, Accidente de camión de reparto Amazon, Abogados de lesiones por accidente de Amazon, Abogado especializado en accidentes con camiones de entrega, Accidente con camión de entrega de Amazon en California, Accidentes de tráfico con camiones de Amazon, Lesiones en accidentes de camión de entrega, Compensación por accidente de camión Amazon, Indemnización por accidente con camión de Amazon, Demandar a Amazon por accidente de camión, Accidente en ruta de Amazon, Accidente con contratista de Amazon, Derechos de víctimas de accidentes de Amazon, Abogados para accidente de camión de reparto, Accidente con conductor independiente de Amazon, Daños por accidente de camión de Amazon, Cómo demandar a Amazon por accidente de camión, Qué hacer después de un accidente con camión de Amazon, Accidente con camión de Amazon en [City/County], ¿Necesito un abogado para accidente con camión de Amazon?, Lesiones graves por accidente con camión de entrega de Amazon, Cómo obtener compensación por accidente con camión de Amazon, Accidente de tráfico con Amazon y contratistas independientes, ¿Puedo demandar a Amazon por accidente de camión de entrega?, Abogado especializado en accidentes con camiones de Amazon en [State], Accidente con camión de Amazon, ¿qué seguro cubre?, Consulta gratuita accidente camión Amazon, Revisión gratuita del caso de accidente de Amazon, Compensación por accidente con camión de Amazon hoy, Ayuda legal para accidente de camión Amazon, Iniciar caso de accidente con camión Amazon, Abogado accidentado con camión Amazon sin costo inicial, Obtén compensación por accidente de camión Amazon ahora, Reclama daños por accidente con camión de Amazon"
+  }
+}

@@ -17,16 +17,16 @@ import { Trans as Translate } from 'next-i18next';
 import { Container, Row, Col } from 'react-bootstrap';
 import Link from 'next/link';
 
-function CarAccident() {
+function AmazonTruckAccident() {
   const phone = '4244671777';
-  const { t } = useTranslation('carAccident');
+  const { t } = useTranslation('amazonTruckAccident');
 
   return (
     <>
       <Seo
         title={`${t('metadata.title')} | Mendez & Sanchez APC`}
         description={t('metadata.description')}
-        ogImage={require('../../../public/img/landing/car-accident/hero.webp').default.src}
+        ogImage={require('@images/landing/amazon-truck-accident/hero.webp').default.src}
         keywords={t('metadata.keywords')}
         noIndex={true}
       />
@@ -57,7 +57,7 @@ function CarAccident() {
       </header>
 
       {/* About Section */}
-      <section className={cx(styles['about-section'], 'text-center')} id="headerForm">
+      <section className={cx(styles['about-section'], 'text-center pb-5')} id="headerForm">
         <Container className={styles.container}>
           <Row className={cx(styles['form-row'], styles['animate-slide-in'])}>
             <Col xs={12} className="mx-auto text-center">
@@ -74,7 +74,6 @@ function CarAccident() {
               </h2>
               <p className="text-white">
                 <Translate>{t('urgent_cases.intro')}</Translate>{' '}
-                <Translate>{t('urgent_cases.team')}</Translate>{' '}
                 <a onClick={() => scrollToSection('faq')}>
                   <Translate>{t('read_more')}</Translate>
                 </a>
@@ -103,13 +102,16 @@ function CarAccident() {
                 <h2>
                   <Translate>{t('why_choose_us.title')}</Translate>
                 </h2>
-                <ul className="text-black-50">
+                <ol className="mb-5">
                   {t('why_choose_us.points', { returnObjects: true }).map((item, index) => (
-                    <li key={`choose-${index}`}>
+                    <li key={`choose-${index}`} data-number={index + 1}>
                       <Translate>{item}</Translate>
                     </li>
                   ))}
-                </ul>
+                </ol>
+                <a className={styles.button} onClick={() => scrollToSection('headerForm')}>
+                  <Translate>{t('get_started')}</Translate>
+                </a>
               </div>
             </Col>
           </Row>
@@ -253,9 +255,9 @@ function CarAccident() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['carAccident']))
+      ...(await serverSideTranslations(locale, ['amazonTruckAccident']))
     }
   };
 }
 
-export default CarAccident;
+export default AmazonTruckAccident;

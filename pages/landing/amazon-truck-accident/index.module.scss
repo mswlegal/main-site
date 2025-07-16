@@ -37,7 +37,7 @@ $color_red: #d71a20;
   padding: 260px 0;
   background:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.4) 75%, #000 100%),
-    url('../../../public/img/landing/car-accident/hero.webp');
+    url('../../../public/img/landing/amazon-truck-accident/hero.webp');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -49,18 +49,23 @@ $color_red: #d71a20;
 
   h1 {
     font-family: $font-family_1;
-    font-size: 140px;
+    font-size: 7vw;
     line-height: 0.9em;
     letter-spacing: 0.5rem;
     color: #ffffff;
     mask-image: linear-gradient(to bottom, white 85%, transparent);
+    white-space: nowrap;
 
     background-clip: text;
     animation: slideIn 0.8s forwards;
     @include responsive.device-max('lg') {
-      font-size: 10vw;
-      letter-spacing: 0.5rem;
-      white-space: nowrap;
+      font-size: 6.5vw;
+    }
+
+    @include responsive.device-max('sm') {
+      font-size: 7.7vw;
+      white-space: unset;
+      line-height: 1.1em;
     }
   }
 
@@ -102,6 +107,7 @@ $color_red: #d71a20;
     @include responsive.device-max('lg') {
       font-size: 16px;
     }
+
     a {
       color: $color_red !important;
       border-bottom: 2px solid;
@@ -133,11 +139,12 @@ $color_red: #d71a20;
     font-size: 90%;
   }
 
-  ul {
+  ul,
+  ol {
     margin: 0;
     padding-left: 1.2rem;
     text-align: left;
-    @include responsive.device-max('md') { 
+    @include responsive.device-max('md') {
       padding-left: 0;
     }
     li {
@@ -148,19 +155,46 @@ $color_red: #d71a20;
       strong {
         color: $color_red;
       }
+    }
+  }
+
+  ul li {
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: -2px;
+      width: 10px;
+      height: 22px;
+      border-width: 0 2px 2px 0;
+      border-style: solid;
+      border-color: $color_red;
+      transform-origin: bottom left;
+      transform: rotate(45deg);
+    }
+  }
+
+  ol {
+    li {
+      position: relative;
+      padding-left: 30px; // Adjust padding to make space for the circle
+
       &::before {
-        content: '';
-        display: block;
+        content: attr(data-number); // Use the value of the "data-number" attribute
+        display: inline-block;
         position: absolute;
-        left: 0;
-        top: -2px;
-        width: 10px;
-        height: 22px;
-        border-width: 0 2px 2px 0;
-        border-style: solid;
-        border-color: $color_red;
-        transform-origin: bottom left;
-        transform: rotate(45deg);
+        left: -5px;
+        top: 2px;
+        width: 28px;
+        height: 28px;
+        line-height: 1.5em; // Vertically center the number inside the circle
+        text-align: center;
+        border-radius: 50%; 
+        background-color: $color_red;
+        color: #fff;
+        font-weight: bold; 
+        font-size: 18px;
       }
     }
   }
