@@ -2,34 +2,41 @@
 
 import { usePathname, useSearchParams } from 'next/navigation';
 import { usePostHog } from 'posthog-js/react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-// Shared environment check function
 const initiateTracking = () => process.env.NODE_ENV !== 'development';
 
 export function usePostHogPageViews() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const posthog = usePostHog();
-  const url = `${pathname}?${searchParams.toString()}`;
+  const lastUrl = useRef(null);
+
+  // Build full URL with query params
+  const url = searchParams.toString()
+    ? `${pathname}?${searchParams.toString()}`
+    : pathname;
 
   useEffect(() => {
-    if (initiateTracking()) {
+    if (!initiateTracking() || !posthog) return;
+
+    // Only capture when the URL actually changes
+    if (url && lastUrl.current !== url) {
       posthog.capture('$pageview', { url });
+      lastUrl.current = url;
     }
   }, [url, posthog]);
 
   useEffect(() => {
-    if (initiateTracking()) {
-      const handlePageLeave = () => {
-        posthog.capture('$pageleave', { url });
-      };
+    if (!initiateTracking() || !posthog) return;
 
-      window.addEventListener('beforeunload', handlePageLeave);
+    const handlePageLeave = () => {
+      posthog.capture('$pageleave', { url });
+    };
 
-      return () => {
-        window.removeEventListener('beforeunload', handlePageLeave);
-      };
-    }
+    window.addEventListener('beforeunload', handlePageLeave);
+    return () => {
+      window.removeEventListener('beforeunload', handlePageLeave);
+    };
   }, [url, posthog]);
 }
