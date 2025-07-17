@@ -68,14 +68,17 @@ $header_height: 45vh;
         }
       }
 
-      h2 {
+      span.subheader {
         color: $color_white;
-        font-size: 24px;
+        font-size: 20px;
         text-transform: uppercase;
         margin-bottom: 12px;
+        font-weight: 700;
+        line-height: 1.2;
+        font-family: Josefin Sans;
         @include responsive.device-max('md') {
           text-align: center;
-          font-size: 16px
+          font-size: 16px;
         }
       }
 

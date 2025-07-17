@@ -38,7 +38,7 @@ function ContactPage() {
         <Container className={styles.container}>
           <Row className={styles.row}>
             <Col lg={6} xs={12}>
-              {subheader.length > 0 && <h2>{subheader}</h2>}
+              {subheader.length > 0 && <span className={styles.subheader}>{subheader}</span>}
               <IsInViewProvider>
                 <h1>
                   Free Case Evaluation <br /> <span>No Fees</span> Unless <br className="d-md-none d-block" />
