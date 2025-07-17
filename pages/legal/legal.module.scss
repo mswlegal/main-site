@@ -38,6 +38,7 @@ $header_height: 40vh;
         color: $color_white;
         text-transform: uppercase;
         font-size: 60px;
+        text-shadow: 3px 3px 3px #000;
         @include responsive.device-max('lg') {
           font-size: 40px;
         }
