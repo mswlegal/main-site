@@ -10,7 +10,9 @@ export function usePostHogPageViews() {
   const posthog = usePostHog();
 
   useEffect(() => {
-    const url = `${pathname}?${searchParams.toString()}`;
-    posthog.capture('$pageview', { url });
+    if (process.env.NODE_ENV !== 'development') {
+      const url = `${pathname}?${searchParams.toString()}`;
+      posthog.capture('$pageview', { url });
+    }
   }, [pathname, searchParams, posthog]);
 }
