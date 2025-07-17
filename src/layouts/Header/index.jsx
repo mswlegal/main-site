@@ -107,7 +107,7 @@ const Header = ({ dark }) => {
                 {isHomePage ? (
                   <>
                     <li>
-                      <a onClick={() => handleChangeRoute('/about')}>About</a>
+                      <a onClick={() => handleChangeRoute('/about')}>About Us</a>
                     </li>
                     <li>
                       <a onClick={() => handleMenuOnClick('services')}>Services</a>
