@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect } from 'react';
 import posthog from 'posthog-js';
 import { PostHogProvider as PHProvider } from 'posthog-js/react';
+import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
 export function PostHogProvider({ children }) {
   useEffect(() => {
@@ -15,3 +16,7 @@ export function PostHogProvider({ children }) {
 
   return <PHProvider client={posthog}>{children}</PHProvider>;
 }
+
+PostHogProvider.propTypes = {
+  children: PropTypes.node.isRequired
+};
