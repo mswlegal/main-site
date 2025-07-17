@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { movingAnimation, aTagClick, dataImage } from '../../utilities';
+import { movingAnimation, aTagClick } from '../../utilities';
 import Cursor from '../Cursor';
 import Footer from '../Footer';
 import Header from '../Header';
@@ -31,7 +31,6 @@ const Layout = ({ children, headName, dark }) => {
   }, [isLandingPage, router.events]);
 
   useEffect(() => {
-    dataImage();
     movingAnimation();
     aTagClick();
   }, []);

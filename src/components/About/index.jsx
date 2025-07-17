@@ -24,7 +24,7 @@ const About = () => {
               <span className={styles.border}>
                 <span className={`${styles.in} moving_effect`} data-direction="x" data-reverse="yes" />
               </span>
-              <div className={styles.main} data-img-url="img/about/lawyers.webp" />
+              <div className={styles.main} />
               <span className={`${styles.square} moving_effect`} data-direction="y" data-reverse="yes" />
             </div>
           </Col>
