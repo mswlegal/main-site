@@ -82,3 +82,8 @@ typings/
 dist
 .cache/
 
+# Ignore generated sitemap files
+sitemap.xml
+sitemap-*.xml
+robots.txt
+
