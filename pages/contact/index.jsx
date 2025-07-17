@@ -7,8 +7,24 @@ import Form from './Form';
 import AboutSection from '@/components/About/AboutSection';
 import StepsSection from '@/components/Steps';
 import Seo from '@/components/Seo';
+import { useRouter } from 'next/router';
 
 function ContactPage() {
+  const router = useRouter();
+  const { slug } = router.query;
+  const [subheader, setSubheader] = React.useState('');
+
+  React.useEffect(() => {
+    if (slug) {
+      // Convert kebab-case to Title Case
+      const formatted = slug
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+      setSubheader(formatted);
+    }
+  }, [slug]);
+
   return (
     <>
       <Seo
@@ -22,6 +38,7 @@ function ContactPage() {
         <Container className={styles.container}>
           <Row className={styles.row}>
             <Col lg={6} xs={12}>
+              {subheader.length > 0 && <h2>{subheader}</h2>}
               <IsInViewProvider>
                 <h1>
                   Free Case Evaluation <br /> <span>No Fees</span> Unless <br className="d-md-none d-block" />

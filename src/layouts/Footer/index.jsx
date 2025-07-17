@@ -80,7 +80,7 @@ const Footer = () => {
             </Col>
             <Col md={3} xs={6} className={styles.footer_navbar_col}>
               <h5>Contact Us</h5>
-               <ul>
+              <ul>
                 <li>
                   <a href="tel:+13238381444">{call} Los Angeles, CA</a>
                 </li>

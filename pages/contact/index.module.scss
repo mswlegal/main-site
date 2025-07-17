@@ -33,6 +33,7 @@ $header_height: 45vh;
       background-attachment: unset;
       background-size: cover;
       background-position: 30%;
+      padding-top: 70px;
     }
 
     .row {
@@ -58,12 +59,23 @@ $header_height: 45vh;
 
         @include responsive.device-max('lg') {
           font-size: 40px;
+          text-align: center;
         }
 
         @include responsive.device-max('sm') {
           font-size: 30px;
           margin-bottom: 20px;
-          margin-top: 60px;
+        }
+      }
+
+      h2 {
+        color: $color_white;
+        font-size: 24px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        @include responsive.device-max('md') {
+          text-align: center;
+          font-size: 16px
         }
       }
 
