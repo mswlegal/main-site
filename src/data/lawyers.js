@@ -43,6 +43,13 @@ export const lawyers = [
     image: AryaImg.src
   },
   {
+    name: 'Jennifer Russell, Esq.',
+    role: 'Senior Attorney',
+    description:
+      'Jennifer Russell is a highly skilled personal injury lawyer with extensive experience in complex litigation. Known for her strategic thinking and deep legal knowledge, she is a dedicated advocate who consistently delivers strong results for clients facing serious injury claims.',
+    image: JenniferImg.src
+  },
+  {
     name: 'Arielle Farias, Esq.',
     role: 'Associate Attorney',
     description:
@@ -70,13 +77,7 @@ export const lawyers = [
       'Harrison Shiels is a passionate trial attorney who graduated from Southwestern Law School in 2023 and holds a degree from the University of Michigan. As co-founder of Foresight Focus Groups, he helps trial lawyers improve their strategies. Outside the courtroom, he’s a DJ, music producer, and fitness enthusiast.',
     image: HarrisonImg.src
   },
-  {
-    name: 'Jennifer Russell, Esq.',
-    role: 'Associate Attorney',
-    description:
-      'Jennifer Russell is a highly skilled personal injury lawyer with extensive experience in complex litigation. Known for her strategic thinking and deep legal knowledge, she is a dedicated advocate who consistently delivers strong results for clients facing serious injury claims.',
-    image: JenniferImg.src
-  },
+
   {
     name: 'Brittany Farias, Esq.',
     role: 'Associate Attorney',
