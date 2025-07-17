@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Script from 'next/script';
 import { appWithTranslation } from 'next-i18next';
 import { useLocalePath } from '@/hooks/routeResolver';
+import { PostHogProvider } from '@/providers/posthogProvider';
+import { usePostHogPageViews } from '@/hooks/usePostHogPageViews';
 
 /* eslint react/prop-types: 0 */
 const queryClient = new QueryClient({
@@ -23,6 +25,7 @@ const queryClient = new QueryClient({
 
 function MyApp({ Component, pageProps }) {
   useLocalePath();
+  usePostHogPageViews();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -42,9 +45,11 @@ function MyApp({ Component, pageProps }) {
           `
         }}
       />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <PostHogProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </PostHogProvider>
     </QueryClientProvider>
   );
 }
