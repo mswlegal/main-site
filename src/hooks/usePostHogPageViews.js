@@ -13,9 +13,7 @@ export function usePostHogPageViews() {
   const lastUrl = useRef(null);
 
   // Build full URL with query params
-  const url = searchParams.toString()
-    ? `${pathname}?${searchParams.toString()}`
-    : pathname;
+  const url = searchParams.toString() ? `${pathname}?${searchParams.toString()}` : pathname;
 
   useEffect(() => {
     if (!initiateTracking() || !posthog) return;

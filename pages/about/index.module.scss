@@ -4,7 +4,6 @@
 $color_dark: #15111e;
 $color_white: #fff;
 $color_red: #d71a20;
-$header_height: 45vh;
 
 .section {
   background-color: $color_dark;
@@ -32,7 +31,7 @@ $header_height: 45vh;
       background-position: 30%;
     }
     .row {
-      min-height: $header_height;
+      height: 500px;
       justify-content: center;
       align-items: center;
       text-align: center;

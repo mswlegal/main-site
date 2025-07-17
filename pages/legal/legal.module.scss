@@ -2,7 +2,6 @@
 
 $color_dark: #15111e;
 $color_white: #fff;
-$header_height: 40vh;
 
 .section {
   background-color: $color_dark;
@@ -30,7 +29,7 @@ $header_height: 40vh;
       background-position: 35%;
     }
     .row {
-      min-height: $header_height;
+      height: 500px;
       justify-content: center;
       align-items: center;
       text-align: center;
@@ -58,7 +57,7 @@ $header_height: 40vh;
     background-color: #f4f5fe;
     position: relative;
     .row {
-      min-height: 100vh - $header_height;
+      min-height: 45vh;
       align-items: center;
     }
 
