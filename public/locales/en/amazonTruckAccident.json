@@ -28,7 +28,7 @@
   "start_case": "Start your case",
   "compensation_message": "Injured in an Amazon Delivery Truck Accident? <br/> Here's What You Need to Know",
   "urgent_cases": {
-    "intro": "The rise of Amazon’s delivery services has made online shopping more convenient than ever for millions of Americans, with affordable or free shipping options now at their fingertips. However, the increase in delivery vehicles on the road—some operated by Amazon employees and others by independent contractors—has led to a higher risk of accidents. If you've been involved in an Amazon delivery truck crash, navigating the complex legal process can be challenging. An experienced Amazon delivery truck accident lawyer can guide you through the necessary steps to pursue compensation, whether your claim is against an independent contractor or Amazon itself, and ensure you receive the financial support you need to recover."
+    "intro": "The rise of Amazon's delivery services has made online shopping more convenient than ever for millions of Americans, with affordable or free shipping options now at their fingertips. However, the increase in delivery vehicles on the road—some operated by Amazon employees and others by independent contractors—has led to a higher risk of accidents. If you've been involved in an Amazon delivery truck crash, navigating the complex legal process can be challenging. An experienced Amazon delivery truck accident lawyer can guide you through the necessary steps to pursue compensation, whether your claim is against an independent contractor or Amazon itself, and ensure you receive the financial support you need to recover."
   },
   "why_choose_us": {
     "title": "What To Do Next?",
@@ -52,36 +52,35 @@
   "what_you_need_to_know": {
     "title": "What you need to know right now",
     "questions": [
-    {
-        "title": "Do I need a lawyer after an Amazon delivery truck accident?",
-        "content": "<p>Yes. An Amazon delivery truck accident lawyer can help you navigate the complex legal process and maximize your compensation for injuries and damages.</p>"
-    },
-    {
+      {
+        "title": "Why Are Amazon Truck Drivers Not Classified as Employees?",
+        "content": "<p>There's been growing confusion over the employment status of Amazon's delivery drivers. Although they wear Amazon uniforms and drive vans with the company's branding, these drivers are typically classified as independent contractors—not official Amazon employees.</p><p>This classification shields Amazon from legal responsibility in cases of driver misconduct or accidents. It's also a major reason why many drivers have protested, citing poor treatment and stressful working conditions. Many of them are demanding to be officially recognized as Amazon employees to receive better protections and benefits.</p><p>As one driver told CNN, 'If we weren't Amazon workers, we wouldn't be driving their trucks, wearing their uniforms, or delivering their packages.'</p><p>Much of the confusion stems from Amazon's Delivery Service Partner (DSP) Program, a system that allows third-party businesses to handle deliveries on Amazon's behalf.</p>"
+      },
+      {
         "title": "What are the steps to take after an Amazon delivery truck accident?",
         "content": "<ul> <li>Seek medical attention immediately</li> <li>Gather evidence and witness statements</li> <li>Contact a lawyer who specializes in Amazon delivery truck accidents</li> </ul>"
-    },
-    {
+      },
+      {
         "title": "What if the Amazon driver was an independent contractor?",
         "content": "<p>If the Amazon driver was an independent contractor, the process for filing a claim may differ from taking action against Amazon itself. A lawyer can help you navigate these details.</p>"
-    },
-    {
+      },
+      {
         "title": "What insurance does an Amazon delivery driver have?",
         "content": "<p>Amazon provides its delivery partners with an Amazon Commercial Auto Insurance Policy in many states, covering auto liability, uninsured/underinsured motorist coverage, and contingent comprehensive and collision coverage.</p>"
-    },
-    {
+      },
+      {
         "title": "Can I get compensation if I was injured in an Amazon delivery truck accident?",
         "content": "<p>Yes. With the help of an Amazon delivery truck accident lawyer, you can seek compensation for medical expenses, lost wages, pain and suffering, and other related damages.</p>"
-    },
-    {
+      },
+      {
         "title": "How can a lawyer assist me after an Amazon truck accident?",
         "content": "<p>A lawyer can help you gather evidence, deal with insurance companies, and ensure you pursue the correct legal steps to maximize your compensation for the accident.</p>"
-    },
-    {
-        "title": "What if I don’t know where to start with my Amazon truck accident case?",
+      },
+      {
+        "title": "What if I don't know where to start with my Amazon truck accident case?",
         "content": "<p>Don't worry. Mendez and Sanchez offers a free case review to help determine your legal options and provide guidance on next steps in your recovery process.</p>"
-    }
-]
-
+      }
+    ]
   },
   "contact_info": {
     "address": "address",
