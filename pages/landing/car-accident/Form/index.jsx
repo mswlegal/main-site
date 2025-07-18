@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'next-i18next';
 import Script from 'next/script';
+import posthog from 'posthog-js';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -29,10 +30,31 @@ function Form() {
   const [formData, setFormData] = React.useState(initialData);
   const [hasSubmitted, setHasSubmitted] = React.useState(false);
 
+  const [utmData, setUtmData] = React.useState({
+    utm_campaign: null,
+    utm_source: null,
+    utm_medium: null,
+    utm_term: null,
+    utm_content: null
+  });
+
   const { fullName, email, phone, summary } = formData;
 
   const handleFormSubmitSuccess = async () => {
-    // conversion tracking
+    const distinctId = posthog.get_distinct_id();
+
+    const properties = {
+      email: email || null,
+      phone: phone || null,
+      distinct_id: distinctId,
+      ...utmData
+    };
+
+    // Identify and track in PostHog
+    posthog.identify(email || phone || distinctId, properties);
+    posthog.capture('form_submitted', properties);
+
+    // Google ads conversion tracking
     if (typeof window !== 'undefined' && typeof window.gtag_report_form_submit === 'function') {
       window.gtag_report_form_submit();
     }
@@ -52,18 +74,16 @@ function Form() {
       e.preventDefault();
 
       const { firstName, lastName } = getFirstAndLastName(fullName);
-      const params = new URLSearchParams(window?.location?.search);
-
       submitForm({
         First: firstName,
         Last: lastName,
         Email: email,
         Phone: phone.replace(/\D/g, ''),
         Summary: summary,
-        Marketing_Campaign_Name: params?.get('utm_campaign'),
-        Marketing_Campaign_Source: params?.get('utm_source'),
-        Marketing_Campaign_Medium: params?.get('utm_medium'),
-        Marketing_Source: sources[params?.get('utm_source')?.toLowerCase().trim()]
+        Marketing_Campaign_Name: utmData.utm_campaign,
+        Marketing_Campaign_Source: utmData.utm_source,
+        Marketing_Campaign_Medium: utmData.utm_medium,
+        Marketing_Source: sources[utmData.utm_source?.toLowerCase()?.trim()]
       });
     },
     [fullName, email, phone, summary, submitForm]
@@ -92,6 +112,19 @@ function Form() {
       setHasSubmitted(false);
     })();
   }, [hasSubmitted]);
+
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window?.location?.search);
+      setUtmData({
+        utm_campaign: params?.get('utm_campaign'),
+        utm_source: params?.get('utm_source'),
+        utm_medium: params?.get('utm_medium'),
+        utm_term: params?.get('utm_term'),
+        utm_content: params?.get('utm_content')
+      });
+    }
+  }, []);
 
   return (
     <>
