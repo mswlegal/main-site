@@ -11,6 +11,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'next-i18next';
 import Script from 'next/script';
 import posthog from 'posthog-js';
+import { useUtmData } from '@/hooks/useUtmData';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -29,14 +30,7 @@ function Form() {
   const { t } = useTranslation('carAccident');
   const [formData, setFormData] = React.useState(initialData);
   const [hasSubmitted, setHasSubmitted] = React.useState(false);
-
-  const [utmData, setUtmData] = React.useState({
-    utm_campaign: null,
-    utm_source: null,
-    utm_medium: null,
-    utm_term: null,
-    utm_content: null
-  });
+  const utmData = useUtmData();
 
   const { fullName, email, phone, summary } = formData;
 
@@ -112,20 +106,6 @@ function Form() {
       setHasSubmitted(false);
     })();
   }, [hasSubmitted]);
-
-  React.useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window?.location?.search);
-      setUtmData({
-        utm_campaign: params?.get('utm_campaign'),
-        utm_source: params?.get('utm_source'),
-        utm_medium: params?.get('utm_medium'),
-        utm_term: params?.get('utm_term'),
-        utm_content: params?.get('utm_content')
-      });
-    }
-  }, []);
-
   return (
     <>
       <Script

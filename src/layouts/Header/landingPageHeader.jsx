@@ -9,11 +9,28 @@ import Container from 'react-bootstrap/Container';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { formatPhoneNumber } from '@/utilities';
+import posthog from 'posthog-js';
+import { useUtmData } from '@/hooks/useUtmData';
 
 export default function LandingPageHeader({ dark, phone }) {
   const headerRef = React.useRef(null);
+  const utmData = useUtmData();
+
+  // Ref to track if identify has been called
+  const identifiedRef = React.useRef(false);
 
   const handlePhoneClick = (e) => {
+    if (!identifiedRef.current) {
+      const distinctId = posthog.get_distinct_id();
+
+      posthog.identify(distinctId, utmData);
+      identifiedRef.current = true;
+    }
+
+    posthog.capture('phone_clicked', {
+      location: 'navbar'
+    });
+
     if (typeof window !== 'undefined' && typeof window.gtag_report_header_phone_click === 'function') {
       window.gtag_report_header_phone_click();
     }
@@ -23,18 +40,17 @@ export default function LandingPageHeader({ dark, phone }) {
     let offset = window.scrollY;
 
     if (headerRef.current) {
-      if (headerRef.current) {
-        if (offset > 100) {
-          headerRef.current.classList.add('animate');
-        } else {
-          headerRef.current.classList.remove('animate');
-        }
+      if (offset > 100) {
+        headerRef.current.classList.add('animate');
+      } else {
+        headerRef.current.classList.remove('animate');
       }
     }
   };
 
   React.useEffect(() => {
     window.addEventListener('scroll', stickyNav);
+    return () => window.removeEventListener('scroll', stickyNav);
   }, []);
 
   return (
@@ -110,5 +126,6 @@ export default function LandingPageHeader({ dark, phone }) {
 }
 
 LandingPageHeader.propTypes = {
-  phone: PropTypes.string.isRequired
+  phone: PropTypes.string.isRequired,
+  dark: PropTypes.bool
 };
