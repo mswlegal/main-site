@@ -12,7 +12,10 @@ export function PostHogProvider({ children }) {
       posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
         api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
         person_profiles: 'identified_only',
-        capture_pageview: false // We'll handle pageviews manually
+        capture_pageview: false, // We'll handle pageviews manually
+        capture_uncaught_exceptions: true,
+        capture_unhandled_rejections: true,
+        enable_recording_console_log: true
       });
     }
   }, []);
