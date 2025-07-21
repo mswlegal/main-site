@@ -245,7 +245,7 @@ $header_height: 45vh;
   }
 
   .button {
-    position: fixed;
+    position: fixed !important;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
