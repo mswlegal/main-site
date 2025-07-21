@@ -176,6 +176,9 @@
     p {
       font-size: 14px;
       line-height: 1.1em;
+      @include responsive.device-max('md') {
+        font-size: 12px;
+      }
       a {
         color: #d71a20;
         text-decoration: none;
