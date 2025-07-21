@@ -154,7 +154,7 @@ $header_height: 45vh;
       padding: 0 !important;
       border-radius: 16px;
       img {
-        border-radius: 20px;
+        border-radius: 10px;
       }
 
       :global(.card-title) {
@@ -189,7 +189,7 @@ $header_height: 45vh;
   .form {
     background-color: #f4f5fe;
     padding: 25px 15px;
-    border-radius: 20px;
+    border-radius: 10px;
     :global([class*='MainForm_disclaimer']) {
       color: $color_dark;
     }

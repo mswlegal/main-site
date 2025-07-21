@@ -14,6 +14,7 @@ import MainForm from '@/components/Forms/MainForm';
 function ContactPage() {
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
   const [openForm, setOpenForm] = React.useState(false);
+  const mainImage = require('@images/posts/pain-and-suffering.webp').default.src;
 
   const handleNativeShare = () => {
     if (navigator.share) {
@@ -39,10 +40,54 @@ function ContactPage() {
       <Seo
         title="Guide to Pain and Suffering Lawsuits | Mendez & Sanchez APC"
         description="Learn how to bring a lawsuit for pain and suffering in California or Nevada. Discover types of accidents, damages you can claim, and how Mendez & Sanchez APC fights for your compensation."
-        ogImage={require('@images/posts/pain-and-suffering.webp').default.src}
+        ogImage={mainImage}
         keywords="pain and suffering lawsuit, personal injury compensation, non-economic damages, California injury claims, Nevada injury law, car accident pain and suffering, slip and fall claims, wrongful death damages, emotional distress claims, Mendez & Sanchez law"
         noIndex={false}
-      />
+      >
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': 'https://www.mendezsanchezlaw.com/post/bringing-a-lawsuit-for-pain-and-suffering'
+            },
+            headline: 'Guide to Pain and Suffering Lawsuits | Mendez & Sanchez APC',
+            description:
+              'Learn how to bring a lawsuit for pain and suffering in California or Nevada. Discover types of accidents, damages you can claim, and how Mendez & Sanchez APC fights for your compensation.',
+            image: `https://www.mendezsanchezlaw.com${mainImage}`,
+            author: {
+              '@type': 'Organization',
+              name: 'Mendez & Sanchez APC',
+              url: 'https://www.mendezsanchezlaw.com/'
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Mendez & Sanchez APC',
+              logo: {
+                '@type': 'ImageObject',
+                url: `https://www.mendezsanchezlaw.com${require('@images/logo/logo-dark.webp').default.src}`
+              }
+            },
+            datePublished: '2024-12-18',
+            dateModified: '2024-12-18',
+            articleSection: 'Personal Injuries',
+            keywords: [
+              'pain and suffering lawsuit',
+              'personal injury compensation',
+              'non-economic damages',
+              'California injury claims',
+              'Nevada injury law',
+              'car accident pain and suffering',
+              'slip and fall claims',
+              'wrongful death damages',
+              'emotional distress claims',
+              'Mendez & Sanchez law'
+            ]
+          })}
+        </script>
+      </Seo>
+
       <section className={cx(styles.section, styles.header)}>
         <Container className={styles.container}>
           <Row className={cx(styles.row, 'text-center justify-content-center')}>
@@ -75,10 +120,7 @@ function ContactPage() {
             <Row className={styles.row}>
               <Col lg={8} xs={12}>
                 <Card className={styles.card}>
-                  <Card.Img
-                    variant="top"
-                    src={require('@images/posts/pain-and-suffering.webp').default.src}
-                  />
+                  <Card.Img variant="top" src={mainImage} />
                   <Card.Body>
                     <Row className={cx(styles['post-meta'], 'align-items-center')}>
                       <Col xs="auto" className="d-flex align-items-center me-3">
