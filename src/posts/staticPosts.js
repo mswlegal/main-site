@@ -1,5 +1,3 @@
-import painAndSufferingImg from '../../public/img/posts/pain-and-suffering.webp';
-
 const staticPosts = [
   {
     slug: 'bringing-a-lawsuit-for-pain-and-suffering',
@@ -84,7 +82,9 @@ const staticPosts = [
     `,
     date: '2024-12-18',
     articleSection: 'Personal Injuries',
-    mainImage: painAndSufferingImg,
+    mainImage: {
+      src: '/img/posts/pain-and-suffering.webp'
+    },
     keywords: [
       'pain and suffering lawsuit',
       'personal injury compensation',
