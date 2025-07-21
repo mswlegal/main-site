@@ -1,8 +1,9 @@
 const staticPosts = [
   {
     slug: 'bringing-a-lawsuit-for-pain-and-suffering',
-    title: 'Guide to Pain and Suffering Lawsuits | Mendez & Sanchez APC',
+    title: 'Guide to Pain and Suffering Lawsuits',
     description: 'Learn how to bring a lawsuit for pain and suffering in California or Nevada...',
+    header: 'A Guide to Bringing a Lawsuit for <span>Pain and Suffering</span>',
     content: `
       <p>Injury treatment can cost tens of thousands or even hundreds of thousands of dollars, and it could hinder your ability to earn money through work. The costs of an injury, though, can go beyond money.</p>
       <p>Injury victims and their families may experience severe emotional distress as a result of their injuries. The state of California’s lawmakers allow personal injury claimants to seek compensation for the quality of life repercussions of their injuries because the psychological effects of injuries can be so severe.</p>
@@ -92,6 +93,125 @@ const staticPosts = [
       'California injury claims',
       'Nevada injury law'
     ]
+  },
+  {
+    slug: 'top-10-dog-breeds-that-are-most-likely-to-attack',
+    title: 'Top 10 Dog Breeds That Are Most Likely to Attack',
+    description:
+      'Learn about the dog breeds most prone to attacks, steps to take if bitten, and important dog bite laws to protect yourself.',
+    header: '<span>Top 10 Dog Breeds</span> That Are Most Likely to Attack',
+    content: `
+      <h3>Dogs and Aggression: An Overview</h3>
+
+      <p>Dogs are often considered man's best friend, and for good reason. They provide companionship, protection, and loyalty to their owners. However, it is important to remember that dogs are still animals and can be unpredictable at times. Some breeds are more prone to aggressive behavior than others, which can lead to serious injury or even death.</p>
+
+      <p>As a personal injury law firm, we have seen firsthand the devastating effects of dog attacks. In this blog post, we will be discussing the top 10 dog breeds that are most likely to attack, as well as some important information about dog bite laws and what to do if you or a loved one is attacked.</p>
+
+      <h3>Top 10 Dog Breeds Most Likely to Attack</h3>
+      <ol>
+        <li>
+          <strong>Pit Bulls</strong>
+          <img src="https://cdn.prod.website-files.com/5f9358a2ec000980249e2ae2/64514b12f8dad420fdb8ffb3_Pitbull.jpg" alt="Pitbull laying on a picnic mat in the sun." loading="lazy" />
+          <p>Pit Bulls are one of the most controversial dog breeds when it comes to aggression. Despite their loving nature towards their owners, they have a history of being used for dog fighting, which has led to their aggressive tendencies. According to the American Veterinary Medical Association, Pit Bulls are responsible for a significant number of fatal dog attacks each year. According to a report by DogsBite.org, Pit Bulls were responsible for 66% of all dog bite-related deaths in the United States between 2005 and 2020.</p>
+        </li>
+
+        <li>
+          <strong>Rottweilers</strong>
+          <img src="https://cdn.prod.website-files.com/5f9358a2ec000980249e2ae2/64514b7b4794bfeec746f286_Rottweiler%20(1).jpg" alt="Rottweiler in a lake surrounded by greenery under sunlight with a blurry background" loading="lazy" />
+          <p>Rottweilers were originally bred as guard dogs and have an instinct to protect their owners. However, they can become aggressive towards strangers or other animals if not properly trained and socialized. According to the Centers for Disease Control and Prevention (CDC), Rottweilers are responsible for a significant number of fatal dog attacks each year. According to a more recent report by DogsBite.org, a national dog bite victims' group, Rottweilers were responsible for 10.5% of all dog bite fatalities in the United States between 2005 and 2020. While the percentage of fatalities attributed to Rottweilers has decreased over the years, they remain a breed that can potentially pose a danger if not properly trained and socialized.</p>
+        </li>
+
+        <li>
+          <strong>German Shepherds</strong>
+          <img src="https://cdn.prod.website-files.com/5f9358a2ec000980249e2ae2/64514bdf64190362385168cf_German%20Sheperd.jpg" alt="Closeup portrait of a cute german shepherd dog running on the grass" loading="lazy" />
+          <p>German Shepherds are known for their loyalty and intelligence, which makes them popular as police and military dogs. However, they can become aggressive if they perceive a threat to their owner or territory. According to the CDC, German Shepherds are responsible for a significant number of fatal dog attacks each year.</p>
+        </li>
+
+        <li>
+          <strong>Doberman Pinschers</strong>
+          <img src="https://cdn.prod.website-files.com/5f9358a2ec000980249e2ae2/64514c348ffbb7b890fadc7b_doberman.jpg" alt="Doberman dog isolated on white in studio." loading="lazy" />
+          <p>Doberman Pinschers were originally bred as guard dogs and have a natural instinct to protect their owners. They are intelligent, loyal, and obedient, but can become aggressive if not properly trained and socialized. According to the CDC, Doberman Pinschers are responsible for a significant number of fatal dog attacks each year.</p>
+        </li>
+
+        <li>
+          <strong>Chow Chows</strong>
+          <img src="https://cdn.prod.website-files.com/5f9358a2ec000980249e2ae2/64514cd89b5277b576e69061_Chow%20chow.jpg" alt="Adult orange chow chow photo." loading="lazy" />
+          <p>Chow Chows are known for their thick fur and blue-black tongue. They are loyal and protective of their owners, but can be aggressive towards strangers or other animals if not properly trained and socialized. According to the CDC, Chow Chows are responsible for a significant number of fatal dog attacks each year.</p>
+        </li>
+
+        <li>
+          <strong>Boxers</strong>
+          <img src="https://cdn.prod.website-files.com/5f9358a2ec000980249e2ae2/64514d3990f9b44801567c3e_boxer.jpg" alt="Boxer dog standing in a park." loading="lazy" />
+          <p>Boxers are energetic and playful dogs, but they can become aggressive towards other dogs or animals if not properly trained and socialized. According to the CDC, Boxers are responsible for a significant number of fatal dog attacks each year.</p>
+        </li>
+
+        <li>
+          <strong>Siberian Huskies</strong>
+          <img src="https://cdn.prod.website-files.com/5f9358a2ec000980249e2ae2/64514d87ef8c7ea5f13f8957_Huskie.jpg" alt="Siberian Huskie isolated in a studio with blue background." loading="lazy" />
+          <p>Siberian Huskies are known for their beautiful coat and striking blue eyes. They are loyal and affectionate towards their owners, but can become aggressive towards strangers or other animals if not properly trained and socialized. According to the CDC, Siberian Huskies are responsible for a significant number of fatal dog attacks each year.</p>
+        </li>
+
+        <li>
+          <strong>Dalmatians</strong>
+          <img src="https://cdn.prod.website-files.com/5f9358a2ec000980249e2ae2/64514dd06419035acc51808a_Dalmatian.jpg" alt="Dalmatian owner giving a treat to her pet." loading="lazy" />
+          <p>Dalmatians are known for their distinctive spotted coat and friendly personality. However, they can become aggressive if not properly trained and socialized. According to the CDC, Dalmatians are responsible for a significant number of fatal dog attacks each year.</p>
+        </li>
+
+        <li>
+          <strong>Alaskan Malamutes</strong>
+          <img src="https://cdn.prod.website-files.com/5f9358a2ec000980249e2ae2/64514e68fa591c8b30cf983b_Alaskan%20Malamute.jpg" alt="Alaskan Malamute looking fierce in the snow." loading="lazy" />
+          <p>Alaskan Malamutes are known for their thick fur and strong build. They are loyal and affectionate towards their owners, but can become aggressive towards strangers or other animals if not properly trained and socialized. According to the CDC, Alaskan Malamutes are responsible for a significant number of fatal dog attacks each year.</p>
+        </li>
+
+        <li>
+          <strong>Great Danes</strong>
+          <img src="https://cdn.prod.website-files.com/5f9358a2ec000980249e2ae2/64514ef385e677650e9b99b5_Great%20Dane.jpg" alt="Side portrait of a spotted Great Dane" loading="lazy" />
+          <p>Great Danes are one of the largest dog breeds and are known for their gentle and friendly nature. However, if they feel threatened or provoked, they can become aggressive towards humans or other animals. According to the CDC, Great Danes are responsible for a significant number of fatal dog attacks each year.</p>
+        </li>
+      </ol>
+
+
+
+
+      <h3>What to Do If Attacked by a Dog</h3>
+      <ul>
+        <li>
+          <strong>Seek medical attention immediately.</strong>
+          <p>Even minor bites can cause infections.</p>
+        </li>
+        <li>
+          <strong>Report the incident to local authorities.</strong>
+          <p>Animal control or police will investigate and quarantine the dog if necessary.</p>
+        </li>
+        <li>
+          <strong>Document the incident.</strong>
+          <p>Take photos, gather witness information, and keep all medical records.</p>
+        </li>
+        <li>
+          <strong>Consult a personal injury lawyer.</strong>
+          <p>You may be entitled to compensation for injuries and damages.</p>
+        </li>
+        <li>
+          <strong>Follow up on medical treatment.</strong>
+          <p>Ensure proper care and keep records of ongoing treatment.</p>
+        </li>
+      </ul>
+
+
+      <h3>Dog Bite Laws (California Example)</h3>
+      <p>California has strict liability laws holding dog owners responsible for any damage caused by their dogs, regardless of prior knowledge of aggression.</p>
+      <p>Owners aware of aggressive tendencies may face criminal liability. Dogs must be on a leash or confined; violations can result in fines and liability.</p>
+      <p>Laws vary by state and locality; it's important to know your local regulations and seek legal advice if attacked.</p>
+
+      <h3>Conclusion</h3>
+      <p>While dogs are loving companions, awareness of potentially aggressive breeds and responsible ownership is crucial. Victims of dog attacks should seek medical care, report incidents, and consider legal action to protect their rights and safety.</p>
+    `,
+    date: '2024-07-21',
+    articleSection: 'Personal Injuries',
+    mainImage: {
+      src: '/img/posts/dog-breeds.webp'
+    },
+    keywords: ['dog bites', 'personal injury', 'legal advice', 'animal attacks']
   }
 ];
 

@@ -42,7 +42,7 @@ function PostPage({ post }) {
   return (
     <>
       <Seo
-        title={post.title}
+        title={`${post.title} | Mendez & Sanchez APC`}
         description={post.description}
         ogImage={post.mainImage.src}
         keywords={post.keywords.join(', ')}
@@ -85,9 +85,7 @@ function PostPage({ post }) {
           <Row className={cx(styles.row, 'text-center justify-content-center')}>
             <Col lg={9} xs={12}>
               <IsInViewProvider>
-                <h1>
-                  A Guide to Bringing a Lawsuit for <span>Pain and Suffering</span>
-                </h1>
+                <h1 dangerouslySetInnerHTML={{ __html: post.header || post.title }} />
               </IsInViewProvider>
 
               <IsInViewProvider>
