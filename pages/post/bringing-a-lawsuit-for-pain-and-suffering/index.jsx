@@ -12,7 +12,7 @@ import ModalForm from '@/components/Forms/ModalForm';
 import MainForm from '@/components/Forms/MainForm';
 
 function ContactPage() {
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const [currentUrl, setCurrentUrl] = React.useState('');
   const [openForm, setOpenForm] = React.useState(false);
   const mainImage = require('@images/posts/pain-and-suffering.webp').default.src;
 
@@ -34,6 +34,10 @@ function ContactPage() {
   function toggleForm() {
     setOpenForm(!openForm);
   }
+
+  React.useEffect(() => {
+    setCurrentUrl(window.location.href);
+  }, []);
 
   return (
     <>
