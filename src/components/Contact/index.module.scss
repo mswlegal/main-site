@@ -21,7 +21,7 @@ $background-color_2: #3c3c3c;
   position: relative;
 
   @include responsive.device-max('md') {
-    padding: 50px 20px;
+    padding: 50px 16px;
     .container {
       padding: 0;
     }

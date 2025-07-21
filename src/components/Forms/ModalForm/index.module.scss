@@ -19,6 +19,9 @@
     border-top-left-radius: 20px !important;
     border-top-right-radius: 20px !important;
   }
+  :global(.btn-close) {
+    z-index: 1;
+  }
 
   .cardImage {
     border-radius: 16px;
@@ -45,7 +48,7 @@
     transform: translate(-50%, -50%);
     font-size: 32px;
     font-weight: 700;
-    color: #FFF;
+    color: #fff;
     line-height: 0.8em;
     text-align: center;
     width: 100%;

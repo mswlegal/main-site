@@ -13,7 +13,7 @@ $color_red: #d71a20;
     padding-bottom: 50px;
 
     @include responsive.device-max('md') {
-      padding: 50px 20px;
+      padding: 50px 16px;
     }
   }
 

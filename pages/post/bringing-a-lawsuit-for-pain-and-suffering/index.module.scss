@@ -11,8 +11,8 @@ $header_height: 45vh;
   background-color: $color_dark;
 
   .container {
-    padding-top: 150px;
-    padding-bottom: 80px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 
     @include responsive.device-max('md') {
       padding: 50px 16px;
@@ -23,7 +23,7 @@ $header_height: 45vh;
     background-color: $color_dark;
     background:
       linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%, #000 100%),
-      url('../../public/img/hero/hero.webp');
+      url('../../../public/img/hero/hero.webp');
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -99,11 +99,18 @@ $header_height: 45vh;
   }
 
   &.content {
-    background-color: #f4f5fe;
+    background-color: #fff;
     position: relative;
 
-    &.bg-light {
-      background-color: #fff;
+    .row {
+      max-height: 90vh;
+      overflow-y: hidden;
+      &:global(.isInViewport) {
+        overflow-y: scroll;
+      }
+      @include responsive.device-max('md') {
+        max-height: 100%;
+      }
     }
 
     h3 {
@@ -130,7 +137,7 @@ $header_height: 45vh;
     }
 
     ul {
-      margin-left: 36px;
+      margin-left: 15px;
 
       li {
         font-size: 16px;
@@ -142,26 +149,107 @@ $header_height: 45vh;
       }
     }
 
-    .partners {
-      &:nth-child(odd) {
-        :global([class*='Team_card']) {
-          margin-right: 16px;
-
-          @include responsive.device-max('md') {
-            margin: 0 auto;
-          }
-        }
+    .card {
+      border: none;
+      padding: 0 !important;
+      border-radius: 16px;
+      img {
+        border-radius: 20px;
       }
 
-      &:nth-child(even) {
-        :global([class*='Team_card']) {
-          margin-left: 16px;
+      :global(.card-title) {
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: bolder;
+        font-family: 'Josefin Sans';
+        margin-bottom: 0;
+      }
 
-          @include responsive.device-max('md') {
-            margin: 0 auto;
-          }
+      :global(.card-text) {
+        font-family: 'Nunito', sans-serif;
+        font-size: 14px !important;
+      }
+    }
+
+    .post-meta {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+
+      .fa-icon {
+        color: $color_red; // or your preferred color for icons
+      }
+
+      span {
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .form {
+    background-color: #f4f5fe;
+    padding: 25px 15px;
+    border-radius: 20px;
+    :global([class*='MainForm_disclaimer']) {
+      color: $color_dark;
+    }
+  }
+
+  .sticky {
+    position: sticky !important;
+    top: 0;
+    @include responsive.device-max('md') {
+      position: relative;
+    }
+  }
+
+  .share-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 16px;
+    .label {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .icon-link {
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-red;
+      border: 2px solid $color-red;
+      position: relative;
+      z-index: 0;
+      &::after {
+        content: '';
+        position: absolute;
+        height: inherit;
+        width: 0;
+        top: -2px;
+        left: -2px;
+        background-color: $color-red;
+        z-index: -1;
+        transition: all 0.2s ease-in-out;
+      }
+      &:hover {
+        color: $color-white;
+        &::after {
+          width: inherit;
         }
       }
     }
+  }
+
+  .button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    @include button.mainButton();
   }
 }

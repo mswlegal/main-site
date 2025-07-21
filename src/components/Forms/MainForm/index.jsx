@@ -8,6 +8,8 @@ import { getFirstAndLastName } from '@/utilities';
 import { sanitizeInput, formatPhoneNumber } from '@/utilities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import cx from 'classnames';
+import PropTypes from 'prop-types';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -22,7 +24,7 @@ const sources = {
   google: 'Google Ads'
 };
 
-function Form() {
+function MainForm({ className }) {
   const [formData, setFormData] = React.useState(initialData);
   const [hasSubmitted, setHasSubmitted] = React.useState(false);
 
@@ -81,7 +83,7 @@ function Form() {
 
   return (
     <>
-      <BootstrapForm className={styles['form-signup']} onSubmit={handleSubmit}>
+      <BootstrapForm className={cx(styles['form-signup'], className)} onSubmit={handleSubmit}>
         {hasSubmitted ? (
           <Row className={styles.success}>
             <FontAwesomeIcon icon={faCheckCircle} className="fas text-primary mb-4" />
@@ -152,4 +154,8 @@ function Form() {
   );
 }
 
-export default Form;
+MainForm.propTypes = {
+  className: PropTypes.string
+};
+
+export default MainForm;

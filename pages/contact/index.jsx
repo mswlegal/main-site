@@ -3,11 +3,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 import styles from './index.module.scss';
 import cx from 'classnames';
 import { IsInViewProvider } from '@/hooks/viewportListener';
-import Form from './Form';
 import AboutSection from '@/components/About/AboutSection';
 import StepsSection from '@/components/Steps';
 import Seo from '@/components/Seo';
 import { useRouter } from 'next/router';
+import MainForm from '@/components/Forms/MainForm';
 
 function ContactPage() {
   const router = useRouter();
@@ -56,7 +56,7 @@ function ContactPage() {
               </IsInViewProvider>
             </Col>
             <Col lg={5} xs={12}>
-              <Form />
+              <MainForm />
             </Col>
           </Row>
         </Container>
