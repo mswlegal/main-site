@@ -35,7 +35,7 @@
     background-position: center top;
     position: relative;
     @include responsive.device-max('md') {
-      padding-bottom: 45%;
+      padding-bottom: 35%;
       background-position: center top;
       background-size: cover;
     }
@@ -53,8 +53,8 @@
     text-align: center;
     width: 100%;
     @include responsive.device-max('md') {
-      font-size: 28px;
-      top: 18%;
+      font-size: 24px;
+      top: 22%;
     }
 
     small {
@@ -63,7 +63,7 @@
       font-weight: 400;
       margin-top: 0.25em;
       @include responsive.device-max('md') {
-        font-size: 18px;
+        font-size: 16px;
       }
     }
   }
