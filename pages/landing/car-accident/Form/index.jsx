@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'next-i18next';
 import Script from 'next/script';
-import posthog from 'posthog-js';
+import { captureEvent, identifyUser, getDistinctId } from '@/hooks/analytics';
 import { useUtmData } from '@/hooks/useUtmData';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -35,7 +35,7 @@ function Form() {
   const { fullName, email, phone, summary } = formData;
 
   const handleFormSubmitSuccess = async () => {
-    const distinctId = posthog.get_distinct_id();
+    const distinctId = getDistinctId();
 
     const properties = {
       email: email || null,
@@ -45,8 +45,8 @@ function Form() {
     };
 
     // Identify and track in PostHog
-    posthog.identify(email || phone || distinctId, properties);
-    posthog.capture('form_submitted', properties);
+    identifyUser(email || phone || distinctId, properties);
+    captureEvent('form_submitted', properties);
 
     // Google ads conversion tracking
     if (typeof window !== 'undefined' && typeof window.gtag_report_form_submit === 'function') {

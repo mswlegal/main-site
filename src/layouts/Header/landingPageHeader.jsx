@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { formatPhoneNumber } from '@/utilities';
-import posthog from 'posthog-js';
+import { captureEvent, identifyUser, getDistinctId } from '@/hooks/analytics';
 import { useUtmData } from '@/hooks/useUtmData';
 
 export default function LandingPageHeader({ dark, phone }) {
@@ -21,13 +21,13 @@ export default function LandingPageHeader({ dark, phone }) {
 
   const handlePhoneClick = (e) => {
     if (!identifiedRef.current) {
-      const distinctId = posthog.get_distinct_id();
+      const distinctId = getDistinctId();
 
-      posthog.identify(distinctId, utmData);
+      identifyUser(distinctId, utmData);
       identifiedRef.current = true;
     }
 
-    posthog.capture('phone_clicked', {
+    captureEvent('phone_clicked', {
       location: 'navbar'
     });
 

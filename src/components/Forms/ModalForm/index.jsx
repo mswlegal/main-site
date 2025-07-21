@@ -8,6 +8,7 @@ import { getFirstAndLastName } from '@/utilities';
 import { sanitizeInput, formatPhoneNumber } from '@/utilities';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { captureEvent, identifyUser, getDistinctId } from '@/hooks/analytics';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -63,6 +64,17 @@ function ModalForm({ show, setShow }) {
   const { fullName, email, phone, summary } = formData;
 
   const handleFormSubmitSuccess = () => {
+    const distinctId = getDistinctId();
+
+    const properties = {
+      email: email || null,
+      phone: phone || null,
+      distinct_id: distinctId
+    };
+
+    // Identify and track in PostHog
+    identifyUser(email || phone || distinctId, properties);
+    captureEvent('form_submitted', properties);
     setHasSubmitted(true);
   };
 
