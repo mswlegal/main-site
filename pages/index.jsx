@@ -28,7 +28,7 @@ const Contact = dynamic(() => import('../src/components/Contact'), {
 });
 
 const Banner = dynamic(() => import('../src/components/Banner'), {
-  ssr: true, // Keeping SSR for banner, as it might be important above-the-fold
+  ssr: true // Keeping SSR for banner, as it might be important above-the-fold
 });
 
 const Index = () => {
@@ -41,10 +41,10 @@ const Index = () => {
         keywords="Mendez & Sanchez law firm, Los Angeles personal injury lawyers, car accident attorneys California, best injury lawyer LA, personal injury law firm, accident compensation lawyers"
         noIndex={false}
       />
-      
+
       {/* Use next/image for optimization */}
       <Banner />
-      
+
       <About />
       <Counter />
       <Services />

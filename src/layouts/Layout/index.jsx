@@ -39,8 +39,6 @@ const Layout = ({ children, headName, dark }) => {
     <>
       <Head>
         <title>Mendez & Sanchez: Injury Law in Los Angeles & Las Vegas</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
       </Head>
       {showPreloader && !isLandingPage && <Preloader />}
       <div className={styles.layout} data-magic-cursor="show">
