@@ -62,9 +62,11 @@ $font-family_1: Roboto, 'Helvetica Neue';
   justify-content: center;
   color: #15111e;
   text-align: center;
-  h3 {
-    color: inherit;
+  h3, p {
+    color: $color_white;
+
   }
+
   svg {
     height: 80px;
     width: 80px;

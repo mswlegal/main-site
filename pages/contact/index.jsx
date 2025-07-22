@@ -47,7 +47,7 @@ function ContactPage() {
               </IsInViewProvider>
 
               <IsInViewProvider>
-                <p className="mt-4">
+                <p className={cx(styles.subheader, 'mt-4')}>
                   If you’ve been injured in an accident, don’t wait to take action. Mendez & Sanchez APC is
                   ready to help you pursue the justice and compensation you deserve in California or Nevada.
                   Fill out the form below or call us today for a free, no-obligation consultation. One of our

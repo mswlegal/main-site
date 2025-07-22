@@ -23,8 +23,8 @@ $header_height: 45vh;
     background-color: $color_dark;
     background:
       linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%, #000 100%),
-      url('../../public/img/hero/hero.webp');
-    background-size: 100%;
+      url('../../../../../public/img/landing/amazon-truck-accident/hero.webp');
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top;
@@ -32,7 +32,7 @@ $header_height: 45vh;
     @include responsive.device-max('md') {
       background-attachment: unset;
       background-size: cover;
-      background-position: 25%;
+      background-position: right;
       padding-top: 70px;
     }
 
@@ -93,75 +93,31 @@ $header_height: 45vh;
         @include responsive.device-max('lg') {
           font-size: 16px;
           margin-bottom: 48px;
+          text-align: center;
         }
       }
     }
   }
+}
 
-  &.content {
-    background-color: #f4f5fe;
-    position: relative;
+.about-section {
+  background: linear-gradient(to bottom, #000 40%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
 
-    &.bg-light {
-      background-color: #fff;
+  h2 {
+    @include responsive.device-max('lg') {
+      font-size: 24px;
+    }
+  }
+
+  p {
+    @include responsive.device-max('lg') {
+      font-size: 16px;
     }
 
-    h3 {
-      @include responsive.device-max('md') {
-        font-size: 22px;
-      }
-    }
-
-    p {
-      margin-bottom: 16px;
-      color: $color_dark;
-      font-size: 18px;
-      line-height: 2.6rem;
-
-      strong,
-      a {
-        color: $color_red;
-      }
-    }
-
-    p + h3,
-    ul + h3 {
-      margin-top: 24px;
-    }
-
-    ul {
-      margin-left: 36px;
-
-      li {
-        font-size: 16px;
-        list-style-type: circle;
-
-        &::marker {
-          color: $color_red;
-        }
-      }
-    }
-
-    .partners {
-      &:nth-child(odd) {
-        :global([class*='Team_card']) {
-          margin-right: 16px;
-
-          @include responsive.device-max('md') {
-            margin: 0 auto;
-          }
-        }
-      }
-
-      &:nth-child(even) {
-        :global([class*='Team_card']) {
-          margin-left: 16px;
-
-          @include responsive.device-max('md') {
-            margin: 0 auto;
-          }
-        }
-      }
+    a {
+      color: $color_red !important;
+      border-bottom: 2px solid;
+      display: inline-block;
     }
   }
 }

@@ -3,13 +3,14 @@ import styles from './index.module.scss';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import BootstrapForm from 'react-bootstrap/Form';
-import { useFormSubmit } from '@/hooks/formSubmit';
+import { useFormSubmit, useFormSubmitLanding } from '@/hooks/formSubmit';
 import { getFirstAndLastName } from '@/utilities';
 import { sanitizeInput, formatPhoneNumber } from '@/utilities';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
+import ErrorMessage from './ErrorMessage';
+import SuccessMessage from './SuccessMessage';
+import { useUtmData } from '@/hooks/useUtmData';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -24,9 +25,11 @@ const sources = {
   google: 'Google Ads'
 };
 
-function MainForm({ className }) {
+function MainForm({ className, isLandingPage = false, phoneNumber = '3238381444' }) {
   const [formData, setFormData] = React.useState(initialData);
   const [hasSubmitted, setHasSubmitted] = React.useState(false);
+  const [hasError, setHasError] = React.useState(false);
+  const utmData = useUtmData(); // Hook to capture UTM parameters
 
   const { fullName, email, phone, summary } = formData;
 
@@ -36,25 +39,51 @@ function MainForm({ className }) {
     setFormData(initialData);
   };
 
-  const { mutate: submitForm } = useFormSubmit({
-    onSuccess: handleFormSubmitSuccess,
-    onError: (err) => console.error(err)
-  });
+  const handleFormSubmitError = () => {
+    setHasError(true);
+    setHasSubmitted(false);
+  };
+
+  const { mutate: submitForm } = isLandingPage
+    ? useFormSubmitLanding({
+        onSuccess: handleFormSubmitSuccess,
+        onError: handleFormSubmitError
+      })
+    : useFormSubmit({
+        onSuccess: handleFormSubmitSuccess,
+        onError: handleFormSubmitError
+      });
 
   const handleSubmit = React.useCallback(
     (e) => {
       e.preventDefault();
       const { firstName, lastName } = getFirstAndLastName(fullName);
 
-      submitForm({
+      const submissionData = {
         First: firstName,
         Last: lastName,
         Email: email,
         Phone: phone.replace(/\D/g, ''),
         Summary: summary
-      });
+      };
+
+      // Include optional UTM parameters if present
+      if (utmData) {
+        if (utmData.utm_campaign) {
+          submissionData.Marketing_Campaign_Name = utmData.utm_campaign;
+        }
+        if (utmData.utm_source) {
+          submissionData.Marketing_Campaign_Source = utmData.utm_source;
+          submissionData.Marketing_Source = sources[utmData.utm_source.toLowerCase()?.trim()];
+        }
+        if (utmData.utm_medium) {
+          submissionData.Marketing_Campaign_Medium = utmData.utm_medium;
+        }
+      }
+
+      submitForm(submissionData);
     },
-    [fullName, email, phone, summary, submitForm]
+    [fullName, email, phone, summary, submitForm, utmData, sources]
   );
 
   const handleChange = React.useCallback((e) => {
@@ -84,13 +113,10 @@ function MainForm({ className }) {
   return (
     <>
       <BootstrapForm className={cx(styles['form-signup'], className)} onSubmit={handleSubmit}>
-        {hasSubmitted ? (
-          <Row className={styles.success}>
-            <FontAwesomeIcon icon={faCheckCircle} className="fas text-primary mb-4" />
-            <h3>Thank you! {getFirstAndLastName(fullName)?.firstName}</h3>
-            <p className="mb-5">Our team will contact you shortly!</p>
-          </Row>
-        ) : (
+        {hasSubmitted && <SuccessMessage firstName={getFirstAndLastName(fullName)?.firstName} />}
+        {hasError && <ErrorMessage onRetry={() => (window.location.href = `tel:+1${phoneNumber}`)} />}
+
+        {!(hasSubmitted || hasError) && (
           <Row className="justify-content-center align-items-center flex-column">
             <Col xs={12} className="mb-4">
               <BootstrapForm.Control
@@ -155,7 +181,9 @@ function MainForm({ className }) {
 }
 
 MainForm.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  isLandingPage: PropTypes.bool,
+  phoneNumber: PropTypes.string
 };
 
 export default MainForm;

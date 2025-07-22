@@ -22,9 +22,10 @@ function HeroSection() {
         >
           <Row className="justify-content-center">
             <Col xs={12} className="text-center">
-              <h1 className="mx-auto my-0 mb-3 text-uppercase">
-                <Translate>{t('title')}</Translate>
-              </h1>
+              <h1
+                className="mx-auto my-0 mb-3 text-uppercase"
+                dangerouslySetInnerHTML={{ __html: t('title') }}
+              />
               <h2 className="mx-auto mt-2 mb-5">
                 <Translate>{t('subtitle')}</Translate>
               </h2>
@@ -37,7 +38,7 @@ function HeroSection() {
       </header>
 
       {/* About Section */}
-      <section className={cx(styles['about-section'], 'text-center pb-5')} id="headerForm">
+      <section className={cx(styles['about-section'], 'text-center pb-5')}>
         <Container className={styles.container}>
           <Row className={cx(styles['form-row'], styles['animate-slide-in'])}>
             <Col xs={12} className="mx-auto text-center">

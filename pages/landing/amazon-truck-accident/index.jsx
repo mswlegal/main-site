@@ -17,6 +17,7 @@ import { Trans as Translate } from 'next-i18next';
 import { Container, Row, Col } from 'react-bootstrap';
 import Link from 'next/link';
 import HeroSection from './HeroSection';
+// import HeroSectionDesign2 from './HeroSection/Design2';
 
 function AmazonTruckAccident() {
   const phone = '4242768825';
@@ -35,6 +36,7 @@ function AmazonTruckAccident() {
       <LandingPageHeader phone={phone} />
 
       <HeroSection />
+      {/* <HeroSectionDesign2 /> */}
 
       {/* Featured Projects Section */}
       <section className={cx(styles['projects-section'], 'bg-light')} id="projects">
@@ -62,7 +64,7 @@ function AmazonTruckAccident() {
                     </li>
                   ))}
                 </ol>
-                <a className={styles.button} onClick={() => scrollToSection('headerForm')}>
+                <a className={styles.button} onClick={() => scrollToSection('bottomForm')}>
                   <Translate>{t('get_started')}</Translate>
                 </a>
               </div>
@@ -113,7 +115,7 @@ function AmazonTruckAccident() {
       </section>
 
       {/* Contact Section */}
-      <section className={cx(styles['contact-section'], 'bg-black')}>
+      <section className={cx(styles['contact-section'], 'bg-black')} id="bottomForm">
         <Container className={styles.container}>
           <Row className="text-center mb-5">
             <Col xs={12}>

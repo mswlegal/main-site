@@ -38,7 +38,7 @@ $color_red: #d71a20;
 
   h1 {
     font-family: $font-family_1;
-    font-size: 7vw;
+    font-size: 6.5vw;
     line-height: 0.9em;
     letter-spacing: 0.5rem;
     color: #ffffff;
@@ -47,9 +47,6 @@ $color_red: #d71a20;
 
     background-clip: text;
     animation: slideIn 0.8s forwards;
-    @include responsive.device-max('lg') {
-      font-size: 6.5vw;
-    }
 
     @include responsive.device-max('sm') {
       font-size: 7.2vw;
