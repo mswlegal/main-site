@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 import Seo from '@/components/Seo';
-import Image from 'next/image';
 
 // Lazy load components
 const About = dynamic(() => import('../src/components/About'), {

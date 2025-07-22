@@ -62,10 +62,11 @@ const Header = ({ dark }) => {
                 <a href="#">
                   <Image
                     src="/img/logo/logo-light.webp"
-                    alt=""
+                    alt="logo white"
                     width={200}
                     height={70}
                     loading="eager"
+                    layout="responsive"
                     priority
                   />
                 </a>
@@ -79,6 +80,7 @@ const Header = ({ dark }) => {
                     width={200}
                     height={70}
                     loading="eager"
+                    layout="responsive"
                     priority
                   />
                 </a>
@@ -89,6 +91,7 @@ const Header = ({ dark }) => {
                     width={200}
                     height={70}
                     loading="eager"
+                    layout="responsive"
                     priority
                   />
                 </a>
