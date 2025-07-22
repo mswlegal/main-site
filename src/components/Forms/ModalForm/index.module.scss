@@ -1,5 +1,7 @@
 @use '/styles/responsive/_devicesMixins.scss' as responsive;
 
+$color_primary: #d71a20;
+
 .cardModal {
   margin: 2rem auto;
   display: flex;
@@ -71,87 +73,38 @@
   .cardForm {
     padding: 2rem 1rem 0;
     @include responsive.device-max('md') {
-      padding: 0
-    }
-  }
-
-  .input {
-    display: flex;
-    flex-direction: column-reverse;
-    position: relative;
-    padding-top: 1.5rem;
-    input,
-    textarea {
-      width: 100%;
-      border-radius: 10px;
-      padding: 30px 25px;
-      background-color: transparent;
-      border: none;
-      font-size: 18px;
-      color: #15111e;
-      letter-spacing: 0px;
-      box-shadow:
-        rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
-        rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-      &:focus {
-        outline: none;
-      }
-    }
-
-    input {
-      height: 60px;
-      @include responsive.device-max('md') {
-        height: 48px;
-      }
-    }
-  }
-
-  .inputLabel {
-    color: #8597a3;
-    position: absolute;
-    top: 40%;
-    left: 20px;
-    transition: 0.25s ease;
-    font-size: 18px;
-    @include responsive.device-max('md') {
-      font-size: 16px;
-    }
-  }
-
-  .inputField {
-    border: 0;
-    z-index: 1;
-    background-color: transparent;
-    border-bottom: 2px solid #eee;
-    font: inherit;
-    font-size: 18px;
-    padding: 0.25rem 0;
-    @include responsive.device-max('md') {
-      font-size: 16px !important;
-    }
-
-    &::placeholder {
-      color: transparent;
-    }
-
-    &:focus,
-    &:not(:placeholder-shown) {
-      outline: 0;
-      box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
-      & + .inputLabel {
-        color: #15111e;
-        top: 14px;
-        left: 12px;
-        font-size: 13px;
-        @include responsive.device-max('md') {
-          font-size: 11px;
-        }
-      }
+      padding: 0;
     }
   }
 
   .action {
     margin-top: 2rem;
+  }
+
+  input,
+  textarea {
+    box-shadow:
+      rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px !important;
+    padding: 20px !important;
+    min-height: 62px;
+    font-size: 14px;
+    letter-spacing: 2.625px;
+    border: 0;
+    border-radius: 8px;
+    touch-action: manipulation;
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+    margin-bottom: 10px;
+    color: #15111e;
+    @include responsive.device-max('md') {
+      font-size: 16px !important;
+    }
+    &::placeholder {
+      text-transform: uppercase;
+      font-size: inherit;
+      color: inherit;
+    }
   }
 
   .actionButton {
@@ -160,7 +113,7 @@
     padding: 0.5em 1em;
     width: 100%;
     font-weight: 500;
-    background-color: #d71a20;
+    background-color: $color_primary;
     border-radius: 6px;
     color: #fff;
     border: 0;
@@ -183,7 +136,7 @@
         font-size: 12px;
       }
       a {
-        color: #d71a20;
+        color: $color_primary;
         text-decoration: none;
         font-size: inherit;
         line-height: inherit;
@@ -192,16 +145,23 @@
     }
   }
 
-  .success {
+  .success,
+  .error {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 250px;
+    p {
+      margin-bottom: 16px;
+    }
     svg {
       height: 80px;
       width: 80px;
       color: #20a286 !important;
+      &.danger {
+        color: $color_primary !important;
+      }
     }
   }
 }

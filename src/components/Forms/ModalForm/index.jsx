@@ -1,52 +1,19 @@
+// ModalForm.js
 import React, { useState, useCallback } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import cx from 'classnames';
 import styles from './index.module.scss';
-import { useFormSubmit } from '@/hooks/formSubmit';
+import { useFormSubmit, useFormSubmitLanding } from '@/hooks/formSubmit';
 import { getFirstAndLastName } from '@/utilities';
 import { sanitizeInput, formatPhoneNumber } from '@/utilities';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { captureEvent, identifyUser, getDistinctId } from '@/hooks/analytics';
+import { useUtmData } from '@/hooks/useUtmData';
+import InputField from './InputField';
+import SuccessMessage from './SuccessMessage';
+import ErrorMessage from './ErrorMessage';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-
-const InputField = React.memo(
-  ({ label, type = 'text', name, value, onChange, required = false, rows, placeholder }) => {
-    const inputId = `input-${name}`;
-    return (
-      <div className={styles.input}>
-        {type === 'textarea' ? (
-          <textarea
-            id={inputId}
-            name={name}
-            className={styles.inputField}
-            rows={rows}
-            required={required}
-            value={value}
-            onChange={onChange}
-            placeholder={placeholder || label}
-          />
-        ) : (
-          <input
-            id={inputId}
-            type={type}
-            name={name}
-            className={styles.inputField}
-            required={required}
-            value={value}
-            onChange={onChange}
-            placeholder={placeholder || label}
-          />
-        )}
-        <label htmlFor={inputId} className={styles.inputLabel}>
-          {label}
-        </label>
-      </div>
-    );
-  }
-);
 
 const initialData = {
   fullName: '',
@@ -55,11 +22,17 @@ const initialData = {
   summary: ''
 };
 
-function ModalForm({ show, setShow }) {
+const sources = {
+  google: 'Google Ads'
+};
+
+function ModalForm({ show, setShow, isLandingPage = false, phoneNumber = '3238381444' }) {
   const [isExiting, setIsExiting] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [hasError, setHasError] = useState(false); // Error state
   const [formData, setFormData] = useState(initialData);
+  const utmData = useUtmData();
 
   const { fullName, email, phone, summary } = formData;
 
@@ -69,19 +42,29 @@ function ModalForm({ show, setShow }) {
     const properties = {
       email: email || null,
       phone: phone || null,
-      distinct_id: distinctId
+      distinct_id: distinctId,
+      ...utmData
     };
 
-    // Identify and track in PostHog
     identifyUser(email || phone || distinctId, properties);
     captureEvent('form_submitted', properties);
     setHasSubmitted(true);
   };
 
-  const { mutate, isLoading } = useFormSubmit({
-    onSuccess: handleFormSubmitSuccess,
-    onError: (err) => console.error(err)
-  });
+  const handleFormSubmitError = (error) => {
+    console.error('Form submission error:', error);
+    setHasError(true);
+  };
+
+  const { mutate, isLoading } = isLandingPage
+    ? useFormSubmitLanding({
+        onSuccess: handleFormSubmitSuccess,
+        onError: handleFormSubmitError
+      })
+    : useFormSubmit({
+        onSuccess: handleFormSubmitSuccess,
+        onError: handleFormSubmitError
+      });
 
   const handleClose = useCallback(async () => {
     setIsExiting(true);
@@ -91,6 +74,7 @@ function ModalForm({ show, setShow }) {
     setFormData(initialData);
     setIsSubmitting(false);
     setHasSubmitted(false);
+    setHasError(false); // Reset error state
   }, [setShow]);
 
   const handleChange = useCallback((e) => {
@@ -115,16 +99,31 @@ function ModalForm({ show, setShow }) {
 
       const { firstName, lastName } = getFirstAndLastName(fullName);
 
-      mutate({
+      const submissionData = {
         First: firstName,
         Last: lastName,
         Email: email,
         Phone: phone.replace(/\D/g, ''),
         Summary: summary
-      });
+      };
+
+      if (utmData) {
+        if (utmData.utm_campaign) {
+          submissionData.Marketing_Campaign_Name = utmData.utm_campaign;
+        }
+        if (utmData.utm_source) {
+          submissionData.Marketing_Campaign_Source = utmData.utm_source;
+          submissionData.Marketing_Source = sources[utmData.utm_source.toLowerCase()?.trim()];
+        }
+        if (utmData.utm_medium) {
+          submissionData.Marketing_Campaign_Medium = utmData.utm_medium;
+        }
+      }
+
+      mutate(submissionData);
       setIsSubmitting(true);
     },
-    [fullName, email, phone, summary, mutate]
+    [fullName, email, phone, summary, mutate, utmData, sources]
   );
 
   return (
@@ -144,16 +143,12 @@ function ModalForm({ show, setShow }) {
       </Modal.Header>
 
       <Modal.Body>
-        {hasSubmitted ? (
-          <div className={styles.success}>
-            <FontAwesomeIcon icon={faCheckCircle} className="fas text-primary mb-4" />
-            <h3>Thank you {getFirstAndLastName(fullName)?.firstName}</h3>
-            <p>Out team will contact you shortly!</p>
-            <Button className={cx(styles.actionButton, 'mt-3')} onClick={() => handleClose()}>
-              Close
-            </Button>
-          </div>
-        ) : (
+        {hasSubmitted && (
+          <SuccessMessage firstName={getFirstAndLastName(fullName)?.firstName} onClose={handleClose} />
+        )}
+        {hasError && <ErrorMessage onRetry={() => (window.location.href = `tel:+1${phoneNumber}`)} />}
+
+        {!(hasSubmitted || hasError) && (
           <form className={styles.cardForm} onSubmit={handleSubmit}>
             <InputField label="Full name" name="fullName" value={fullName} onChange={handleChange} required />
             <InputField
