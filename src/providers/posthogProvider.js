@@ -16,7 +16,7 @@ export function PostHogProvider({ children }) {
           capture_pageview: false, // We'll handle pageviews manually
           capture_uncaught_exceptions: true,
           capture_unhandled_rejections: true,
-          enable_recording_console_log: true,
+          enable_recording_console_log: true
         });
       };
 
@@ -26,7 +26,7 @@ export function PostHogProvider({ children }) {
       script.async = true;
       script.onload = loadPostHog;
       document.head.appendChild(script);
-      
+
       // Clean up on unmount
       return () => {
         document.head.removeChild(script);
@@ -43,5 +43,5 @@ export function PostHogProvider({ children }) {
 }
 
 PostHogProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
