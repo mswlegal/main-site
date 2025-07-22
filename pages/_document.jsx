@@ -103,15 +103,6 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
 
-          {/* Preload fonts for better performance */}
-          <link
-            rel="preload"
-            href="https://fonts.gstatic.com/s/nunito/v15/4XiK7poP6vOT6hI5g1n6xD3MBZqXwpLQ.ttf"
-            as="font"
-            type="font/woff2"
-            crossorigin="anonymous"
-          />
-
           {/* Fonts from Google with font-display: swap */}
           <link
             href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
