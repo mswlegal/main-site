@@ -38,7 +38,7 @@ function HeroSection() {
       </header>
 
       {/* About Section */}
-      <section className={cx(styles['about-section'], 'text-center pb-5')}>
+      <section className={cx(styles['about-section'], 'text-center pb-5')} id="headerForm">
         <Container className={styles.container}>
           <Row className={cx(styles['form-row'], styles['animate-slide-in'])}>
             <Col xs={12} className="mx-auto text-center">
