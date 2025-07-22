@@ -109,15 +109,15 @@ function PostPage({ post }) {
                   <Card.Img variant="top" src={post.mainImage.src} />
                   <Card.Body>
                     <Row className={cx(styles['post-meta'], 'align-items-center')}>
-                      <Col xs="auto" className="d-flex align-items-center me-3">
+                      <Col md="auto" xs={6} className="d-flex align-items-center me-md-3">
                         <FontAwesomeIcon icon={faUser} className="me-1 text-danger" />
                         <span>By Admin</span>
                       </Col>
-                      <Col xs="auto" className="d-flex align-items-center me-3">
+                      <Col md="auto" xs={6} className="d-flex align-items-center me-md-3">
                         <FontAwesomeIcon icon={faCalendarAlt} className="me-1 text-danger" />
                         <span>{post.date}</span>
                       </Col>
-                      <Col xs="auto" className="d-flex align-items-center">
+                      <Col md="auto" xs={6} className="d-flex align-items-center">
                         <FontAwesomeIcon icon={faTag} className="me-1 text-danger" />
                         <span>Personal Injuries</span>
                       </Col>

@@ -202,6 +202,23 @@ $header_height: 45vh;
         margin-left: 4px;
       }
     }
+    img {
+      &:not(:global(.card-img-top)) {
+        width: 100%;
+        object-fit: cover;
+        max-height: 400px;
+      }
+    }
+    figure {
+      figcaption {
+        font-size: 14px;
+        color: #555;
+        text-align: right;
+        a {
+          font-size: inherit;
+        }
+      }
+    }
   }
 
   .form {
