@@ -141,14 +141,22 @@ $header_height: 45vh;
       margin-top: 24px;
     }
 
+    img + h3 {
+      margin-top: 24px;
+    }
+
     ul,
     ol {
       margin-left: 15px;
 
       li {
-        font-size: 20px;
+        font-size: 18px;
         font-family: 'Josefin Sans';
         color: $color_red;
+        span {
+          color: $color_dark;
+          font-size: inherit;
+        }
         &::marker {
           color: $color_red;
         }
