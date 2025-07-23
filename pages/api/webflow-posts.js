@@ -27,7 +27,6 @@ export default async function handler(req, res) {
 
     res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
     res.status(200).json({ items: blogPosts });
-
   } catch (error) {
     console.error('Error fetching blog posts:', error);
     res.status(500).json({

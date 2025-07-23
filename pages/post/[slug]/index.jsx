@@ -10,7 +10,8 @@ import { faFacebookF, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-s
 import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
 import ModalForm from '@/components/Forms/ModalForm';
 import MainForm from '@/components/Forms/MainForm';
-import posts from '@/posts/staticPosts';
+import staticPosts from '@/posts/staticPosts';
+import { extractKeywordsFromRichText } from '@/utilities';
 
 function PostPage({ post }) {
   const [currentUrl, setCurrentUrl] = React.useState('');
@@ -179,24 +180,61 @@ function PostPage({ post }) {
   );
 }
 
+export async function getStaticProps({ params }) {
+  // Try to find in staticPosts first
+  const staticPost = staticPosts.find((p) => p.slug === params.slug);
+  if (staticPost) {
+    return {
+      props: {
+        post: staticPost
+      }
+    };
+  }
+
+  // Fallback to CMS posts
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/webflow-posts`);
+  const data = await res.json();
+  const posts = data.items;
+
+  const postRaw = posts.find((p) => p.fieldData.slug === params.slug);
+  if (!postRaw) return { notFound: true };
+
+  const post = {
+    title: postRaw.fieldData.name,
+    slug: postRaw.fieldData.slug,
+    description: postRaw.fieldData['post-summary'],
+    content: postRaw.fieldData['post-body'],
+    date: new Date(postRaw.createdOn).toLocaleDateString(),
+    keywords: extractKeywordsFromRichText(postRaw.fieldData['post-body']),
+    articleSection: 'Property Damage',
+    mainImage: {
+      src: postRaw.fieldData['main-image']?.url || '',
+      alt: postRaw.fieldData['main-image']?.alt || ''
+    }
+  };
+
+  return {
+    props: { post },
+    revalidate: 60
+  };
+}
+
 export async function getStaticPaths() {
-  const paths = posts.map((post) => ({
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/webflow-posts`);
+  const data = await res.json();
+  const cmsPosts = data.items.filter((p) => !p.isDraft && !p.isArchived);
+
+  const cmsPaths = cmsPosts.map((post) => ({
+    params: { slug: post.fieldData.slug }
+  }));
+
+  const staticPaths = staticPosts.map((post) => ({
     params: { slug: post.slug }
   }));
 
   return {
-    paths,
-    fallback: false // Or true/`blocking` for fallback loading
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const post = posts.find((p) => p.slug === params.slug);
-
-  return {
-    props: {
-      post
-    }
+    paths: [...cmsPaths, ...staticPaths],
+    fallback: false
   };
 }
 

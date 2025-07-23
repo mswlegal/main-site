@@ -177,3 +177,159 @@ export function formatPhoneNumber(value) {
   }
   return number[1];
 }
+
+export function extractKeywordsFromRichText(htmlString, maxKeywords = 10) {
+  // 1. Strip HTML tags
+  const text = htmlString
+    .replace(/<[^>]*>/g, ' ') // remove HTML tags
+    .replace(/\s+/g, ' ') // normalize whitespace
+    .toLowerCase();
+
+  // 2. Tokenize words
+  const words = text.match(/\b[a-z]{3,}\b/g) || []; // at least 3-letter words
+
+  // 3. Filter stop words (you can expand this list)
+  const stopWords = new Set([
+    'the',
+    'and',
+    'for',
+    'are',
+    'but',
+    'not',
+    'with',
+    'that',
+    'this',
+    'from',
+    'have',
+    'was',
+    'you',
+    'your',
+    'all',
+    'can',
+    'has',
+    'our',
+    'more',
+    'will',
+    'they',
+    'their',
+    'what',
+    'about',
+    'when',
+    'who',
+    'how',
+    'why',
+    'been',
+    'had',
+    'most',
+    'a',
+    'an',
+    'if',
+    'it',
+    'its',
+    'is',
+    'in',
+    'on',
+    'at',
+    'as',
+    'of',
+    'do',
+    'did',
+    'does',
+    'be',
+    'being',
+    'so',
+    'or',
+    'than',
+    'then',
+    'there',
+    'here',
+    'these',
+    'those',
+    'such',
+    'each',
+    'any',
+    'some',
+    'much',
+    'many',
+    'few',
+    'them',
+    'into',
+    'over',
+    'out',
+    'up',
+    'down',
+    'off',
+    'just',
+    'only',
+    'even',
+    'ever',
+    'again',
+    'me',
+    'my',
+    'mine',
+    'we',
+    'us',
+    'he',
+    'him',
+    'his',
+    'she',
+    'her',
+    'hers',
+    'it',
+    'theirs',
+    'someone',
+    'anyone',
+    'everyone',
+    'everything',
+    'nothing',
+    'now',
+    'today',
+    'yesterday',
+    'tomorrow',
+    'always',
+    'never',
+    'often',
+    'sometimes',
+    'soon',
+    'later',
+    'before',
+    'after',
+    'already',
+    'still',
+    'very',
+    'really',
+    'quite',
+    'too',
+    'enough',
+    'almost',
+    'maybe',
+    'perhaps',
+    'probably',
+    'actually',
+    'basically',
+    'would',
+    'should',
+    'could',
+    'may',
+    'might',
+    'must',
+    'shall',
+    'code'
+  ]);
+
+  const filteredWords = words.filter((word) => !stopWords.has(word));
+
+  // 4. Count word frequency
+  const frequency = {};
+  filteredWords.forEach((word) => {
+    frequency[word] = (frequency[word] || 0) + 1;
+  });
+
+  // 5. Sort by frequency and take top N
+  const keywords = Object.entries(frequency)
+    .sort((a, b) => b[1] - a[1]) // sort descending by count
+    .slice(0, maxKeywords) // take top N
+    .map((entry) => entry[0]); // return just the words
+
+  return keywords;
+}
