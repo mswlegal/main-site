@@ -10,12 +10,24 @@ import { Trans as Translate } from 'next-i18next';
 import { Container, Row, Col } from 'react-bootstrap';
 import Link from 'next/link';
 import HeroSection from './HeroSection';
+import HeroSectionDesign2 from './HeroSection/Design2';
 import ContactSection from './ContactSection';
 import ProjectsSection from './ProjectsSection';
+import posthog from 'posthog-js';
 
 function AmazonTruckAccident() {
   const phone = '4242768825';
   const { t } = useTranslation('amazonTruckAccident');
+  const [variant, setVariant] = React.useState('control');
+
+  React.useEffect(() => {
+    posthog?.onFeatureFlags(() => {
+      const value = posthog.getFeatureFlag('landing-page-header-conversion');
+      if (value) {
+        setVariant(value);
+      }
+    });
+  }, []);
 
   return (
     <>
@@ -28,16 +40,10 @@ function AmazonTruckAccident() {
       />
 
       <LandingPageHeader phone={phone} />
-
       <HeroSection />
-
-      {/* Featured Projects Section */}
+      {variant === 'header-on-right' ? <HeroSectionDesign2 /> : <HeroSection />}
       <ProjectsSection />
-
-      {/* FAQ Section */}
       <FaqSection />
-
-      {/* Contact Section */}
       <ContactSection phone={phone} />
 
       <footer className={cx(styles.footer, 'bg-black small text-center text-white-50')}>
