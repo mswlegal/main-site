@@ -13,10 +13,21 @@ import HeroSection from './HeroSection';
 import HeroSectionDesign2 from './HeroSection/Design2';
 import ContactSection from './ContactSection';
 import ProjectsSection from './ProjectsSection';
+import posthog from 'posthog-js';
 
-function AmazonTruckAccident({ variant }) {
+function AmazonTruckAccident() {
   const phone = '4242768825';
   const { t } = useTranslation('amazonTruckAccident');
+  const [variant, setVariant] = React.useState('control');
+
+  React.useEffect(() => {
+    posthog?.onFeatureFlags(() => {
+      const value = posthog.getFeatureFlag('landing-page-header-conversion');
+      if (value) {
+        setVariant(value);
+      }
+    });
+  }, []);
 
   return (
     <>
@@ -29,9 +40,8 @@ function AmazonTruckAccident({ variant }) {
       />
 
       <LandingPageHeader phone={phone} />
-
+      <HeroSection />
       {variant === 'header-on-right' ? <HeroSectionDesign2 /> : <HeroSection />}
-
       <ProjectsSection />
       <FaqSection />
       <ContactSection phone={phone} />
@@ -58,36 +68,12 @@ function AmazonTruckAccident({ variant }) {
   );
 }
 
-export async function getServerSideProps({ locale, req }) {
-  const { PostHog } = await import('posthog-node');
-
-  const posthog = new PostHog('YOUR_SERVER_API_KEY', {
-    host: 'https://app.posthog.com'
-  });
-
-  // Generate or get a distinct_id for the user (important!)
-  const distinctId = req.cookies.ph_distinct_id || `anon_${Math.random().toString(36).substring(2, 15)}`;
-
-  // You could also set the cookie here if you want consistent identity across visits
-
-  const variant = (await posthog.getFeatureFlag('landing-page-header-conversion', distinctId)) || 'control';
-
-  // Optionally: record that they were in the experiment
-  posthog.capture({
-    distinctId,
-    event: 'experiment viewed',
-    properties: {
-      experiment: 'landing-page-header-conversion',
-      variant
-    }
-  });
-
+export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['amazonTruckAccident'])),
-      variant
+      ...(await serverSideTranslations(locale, ['amazonTruckAccident']))
     }
   };
-}
+};
 
 export default AmazonTruckAccident;
