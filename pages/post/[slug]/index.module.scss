@@ -152,10 +152,13 @@ $header_height: 45vh;
       li {
         font-size: 18px;
         font-family: 'Josefin Sans';
-        color: $color_red;
+        color: $color_dark;
         span {
           color: $color_dark;
           font-size: inherit;
+        }
+        strong {
+          color: $color_red;
         }
         &::marker {
           color: $color_red;
@@ -209,6 +212,7 @@ $header_height: 45vh;
         max-height: 400px;
       }
     }
+
     figure {
       figcaption {
         font-size: 14px;
@@ -218,6 +222,11 @@ $header_height: 45vh;
           font-size: inherit;
         }
       }
+    }
+
+    h2 a {
+      color: $color_red;
+      border-bottom: 1px solid;
     }
   }
 
