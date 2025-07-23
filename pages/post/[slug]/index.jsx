@@ -91,9 +91,11 @@ function PostPage({ post }) {
 
               <IsInViewProvider>
                 <p className="mt-4">
-                  If you’ve been injured in an accident, don’t wait to take action. Mendez & Sanchez APC is
-                  ready to help you pursue the justice and compensation you deserve in California or Nevada.
-                  Fill out the form below or call us today for a free, no-obligation consultation.
+                  Whether you've been injured in an accident, are dealing with a personal injury claim, or
+                  facing another legal issue, Mendez & Sanchez APC is here to fight for you. We handle a wide
+                  range of cases and focus on one thing—<strong>getting results</strong>. Our goal is to win
+                  the maximum compensation you deserve and help you get the justice you're owed in California
+                  or Nevada. Contact us today for a <strong>free, no-obligation consultation.</strong>
                 </p>
               </IsInViewProvider>
             </Col>

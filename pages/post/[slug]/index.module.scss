@@ -85,10 +85,10 @@ $header_height: 45vh;
       }
 
       p {
-        @include animation.slideInUpInViewport();
         color: $color_white;
         transition-delay: 0.5s;
         line-height: 1.2em;
+        @include animation.slideInUpInViewport();
 
         @include responsive.device-max('lg') {
           font-size: 16px;
