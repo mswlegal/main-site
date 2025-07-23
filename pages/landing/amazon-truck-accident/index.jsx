@@ -30,8 +30,6 @@ function AmazonTruckAccident() {
     });
   }, []);
 
-  console.log(variant)
-
   return (
     <>
       <Seo

@@ -3,16 +3,13 @@ const page_preloader = () => {
   let preloader = document.getElementById('preloader');
 
   if (preloader) {
-    if (!isMobile) {
-      setTimeout(function () {
-        preloader.classList.add('preloaded');
-      }, 800);
-      setTimeout(function () {
-        preloader.remove();
-      }, 2000);
-    } else {
+    const time = isMobile ? 100 : 800;
+    setTimeout(function () {
+      preloader.classList.add('preloaded');
+    }, time);
+    setTimeout(function () {
       preloader.remove();
-    }
+    }, 2000);
   }
 };
 

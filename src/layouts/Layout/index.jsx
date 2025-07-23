@@ -11,7 +11,7 @@ import styles from './index.module.scss';
 const Layout = ({ children, headName, dark }) => {
   const router = useRouter();
   const isLandingPage = router.pathname.startsWith('/landing');
-  const [showPreloader, setShowPreloader] = useState(!isLandingPage);
+  const [showPreloader, setShowPreloader] = useState(true);
 
   // Effect to manage preloader visibility
   useEffect(() => {
@@ -40,7 +40,7 @@ const Layout = ({ children, headName, dark }) => {
       <Head>
         <title>Mendez & Sanchez: Injury Law in Los Angeles & Las Vegas</title>
       </Head>
-      {showPreloader && !isLandingPage && <Preloader />}
+      {showPreloader && <Preloader />}
       <div className={styles.layout} data-magic-cursor="show">
         {!isLandingPage && <Header dark={dark} />}
         {children}
