@@ -23,11 +23,14 @@ function AmazonTruckAccident() {
   React.useEffect(() => {
     posthog?.onFeatureFlags(() => {
       const value = posthog.getFeatureFlag('landing-page-header-conversion');
+      console.log(value);
       if (value) {
         setVariant(value);
       }
     });
   }, []);
+
+  console.log(variant)
 
   return (
     <>
@@ -40,7 +43,6 @@ function AmazonTruckAccident() {
       />
 
       <LandingPageHeader phone={phone} />
-      <HeroSection />
       {variant === 'header-on-right' ? <HeroSectionDesign2 /> : <HeroSection />}
       <ProjectsSection />
       <FaqSection />
@@ -74,6 +76,6 @@ export async function getStaticProps({ locale }) {
       ...(await serverSideTranslations(locale, ['amazonTruckAccident']))
     }
   };
-};
+}
 
 export default AmazonTruckAccident;
