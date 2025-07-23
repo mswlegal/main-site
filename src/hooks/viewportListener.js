@@ -2,9 +2,15 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export function IsInViewProvider({ children, horizontal, center }) {
+export function IsInViewProvider({ children, horizontal, center, onChange }) {
   const [isInViewport, setIsInViewport] = React.useState(false);
   const refs = React.useRef();
+
+  React.useEffect(() => {
+    if (onChange) {
+      onChange(isInViewport);
+    }
+  }, [isInViewport, onChange]);
 
   const handleObserveElement = React.useCallback(
     (element) => {
@@ -60,7 +66,8 @@ export function IsInViewProvider({ children, horizontal, center }) {
 IsInViewProvider.propTypes = {
   children: PropTypes.node.isRequired,
   horizontal: PropTypes.bool,
-  center: PropTypes.bool
+  center: PropTypes.bool,
+  onChange: PropTypes.func
 };
 
 IsInViewProvider.defaultProps = {

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { lazy, Suspense } from 'react';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import styles from './index.module.scss';
 import cx from 'classnames';
 import { IsInViewProvider } from '@/hooks/viewportListener';
@@ -8,8 +8,16 @@ import { useTranslation } from 'next-i18next';
 import { Trans as Translate } from 'next-i18next';
 import { scrollToSection } from '@/utilities';
 
-function Design2() {
+// Lazy load ModalForm
+const ModalForm = lazy(() => import('@/components/Forms/ModalForm'));
+
+function Design2({ showFloatingButton }) {
   const { t } = useTranslation('amazonTruckAccident');
+  const [openForm, setOpenForm] = React.useState(false);
+
+  function toggleForm() {
+    setOpenForm(!openForm);
+  }
 
   return (
     <>
@@ -28,7 +36,23 @@ function Design2() {
               </IsInViewProvider>
             </Col>
             <Col lg={5} xs={12}>
-              <MainForm isLandingPage />
+              <div className="d-md-block d-none">
+                <MainForm isLandingPage />
+              </div>
+              <Button
+                className={cx(
+                  styles.floatingButton,
+                  { [styles.showFloatingButton]: showFloatingButton },
+                  'd-md-none d-block'
+                )}
+                onClick={toggleForm}
+              >
+                <span className="text-capitalize">Start your free case review</span>
+              </Button>
+
+              <Suspense fallback={null}>
+                {openForm && <ModalForm show={openForm} setShow={setOpenForm} isLandingPage />}
+              </Suspense>
             </Col>
           </Row>
         </Container>

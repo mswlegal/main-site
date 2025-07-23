@@ -14,16 +14,17 @@ import HeroSectionDesign2 from './HeroSection/Design2';
 import ContactSection from './ContactSection';
 import ProjectsSection from './ProjectsSection';
 import posthog from 'posthog-js';
+import { IsInViewProvider } from '@/hooks/viewportListener';
 
 function AmazonTruckAccident() {
   const phone = '4242768825';
   const { t } = useTranslation('amazonTruckAccident');
   const [variant, setVariant] = React.useState('control');
+  const [isContactInView, setIsContactInView] = React.useState(false);
 
   React.useEffect(() => {
     posthog?.onFeatureFlags(() => {
       const value = posthog.getFeatureFlag('landing-page-header-conversion');
-      console.log(value);
       if (value) {
         setVariant(value);
       }
@@ -41,10 +42,18 @@ function AmazonTruckAccident() {
       />
 
       <LandingPageHeader phone={phone} />
-      {variant === 'header-on-right' ? <HeroSectionDesign2 /> : <HeroSection />}
+      {variant === 'header-on-right' ? (
+        <HeroSectionDesign2 showFloatingButton={!isContactInView} />
+      ) : (
+        <HeroSection />
+      )}
       <ProjectsSection />
       <FaqSection />
-      <ContactSection phone={phone} />
+      <IsInViewProvider onChange={setIsContactInView}>
+        <div>
+          <ContactSection />
+        </div>
+      </IsInViewProvider>
 
       <footer className={cx(styles.footer, 'bg-black small text-center text-white-50')}>
         <Container className="px-4 px-lg-5">

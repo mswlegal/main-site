@@ -121,3 +121,16 @@ $header_height: 45vh;
     }
   }
 }
+
+.floatingButton {
+  position: fixed !important;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  visibility: hidden;
+  @include button.mainButton();
+  &.showFloatingButton {
+    visibility: visible;
+  }
+}
