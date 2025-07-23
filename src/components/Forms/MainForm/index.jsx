@@ -165,9 +165,12 @@ function MainForm({ className, isLandingPage = false, phoneNumber = '3238381444'
             </Col>
             <Col xs={12} className="text-center">
               <span className={styles.disclaimer}>
-                By contacting us, you agree to receive communications from Méndez & Sánchez, APC. Message and
-                data rates may apply. Text ‘STOP’ to opt-out. Communication does not establish an
-                attorney-client relationship.
+                By providing your information, you agree to receive SMS messages, including appointment
+                updates, reminders, and follow-ups. Message/data rates may apply. Frequency varies. You may
+                opt out anytime by texting STOP.{' '}
+                <a href="/legal/terms-conditions" target="_blank" rel="noopener noreferrer">
+                  Terms and Conditions.
+                </a>
               </span>
               <button className={styles.button} id="submitButton" type="submit">
                 Start Your Free Case Review

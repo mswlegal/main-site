@@ -1,16 +1,16 @@
 @use '/styles/responsive/_devicesMixins.scss' as responsive;
 
 $color_primary: #d71a20;
-$color_white: #FFF;
+$color_white: #fff;
 $color_dark: #15111e;
 
 .accordion {
-  :global([class*="Accordion_accordionHeader"]) {
+  :global([class*='Accordion_accordionHeader']) {
     color: $color_primary;
     :global(.accordion-button) {
       font-family: 'Josefin Sans';
       font-size: 24px;
-      @include responsive.device-max("md") {
+      @include responsive.device-max('md') {
         font-size: 20px;
         line-height: 2.4rem;
       }
@@ -23,7 +23,7 @@ $color_dark: #15111e;
     }
   }
 
-  :global([class*="Accordion_accordionBody"]) {
+  :global([class*='Accordion_accordionBody']) {
     color: $color_dark;
     font-size: 18px;
     font-weight: 400;
@@ -33,15 +33,17 @@ $color_dark: #15111e;
     padding-right: 20px;
     font-style: italic;
 
-    p, li {
+    p,
+    li {
       letter-spacing: 0.1rem;
     }
 
-    @include responsive.device-max("md") {
+    @include responsive.device-max('md') {
       padding-left: 0;
       padding-right: 0;
-      
-      p, li {
+
+      p,
+      li {
         font-size: 16px;
       }
     }
@@ -54,7 +56,7 @@ $color_dark: #15111e;
     }
     p + ul {
       margin-left: 50px;
-      @include responsive.device-max("md") {
+      @include responsive.device-max('md') {
         margin-left: 20px;
       }
     }
@@ -69,3 +71,28 @@ $color_dark: #15111e;
   }
 }
 
+.container {
+  @include responsive.device-max('md') {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.faq {
+  padding: 100px 0;
+  @include responsive.device-max('md') {
+    padding: 50px 0;
+  }
+  svg {
+    color: $color_primary !important;
+    width: 50px;
+    max-height: 50px;
+    height: auto;
+  }
+
+  h2 {
+    @include responsive.device-max('lg') {
+      font-size: 24px;
+    }
+  }
+}

@@ -2,6 +2,7 @@
 @use '/styles/mixins/buttonMixins' as button;
 
 $color_white: #fff;
+$color_red: #d71a20;
 $font-family_1: Roboto, 'Helvetica Neue';
 
 .form-signup {
@@ -26,13 +27,18 @@ $font-family_1: Roboto, 'Helvetica Neue';
   }
 
   .disclaimer {
-    font-size: 13px;
+    font-size: 14px;
     display: block;
     text-align: center;
     margin: 8px auto;
     margin-bottom: 24px;
     color: $color_white;
     line-height: 1.2em;
+    a {
+      font-size: inherit;
+      color: $color_red;
+      font-weight: 700;
+    }
     @include responsive.device-max('sm') {
       max-width: 100%;
     }

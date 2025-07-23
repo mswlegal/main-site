@@ -187,7 +187,7 @@ function ModalForm({ show, setShow, isLandingPage = false, phoneNumber = '323838
 
       <Modal.Footer className={styles.cardInfo}>
         <p className="text-center">
-          By providing your phone number, you agree to receive SMS messages, including appointment updates,
+          By providing your information, you agree to receive SMS messages, including appointment updates,
           reminders, and follow-ups. Message/data rates may apply. Frequency varies. You may opt out anytime
           by texting STOP.{' '}
           <a href="/legal/terms-conditions" target="_blank" rel="noopener noreferrer">
