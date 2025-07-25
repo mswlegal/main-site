@@ -48,7 +48,7 @@ const Contact = (props) => {
               </IsInViewProvider>
               <ul>
                 <li className={styles.list_inner}>
-                  <Button as="a" className={styles.button} onClick={() => toggleForm()}>
+                  <Button className={styles.button} onClick={() => toggleForm()}>
                     <span>Submit Case Now</span>
                     <FontAwesomeIcon icon={faPaperPlane} className="fas text-white" />
                   </Button>

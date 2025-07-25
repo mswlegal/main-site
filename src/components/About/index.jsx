@@ -55,7 +55,7 @@ const About = () => {
               </div>
             </IsInViewProvider>
 
-            <Button as="a" className={styles.button} onClick={() => toggleForm()}>
+            <Button className={styles.button} onClick={() => toggleForm()}>
               <span className="txt">Get a Free Consultation</span>
             </Button>
           </Col>

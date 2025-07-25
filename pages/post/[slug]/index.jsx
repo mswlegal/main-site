@@ -173,7 +173,7 @@ function PostPage({ post }) {
             </Row>
           </IsInViewProvider>
           <ModalForm show={openForm} setShow={setOpenForm} />
-          <Button as="a" className={cx(styles.button, 'd-md-none d-block')} onClick={() => toggleForm()}>
+          <Button className={cx(styles.button, 'd-md-none d-block')} onClick={() => toggleForm()}>
             <span className="text-capitalize">Start your free case review</span>
           </Button>
         </Container>
