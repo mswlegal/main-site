@@ -1,5 +1,5 @@
-// pages/api/webflow-posts.js
-const COLLECTION_ID = '64349569fab43e3ac7344722';
+// pages/api/webflow-experties.js
+const COLLECTION_ID = '64349569fab43e73c2344702';
 const BASE_ENDPOINT = `https://api.webflow.com/v2/collections/${COLLECTION_ID}/items`;
 
 let cachedData = null;
