@@ -1,19 +1,18 @@
+import { faFacebookF, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faUser, faCalendarAlt, faTag } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import cx from 'classnames';
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import styles from './index.module.scss';
-import cx from 'classnames';
-import { IsInViewProvider } from '@/hooks/viewportListener';
-import Seo from '@/components/Seo';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faCalendarAlt, faTag } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
-import ModalForm from '@/components/Forms/ModalForm';
 import MainForm from '@/components/Forms/MainForm';
-import staticPosts from '@/posts/staticPosts';
+import ModalForm from '@/components/Forms/ModalForm';
+import Seo from '@/components/Seo';
+import { IsInViewProvider } from '@/hooks/viewportListener';
 import { extractKeywordsFromRichText } from '@/utilities';
 
-function PostPage({ post }) {
+function ExpertisePage({ expertise }) {
   const [currentUrl, setCurrentUrl] = React.useState('');
   const [openForm, setOpenForm] = React.useState(false);
 
@@ -39,44 +38,32 @@ function PostPage({ post }) {
     setOpenForm(!openForm);
   }
 
-  if (!post) return <p>Loading...</p>; // Just in case the post is not found
+  if (!expertise) return <p>Loading...</p>;
+
   return (
     <>
       <Seo
-        title={`${post.title} | Mendez & Sanchez APC`}
-        description={post.description}
-        ogImage={post.mainImage.src}
-        keywords={post.keywords.join(', ')}
+        title={`${expertise.title} | Mendez & Sanchez APC`}
+        description={expertise.description}
+        ogImage={expertise.mainImage.src}
+        keywords={expertise.keywords.join(', ')}
         noIndex={false}
       >
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'BlogPosting',
-            mainEntityOfPage: {
-              '@type': 'WebPage',
-              '@id': `https://www.mendezsanchezlaw.com/post/${post.slug}`
-            },
-            headline: post.title,
-            description: 'Learn how to bring a lawsuit for pain and suffering...',
-            image: `https://www.mendezsanchezlaw.com${post.mainImage.src}`,
-            author: {
-              '@type': 'Organization',
+            '@type': 'Service',
+            serviceType: expertise.title,
+            name: expertise.title,
+            description: expertise.description,
+            provider: {
+              '@type': 'LegalService',
               name: 'Mendez & Sanchez APC',
               url: 'https://www.mendezsanchezlaw.com/'
             },
-            publisher: {
-              '@type': 'Organization',
-              name: 'Mendez & Sanchez APC',
-              logo: {
-                '@type': 'ImageObject',
-                url: `https://www.mendezsanchezlaw.com${require('@images/logo/logo-dark.webp').default.src}`
-              }
-            },
-            datePublished: post.date,
-            dateModified: post.date,
-            articleSection: post.articleSection,
-            keywords: post.keywords
+            areaServed: 'California and Nevada',
+            url: `https://www.mendezsanchezlaw.com/expertise/${expertise.slug}`,
+            keywords: expertise.keywords
           })}
         </script>
       </Seo>
@@ -86,7 +73,7 @@ function PostPage({ post }) {
           <Row className={cx(styles.row, 'text-center justify-content-center')}>
             <Col lg={9} xs={12}>
               <IsInViewProvider>
-                <h1 dangerouslySetInnerHTML={{ __html: post.header || post.title }} />
+                <h1 dangerouslySetInnerHTML={{ __html: expertise.header || expertise.title }} />
               </IsInViewProvider>
 
               <IsInViewProvider>
@@ -115,28 +102,6 @@ function PostPage({ post }) {
         <Container className={styles.container}>
           <IsInViewProvider center>
             <Row className={styles.row}>
-              <Col lg={8} xs={12}>
-                <Card className={styles.card}>
-                  <Card.Img variant="top" src={post.mainImage.src} />
-                  <Card.Body>
-                    <Row className={cx(styles['post-meta'], 'align-items-center')}>
-                      <Col md="auto" xs={6} className="d-flex align-items-center me-md-3">
-                        <FontAwesomeIcon icon={faUser} className="me-1 text-danger" />
-                        <span>By Admin</span>
-                      </Col>
-                      <Col md="auto" xs={6} className="d-flex align-items-center me-md-3">
-                        <FontAwesomeIcon icon={faCalendarAlt} className="me-1 text-danger" />
-                        <span>{post.date}</span>
-                      </Col>
-                      <Col md="auto" xs={6} className="d-flex align-items-center">
-                        <FontAwesomeIcon icon={faTag} className="me-1 text-danger" />
-                        <span>Personal Injuries</span>
-                      </Col>
-                    </Row>
-                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
-                  </Card.Body>
-                </Card>
-              </Col>
               <Col lg={4} xs={12}>
                 <div className={styles.sticky}>
                   <div className={styles['share-section']}>
@@ -178,6 +143,28 @@ function PostPage({ post }) {
                   </div>
                 </div>
               </Col>
+              <Col lg={8} xs={12}>
+                <Card className={styles.card}>
+                  <Card.Img variant="top" src={expertise.mainImage.src} />
+                  <Card.Body>
+                    <Row className={cx(styles['post-meta'], 'align-items-center')}>
+                      <Col md="auto" xs={6} className="d-flex align-items-center me-md-3">
+                        <FontAwesomeIcon icon={faUser} className="me-1 text-danger" />
+                        <span>By Admin</span>
+                      </Col>
+                      <Col md="auto" xs={6} className="d-flex align-items-center me-md-3">
+                        <FontAwesomeIcon icon={faCalendarAlt} className="me-1 text-danger" />
+                        <span>{expertise.date}</span>
+                      </Col>
+                      <Col md="auto" xs={6} className="d-flex align-items-center">
+                        <FontAwesomeIcon icon={faTag} className="me-1 text-danger" />
+                        <span>{expertise.articleSection}</span>
+                      </Col>
+                    </Row>
+                    <div dangerouslySetInnerHTML={{ __html: expertise.content }} />
+                  </Card.Body>
+                </Card>
+              </Col>
             </Row>
           </IsInViewProvider>
           <ModalForm show={openForm} setShow={setOpenForm} />
@@ -194,61 +181,52 @@ function PostPage({ post }) {
 }
 
 export async function getStaticProps({ params }) {
-  // Try to find in staticPosts first
-  const staticPost = staticPosts.find((p) => p.slug === params.slug);
-  if (staticPost) {
-    return {
-      props: {
-        post: staticPost
-      }
-    };
-  }
-
-  // Fallback to CMS posts
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/webflow-posts`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/webflow-expertise`);
   const data = await res.json();
-  const posts = data.items;
+  const items = data.items;
 
-  const postRaw = posts.find((p) => p.fieldData.slug === params.slug);
-  if (!postRaw) return { notFound: true };
+  const item = items.find((entry) => entry.fieldData.slug === params.slug);
+  if (!item) return { notFound: true };
 
-  const post = {
-    title: postRaw.fieldData.name,
-    slug: postRaw.fieldData.slug,
-    description: postRaw.fieldData['post-summary'],
-    content: postRaw.fieldData['post-body'],
-    date: new Date(postRaw.createdOn).toLocaleDateString(),
-    keywords: extractKeywordsFromRichText(postRaw.fieldData['post-body']),
-    articleSection: 'Property Damage',
+  const expertise = {
+    title: item.fieldData.name,
+    slug: item.fieldData.slug,
+    description: item.fieldData['meta-discription'] || '',
+    content: [
+      item.fieldData['expertise-long-description'],
+      item.fieldData['expertise-long-description-2'],
+      item.fieldData['expertise-long-description-3']
+    ]
+      .filter(Boolean)
+      .join(''),
+    date: new Date(item.createdOn).toLocaleDateString(),
+    keywords: [item.fieldData.name, 'Personal Injury', 'Accident Lawyer', 'Mendez & Sanchez', 'Injury Claim'],
+    articleSection: 'Legal Expertise',
     mainImage: {
-      src: postRaw.fieldData['main-image']?.url || '',
-      alt: postRaw.fieldData['main-image']?.alt || ''
+      src: item.fieldData['practice-photo']?.url || '',
+      alt: item.fieldData['alt-text-for-expertise-photo'] || ''
     }
   };
 
   return {
-    props: { post },
+    props: { expertise },
     revalidate: 60
   };
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/webflow-posts`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/webflow-expertise`);
   const data = await res.json();
-  const cmsPosts = data.items.filter((p) => !p.isDraft && !p.isArchived);
+  const items = data.items.filter((entry) => !entry.isDraft && !entry.isArchived);
 
-  const cmsPaths = cmsPosts.map((post) => ({
-    params: { slug: post.fieldData.slug }
-  }));
-
-  const staticPaths = staticPosts.map((post) => ({
-    params: { slug: post.slug }
+  const paths = items.map((item) => ({
+    params: { slug: item.fieldData.slug }
   }));
 
   return {
-    paths: [...cmsPaths, ...staticPaths],
+    paths,
     fallback: false
   };
 }
 
-export default PostPage;
+export default ExpertisePage;

@@ -141,7 +141,7 @@ const Header = ({ dark }) => {
               </ul>
 
               <div className={cx(styles.cta, 'd-xl-block d-none')}>
-                <a href="tel:32383814444" className={styles.button}>
+                <a href="tel:+132383814444" className={styles.button}>
                   <FontAwesomeIcon icon={faPhoneVolume} className="fas" />
                   <span>{formatPhoneNumber('32383814444')}</span>
                 </a>
