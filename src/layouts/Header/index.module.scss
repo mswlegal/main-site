@@ -74,8 +74,8 @@ $font-family_1: 'Nunito', sans-serif;
           -ms-transition: all 0.3s ease;
           -o-transition: all 0.3s ease;
           transition: all 0.3s ease;
-          &:hover {
-            color: $color_red;
+          &:hover, &:global(.show) {
+            color: $color_red !important;
           }
         }
       }
