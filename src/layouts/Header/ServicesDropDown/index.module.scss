@@ -1,0 +1,100 @@
+@use '/styles/responsive/_devicesMixins.scss' as responsive;
+
+.custom-dropdown {
+  position: unset;
+  .container {
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+
+  a {
+    width: auto;
+    &::after {
+      display: none !important;
+    }
+    svg {
+      width: 10px;
+    }
+  }
+
+  :global(.dropdown-menu) {
+    border-radius: 0;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100vw;
+    top: 15px !important;
+    left: 0 !important;
+    overflow: hidden;
+    /* Dropdown Item Styles */
+    :global(.dropdown-item) {
+      padding: 15px;
+      font-size: 14px;
+      color: #333;
+      border-radius: 8px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+
+    &:global(.show) {
+      :global(.dropdown-item) {
+        opacity: 0;
+        animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        will-change: opacity, transform;
+      }
+    }
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes slideInFull {
+    0% {
+      opacity: 0.5;
+      width: 0;
+    }
+    100% {
+      opacity: 1;
+      width: 100%;
+    }
+  }
+
+  .card {
+    width: 280px;
+    height: 400px;
+    overflow: hidden;
+    border: none;
+    img {
+      min-height: inherit;
+      object-fit: cover;
+    }
+
+    :global(.card-img-overlay) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 90%, #000 100%);
+    }
+
+    :global(.card-text) {
+      font-size: 14px;
+      text-shadow: 3px 3px 3px #000;
+    }
+
+    :global(.card-title) {
+      font-size: 20px;
+      text-shadow: 3px 3px 3px #000;
+    }
+  }
+}

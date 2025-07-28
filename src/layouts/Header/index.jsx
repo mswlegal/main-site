@@ -9,12 +9,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';
 import { formatPhoneNumber } from '../../utilities';
+import dynamic from 'next/dynamic';
+
+const ServicesDropDown = dynamic(() => import('./ServicesDropDown'), {
+  ssr: false, // optional: prevents server-side rendering if dropdown needs DOM access
+  loading: () => null // or a spinner/skeleton component if desired
+});
 
 const Header = ({ dark }) => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
   const headerRef = React.useRef(null);
   const router = useRouter();
-  const isHomePage = router.pathname === '/';
 
   const stickyNav = () => {
     let offset = window.scrollY;
@@ -44,6 +49,15 @@ const Header = ({ dark }) => {
     router.push(path);
   };
 
+  const handleShowDropDown = (value) => {
+    if (headerRef.current?.classList.contains('animate')) return;
+
+    if (value) {
+      headerRef.current.classList.add('dropdown-shown');
+    } else {
+      headerRef.current.classList.remove('dropdown-shown');
+    }
+  };
   React.useEffect(() => {
     window.addEventListener('scroll', stickyNav);
   }, []);
@@ -107,37 +121,21 @@ const Header = ({ dark }) => {
               ></button>
 
               <ul className={styles['anchor_nav']}>
-                {isHomePage ? (
-                  <>
-                    <li>
-                      <a onClick={() => handleChangeRoute('/about')}>About Us</a>
-                    </li>
-                    <li>
-                      <a onClick={() => handleMenuOnClick('services')}>Services</a>
-                    </li>
-                    <li>
-                      <a onClick={() => handleMenuOnClick('testimonial')}>Clients</a>
-                    </li>
-                    <li>
-                      <a onClick={() => handleChangeRoute('/contact')}>Contact</a>
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    <li>
-                      <a onClick={() => handleChangeRoute('/')}>Home</a>
-                    </li>
-                    <li>
-                      <a onClick={() => handleChangeRoute('/legal/terms-conditions')}>Terms & Conditions</a>
-                    </li>
-                    <li>
-                      <a onClick={() => handleChangeRoute('/legal/privacy-policy')}>Privacy Policy</a>
-                    </li>
-                    <li>
-                      <a onClick={() => handleChangeRoute('/legal/disclaimer')}>Disclaimer</a>
-                    </li>
-                  </>
-                )}
+                <>
+                  <li>
+                    <a onClick={() => handleChangeRoute('/about')}>About Us</a>
+                  </li>
+                  <li>
+                    {/* <a onClick={() => handleMenuOnClick('services')}>Services</a> */}
+                    <ServicesDropDown onDropDownShow={handleShowDropDown} onChangeRoute={handleChangeRoute} />
+                  </li>
+                  <li>
+                    <a onClick={() => handleChangeRoute('/contact')}>Contact</a>
+                  </li>
+                  <li>
+                    <a onClick={() => handleChangeRoute('/legal/disclaimer')}>Diclaimer</a>
+                  </li>
+                </>
               </ul>
 
               <div className={cx(styles.cta, 'd-xl-block d-none')}>

@@ -4,7 +4,7 @@ $color_black: #000;
 $color_white: #fff;
 $color_red: #d71a20;
 $color_dark: #15111e;
-$font-family_1: "Nunito", sans-serif;
+$font-family_1: 'Nunito', sans-serif;
 
 .navbar {
   position: fixed;
@@ -25,13 +25,14 @@ $font-family_1: "Nunito", sans-serif;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 0px;
+    padding: 8px 0px;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
   }
+
   .logo {
     img {
       max-width: 180px;
@@ -86,6 +87,7 @@ $font-family_1: "Nunito", sans-serif;
         }
       }
     }
+
     @include responsive.device-max('xl') {
       display: block;
       position: fixed;
@@ -173,14 +175,16 @@ $font-family_1: "Nunito", sans-serif;
         font-size: 16px;
       }
 
-      &:hover, &:active, &:focus-visible {
+      &:hover,
+      &:active,
+      &:focus-visible {
         background-color: #d71a204f !important;
         border-color: #d71a20 !important;
       }
     }
   }
 
-  &:global([class*='animate']) {
+  &:global([class*='animate']), &:global([class*='dropdown-shown']) {
     background-color: $color_white;
     .inner {
       padding: 8px 0px;
@@ -224,7 +228,9 @@ $font-family_1: "Nunito", sans-serif;
       .button {
         background-color: $color_red;
         border-color: $color_red;
-        &:hover, &:active, &:focus-visible {
+        &:hover,
+        &:active,
+        &:focus-visible {
           background-color: #d71a204f !important;
           color: $color_dark;
           border-color: $color_dark;
