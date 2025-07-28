@@ -145,7 +145,7 @@ function ExpertisePage({ expertise }) {
               </Col>
               <Col lg={8} xs={12}>
                 <Card className={styles.card}>
-                  <Card.Img variant="top" src={expertise.mainImage.src} />
+                  <Card.Img variant="top" src={require('@images/intro/ms-banner.webp').default.src} />
                   <Card.Body>
                     <Row className={cx(styles['post-meta'], 'align-items-center')}>
                       <Col md="auto" xs={6} className="d-flex align-items-center me-md-3">
@@ -188,19 +188,32 @@ export async function getStaticProps({ params }) {
   const item = items.find((entry) => entry.fieldData.slug === params.slug);
   if (!item) return { notFound: true };
 
+  const contentHtml = [
+    item.fieldData['expertise-long-description'],
+    item.fieldData['expertise-long-description-2'],
+    item.fieldData['expertise-long-description-3']
+  ]
+    .filter(Boolean)
+    .join('');
+
+  const extractedKeywords = extractKeywordsFromRichText(contentHtml);
+
   const expertise = {
     title: item.fieldData.name,
     slug: item.fieldData.slug,
     description: item.fieldData['meta-discription'] || '',
-    content: [
-      item.fieldData['expertise-long-description'],
-      item.fieldData['expertise-long-description-2'],
-      item.fieldData['expertise-long-description-3']
-    ]
-      .filter(Boolean)
-      .join(''),
+    content: contentHtml,
     date: new Date(item.createdOn).toLocaleDateString(),
-    keywords: [item.fieldData.name, 'Personal Injury', 'Accident Lawyer', 'Mendez & Sanchez', 'Injury Claim'],
+    keywords: Array.from(
+      new Set([
+        item.fieldData.name,
+        'Personal Injury',
+        'Accident Lawyer',
+        'Mendez & Sanchez',
+        'Injury Claim',
+        ...extractedKeywords
+      ])
+    ),
     articleSection: 'Legal Expertise',
     mainImage: {
       src: item.fieldData['practice-photo']?.url || '',

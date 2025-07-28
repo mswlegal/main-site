@@ -37,7 +37,7 @@ const Index = () => {
       <Seo
         title="Los Angeles & Las Vegas Personal Injury Attorneys | Mendez & Sanchez APC"
         description="Get the compensation you deserve after a car accident. Contact our experienced California legal team today."
-        ogImage={require('../public/img/intro/ms-banner.webp').default.src}
+        ogImage={require('@images/intro/ms-banner.webp').default.src}
         keywords="Mendez & Sanchez law firm, Los Angeles personal injury lawyers, car accident attorneys California, best injury lawyer LA, personal injury law firm, accident compensation lawyers"
         noIndex={false}
       />
