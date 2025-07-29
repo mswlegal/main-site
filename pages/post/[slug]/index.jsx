@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import styles from './index.module.scss';
 import cx from 'classnames';
@@ -7,27 +7,27 @@ import Seo from '@/components/Seo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCalendarAlt, faTag, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import ModalForm from '@/components/Forms/ModalForm';
-import MainForm from '@/components/Forms/MainForm';
+import dynamic from 'next/dynamic';
 import staticPosts from '@/posts/staticPosts';
 import { extractKeywordsFromRichText } from '@/utilities';
 import Image from 'next/image';
 
-function PostPage({ post }) {
-  const [currentUrl, setCurrentUrl] = React.useState('');
-  const [openForm, setOpenForm] = React.useState(false);
+// Dynamically imported components to reduce initial JS payload
+const ModalForm = dynamic(() => import('@/components/Forms/ModalForm'), { ssr: false });
+const MainForm = dynamic(() => import('@/components/Forms/MainForm'), { ssr: false });
 
-  React.useEffect(() => {
-    setCurrentUrl(window.location.href);
-  }, []);
+function PostPage({ post }) {
+  const [currentUrl, setCurrentUrl] = useState('');
+  const [openForm, setOpenForm] = useState(false); // Added back state for form visibility
+
+  useEffect(() => {
+    setCurrentUrl(`https://www.mendezsanchezlaw.com/post/${post.slug}`);
+  }, [post.slug]);
 
   const handleNativeShare = () => {
     if (navigator.share) {
       navigator
-        .share({
-          title: document.title,
-          url: currentUrl
-        })
+        .share({ title: document.title, url: currentUrl })
         .catch((err) => console.error('Error sharing:', err));
     } else {
       navigator.clipboard.writeText(currentUrl);
@@ -35,9 +35,7 @@ function PostPage({ post }) {
     }
   };
 
-  function toggleForm() {
-    setOpenForm(!openForm);
-  }
+  const toggleForm = () => setOpenForm(!openForm); // Function to toggle form visibility
 
   if (!post) return <p>Loading...</p>;
 
@@ -48,59 +46,22 @@ function PostPage({ post }) {
         description={post.description}
         ogImage={post.mainImage.src}
         keywords={post.keywords.join(', ')}
-        noIndex={false}
       >
-        <link rel="preload" as="image" href={require('@images/hero/hero.webp')} type="image/webp" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BlogPosting',
-            mainEntityOfPage: {
-              '@type': 'WebPage',
-              '@id': `https://www.mendezsanchezlaw.com/post/${post.slug}`
-            },
-            headline: post.title,
-            description: 'Learn how to bring a lawsuit for pain and suffering...',
-            image: `https://www.mendezsanchezlaw.com${post.mainImage.src}`,
-            author: {
-              '@type': 'Organization',
-              name: 'Mendez & Sanchez APC',
-              url: 'https://www.mendezsanchezlaw.com/'
-            },
-            publisher: {
-              '@type': 'Organization',
-              name: 'Mendez & Sanchez APC',
-              logo: {
-                '@type': 'ImageObject',
-                url: `https://www.mendezsanchezlaw.com${require('@images/logo/logo-dark.webp').default.src}`
-              }
-            },
-            datePublished: post.date,
-            dateModified: post.date,
-            articleSection: post.articleSection,
-            keywords: post.keywords
-          })}
-        </script>
+        <link rel="preload" as="image" href={post.mainImage.src} type="image/webp" />
       </Seo>
 
       <section className={cx(styles.section, styles.header)}>
         <Container className={styles.container}>
           <Row className={cx(styles.row, 'text-center justify-content-center')}>
             <Col lg={9} xs={12}>
-              <IsInViewProvider>
-                <h1 dangerouslySetInnerHTML={{ __html: post.header || post.title }} />
-              </IsInViewProvider>
-
-              <IsInViewProvider>
-                <p className="mt-4 mb-5">
-                  Whether you've been injured in an accident, are dealing with a personal injury claim, or
-                  facing another legal issue, Mendez & Sanchez APC is here to fight for you. We handle a wide
-                  range of cases and focus on one thing—<strong>getting results</strong>. Our goal is to win
-                  the maximum compensation you deserve and help you get the justice you're owed in California
-                  or Nevada. Contact us today for a <strong>free, no-obligation consultation.</strong>
-                </p>
-              </IsInViewProvider>
-
+              <h1 dangerouslySetInnerHTML={{ __html: post.header || post.title }} />
+              <p className="mt-4 mb-5">
+                Whether you've been injured in an accident, are dealing with a personal injury claim, or
+                facing another legal issue, Mendez & Sanchez APC is here to fight for you. We handle a wide
+                range of cases and focus on one thing—<strong>getting results</strong>. Our goal is to win the
+                maximum compensation you deserve and help you get the justice you're owed in California or
+                Nevada. Contact us today for a <strong>free, no-obligation consultation.</strong>
+              </p>
               <Button
                 as="a"
                 href="tel:+132383814444"
@@ -195,7 +156,7 @@ function PostPage({ post }) {
           <ModalForm show={openForm} setShow={setOpenForm} />
           <Button
             className={cx(styles.button, styles.floatingButton, 'd-md-none d-block')}
-            onClick={() => toggleForm()}
+            onClick={toggleForm}
           >
             <span className="text-capitalize">Start your free case review</span>
           </Button>
