@@ -65,7 +65,7 @@ export default function Banner() {
         <SwiperSlide className={styles['swiper-slide']}>
           <div className={styles['image-layer']}>
             {/* Lazy-loaded Video Component */}
-            <LazyVideo />
+            {isClient && <LazyVideo />}
           </div>
 
           <Container fluid className={styles.container}>
