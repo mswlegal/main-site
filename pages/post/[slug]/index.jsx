@@ -50,6 +50,7 @@ function PostPage({ post }) {
         keywords={post.keywords.join(', ')}
         noIndex={false}
       >
+        <link rel="preload" as="image" href={require('@images/hero/hero.webp')} type="image/webp" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
