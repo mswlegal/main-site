@@ -145,7 +145,7 @@ function ExpertisePage({ expertise }) {
               </Col>
               <Col lg={8} xs={12}>
                 <Card className={styles.card}>
-                  <Card.Img variant="top" src={require('@images/intro/ms-banner.webp').default.src} />
+                  <Card.Img variant="top" src={expertise.mainImage.src} />
                   <Card.Body>
                     <Row className={cx(styles['post-meta'], 'align-items-center')}>
                       <Col md="auto" xs={6} className="d-flex align-items-center me-md-3">
