@@ -47,7 +47,37 @@ function PostPage({ post }) {
         ogImage={post.mainImage.src}
         keywords={post.keywords.join(', ')}
       >
-        <link rel="preload" as="image" href={post.mainImage.src} type="image/webp" />
+        <link rel="preload" as="image" href={require('@images/hero/hero.webp')} type="image/webp" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `https://www.mendezsanchezlaw.com/post/${post.slug}`
+            },
+            headline: post.title,
+            description: 'Learn how to bring a lawsuit for pain and suffering...',
+            image: `https://www.mendezsanchezlaw.com${post.mainImage.src}`,
+            author: {
+              '@type': 'Organization',
+              name: 'Mendez & Sanchez APC',
+              url: 'https://www.mendezsanchezlaw.com/'
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Mendez & Sanchez APC',
+              logo: {
+                '@type': 'ImageObject',
+                url: `https://www.mendezsanchezlaw.com${require('@images/logo/logo-dark.webp').default.src}`
+              }
+            },
+            datePublished: post.date,
+            dateModified: post.date,
+            articleSection: post.articleSection,
+            keywords: post.keywords
+          })}
+        </script>
       </Seo>
 
       <section className={cx(styles.section, styles.header)}>
