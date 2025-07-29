@@ -2,11 +2,15 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from './index.module.scss';
 import ModalForm from '../Forms/ModalForm';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import cx from 'classnames';
 import Container from 'react-bootstrap/Container';
 import { scrollToSection } from '@/utilities';
+import dynamic from 'next/dynamic';
+
+// Lazy load the swiper module and video element to optimize bundle size.
+const LazyVideo = dynamic(() => import('./LazyVideo'), { ssr: false });
 
 const swiperOptions = {
   modules: [Autoplay, Pagination, Navigation],
@@ -15,8 +19,9 @@ const swiperOptions = {
 };
 
 export default function Banner() {
-  const [openForm, setOpenForm] = React.useState(false);
-  const [currentText, setCurrentText] = React.useState(0);
+  const [openForm, setOpenForm] = useState(false);
+  const [currentText, setCurrentText] = useState(0);
+  const [isClient, setIsClient] = useState(false); // Ensure that the client side runs the text animation
 
   const accidentTypes = [
     'Personal Injury',
@@ -34,43 +39,33 @@ export default function Banner() {
     setOpenForm(!openForm);
   }
 
-  React.useEffect(() => {
-    let count;
-
-    const delayedAnimation = setTimeout(() => {
-      count = setInterval(() => {
-        setCurrentText((prev) => {
-          if (prev === accidentTypes.length - 1) {
-            return 0;
-          }
-          return prev + 1;
-        });
-      }, 2000);
-    }, 1500);
-
-    return () => {
-      clearInterval(count);
-      clearTimeout(delayedAnimation);
-    };
+  useEffect(() => {
+    setIsClient(true); // Trigger client-side logic after the first render
   }, []);
+
+  useEffect(() => {
+    if (isClient) {
+      let count;
+      const delayedAnimation = setTimeout(() => {
+        count = setInterval(() => {
+          setCurrentText((prev) => (prev === accidentTypes.length - 1 ? 0 : prev + 1));
+        }, 2000);
+      }, 1500);
+
+      return () => {
+        clearInterval(count);
+        clearTimeout(delayedAnimation);
+      };
+    }
+  }, [isClient]);
 
   return (
     <section className={`${styles['main-slider']} ${styles['main-slider-one']}`}>
       <Swiper {...swiperOptions} className={styles.swiper}>
         <SwiperSlide className={styles['swiper-slide']}>
           <div className={styles['image-layer']}>
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              id="headerVideo"
-              src="/video/header_video.mp4"
-              type="video/mp4"
-            >
-              <source src="/video/header_video.mp4" type="video/mp4" />
-              Your browser does not support HTML5 video.
-            </video>
+            {/* Lazy-loaded Video Component */}
+            <LazyVideo />
           </div>
 
           <Container fluid className={styles.container}>

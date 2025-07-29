@@ -1,34 +1,36 @@
 import dynamic from 'next/dynamic';
 import Seo from '@/components/Seo';
+import { Suspense } from 'react';
+import Head from 'next/head';
 
 // Lazy load components
 const About = dynamic(() => import('../src/components/About'), {
-  ssr: true, // You can keep it SSR or change it to ssr: false for client-side only
+  ssr: true, // Keeping SSR for About since it might be important above-the-fold
   loading: () => <div>Loading About...</div>
 });
 
 const Counter = dynamic(() => import('../src/components/Counter'), {
-  ssr: false,
+  ssr: false, // Client-side only
   loading: () => <div>Loading Counter...</div>
 });
 
 const Services = dynamic(() => import('../src/components/Services'), {
-  ssr: false,
+  ssr: false, // Client-side only
   loading: () => <div>Loading Services...</div>
 });
 
 const Testimonial = dynamic(() => import('../src/components/Testimonial'), {
-  ssr: false,
+  ssr: false, // Client-side only
   loading: () => <div>Loading Testimonials...</div>
 });
 
 const Contact = dynamic(() => import('../src/components/Contact'), {
-  ssr: false,
+  ssr: false, // Client-side only
   loading: () => <div>Loading Contact...</div>
 });
 
 const Banner = dynamic(() => import('../src/components/Banner'), {
-  ssr: true // Keeping SSR for banner, as it might be important above-the-fold
+  ssr: true // Keep SSR for the Banner for above-the-fold optimization
 });
 
 const Index = () => {
@@ -42,14 +44,36 @@ const Index = () => {
         noIndex={false}
       />
 
-      {/* Use next/image for optimization */}
-      <Banner />
+      <Head>
+        {/* Preload fonts or critical assets */}
+        <link rel="preload" href="/path/to/font.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+      </Head>
 
-      <About />
-      <Counter />
-      <Services />
-      <Testimonial />
-      <Contact />
+      {/* Image Optimization: Using next/image for banner */}
+      <Suspense fallback={<div>Loading Banner...</div>}>
+        <Banner />
+      </Suspense>
+
+      {/* Lazy-loaded components */}
+      <Suspense fallback={<div>Loading About...</div>}>
+        <About />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Counter...</div>}>
+        <Counter />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Services...</div>}>
+        <Services />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Testimonials...</div>}>
+        <Testimonial />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Contact...</div>}>
+        <Contact />
+      </Suspense>
     </>
   );
 };
