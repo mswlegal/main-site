@@ -1,6 +1,14 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
 const LazyVideo = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null; // Prevent SSR rendering
+
   return (
     <video
       autoPlay
