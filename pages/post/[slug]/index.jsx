@@ -47,7 +47,7 @@ function PostPage({ post }) {
         ogImage={post.mainImage.src}
         keywords={post.keywords.join(', ')}
       >
-        <link rel="preload" as="image" href={require('@images/hero/hero.webp')} type="image/webp" />
+        <link rel="preload" as="image" href="/img/hero/hero.webp" type="image/webp" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
