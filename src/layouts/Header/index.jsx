@@ -127,7 +127,11 @@ const Header = ({ dark }) => {
                   </li>
                   <li>
                     {/* <a onClick={() => handleMenuOnClick('services')}>Services</a> */}
-                    <ServicesDropDown onDropDownShow={handleShowDropDown} onChangeRoute={handleChangeRoute} />
+                    <ServicesDropDown
+                      onDropDownShow={handleShowDropDown}
+                      onChangeRoute={handleChangeRoute}
+                      forceClose={!showMobileMenu}
+                    />
                   </li>
                   <li>
                     <a onClick={() => handleChangeRoute('/contact')}>Contact</a>

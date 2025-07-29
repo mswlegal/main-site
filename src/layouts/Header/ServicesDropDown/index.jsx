@@ -45,7 +45,7 @@ const SERVICE_ITEMS = [
   }
 ];
 
-const ServicesDropDown = ({ onDropDownShow, onChangeRoute }) => {
+const ServicesDropDown = ({ onDropDownShow, onChangeRoute, forceClose }) => {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
 
   const toggleServicesDropdown = useCallback(() => {
@@ -63,6 +63,12 @@ const ServicesDropDown = ({ onDropDownShow, onChangeRoute }) => {
       onDropDownShow(servicesDropdownOpen);
     }
   }, [onDropDownShow, servicesDropdownOpen]);
+
+  useEffect(() => {
+    if (forceClose) {
+      setServicesDropdownOpen(false);
+    }
+  }, [forceClose]);
 
   return (
     <NavDropdown
@@ -105,7 +111,8 @@ const ServicesDropDown = ({ onDropDownShow, onChangeRoute }) => {
 
 ServicesDropDown.propTypes = {
   onDropDownShow: PropTypes.func,
-  onChangeRoute: PropTypes.func
+  onChangeRoute: PropTypes.func,
+  forceClose: PropTypes.bool
 };
 
 export default ServicesDropDown;
