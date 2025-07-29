@@ -5,13 +5,13 @@ import cx from 'classnames';
 import { IsInViewProvider } from '@/hooks/viewportListener';
 import Seo from '@/components/Seo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faCalendarAlt, faTag } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faCalendarAlt, faTag, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
 import ModalForm from '@/components/Forms/ModalForm';
 import MainForm from '@/components/Forms/MainForm';
 import staticPosts from '@/posts/staticPosts';
 import { extractKeywordsFromRichText } from '@/utilities';
+import Image from 'next/image';
 
 function PostPage({ post }) {
   const [currentUrl, setCurrentUrl] = React.useState('');
@@ -39,7 +39,8 @@ function PostPage({ post }) {
     setOpenForm(!openForm);
   }
 
-  if (!post) return <p>Loading...</p>; // Just in case the post is not found
+  if (!post) return <p>Loading...</p>;
+
   return (
     <>
       <Seo
@@ -117,7 +118,17 @@ function PostPage({ post }) {
             <Row className={styles.row}>
               <Col lg={8} xs={12}>
                 <Card className={styles.card}>
-                  <Card.Img variant="top" src={post.mainImage.src} />
+                  <div className={styles.imageWrapper}>
+                    <Image
+                      src={post.mainImage.src}
+                      alt={post.mainImage.alt || 'Post image'}
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
+                      style={{ objectFit: 'cover' }}
+                      className="card-img-top"
+                    />
+                  </div>
                   <Card.Body>
                     <Row className={cx(styles['post-meta'], 'align-items-center')}>
                       <Col md="auto" xs={6} className="d-flex align-items-center me-md-3">
@@ -194,17 +205,13 @@ function PostPage({ post }) {
 }
 
 export async function getStaticProps({ params }) {
-  // Try to find in staticPosts first
   const staticPost = staticPosts.find((p) => p.slug === params.slug);
   if (staticPost) {
     return {
-      props: {
-        post: staticPost
-      }
+      props: { post: staticPost }
     };
   }
 
-  // Fallback to CMS posts
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/webflow-posts`);
   const data = await res.json();
   const posts = data.items;
