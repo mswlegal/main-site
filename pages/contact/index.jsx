@@ -34,7 +34,7 @@ function ContactPage() {
         keywords="Los Angeles personal injury lawyer, Las Vegas injury attorney, car accident lawyer LA, workers compensation attorney, injury law firm California, slip and fall lawyer, best personal injury attorney, accident attorney near me, free case review injury lawyer, Mendez & Sanchez law firm"
         noIndex={false}
       >
-        <link rel="preload" as="image" href="/img/hero/hero.webp" type="image/webp" />
+        <link rel="preload" as="image" href={require('@images/hero/hero.webp')} type="image/webp" />
       </Seo>
       <section className={cx(styles.section, styles.header)}>
         <Container className={styles.container}>
