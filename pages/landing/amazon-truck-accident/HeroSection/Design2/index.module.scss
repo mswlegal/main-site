@@ -22,7 +22,7 @@ $header_height: 420px;
   &.header {
     background-color: $color_dark;
     background:
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%, #000 100%),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%, #000 100%),
       url('../../../../../public/img/landing/amazon-truck-accident/hero.webp');
     background-size: cover;
     background-repeat: no-repeat;

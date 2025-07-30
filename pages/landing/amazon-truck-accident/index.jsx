@@ -15,21 +15,32 @@ import ContactSection from './ContactSection';
 import ProjectsSection from './ProjectsSection';
 import posthog from 'posthog-js';
 import { IsInViewProvider } from '@/hooks/viewportListener';
+import { useRouter } from 'next/router';
 
 function AmazonTruckAccident() {
   const phone = '4242768825';
   const { t } = useTranslation('amazonTruckAccident');
+  const router = useRouter();
+
   const [variant, setVariant] = React.useState('control');
   const [isContactInView, setIsContactInView] = React.useState(false);
 
   React.useEffect(() => {
+    const allowedVariants = ['control', 'header-on-right'];
+    const queryVariant = router.query.variant;
+
+    if (typeof queryVariant === 'string' && allowedVariants.includes(queryVariant)) {
+      setVariant(queryVariant);
+      return;
+    }
+
     posthog?.onFeatureFlags(() => {
       const value = posthog.getFeatureFlag('landing-page-header-conversion');
-      if (value) {
+      if (value && allowedVariants.includes(value)) {
         setVariant(value);
       }
     });
-  }, []);
+  }, [router.query.variant]);
 
   return (
     <>
