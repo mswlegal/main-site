@@ -46,6 +46,8 @@ function PostPage({ post }) {
         description={post.description}
         ogImage={post.mainImage.src}
         keywords={post.keywords.join(', ')}
+        canonicalUrl={`https://www.mendezsanchezlaw.com/post/${post.slug}`}
+        noIndex={false}
       >
         <link rel="preload" as="image" href={require('@images/hero/hero.webp')} type="image/webp" />
         <script type="application/ld+json">
