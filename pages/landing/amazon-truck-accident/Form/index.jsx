@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'next-i18next';
 import Script from 'next/script';
+import { captureEvent, identifyUser, getDistinctId } from '@/hooks/analytics';
+import { useUtmData } from '@/hooks/useUtmData';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -28,11 +30,25 @@ function Form() {
   const { t } = useTranslation('amazonTruckAccident');
   const [formData, setFormData] = React.useState(initialData);
   const [hasSubmitted, setHasSubmitted] = React.useState(false);
+  const utmData = useUtmData();
 
   const { fullName, email, phone, summary } = formData;
 
   const handleFormSubmitSuccess = async () => {
-    // conversion tracking
+    const distinctId = getDistinctId();
+
+    const properties = {
+      email: email || null,
+      phone: phone || null,
+      distinct_id: distinctId,
+      ...utmData
+    };
+
+    // Identify and track in PostHog
+    identifyUser(email || phone || distinctId, properties);
+    captureEvent('form_submitted', properties);
+
+    // Google ads conversion tracking
     if (typeof window !== 'undefined' && typeof window.gtag_report_form_submit === 'function') {
       window.gtag_report_form_submit();
     }
@@ -52,18 +68,16 @@ function Form() {
       e.preventDefault();
 
       const { firstName, lastName } = getFirstAndLastName(fullName);
-      const params = new URLSearchParams(window?.location?.search);
-
       submitForm({
         First: firstName,
         Last: lastName,
         Email: email,
         Phone: phone.replace(/\D/g, ''),
         Summary: summary,
-        Marketing_Campaign_Name: params?.get('utm_campaign'),
-        Marketing_Campaign_Source: params?.get('utm_source'),
-        Marketing_Campaign_Medium: params?.get('utm_medium'),
-        Marketing_Source: sources[params?.get('utm_source')?.toLowerCase().trim()]
+        Marketing_Campaign_Name: utmData.utm_campaign,
+        Marketing_Campaign_Source: utmData.utm_source,
+        Marketing_Campaign_Medium: utmData.utm_medium,
+        Marketing_Source: sources[utmData.utm_source?.toLowerCase()?.trim()]
       });
     },
     [fullName, email, phone, summary, submitForm]
@@ -92,7 +106,6 @@ function Form() {
       setHasSubmitted(false);
     })();
   }, [hasSubmitted]);
-
   return (
     <>
       <Script
