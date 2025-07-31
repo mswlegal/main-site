@@ -68,14 +68,14 @@ const Header = ({ dark }) => {
         <link rel="preload" href="/img/logo/logo-light.webp" as="image" />
         <link rel="preload" href="/img/logo/logo-dark.webp" as="image" />
       </Head>
-      <div ref={headerRef} className={styles['navbar']}>
+      <div ref={headerRef} className={cx({ [styles.dark]: dark }, styles['navbar'])}>
         <Container>
           <div className={styles['inner']}>
             {dark ? (
               <div className={styles['logo']}>
-                <a href="#">
+                <a href="/">
                   <Image
-                    src="/img/logo/logo-light.webp"
+                    src="/img/logo/logo-dark.webp"
                     alt="logo white"
                     width={200}
                     height={70}
@@ -120,7 +120,7 @@ const Header = ({ dark }) => {
                 onClick={() => setShowMobileMenu(false)}
               ></button>
 
-              <ul className={styles['anchor_nav']}>
+              <ul className={cx({ [styles.dark]: dark })}>
                 <>
                   <li>
                     <a onClick={() => handleChangeRoute('/about')}>About Us</a>

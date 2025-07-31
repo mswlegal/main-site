@@ -28,6 +28,7 @@ $header_height: 420px;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top;
+    padding-bottom: 25px;
 
     @include responsive.device-max('md') {
       background-attachment: unset;
@@ -101,6 +102,9 @@ $header_height: 420px;
   &.content {
     background-color: #fff;
     position: relative;
+    margin-top: -25px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 
     .row {
       max-height: 120vh;

@@ -26,10 +26,12 @@ function MyApp({ Component, pageProps }) {
   useLocalePath();
   usePostHogPageViews();
 
+  const dark = !!Component.darkLayout;
+
   return (
     <QueryClientProvider client={queryClient}>
       <PostHogProvider>
-        <Layout>
+        <Layout dark={dark}>
           <Component {...pageProps} />
         </Layout>
       </PostHogProvider>
