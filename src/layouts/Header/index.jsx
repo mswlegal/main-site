@@ -136,9 +136,6 @@ const Header = ({ dark }) => {
                   <li>
                     <a onClick={() => handleChangeRoute('/contact')}>Contact</a>
                   </li>
-                  <li>
-                    <a onClick={() => handleChangeRoute('/legal/disclaimer')}>Disclaimer</a>
-                  </li>
                 </>
               </ul>
 
