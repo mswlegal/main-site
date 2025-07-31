@@ -50,7 +50,9 @@ function AmazonTruckAccident() {
         ogImage={require('@images/landing/amazon-truck-accident/hero.webp').default.src}
         keywords={t('metadata.keywords')}
         noIndex={true}
-      />
+      >
+        <link rel="preload" href="/_next/static/media/hero.4c54ae01.webp" as="image" />
+      </Seo>
 
       <LandingPageHeader phone={phone} />
       {variant === 'header-on-right' ? (
