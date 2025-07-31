@@ -1,48 +1,41 @@
 import posthog from 'posthog-js';
 
-// ENV & Platform Checks
 const isBrowser = typeof window !== 'undefined';
 const isProduction = process.env.NODE_ENV !== 'development';
-
-// PostHog Availability Check
 const isPosthogAvailable = () => isBrowser && posthog && typeof posthog.capture === 'function';
-
-// Method map for PostHog functions
-const methodMap = {
-  capture: posthog.capture,
-  identify: posthog.identify,
-  get_distinct_id: posthog.get_distinct_id
-};
 
 // Queue Management (only in production browser env)
 let posthogQueue = isBrowser && isProduction ? JSON.parse(localStorage.getItem('posthogQueue') || '[]') : [];
 
+// Process the queue by sending events to PostHog if available
 const processQueue = () => {
   if (!isPosthogAvailable()) return;
 
   posthogQueue.forEach(({ method, args }) => {
-    const fn = methodMap[method];
-    if (fn) fn(...args);
+    if (typeof posthog[method] === 'function') {
+      posthog[method](...args);
+    }
   });
 
+  // Clear the queue from localStorage after processing
   if (isBrowser) {
     localStorage.removeItem('posthogQueue');
   }
 
-  // Stop checking for PostHog availability after the queue is processed
+  // Stop periodic checks after the queue is processed
   clearInterval(intervalId);
 };
 
+// Log events, fallback to queue if PostHog is unavailable
 const logWithFallback = (method, ...args) => {
-  const fn = methodMap[method];
-
   if (isPosthogAvailable() && isProduction) {
-    if (fn) {
-      return fn(...args);
+    if (typeof posthog[method] === 'function') {
+      return posthog[method](...args);
     } else {
       console.error(`Unknown PostHog method: ${method}`);
     }
   } else if (isBrowser && isProduction) {
+    // Queue the event for later if PostHog is unavailable
     posthogQueue.push({ method, args });
     localStorage.setItem('posthogQueue', JSON.stringify(posthogQueue));
     processQueue(); // Attempt to flush early

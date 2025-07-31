@@ -25,7 +25,7 @@ export function PostHogProvider({ children }) {
   }, []);
 
   // If it's not local, wrap children with the PostHogProvider
-  if (process.env.NODE_ENV !== 'development') {
+  if (process.env.NODE_ENV === 'development') {
     return <>{children}</>; // No PostHog tracking on local
   }
 

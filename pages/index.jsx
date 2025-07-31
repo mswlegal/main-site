@@ -46,7 +46,21 @@ const Index = () => {
 
       <Head>
         {/* Preload fonts or critical assets */}
-        <link rel="preload" href="/path/to/font.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+          as="style"
+          type="font/woff2"
+          crossorigin="anonymous"
+        />
+
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+          as="style"
+          type="font/woff2"
+          crossorigin="anonymous"
+        />
       </Head>
 
       {/* Image Optimization: Using next/image for banner */}
