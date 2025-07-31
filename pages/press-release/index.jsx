@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { Container, Row, Col, Badge } from 'react-bootstrap';
 import styles from './index.module.scss';
 import Image from 'next/image';
@@ -20,7 +19,6 @@ const post = {
     'intersection collision',
     'confidential settlement'
   ],
-  slug: 'chino-intersection-collision-settlement',
   date: '2025-07-23T08:27:00-08:00',
   articleSection: 'Firm Update'
 };
@@ -33,7 +31,7 @@ export default function PressRelease() {
         description={post.description}
         ogImage={post.mainImage.src}
         keywords={post.keywords.join(', ')}
-        canonicalUrl={`https://www.mendezsanchezlaw.com/post/${post.slug}`}
+        canonicalUrl={`https://www.mendezsanchezlaw.com/press-release`}
         noIndex={false}
       >
         <link rel="preload" as="image" href={require('@images/hero/hero.webp')} type="image/webp" />
@@ -43,7 +41,7 @@ export default function PressRelease() {
             '@type': 'BlogPosting',
             mainEntityOfPage: {
               '@type': 'WebPage',
-              '@id': `https://www.mendezsanchezlaw.com/post/${post.slug}`
+              '@id': `https://www.mendezsanchezlaw.com/press-release`
             },
             headline: post.title,
             description: post.description,
