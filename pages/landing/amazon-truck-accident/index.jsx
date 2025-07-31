@@ -73,7 +73,7 @@ function AmazonTruckAccident() {
           <Row>
             <Col xs={12}>
               <Link href="/legal/terms-conditions" target="_blank" rel="noopener noreferrer">
-                Terms & Condition
+                Terms & Conditions
               </Link>
               {' | '}
               <Link href="/legal/privacy-policy" target="_blank" rel="noopener noreferrer">

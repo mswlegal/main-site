@@ -97,7 +97,7 @@ const Footer = () => {
               <ul>
                 <li>
                   <a href="/legal/terms-conditions" target="_blank" rel="noopener noreferrer">
-                    Terms & Condition
+                    Terms & Conditions
                   </a>
                 </li>
                 <li>
