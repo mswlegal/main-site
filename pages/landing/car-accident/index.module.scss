@@ -29,7 +29,8 @@ $color_red: #d71a20;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
+  background-color: #000; 
+  
   @include responsive.device-max('md') {
     min-height: unset;
     height: 85svh;

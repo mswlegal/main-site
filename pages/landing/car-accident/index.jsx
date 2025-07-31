@@ -26,10 +26,12 @@ function CarAccident() {
       <Seo
         title={`${t('metadata.title')} | Mendez & Sanchez APC`}
         description={t('metadata.description')}
-        ogImage={require('../../../public/img/landing/car-accident/hero.webp').default.src}
+        ogImage={require('@images/landing/car-accident/hero.webp').default.src}
         keywords={t('metadata.keywords')}
         noIndex={true}
-      />
+      >
+        <link rel="preload" href="/img/landing/car-accident/hero.webp" as="image" />
+      </Seo>
 
       <LandingPageHeader phone={phone} />
 
