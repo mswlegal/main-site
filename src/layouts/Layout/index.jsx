@@ -40,7 +40,7 @@ const Layout = ({ children, headName, dark }) => {
       <Head>
         <title>Mendez & Sanchez: Injury Law in Los Angeles & Las Vegas</title>
       </Head>
-      {showPreloader && <Preloader />}
+      {(showPreloader && !isLandingPage) && <Preloader />}
       <div className={styles.layout} data-magic-cursor="show">
         {!isLandingPage && <Header dark={dark} />}
         {children}
