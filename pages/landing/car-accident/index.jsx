@@ -30,7 +30,7 @@ function CarAccident() {
         keywords={t('metadata.keywords')}
         noIndex={true}
       >
-        <link rel="preload" href="/img/landing/car-accident/hero.webp" as="image" />
+        <link rel="preload" href="/_next/static/media/hero.c01fa28f.webp" as="image" />
       </Seo>
 
       <LandingPageHeader phone={phone} />
