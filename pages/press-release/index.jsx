@@ -2,15 +2,72 @@ import Head from 'next/head';
 import { Container, Row, Col, Badge } from 'react-bootstrap';
 import styles from './index.module.scss';
 import Image from 'next/image';
-import bannerImg from '@images/intro/ms-banner.webp'; // Adjust path if needed
+import bannerImg from '@images/intro/ms-banner.webp';
+import Seo from '@/components/Seo';
+
+const post = {
+  title: 'Confidential Settlement Reached in Chino Intersection Collision Lawsuit',
+  description:
+    'Mendez & Sanchez announces a confidential settlement in a serious personal injury lawsuit from a Chino intersection collision.',
+  mainImage: {
+    src: bannerImg.src,
+    alt: 'Times staff writer Kevin Rector'
+  },
+  keywords: [
+    'personal injury lawsuit',
+    'Chino car accident',
+    'Mendez & Sanchez',
+    'intersection collision',
+    'confidential settlement'
+  ],
+  slug: 'chino-intersection-collision-settlement',
+  date: '2025-07-23T08:27:00-08:00',
+  articleSection: 'Firm Update'
+};
 
 export default function PressRelease() {
   return (
     <>
-      <Head>
-        <title>L.A. Times Receives Multiple Honors | Press</title>
-      </Head>
-
+      <Seo
+        title={`${post.title} | Mendez & Sanchez APC`}
+        description={post.description}
+        ogImage={post.mainImage.src}
+        keywords={post.keywords.join(', ')}
+        canonicalUrl={`https://www.mendezsanchezlaw.com/post/${post.slug}`}
+        noIndex={false}
+      >
+        <link rel="preload" as="image" href={require('@images/hero/hero.webp')} type="image/webp" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `https://www.mendezsanchezlaw.com/post/${post.slug}`
+            },
+            headline: post.title,
+            description: post.description,
+            image: `https://www.mendezsanchezlaw.com${post.mainImage.src}`,
+            author: {
+              '@type': 'Organization',
+              name: 'Mendez & Sanchez APC',
+              url: 'https://www.mendezsanchezlaw.com/'
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Mendez & Sanchez APC',
+              logo: {
+                '@type': 'ImageObject',
+                url: `https://www.mendezsanchezlaw.com${require('@images/logo/logo-dark.webp').default.src}`
+              }
+            },
+            datePublished: post.date,
+            dateModified: post.date,
+            articleSection: post.articleSection,
+            keywords: post.keywords
+          })}
+        </script>
+      </Seo>
       <section className={styles.press}>
         <Container className={styles.container}>
           <Row className="justify-content-center">
