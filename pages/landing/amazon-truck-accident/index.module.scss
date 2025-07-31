@@ -1,10 +1,6 @@
 @use '/styles/responsive/_devicesMixins.scss' as responsive;
 @use '/styles/mixins/buttonMixins' as button;
 
-$color_1: rgba(255, 255, 255, 0.3);
-$color_2: rgba(255, 255, 255, 0.5);
-$color_3: #fff;
-$font-family_1: Roboto, 'Helvetica Neue';
 $color_red: #d71a20;
 
 /* ALL CUSTOM */
