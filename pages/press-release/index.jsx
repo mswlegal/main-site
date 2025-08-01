@@ -5,7 +5,7 @@ import bannerImg from '@images/intro/ms-banner.webp';
 import Seo from '@/components/Seo';
 
 const post = {
-  title: 'Confidential Settlement Reached in Chino Intersection Collision Lawsuit',
+  title: 'Confidential Settlement Reached in Chino Intersection Collision Lawsuit | Mendez & Sanchez APC',
   description:
     'Mendez & Sanchez announces a confidential settlement in a serious personal injury lawsuit from a Chino intersection collision.',
   mainImage: {
