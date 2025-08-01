@@ -11,13 +11,15 @@ class MyDocument extends Document {
     const schemaMarkup = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'LegalService',
-      '@id': 'https://www.mendezsanchezlaw.com/#legalservice',
+      '@id': 'https://www.mendezsanchezlaw.com/',
       name: 'Mendez & Sanchez APC',
+      legalName: 'Mendez & Sanchez, A Professional Corporation',
       image: 'https://www.mendezsanchezlaw.com/img/logo/logo-light.webp',
       url: 'https://www.mendezsanchezlaw.com',
       telephone: '+1-323-838-1444',
       email: 'info@mendezsanchezlaw.com',
-      priceRange: '$$$',
+      priceRange: '$$',
+      currenciesAccepted: 'USD',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '5440 E. Beverly Blvd.',
@@ -32,17 +34,20 @@ class MyDocument extends Document {
         longitude: -118.1576871
       },
       hasMap: 'https://www.google.com/maps/place/5440+E+Beverly+Blvd,+Los+Angeles,+CA+90022',
-      openingHoursSpecification: Array(7)
-        .fill({
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: 'Monday',
-          opens: '00:00',
-          closes: '23:59'
-        })
-        .map((item, idx) => ({
-          ...item,
-          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'][idx]
-        })),
+      openingHoursSpecification: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday'
+      ].map((day) => ({
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: day,
+        opens: '09:00',
+        closes: '18:00'
+      })),
       areaServed: [
         { '@type': 'Place', name: 'Los Angeles' },
         { '@type': 'Place', name: 'Las Vegas' }
@@ -52,7 +57,10 @@ class MyDocument extends Document {
         'https://www.instagram.com/mendezsanchezlaw/',
         'https://www.linkedin.com/company/mendez-sanchez'
       ],
-      founder: { '@type': 'Person', name: 'GianCarlo Mendez' },
+      founder: {
+        '@type': 'Person',
+        name: 'GianCarlo Mendez'
+      },
       description:
         "Top-rated personal injury lawyers in Los Angeles & Las Vegas. We fight for maximum compensation in car accidents, workers' comp, and more. Free consultations and no fees unless we win."
     });
@@ -104,6 +112,16 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
 
           {/* Fonts from Google with font-display: swap */}
+          <link
+            rel="preload"
+            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+            as="style"
+          />
+          <link
+            rel="preload"
+            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+            as="style"
+          />
           <link
             href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
             rel="stylesheet"

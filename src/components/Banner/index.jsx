@@ -71,7 +71,9 @@ export default function Banner() {
           <Container fluid className={styles.container}>
             <div className={styles['main-slider-one__single']}>
               <div className={styles['main-slider-one__content']}>
-                <h1>Los Angeles & Las Vegas Personal Injury Attorneys | Mendez & Sanchez APC</h1>
+                <h1 style={{ position: 'absolute', left: '-9999px' }}>
+                  Los Angeles & Las Vegas Personal Injury Attorneys | Mendez & Sanchez APC
+                </h1>
                 <h3>Your</h3>
                 {accidentTypes.map((item, index) => (
                   <h2 key={`header-${index}`} className={cx({ ['d-none']: index !== currentText })}>
