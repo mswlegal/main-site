@@ -70,6 +70,36 @@ const ServicesDropDown = ({ onDropDownShow, onChangeRoute, forceClose }) => {
     }
   }, [forceClose]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setServicesDropdownOpen(false);
+    };
+
+    const handleResize = () => {
+      setServicesDropdownOpen(false);
+    };
+
+    const handleClickOutside = (e) => {
+      // Close only if click is outside the dropdown
+      const dropdownElement = document.querySelector(`.${styles['custom-dropdown']}`);
+      if (dropdownElement && !dropdownElement.contains(e.target)) {
+        setServicesDropdownOpen(false);
+      }
+    };
+
+    if (servicesDropdownOpen) {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('resize', handleResize);
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [servicesDropdownOpen]);
+
   return (
     <NavDropdown
       title={
