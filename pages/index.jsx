@@ -92,10 +92,10 @@ const Index = () => {
   return (
     <>
       <Seo
-        title="Los Angeles & Las Vegas Personal Injury Attorneys | Mendez & Sanchez APC"
+        title="Top Personal Injury & Car Accident Lawyers in Los Angeles & Las Vegas | Mendez & Sanchez APC"
         description="Get the compensation you deserve after a car accident. Contact our experienced California legal team today."
         ogImage={require('@images/intro/ms-banner.webp').default.src}
-        keywords="Mendez & Sanchez law firm, Los Angeles personal injury lawyers, car accident attorneys California, best injury lawyer LA, personal injury law firm, accident compensation lawyers"
+        keywords="personal injury lawyer, car accident attorney, car accident lawyer no injury, car accident lawyer near me, accident attorney, car accident lawyers, property damage lawyer, injury lawyer, auto accident lawyer, personal injury attorney, car accident lawyer near Pasadena, CA, best car accident lawyers in Los Angeles, best car accident lawyers in California, car accident lawyer Los Angeles, car accident lawyer free consultation, non injury car accident lawyers near me"
         canonicalUrl="https://www.mendezsanchezlaw.com/"
         noIndex={false}
       >

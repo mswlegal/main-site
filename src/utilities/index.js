@@ -178,17 +178,174 @@ export function formatPhoneNumber(value) {
   return number[1];
 }
 
-export function extractKeywordsFromRichText(htmlString, maxKeywords = 10) {
-  // 1. Strip HTML tags
-  const text = htmlString
-    .replace(/<[^>]*>/g, ' ') // remove HTML tags
-    .replace(/\s+/g, ' ') // normalize whitespace
-    .toLowerCase();
+// export function extractKeywordsFromRichText(htmlString, maxKeywords = 10) {
+//   // 1. Strip HTML tags
+//   const text = htmlString
+//     .replace(/<[^>]*>/g, ' ') // remove HTML tags
+//     .replace(/\s+/g, ' ') // normalize whitespace
+//     .toLowerCase();
 
-  // 2. Tokenize words
-  const words = text.match(/\b[a-z]{3,}\b/g) || []; // at least 3-letter words
+//   // 2. Tokenize words
+//   const words = text.match(/\b[a-z]{3,}\b/g) || []; // at least 3-letter words
 
-  // 3. Filter stop words (you can expand this list)
+//   // 3. Filter stop words (you can expand this list)
+//   const stopWords = new Set([
+//     'the',
+//     'and',
+//     'for',
+//     'are',
+//     'but',
+//     'not',
+//     'with',
+//     'that',
+//     'this',
+//     'from',
+//     'have',
+//     'was',
+//     'you',
+//     'your',
+//     'all',
+//     'can',
+//     'has',
+//     'our',
+//     'more',
+//     'will',
+//     'they',
+//     'their',
+//     'what',
+//     'about',
+//     'when',
+//     'who',
+//     'how',
+//     'why',
+//     'been',
+//     'had',
+//     'most',
+//     'a',
+//     'an',
+//     'if',
+//     'it',
+//     'its',
+//     'is',
+//     'in',
+//     'on',
+//     'at',
+//     'as',
+//     'of',
+//     'do',
+//     'did',
+//     'does',
+//     'be',
+//     'being',
+//     'so',
+//     'or',
+//     'than',
+//     'then',
+//     'there',
+//     'here',
+//     'these',
+//     'those',
+//     'such',
+//     'each',
+//     'any',
+//     'some',
+//     'much',
+//     'many',
+//     'few',
+//     'them',
+//     'into',
+//     'over',
+//     'out',
+//     'up',
+//     'down',
+//     'off',
+//     'just',
+//     'only',
+//     'even',
+//     'ever',
+//     'again',
+//     'me',
+//     'my',
+//     'mine',
+//     'we',
+//     'us',
+//     'he',
+//     'him',
+//     'his',
+//     'she',
+//     'her',
+//     'hers',
+//     'it',
+//     'theirs',
+//     'someone',
+//     'anyone',
+//     'everyone',
+//     'everything',
+//     'nothing',
+//     'now',
+//     'today',
+//     'yesterday',
+//     'tomorrow',
+//     'always',
+//     'never',
+//     'often',
+//     'sometimes',
+//     'soon',
+//     'later',
+//     'before',
+//     'after',
+//     'already',
+//     'still',
+//     'very',
+//     'really',
+//     'quite',
+//     'too',
+//     'enough',
+//     'almost',
+//     'maybe',
+//     'perhaps',
+//     'probably',
+//     'actually',
+//     'basically',
+//     'would',
+//     'should',
+//     'could',
+//     'may',
+//     'might',
+//     'must',
+//     'shall',
+//     'code'
+//   ]);
+
+//   const filteredWords = words.filter((word) => !stopWords.has(word));
+
+//   // 4. Count word frequency
+//   const frequency = {};
+//   filteredWords.forEach((word) => {
+//     frequency[word] = (frequency[word] || 0) + 1;
+//   });
+
+//   // 5. Sort by frequency and take top N
+//   const keywords = Object.entries(frequency)
+//     .sort((a, b) => b[1] - a[1]) // sort descending by count
+//     .slice(0, maxKeywords) // take top N
+//     .map((entry) => entry[0]); // return just the words
+
+//   return keywords;
+// }
+export function extractKeywordsFromRichText(htmlString, maxKeywords = 10, options = {}) {
+  const { title = '', description = '', topKnownKeywords = [] } = options;
+
+  const tokenize = (text) => {
+    return (
+      text
+        .toLowerCase()
+        .replace(/<[^>]*>/g, ' ') // remove HTML tags
+        .replace(/\s+/g, ' ') // normalize whitespace
+        .match(/\b[a-z]{3,}\b/g) || [] // words with at least 3 letters
+    );
+  };
+
   const stopWords = new Set([
     'the',
     'and',
@@ -275,7 +432,6 @@ export function extractKeywordsFromRichText(htmlString, maxKeywords = 10) {
     'she',
     'her',
     'hers',
-    'it',
     'theirs',
     'someone',
     'anyone',
@@ -317,19 +473,242 @@ export function extractKeywordsFromRichText(htmlString, maxKeywords = 10) {
     'code'
   ]);
 
-  const filteredWords = words.filter((word) => !stopWords.has(word));
+  // Helper: get top N keywords from text
+  function getTopKeywords(text, topN) {
+    const words = tokenize(text).filter((w) => !stopWords.has(w));
+    const freq = {};
+    words.forEach((w) => (freq[w] = (freq[w] || 0) + 1));
+    return Object.entries(freq)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, topN)
+      .map(([word]) => word);
+  }
 
-  // 4. Count word frequency
-  const frequency = {};
-  filteredWords.forEach((word) => {
-    frequency[word] = (frequency[word] || 0) + 1;
+  // Extract top 5 from each source
+  const titleKeywords = getTopKeywords(title, 5);
+  const descKeywords = getTopKeywords(description, 5);
+  const htmlKeywords = getTopKeywords(htmlString, 5);
+
+  // Combine extracted keywords (unique)
+  const extractedSet = new Set([...titleKeywords, ...descKeywords, ...htmlKeywords]);
+  const extractedKeywords = [...extractedSet];
+
+  // Normalize known keywords
+  const knownLower = topKnownKeywords.map((k) => k.toLowerCase());
+
+  // Define a helper to check if two keywords are related:
+  // Related if either is substring of the other
+  function isRelated(a, b) {
+    return a.includes(b) || b.includes(a);
+  }
+
+  // Filter extracted keywords to keep only those related to known keywords
+  const relatedExtracted = extractedKeywords.filter((ek) => knownLower.some((kk) => isRelated(ek, kk)));
+
+  // Combine: known keywords + related extracted keywords (remove duplicates)
+  // Keep known keywords with original casing
+  const combinedSet = new Set(topKnownKeywords);
+
+  // Add related extracted keywords only if not in known keywords (case-insensitive)
+  relatedExtracted.forEach((kw) => {
+    if (!knownLower.includes(kw.toLowerCase())) {
+      combinedSet.add(kw);
+    }
   });
 
-  // 5. Sort by frequency and take top N
-  const keywords = Object.entries(frequency)
-    .sort((a, b) => b[1] - a[1]) // sort descending by count
-    .slice(0, maxKeywords) // take top N
-    .map((entry) => entry[0]); // return just the words
+  // Return limited by maxKeywords
+  return [...combinedSet].slice(0, maxKeywords);
+}
 
-  return keywords;
+export function generateSmartKeywords({
+  title = '',
+  description = '',
+  topKnownKeywords = [],
+  maxKeywords = 10
+}) {
+  const text = `${title} ${description}`.toLowerCase();
+  const baseKeywords = new Set();
+
+  const stopWords = new Set([
+    'a',
+    'about',
+    'after',
+    'again',
+    'all',
+    'almost',
+    'already',
+    'also',
+    'an',
+    'and',
+    'any',
+    'anyone',
+    'are',
+    'as',
+    'at',
+    'be',
+    'because',
+    'been',
+    'before',
+    'being',
+    'but',
+    'by',
+    'can',
+    'clients',
+    'code',
+    'contact',
+    'could',
+    'did',
+    'do',
+    'does',
+    'down',
+    'each',
+    'enough',
+    'even',
+    'ever',
+    'everything',
+    'example',
+    'few',
+    'fight',
+    'for',
+    'free',
+    'from',
+    'get',
+    'had',
+    'has',
+    'have',
+    'he',
+    'her',
+    'here',
+    'hers',
+    'him',
+    'his',
+    'how',
+    'hundreds',
+    'if',
+    'in',
+    'info',
+    'into',
+    'is',
+    'it',
+    'its',
+    'just',
+    'later',
+    'loss',
+    'loved',
+    'many',
+    'may',
+    'me',
+    'millions',
+    'mine',
+    'more',
+    'most',
+    'much',
+    'must',
+    'my',
+    'never',
+    'no',
+    'not',
+    'nothing',
+    'now',
+    'of',
+    'off',
+    'often',
+    'on',
+    'one',
+    'only',
+    'or',
+    'our',
+    'out',
+    'over',
+    'pain',
+    'perhaps',
+    'probably',
+    'quite',
+    'really',
+    'shall',
+    'she',
+    'should',
+    'so',
+    'some',
+    'someone',
+    'sometimes',
+    'soon',
+    'still',
+    'such',
+    'suffer',
+    'that',
+    'the',
+    'their',
+    'theirs',
+    'them',
+    'then',
+    'there',
+    'these',
+    'they',
+    'this',
+    'those',
+    'though',
+    'through',
+    'to',
+    'today',
+    'tomorrow',
+    'too',
+    'up',
+    'us',
+    'very',
+    'was',
+    'we',
+    'what',
+    'when',
+    'who',
+    'why',
+    'will',
+    'with',
+    'would',
+    'you',
+    'your',
+    'yourself',
+    'yearly',
+    'yesterday'
+  ]);
+
+  const banWords = new Set(['americans', 'people', 'individuals']);
+
+  const normalize = (str) =>
+    str
+      .split(' ')
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ');
+
+  // Add title and smart variations
+  if (title.length > 3) {
+    const t = title.trim();
+    baseKeywords.add(normalize(t));
+    baseKeywords.add(normalize(`${t} Lawyer`));
+    baseKeywords.add(normalize(`${t} Attorney`));
+    baseKeywords.add(normalize(`${t} Lawyer Near Me`));
+  }
+
+  // Extract useful words from text
+  const importantWords = text.match(/\b[a-z]{4,}\b/g) || [];
+  importantWords
+    .filter((w) => !stopWords.has(w) && !banWords.has(w))
+    .forEach((word) => baseKeywords.add(normalize(word)));
+
+  // Match top-known keywords (if partial match in text)
+  const matchedKnown = topKnownKeywords.filter((kw) => text.includes(kw.toLowerCase()));
+
+  // Add more from topKnown if needed
+  const minMatched = Math.floor(maxKeywords / 2);
+  const neededExtras = Math.max(0, minMatched - matchedKnown.length);
+  const additionalKnown = topKnownKeywords.filter((kw) => !matchedKnown.includes(kw)).slice(0, neededExtras);
+
+  // Combine everything
+  const finalSet = new Set([
+    ...Array.from(baseKeywords),
+    ...matchedKnown.map(normalize),
+    ...additionalKnown.map(normalize)
+  ]);
+
+  return Array.from(finalSet).slice(0, maxKeywords);
 }

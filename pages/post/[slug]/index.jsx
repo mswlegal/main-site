@@ -9,8 +9,9 @@ import { faUser, faCalendarAlt, faTag, faArrowUpFromBracket } from '@fortawesome
 import { faFacebookF, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import dynamic from 'next/dynamic';
 import staticPosts from '@/posts/staticPosts';
-import { extractKeywordsFromRichText } from '@/utilities';
+import { generateSmartKeywords } from '@/utilities';
 import Image from 'next/image';
+import { topLegalKeywords } from '@/data/keywords';
 
 // Dynamically imported components to reduce initial JS payload
 const ModalForm = dynamic(() => import('@/components/Forms/ModalForm'), { ssr: false });
@@ -213,13 +214,22 @@ export async function getStaticProps({ params }) {
   const postRaw = posts.find((p) => p.fieldData.slug === params.slug);
   if (!postRaw) return { notFound: true };
 
+  const options = {
+    title: postRaw.fieldData.name,
+    description: postRaw.fieldData['post-summary'],
+    topKnownKeywords: topLegalKeywords,
+    maxKeywords: 10
+  };
+
+  const extractedKeywords = generateSmartKeywords(options);
+
   const post = {
     title: postRaw.fieldData.name,
     slug: postRaw.fieldData.slug,
     description: postRaw.fieldData['post-summary'],
     content: postRaw.fieldData['post-body'],
     date: new Date(postRaw.createdOn).toLocaleDateString(),
-    keywords: extractKeywordsFromRichText(postRaw.fieldData['post-body']),
+    keywords: extractedKeywords,
     articleSection: 'Property Damage',
     mainImage: {
       src: postRaw.fieldData['main-image']?.url || '',

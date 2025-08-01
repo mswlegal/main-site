@@ -10,7 +10,8 @@ import MainForm from '@/components/Forms/MainForm';
 import ModalForm from '@/components/Forms/ModalForm';
 import Seo from '@/components/Seo';
 import { IsInViewProvider } from '@/hooks/viewportListener';
-import { extractKeywordsFromRichText } from '@/utilities';
+import { generateSmartKeywords } from '@/utilities';
+import { topLegalKeywords } from '@/data/keywords';
 
 function ExpertisePage({ expertise }) {
   const [currentUrl, setCurrentUrl] = React.useState('');
@@ -198,7 +199,14 @@ export async function getStaticProps({ params }) {
     .filter(Boolean)
     .join('');
 
-  const extractedKeywords = extractKeywordsFromRichText(contentHtml);
+  const options = {
+    title: item.fieldData.name,
+    description: item?.fieldData['meta-discription'],
+    topKnownKeywords: topLegalKeywords,
+    maxKeywords: 10
+  };
+
+  const extractedKeywords = generateSmartKeywords(options);
 
   const expertise = {
     title: item.fieldData.name,
@@ -206,16 +214,7 @@ export async function getStaticProps({ params }) {
     description: item.fieldData['meta-discription'] || '',
     content: contentHtml,
     date: new Date(item.createdOn).toLocaleDateString(),
-    keywords: Array.from(
-      new Set([
-        item.fieldData.name,
-        'Personal Injury',
-        'Accident Lawyer',
-        'Mendez & Sanchez',
-        'Injury Claim',
-        ...extractedKeywords
-      ])
-    ),
+    keywords: Array.from(new Set([item.fieldData.name, ...extractedKeywords])),
     articleSection: 'Legal Expertise',
     mainImage: {
       src: item.fieldData['practice-photo']?.url || '',
