@@ -14,7 +14,8 @@ export function PostHogProvider({ children }) {
         person_profiles: 'identified_only',
         capture_pageview: false, // We'll handle pageviews manually
         session_recording: {
-          maskAllInputs: false
+          maskAllInputs: false,
+          enabled: false
         },
         enable_recording_console_log: true, // Optional: captures console.log, console.error, etc.
         // Automatically captures uncaught exceptions and unhandled promise rejections
