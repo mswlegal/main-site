@@ -7,11 +7,18 @@ import Footer from '../Footer';
 import Header from '../Header';
 import Preloader from '../Preloader';
 import styles from './index.module.scss';
+import { usePosthogSessionRecording } from '@/hooks/usePostHogSessionRecording';
 
 const Layout = ({ children, headName, dark }) => {
   const router = useRouter();
   const isLandingPage = router.pathname.startsWith('/landing');
   const [showPreloader, setShowPreloader] = useState(true);
+  const isNotExpertiseOrPost = !(
+    router.pathname.startsWith('/expertise-area') || router.pathname.startsWith('/post')
+  );
+
+  // session records only on non blog or post pages
+  usePosthogSessionRecording(isNotExpertiseOrPost);
 
   // Effect to manage preloader visibility
   useEffect(() => {

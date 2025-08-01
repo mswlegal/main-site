@@ -18,6 +18,7 @@ import posthog from 'posthog-js';
 function CarAccident() {
   const phone = '4244671777';
   const { t } = useTranslation('carAccident');
+
   React.useEffect(() => {
     if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'development') {
       posthog?.startSessionRecording();
