@@ -52,6 +52,18 @@ const About = () => {
                   the best from us, <strong>recovering OVER $1Billion</strong> fighting for them along side
                   every step.
                 </p>
+                {/* keywords */}
+                <p style={{ position: 'absolute', left: '-9999px' }}>
+                  if you've been involved in a car accident — whether it caused serious injury or not — the
+                  experienced team at Mendez & Sanchez is here to help. As top-rated personal injury lawyers
+                  and car accident attorneys serving Los Angeles, Pasadena, CA, and surrounding areas, we
+                  handle everything from property damage claims to complex injury cases. Whether you're
+                  searching for the best car accident lawyers in California, need a non-injury car accident
+                  lawyer near you, or want a free consultation after a crash, we’ve got you covered. With
+                  thousands of successful settlements and a no-fee-unless-we-win policy, you can trust our
+                  accident attorneys and auto accident lawyers to fight for the compensation you deserve.
+                </p>
+                {/* keywords */}
               </div>
             </IsInViewProvider>
 
