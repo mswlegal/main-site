@@ -16,6 +16,7 @@ import ProjectsSection from './ProjectsSection';
 import posthog from 'posthog-js';
 import { IsInViewProvider } from '@/hooks/viewportListener';
 import { useRouter } from 'next/router';
+import AttorneySection from './AttorneySection';
 
 function UberAccident() {
   const phone = '4242768825';
@@ -47,11 +48,11 @@ function UberAccident() {
       <Seo
         title={`${t('metadata.title')} | Mendez & Sanchez APC`}
         description={t('metadata.description')}
-        ogImage={require('@images/landing/amazon-truck-accident/hero.webp').default.src}
+        ogImage={require('@images/landing/uber-accident/hero.webp').default.src}
         keywords={t('metadata.keywords')}
         noIndex={true}
       >
-        <link rel="preload" href="/_next/static/media/hero.4c54ae01.webp" as="image" />
+        <link rel="preload" href="/_next/static/media/hero.6449c018.webp" as="image" />
       </Seo>
 
       <LandingPageHeader phone={phone} />
@@ -62,6 +63,7 @@ function UberAccident() {
       )}
       <ProjectsSection />
       <FaqSection />
+      <AttorneySection />
       <IsInViewProvider onChange={setIsContactInView}>
         <div>
           <ContactSection />

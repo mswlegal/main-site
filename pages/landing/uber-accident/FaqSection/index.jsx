@@ -9,6 +9,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { Trans as Translate } from 'next-i18next';
+import { scrollToSection } from '@/utilities';
 
 export default function FaqSection() {
   const { t } = useTranslation('uberAccident');
@@ -26,6 +27,13 @@ export default function FaqSection() {
                 <Translate>{t('what_you_need_to_know.title')}</Translate>
               </h2>
               <Accordion items={items} className={cx(styles.accordion, 'mb-5')} />
+            </Col>
+          </Row>
+          <Row>
+            <Col className="text-center">
+              <a className={styles.button} onClick={() => scrollToSection('bottomForm')}>
+                <Translate>{t('get_started')}</Translate>
+              </a>
             </Col>
           </Row>
         </Container>
