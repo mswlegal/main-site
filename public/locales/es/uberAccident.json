@@ -53,36 +53,32 @@
     "title": "Lo que necesitas saber ahora",
     "questions": [
       {
-        "title": "¿Qué cubre la póliza de seguro de $1 millón de Uber?",
-        "content": "<p>En Méndez y Sánchez, APC nos encargamos de que recibas todos los beneficios de la póliza de responsabilidad civil de $1 millón de Uber. Esto cubre lesiones corporales y daños a terceros, además de protección durante el viaje y mientras el conductor va a recoger al pasajero. Luchamos para que Uber asuma su responsabilidad y obtengas la mejor compensación posible.</p>"
+        "title": "¿Qué Cubre el Seguro de $1 Millón de Uber?",
+        "content": "<p>Navegamos con experiencia la póliza de responsabilidad civil de $1 millón de Uber para que obtengas todos los beneficios por lesiones y daños materiales. Nuestros abogados hacen valer la responsabilidad de Uber durante el viaje para ayudarte a lograr la máxima compensación.</p>"
       },
       {
-        "title": "¿Qué es Uber y cómo funciona su servicio?",
-        "content": "<p>Conocemos bien cómo funciona Uber y usamos esa experiencia para construir casos sólidos. Te ayudamos a demostrar los detalles de tu viaje con Uber para que tu reclamo sea fuerte y obtengas la mayor compensación posible, ya sea UberX, Uber Pool o Uber Comfort.</p>"
+        "title": "¿Quién Tiene la Culpa en un Accidente de Uber?",
+        "content": "<p>Perseguimos a todas las partes responsables, incluyendo a Uber y al conductor culpable. Nuestro equipo lucha para conseguirte una compensación completa: facturas médicas, salarios perdidos, dolor y sufrimiento, y más.</p>"
       },
       {
-        "title": "¿Cuáles son los requisitos para conductores y vehículos de Uber?",
-        "content": "<p>Verificamos que el conductor y el vehículo cumplieran con todos los requisitos legales al momento del accidente. Esto fortalece tu caso para que podamos responsabilizar a Uber y al conductor negligente, y así conseguir la mejor indemnización.</p>"
+        "title": "¿Cuáles Son las Reglas para Conductores y Vehículos de Uber?",
+        "content": "<p>Verificamos si los conductores y vehículos de Uber cumplían con los requisitos legales al momento del accidente. Esto fortalece tu reclamo por lesiones y nos permite responsabilizar a Uber y a los conductores negligentes.</p>"
       },
       {
-        "title": "¿Por qué los reclamos por accidentes con Uber son diferentes a otros accidentes de auto?",
-        "content": "<p>Los reclamos con Uber son complejos por sus pólizas y límites únicos. En Méndez y Sánchez, APC luchamos contra las tácticas de las aseguradoras para que obtengas justicia y la máxima compensación que mereces.</p>"
+        "title": "¿Por Qué los Casos de Accidentes de Uber Son Diferentes?",
+        "content": "<p>Los reclamos por accidentes de Uber implican pólizas de seguro y responsabilidades únicas. Nos especializamos en manejar estas complejidades para conseguirte justicia y una recuperación financiera total.</p>"
       },
       {
-        "title": "¿Quién es responsable legalmente después de un accidente con Uber?",
-        "content": "<p>Perseguimos a todas las partes responsables, incluyendo a Uber y al conductor culpable. Luchamos para que recibas compensación por gastos médicos, salarios perdidos, dolor y sufrimiento, y más, porque tu recuperación es lo más importante para nosotros.</p>"
+        "title": "¿Qué Hacer Después de un Accidente con Uber?",
+        "content": "<ul><li>Busca atención médica y guarda toda evidencia posible.</li><li>Nosotros manejamos la comunicación con el seguro y la policía.</li><li>Tu consulta gratuita te explicará cómo maximizar tu compensación.</li></ul>"
       },
       {
-        "title": "¿Qué hacer inmediatamente después de un accidente con Uber?",
-        "content": "<ul><li>Te guiamos para buscar atención médica de inmediato y juntar pruebas importantes.</li><li>Manejamos las comunicaciones con aseguradoras y policía para que no te preocupes y puedas concentrarte en sanar.</li><li>Te ofrecemos una revisión gratuita para explicarte tus opciones y cómo obtener la mejor compensación.</li></ul>"
+        "title": "¿Cómo Funcionan los Honorarios de Contingencia?",
+        "content": "<p>No cobramos nada a menos que ganemos tu caso. Puedes presentar tu reclamo por accidente de Uber sin riesgos, sabiendo que nuestros abogados están comprometidos con obtener el mejor resultado para ti.</p>"
       },
       {
-        "title": "¿Cómo funcionan los honorarios de contingencia en casos con Uber?",
-        "content": "<p>Trabajamos sin que pagues honorarios hasta ganar tu caso. Así puedes confiar en que nuestro equipo está comprometido a conseguir el mejor acuerdo o veredicto para ti.</p>"
-      },
-      {
-        "title": "¿Qué pasa con el seguro de Uber si el conductor tenía la app encendida pero no aceptó un viaje?",
-        "content": "<p>Incluso si el conductor sólo tenía la app encendida, investigamos la cobertura limitada que Uber ofrece, así como tu seguro personal, para asegurarnos de que recibas compensación por tus lesiones y daños.</p>"
+        "title": "¿Hay Cobertura si la App de Uber Estaba Activa Pero No Aceptaron el Viaje?",
+        "content": "<p>Investigamos si aplica el seguro limitado de Uber o la póliza personal del conductor cuando la app está encendida pero sin viaje aceptado, asegurándonos de que recibas compensación por tus lesiones.</p>"
       }
     ]
   },
