@@ -11,7 +11,7 @@ import { Trans as Translate } from 'next-i18next';
 import { Container, Row, Col } from 'react-bootstrap';
 
 function ContactSection() {
-  const phone = '4242768825';
+  const phone = '4243690775';
   const { t } = useTranslation('uberAccident');
 
   return (

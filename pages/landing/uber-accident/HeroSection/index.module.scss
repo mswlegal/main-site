@@ -32,7 +32,7 @@ $color_red: #d71a20;
 
   @include responsive.device-max('md') {
     min-height: unset;
-    height: 75svh;
+    height: 640px;
     background-position: 50%;
   }
 
@@ -49,7 +49,7 @@ $color_red: #d71a20;
     animation: slideIn 0.8s forwards;
 
     @include responsive.device-max('sm') {
-      font-size: 7.2vw;
+      font-size: 9.5vw;
       white-space: unset;
       line-height: 1.1em;
     }
