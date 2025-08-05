@@ -1,3 +1,21 @@
 {
-  "greeting": "Hola"
+  "greeting": "Hola",
+  "fields": {
+    "full_name": "Nombre completo",
+    "phone_number": "Teléfono",
+    "email": "Correo",
+    "summary": "Cuéntanos sobre tu caso..."
+  },
+  "thank_you": {
+    "header": "Gracias",
+    "subheader": "¡Nos pondremos en contacto contigo pronto!"
+  },
+  "error": {
+    "header": "¡Ups, algo salió mal!",
+    "subheader": "No podemos procesar tu solicitud ahora. Porfa, contáctanos directamente.",
+    "cta": "Llámanos"
+  },
+  "start_case": "Inicia tu caso",
+  "disclaimer_with_link": "Al proporcionar tu información, aceptas recibir mensajes SMS, incluyendo actualizaciones de citas, recordatorios y seguimientos. Pueden aplicarse tarifas de mensajes/datos. La frecuencia varía. Puedes darte de baja en cualquier momento enviando STOP. <0>Términos y Condiciones.</0>",
+  "disclaimer": "By providing your information, you agree to receive SMS messages, including appointment updates, reminders, and follow-ups. Message/data rates may apply. Frequency varies. You may opt out anytime by texting STOP."
 }

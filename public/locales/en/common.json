@@ -1,3 +1,21 @@
 {
-  "greeting": "Hello"
+  "greeting": "Hello",
+  "fields": {
+    "full_name": "Full Name",
+    "phone_number": "Phone Number",
+    "email": "Email",
+    "summary": "Tell us about your case..."
+  },
+  "thank_you": {
+    "header": "Thank you",
+    "subheader": "Our team will contact you shortly!"
+  },
+  "error": {
+    "header": "Something went wrong!",
+    "subheader": "We are unable to process your request at the moment. Please contact us directly.",
+    "cta": "Call Us"
+  },
+  "start_case": "Submit you case",
+  "disclaimer_with_link": "By providing your information, you agree to receive SMS messages, including appointment updates, reminders, and follow-ups. Message/data rates may apply. Frequency varies. You may opt out anytime by texting STOP. <0>Terms and Conditions.</0>",
+  "disclaimer": "By providing your information, you agree to receive SMS messages, including appointment updates, reminders, and follow-ups. Message/data rates may apply. Frequency varies. You may opt out anytime by texting STOP."
 }

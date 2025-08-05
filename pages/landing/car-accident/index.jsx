@@ -73,7 +73,7 @@ function CarAccident() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['carAccident']))
+      ...(await serverSideTranslations(locale, ['carAccident', 'common']))
     }
   };
 }

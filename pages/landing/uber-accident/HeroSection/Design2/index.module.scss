@@ -1,0 +1,136 @@
+@use '/styles/responsive/_devicesMixins.scss' as responsive;
+@use '/styles/mixins/animations' as animation;
+@use '/styles/mixins/buttonMixins' as button;
+
+$color_dark: #15111e;
+$color_white: #fff;
+$color_red: #d71a20;
+$header_height: 420px;
+
+.section {
+  background-color: $color_dark;
+
+  .container {
+    padding-top: 150px;
+    padding-bottom: 80px;
+
+    @include responsive.device-max('md') {
+      padding: 50px 16px;
+    }
+  }
+
+  &.header {
+    background-color: $color_dark;
+    background:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%, #000 100%),
+      url('../../../../../public/img/landing/amazon-truck-accident/hero.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+
+    @include responsive.device-max('md') {
+      background-attachment: unset;
+      background-size: cover;
+      background-position: right;
+      padding-top: 70px;
+    }
+
+    .row {
+      min-height: $header_height;
+      align-items: center;
+      justify-content: space-between;
+
+      @include responsive.device-max('lg') {
+        height: auto;
+        min-height: unset;
+      }
+
+      h1 {
+        @include animation.slideInUpInViewport();
+        color: $color_white;
+        text-transform: uppercase;
+        font-size: 45px;
+        font-family: 'Josefin Sans';
+        text-shadow: 3px 3px 3px #000;
+
+        span {
+          color: $color_red;
+        }
+
+        @include responsive.device-max('lg') {
+          font-size: 40px;
+          text-align: center;
+        }
+
+        @include responsive.device-max('sm') {
+          font-size: 30px;
+          margin-bottom: 20px;
+        }
+      }
+
+      span.subheader {
+        color: $color_white;
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        font-weight: 700;
+        line-height: 1.3em;
+        font-family: Josefin Sans;
+        display: block;
+        @include responsive.device-max('md') {
+          text-align: center;
+          font-size: 16px;
+        }
+      }
+
+      p.subheader {
+        @include animation.slideInUpInViewport();
+        color: $color_white;
+        transition-delay: 0.5s;
+        line-height: 1.2em;
+
+        @include responsive.device-max('lg') {
+          font-size: 16px;
+          margin-bottom: 48px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.about-section {
+  background: linear-gradient(to bottom, #000 40%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+
+  h2 {
+    @include responsive.device-max('lg') {
+      font-size: 24px;
+    }
+  }
+
+  p {
+    @include responsive.device-max('lg') {
+      font-size: 16px;
+    }
+
+    a {
+      color: $color_red !important;
+      border-bottom: 2px solid;
+      display: inline-block;
+    }
+  }
+}
+
+.floatingButton {
+  position: fixed !important;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  visibility: hidden;
+  @include button.mainButton();
+  &.showFloatingButton {
+    visibility: visible;
+  }
+}

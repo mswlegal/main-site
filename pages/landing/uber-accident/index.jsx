@@ -17,9 +17,9 @@ import posthog from 'posthog-js';
 import { IsInViewProvider } from '@/hooks/viewportListener';
 import { useRouter } from 'next/router';
 
-function AmazonTruckAccident() {
+function UberAccident() {
   const phone = '4242768825';
-  const { t } = useTranslation('amazonTruckAccident');
+  const { t } = useTranslation('uberAccident');
   const router = useRouter();
 
   const [variant, setVariant] = React.useState('control');
@@ -93,9 +93,9 @@ function AmazonTruckAccident() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['amazonTruckAccident', 'common']))
+      ...(await serverSideTranslations(locale, ['uberAccident', 'common']))
     }
   };
 }
 
-export default AmazonTruckAccident;
+export default UberAccident;

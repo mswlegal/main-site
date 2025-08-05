@@ -1,0 +1,46 @@
+@use '/styles/responsive/_devicesMixins.scss' as responsive;
+@use '/styles/mixins/buttonMixins' as button;
+
+$color_red: #d71a20;
+
+/* ALL CUSTOM */
+.container {
+  @include responsive.device-max('md') {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.footer {
+  padding: 87.5px 0;
+  a {
+    color: $color_red;
+  }
+}
+
+.button {
+  @include button.mainButton();
+
+  svg {
+    transform: scale(1.4);
+    margin-left: 8px;
+    margin-bottom: 5px;
+  }
+}
+
+.animate-slide-in {
+  transform: translateY(100%);
+  animation: slideIn 0.8s forwards;
+  animation-delay: 1s;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "title": "Got Into an Accident<br /> with an <span>Uber Driver?</span>",
+  "subtitle": "We'll Get Your Compensation Delivered<br className='d-md-block d-none' />Mendez & Sanchez, APC will help you get the justice and compensation you deserve.",
+  "get_started": "Get a Free Consultation",
+  "free_case_review": "No Fees Unless You Win",
+  "read_more": "Learn More",
+  "fields": {
+    "full_name": "Full Name",
+    "phone_number": "Phone Number",
+    "email": "Email",
+    "summary": "Tell us about your case..."
+  },
+  "thank_you": {
+    "header": "Thank you",
+    "subheader": "Our team will contact you shortly!"
+  },
+  "disclaimer": "By contacting us, you agree to receive communications from Méndez & Sánchez, APC. Message and data rates may apply. Text ‘STOP' to opt-out. Communication does not establish an attorney-client relationship.",
+  "settlements": {
+    "title": "Settlements",
+    "milestone": "Over a billion dollars recovered for clients in settlements and verdicts.",
+    "cases": {
+      "motorcycle_accidents": "$14M - Motorcycle Accidents",
+      "traumatic_brain_injury": "$IOM - Traumatic Brain Injury",
+      "wrongful_death": "$5M - Wrongful Death",
+      "car_accident": "$5M - Car Accident"
+    }
+  },
+  "start_case": "Start your case",
+  "compensation_message": "Injured in an Uber or Rideshare Accident? <br/> Here's What You Need to Know",
+  "urgent_cases": {
+    "intro": "With the growing popularity of rideshare services like Uber, accidents involving their drivers have also increased. Whether you were a passenger, another driver, or a pedestrian, navigating the legal aftermath of an Uber accident can be complex. Mendez & Sanchez, APC has experience handling Uber-related injury claims and will fight to ensure you receive full compensation — even when multiple insurance layers or independent contractors are involved."
+  },
+  "why_choose_us": {
+    "title": "How It Works",
+    "points": [
+      "<strong>Get a Free Consultation 24/7</strong> - Speak directly with an experienced Uber accident lawyer.",
+      "<strong>We Review Your Case</strong> - We'll explain your rights and outline every step — no legal jargon, just clear answers.",
+      "<strong>Get Paid, Get Justice</strong> - You get connected to top medical care and we fight for your maximum compensation."
+    ]
+  },
+  "what_we_handle": {
+    "title": "What We Do For You",
+    "points": [
+      "<strong>No Money Upfront</strong> - You pay nothing unless we win your case.",
+      "<strong>Access to Top Medical Care</strong> - We connect you with leading doctors — no insurance or upfront cost required.",
+      "<strong>Maximum Compensation</strong> - We pursue the highest settlement possible from Uber's multi-tier insurance policies.",
+      "<strong>Discreet Representation</strong> - Your case is handled with privacy, professionalism, and respect.",
+      "<strong>Cash Advance</strong> - Need help now? We help qualified clients access funds before the case resolves.",
+      "<strong>We Come to You</strong> - Can't travel due to injuries? We'll meet you wherever is convenient."
+    ]
+  },
+  "what_you_need_to_know": {
+    "title": "What you need to know right now",
+    "questions": [
+      {
+        "title": "What Does Uber's $1 Million Insurance Policy Cover?",
+        "content": "<p>We expertly navigate Uber's $1 million liability insurance coverage to ensure you receive the full benefits available for bodily injury and property damage. Our attorneys fight to enforce Uber's responsibility during rides and en route, helping you get the maximum settlement you deserve.</p>"
+      },
+      {
+        "title": "What Is Uber and How Does Its Service Work?",
+        "content": "<p>At Mendez & Sanchez, APC, we understand how Uber's rideshare system operates and use that knowledge to build strong cases. We help clients prove the specifics of their Uber rides, ensuring every detail supports your claim for maximum compensation after an accident.</p><p>Whether it's UberX, Uber Pool, or Uber Comfort, we know the nuances that can affect your case and fight aggressively on your behalf.</p>"
+      },
+      {
+        "title": "What Are Uber's Driver and Vehicle Requirements?",
+        "content": "<p>Our experienced Uber accident attorneys meticulously verify that Uber drivers and vehicles met all legal requirements at the time of your accident. This helps us hold negligent drivers and Uber accountable and strengthens your injury claim to secure top dollar settlements or verdicts.</p>"
+      },
+      {
+        "title": "Why Are Uber Accident Claims Different From Other Car Accident Claims?",
+        "content": "<p>Mendez & Sanchez, APC specializes in the complex nature of Uber accident claims, navigating Uber's unique insurance policies and liability limits. We work tirelessly to overcome insurance company tactics and get you the justice and maximum financial recovery you deserve.</p>"
+      },
+      {
+        "title": "Who Is Legally Responsible After an Uber Accident?",
+        "content": "<p>We aggressively pursue all liable parties including Uber and the at-fault driver. Our legal team fights insurance companies to ensure you receive full compensation for medical bills, lost wages, pain and suffering, and more—because your recovery is our priority.</p>"
+      },
+      {
+        "title": "What Should I Do Immediately After Being Injured in an Uber Accident?",
+        "content": "<ul><li>Mendez & Sanchez, APC will guide you through seeking immediate medical care and gathering vital evidence to protect your rights.</li><li>We'll handle communications with insurance companies and police to relieve your stress and focus on your healing.</li><li>Our free case review will clearly explain your legal options and how we can maximize your compensation.</li></ul>"
+      },
+      {
+        "title": "How Do Contingency Fees Work in Uber Accident Cases?",
+        "content": "<p>At Mendez & Sanchez, APC, we work on a contingency fee basis — no fees unless we win your case. This means you can pursue your Uber accident claim with confidence, knowing our attorneys are fully invested in obtaining the best possible settlement or verdict for you.</p>"
+      },
+      {
+        "title": "How Does Uber's Insurance Work When the App Is On But No Ride Is Accepted?",
+        "content": "<p>Even if the Uber driver had the app on but hadn't accepted a ride, Mendez & Sanchez, APC will thoroughly investigate insurance coverage that applies, including limited Uber insurance and personal policies, to secure compensation for your injuries and damages.</p>"
+      }
+    ]
+  },
+  "contact_info": {
+    "address": "address",
+    "email": "email",
+    "phone": "phone"
+  },
+  "copyright": "© 2025 Méndez & Sánchez - All Rights Reserved",
+  "metadata": {
+    "title": "Uber Accident Lawyers – Get the Compensation You Deserve",
+    "description": "Injured in an Uber accident? Mendez & Sanchez, APC provides trusted legal representation for rideshare injury victims. Free consultations. No fees unless we win.",
+    "keywords": "Uber accident lawyer, Uber crash attorney, rideshare accident legal help, Uber injury lawyer, California Uber accident attorney, Uber passenger accident claim, Uber accident law firm, sue Uber for accident, Uber insurance claim lawyer, Lyft and Uber accident attorney, Uber driver hit me what to do, rideshare injury compensation, personal injury lawyer Uber, Uber legal help California"
+  }
+}

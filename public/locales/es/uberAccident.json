@@ -1,0 +1,100 @@
+{
+  "title": "¿Tuviste un <br/> Accidente con <span>Uber</span>?",
+  "subtitle": "¡Te conseguimos la compensación que mereces! <br className='d-md-block d-none' /> Méndez y Sánchez, APC te ayudarán a obtener la justicia y compensación que te corresponde.",
+  "get_started": "Comienza Aquí",
+  "free_case_review": "Obtén revisión gratuita de tu caso",
+  "read_more": "Descubre más",
+  "fields": {
+    "full_name": "Nombre Completo",
+    "phone_number": "Número Telefónico",
+    "email": "Correo Electrónico",
+    "summary": "Cuéntanos acerca de tu caso…"
+  },
+  "thank_you": {
+    "header": "Gracias",
+    "subheader": "¡Nuestro equipo se pondrá en contacto contigo pronto!"
+  },
+  "disclaimer": "Al contactarnos, usted acepta recibir comunicaciones de Méndez & Sánchez, APC. Es posible que se apliquen cargos por mensajes y datos. Envía ‘STOP’ para cancelar. La comunicación no crea una relación abogado-cliente.",
+  "settlements": {
+    "title": "Acuerdos",
+    "milestone": "Más de mil millones de dólares recuperados para clientes en acuerdos y veredictos.",
+    "cases": {
+      "motorcycle_accidents": "$14M - Accidentes de Motocicleta",
+      "traumatic_brain_injury": "$10M - Lesión Cerebral Traumática",
+      "wrongful_death": "$5M - Fallecimiento Injusto",
+      "car_accident": "$5M - Accidente de Auto"
+    }
+  },
+  "start_case": "Inicia tu caso",
+  "compensation_message": "¿Lesionado en un Accidente con Uber? <br/> Esto es lo que necesitas saber",
+  "urgent_cases": {
+    "intro": "Con la popularidad creciente de Uber, también han aumentado los accidentes que involucran a sus conductores. Ya sea que fueras pasajero, otro conductor o peatón, enfrentar las consecuencias legales de un accidente con Uber puede ser complicado. En Méndez y Sánchez, APC tenemos experiencia en reclamos por lesiones con Uber y lucharemos para que recibas la compensación completa, incluso si hay varias pólizas de seguro o contratistas independientes involucrados."
+  },
+  "why_choose_us": {
+    "title": "¿Qué hacer a continuación?",
+    "points": [
+      "<strong>Consulta Gratis 24/7</strong> - Habla directamente con un abogado experto en accidentes de Uber.",
+      "<strong>Revisamos tu Caso</strong> - Te explicamos tus derechos y los pasos a seguir, sin complicaciones ni jerga legal.",
+      "<strong>Recibe Pago y Justicia</strong> - Te conectamos con atención médica de calidad y luchamos por la máxima compensación."
+    ]
+  },
+  "what_we_handle": {
+    "title": "Lo que haremos por ti",
+    "points": [
+      "<strong>Sin Pago Adelantado</strong> - No pagas nada a menos que ganemos tu caso.",
+      "<strong>Acceso a Médicos de Calidad</strong> - Te conectamos con especialistas sin costo inicial ni seguros necesarios.",
+      "<strong>Máxima Compensación</strong> - Buscamos el acuerdo más alto posible de las pólizas múltiples de Uber.",
+      "<strong>Representación Confidencial</strong> - Tu caso se maneja con profesionalismo y privacidad.",
+      "<strong>Adelantos en Efectivo</strong> - Si necesitas ayuda económica inmediata, te apoyamos para obtener fondos antes de resolver el caso.",
+      "<strong>Nos Movemos Hacia Ti</strong> - Si no puedes desplazarte por tus lesiones, vamos donde tú estés."
+    ]
+  },
+  "what_you_need_to_know": {
+    "title": "Lo que necesitas saber ahora",
+    "questions": [
+      {
+        "title": "¿Qué cubre la póliza de seguro de $1 millón de Uber?",
+        "content": "<p>En Méndez y Sánchez, APC nos encargamos de que recibas todos los beneficios de la póliza de responsabilidad civil de $1 millón de Uber. Esto cubre lesiones corporales y daños a terceros, además de protección durante el viaje y mientras el conductor va a recoger al pasajero. Luchamos para que Uber asuma su responsabilidad y obtengas la mejor compensación posible.</p>"
+      },
+      {
+        "title": "¿Qué es Uber y cómo funciona su servicio?",
+        "content": "<p>Conocemos bien cómo funciona Uber y usamos esa experiencia para construir casos sólidos. Te ayudamos a demostrar los detalles de tu viaje con Uber para que tu reclamo sea fuerte y obtengas la mayor compensación posible, ya sea UberX, Uber Pool o Uber Comfort.</p>"
+      },
+      {
+        "title": "¿Cuáles son los requisitos para conductores y vehículos de Uber?",
+        "content": "<p>Verificamos que el conductor y el vehículo cumplieran con todos los requisitos legales al momento del accidente. Esto fortalece tu caso para que podamos responsabilizar a Uber y al conductor negligente, y así conseguir la mejor indemnización.</p>"
+      },
+      {
+        "title": "¿Por qué los reclamos por accidentes con Uber son diferentes a otros accidentes de auto?",
+        "content": "<p>Los reclamos con Uber son complejos por sus pólizas y límites únicos. En Méndez y Sánchez, APC luchamos contra las tácticas de las aseguradoras para que obtengas justicia y la máxima compensación que mereces.</p>"
+      },
+      {
+        "title": "¿Quién es responsable legalmente después de un accidente con Uber?",
+        "content": "<p>Perseguimos a todas las partes responsables, incluyendo a Uber y al conductor culpable. Luchamos para que recibas compensación por gastos médicos, salarios perdidos, dolor y sufrimiento, y más, porque tu recuperación es lo más importante para nosotros.</p>"
+      },
+      {
+        "title": "¿Qué hacer inmediatamente después de un accidente con Uber?",
+        "content": "<ul><li>Te guiamos para buscar atención médica de inmediato y juntar pruebas importantes.</li><li>Manejamos las comunicaciones con aseguradoras y policía para que no te preocupes y puedas concentrarte en sanar.</li><li>Te ofrecemos una revisión gratuita para explicarte tus opciones y cómo obtener la mejor compensación.</li></ul>"
+      },
+      {
+        "title": "¿Cómo funcionan los honorarios de contingencia en casos con Uber?",
+        "content": "<p>Trabajamos sin que pagues honorarios hasta ganar tu caso. Así puedes confiar en que nuestro equipo está comprometido a conseguir el mejor acuerdo o veredicto para ti.</p>"
+      },
+      {
+        "title": "¿Qué pasa con el seguro de Uber si el conductor tenía la app encendida pero no aceptó un viaje?",
+        "content": "<p>Incluso si el conductor sólo tenía la app encendida, investigamos la cobertura limitada que Uber ofrece, así como tu seguro personal, para asegurarnos de que recibas compensación por tus lesiones y daños.</p>"
+      }
+    ]
+  },
+  "contact_info": {
+    "address": "Dirección",
+    "email": "Correo",
+    "phone": "Número"
+  },
+  "copyright": "© 2025 Méndez & Sánchez - Todos los derechos reservados",
+  "metadata": {
+    "title": "Abogados de Accidentes con Uber – Obtén la compensación que mereces",
+    "description": "¿Lesionado en un accidente con Uber? En Méndez y Sánchez, APC te ofrecemos representación legal confiable para víctimas de accidentes con Uber. Consultas gratis y sin honorarios a menos que ganemos.",
+    "keywords": "abogado accidente Uber, abogado choques Uber, ayuda legal accidente Uber, abogado lesiones Uber, reclamo pasajero Uber, abogado Uber California, abogado accidentes Uber, demanda Uber accidente, seguro Uber accidente, compensación accidente Uber, abogado Uber sin costo inicial, indemnización accidente Uber, abogados Uber rideshare"
+  }
+}
