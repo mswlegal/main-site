@@ -32,7 +32,7 @@ $color_red: #d71a20;
 
   @include responsive.device-max('md') {
     min-height: unset;
-    height: 65svh;
+    height: 75svh;
     background-position: 50%;
   }
 
