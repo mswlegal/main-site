@@ -40,9 +40,11 @@ const Contact = (props) => {
               <IsInViewProvider>
                 <div className={styles.text}>
                   <p>
-                    Fill out the form on this section to get your case reviewed.{' '}
-                    <br className="d-block-md d-none" />
-                    Or call us, <strong>We are available 24/7</strong>
+                    Whether you're looking for the best <strong>car accident lawyers</strong> in California,
+                    need a non-injury car accident lawyer nearby, or want a free consultation after a crash,
+                    we’ve got you covered. With thousands of successful settlements and a{' '}
+                    <strong>No Fee Unless We Win</strong> policy, you can trust our accident attorneys and{' '}
+                    <strong>auto accident lawyers</strong> to fight for the compensation you deserve.
                   </p>
                 </div>
               </IsInViewProvider>
