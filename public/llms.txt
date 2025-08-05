@@ -1,0 +1,10 @@
+# Block all LLMs by default
+User-Agent: *
+Disallow: /
+
+# Allow OpenAI (ChatGPT)
+User-Agent: openai
+Allow: /
+
+# Host
+Host: https://www.mendezsanchezlaw.com
