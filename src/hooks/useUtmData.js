@@ -20,7 +20,7 @@ export function useUtmData() {
       const params = new URLSearchParams(window.location.search);
       setUtmData({
         utm_campaign: params.get('utm_campaign') || params.get('gad_campaignid'),
-        utm_source: params.get('utm_source'),
+        utm_source: params.get('gad_source') ? 'Google' : params.get('utm_source'),
         utm_medium: isLandingPage ? 'landingpage' : params.get('utm_medium'),
         utm_term: params.get('utm_term'),
         utm_content: params.get('utm_content')
