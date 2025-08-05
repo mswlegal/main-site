@@ -1,13 +1,23 @@
+@use '/styles/responsive/_devicesMixins.scss' as responsive;
+
 .teamSection {
-  padding: 80px 0;
+  padding: 50px 0;
   background-color: #f9f9f9;
 }
 
+// .heading {
+//   font-size: 32px;
+//   font-weight: 700;
+//   margin-bottom: 16px;
+//   color: #1e1e1e;
+// }
+
 .heading {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: #1e1e1e;
+  display: inline-block;
+  margin-bottom: 8px;
+  @include responsive.device-max('md') {
+    font-size: 24px;
+  }
 }
 
 .subheading {
@@ -16,4 +26,7 @@
   font-size: 18px;
   line-height: 1.6;
   color: #555;
+  @include responsive.device-max('md') {
+    font-size: 16px;
+  }
 }
