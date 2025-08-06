@@ -13,6 +13,7 @@ import { generateSmartKeywords } from '@/utilities';
 import Image from 'next/image';
 import { topLegalKeywords } from '@/data/keywords';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import heroImage from '@images/hero/hero.webp';
 
 // Dynamically imported components to reduce initial JS payload
 const ModalForm = dynamic(() => import('@/components/Forms/ModalForm'), { ssr: false });
@@ -48,10 +49,10 @@ function PostPage({ post }) {
         description={post.description}
         ogImage={post.mainImage.src}
         keywords={post.keywords.join(', ')}
-        canonicalUrl={`https://www.mendezsanchezlaw.com/post/${post.slug}`}
+        canonicalUrl={`https://www.mendezsanchezlaw.com/post/${post?.slug}`}
         noIndex={false}
       >
-        <link rel="preload" as="image" href={require('@images/hero/hero.webp')} type="image/webp" />
+        <link rel="preload" as="image" href={heroImage.src} type="image/webp" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',

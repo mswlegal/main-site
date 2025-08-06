@@ -13,6 +13,7 @@ import { IsInViewProvider } from '@/hooks/viewportListener';
 import { generateSmartKeywords } from '@/utilities';
 import { topLegalKeywords } from '@/data/keywords';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import heroImage from '@images/hero/hero.webp';
 
 function ExpertisePage({ expertise }) {
   const [currentUrl, setCurrentUrl] = React.useState('');
@@ -52,7 +53,7 @@ function ExpertisePage({ expertise }) {
         canonicalUrl={`https://www.mendezsanchezlaw.com/expertise/${expertise.slug}`}
         noIndex={false}
       >
-        <link rel="preload" as="image" href={require('@images/hero/hero.webp')} type="image/webp" />
+        <link rel="preload" as="image" href={heroImage.src} type="image/webp" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
