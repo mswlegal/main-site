@@ -8,6 +8,7 @@ import StepsSection from '@/components/Steps';
 import Seo from '@/components/Seo';
 import { useRouter } from 'next/router';
 import MainForm from '@/components/Forms/MainForm';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const faqSchemaMarkup = JSON.stringify({
   '@context': 'https://schema.org',
@@ -112,6 +113,14 @@ function ContactPage() {
       <AboutSection />
     </>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common']))
+    }
+  };
 }
 
 export default ContactPage;
