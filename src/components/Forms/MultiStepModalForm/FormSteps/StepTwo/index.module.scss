@@ -1,0 +1,96 @@
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  input {
+    padding: 20px !important;
+    min-height: 62px;
+    font-size: 14px;
+    letter-spacing: 2.625px;
+    border: 0;
+    touch-action: manipulation;
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+    color: #15111e;
+    font-size: 16px !important;
+    border: 1px solid rgb(34, 34, 34);
+    outline: none !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease-in-out;
+    &::placeholder {
+      text-transform: uppercase;
+      font-size: 14px;
+      color: inherit;
+    }
+
+    &:first-of-type {
+      border-top-left-radius: 8px !important;
+      border-top-right-radius: 8px !important;
+    }
+
+    &:last-of-type {
+      border-bottom-left-radius: 8px !important;
+      border-bottom-right-radius: 8px !important;
+      margin-top: -1px;
+    }
+
+    &:focus {
+      background-color: #f3f3f3;
+    }
+  }
+}
+
+.helpText {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #6b7280;
+  a {
+    color: #d71a20;
+    text-decoration: none;
+    font-size: inherit;
+    line-height: inherit;
+    margin-left: 2px;
+  }
+}
+
+.dividerContainer {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.dividerLine {
+  flex-grow: 1;
+  border-top: 1px solid #e5e7eb;
+}
+
+.dividerText {
+  margin: 0 16px;
+}
+
+.alternativeOptions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.alternativeButton {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  &:hover {
+    background-color: #f9fafb;
+  }
+}
