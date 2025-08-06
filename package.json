@@ -37,7 +37,7 @@
     "react-countup": "^6.5.3",
     "react-curved-text": "^3.0.1",
     "react-dom": "^19.1.0",
-    "react-i18next": "^15.6.0",
+    "react-i18next": "^15.6.1",
     "react-intersection-observer": "^9.16.0",
     "sass": "^1.89.2",
     "swiper": "^11.2.8"

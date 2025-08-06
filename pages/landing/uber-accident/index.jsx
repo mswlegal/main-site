@@ -83,7 +83,7 @@ function UberAccident() {
               </Link>
             </Col>
             <Col xs={12}>
-              <Translate>{t('copyright')}</Translate>
+              <Translate i18nKey="copyright" ns="uberAccident" />
             </Col>
           </Row>
         </Container>

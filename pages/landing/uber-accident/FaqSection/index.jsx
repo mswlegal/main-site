@@ -24,7 +24,7 @@ export default function FaqSection() {
             <Col md={10} lg={8} className="mx-auto text-center">
               <FontAwesomeIcon icon={faQuestionCircle} className="fa-2x mb-2 text-white" />
               <h2 className="mb-5">
-                <Translate>{t('what_you_need_to_know.title')}</Translate>
+                <Translate i18nKey="what_you_need_to_know.title" ns="uberAccident" />
               </h2>
               <Accordion items={items} className={cx(styles.accordion, 'mb-5')} />
             </Col>
@@ -32,7 +32,7 @@ export default function FaqSection() {
           <Row>
             <Col className="text-center">
               <a className={styles.button} onClick={() => scrollToSection('bottomForm')}>
-                <Translate>{t('get_started')}</Translate>
+                <Translate i18nKey="get_started" ns="uberAccident" />
               </a>
             </Col>
           </Row>

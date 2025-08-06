@@ -81,7 +81,8 @@ function AmazonTruckAccident() {
               </Link>
             </Col>
             <Col xs={12}>
-              <Translate>{t('copyright')}</Translate>
+              {/* Fix for Translate usage: Passing i18nKey */}
+              <Translate i18nKey="copyright" ns="amazonTruckAccident" />
             </Col>
           </Row>
         </Container>

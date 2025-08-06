@@ -5,18 +5,15 @@ import cx from 'classnames';
 import Form from '../Form';
 import { scrollToSection } from '@/utilities';
 import { Trans as Translate } from 'next-i18next';
-import { useTranslation } from 'next-i18next';
 
 export default function AboutSection() {
-  const { t } = useTranslation('carAccident');
-
   return (
     <section className={cx(styles['about-section'], 'text-center')} id="headerForm">
       <Container className={styles.container}>
         <Row className={cx(styles['form-row'], styles['animate-slide-in'])}>
           <Col xs={12}>
             <h2 className="text-white mb-5">
-              <Translate>{t('free_case_review')}</Translate>
+              <Translate i18nKey="free_case_review" ns="carAccident" />
             </h2>
             <Form />
           </Col>
@@ -24,12 +21,13 @@ export default function AboutSection() {
         <Row className="gx-4 gx-lg-5 justify-content-center">
           <Col lg={8} xs={12}>
             <h2 className="text-white mb-4">
-              <Translate>{t('compensation_message')}</Translate>
+              <Translate i18nKey="compensation_message" ns="carAccident" />
             </h2>
             <p className="text-white">
-              <Translate>{t('urgent_cases.intro')}</Translate> <Translate>{t('urgent_cases.team')}</Translate>{' '}
+              <Translate i18nKey="urgent_cases.intro" ns="carAccident" />
+              <Translate i18nKey="urgent_cases.team" ns="carAccident" />{' '}
               <a onClick={() => scrollToSection('faq')}>
-                <Translate>{t('read_more')}</Translate>
+                <Translate i18nKey="read_more" ns="carAccident" />
               </a>
             </p>
           </Col>

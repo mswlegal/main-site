@@ -28,12 +28,12 @@ function ProjectsSection() {
             <Col lg={6} xs={12}>
               <div className={cx(styles['featured-text'], 'text-left')}>
                 <h2>
-                  <Translate>{t('why_choose_us.title')}</Translate>
+                  <Translate i18nKey="why_choose_us.title" ns="carAccident" />
                 </h2>
                 <ul className="text-black-50">
                   {t('why_choose_us.points', { returnObjects: true }).map((item, index) => (
                     <li key={`choose-${index}`}>
-                      <Translate>{item}</Translate>
+                      <Translate i18nKey={item} ns="carAccident" />
                     </li>
                   ))}
                 </ul>
@@ -44,12 +44,12 @@ function ProjectsSection() {
             <Col lg={6} xs={12} className="order-md-0 order-1">
               <div className={cx(styles['featured-text'], 'text-left')}>
                 <h2>
-                  <Translate>{t('what_we_handle.title')}</Translate>
+                  <Translate i18nKey="what_we_handle.title" ns="carAccident" />
                 </h2>
                 <ul className="text-black-50">
                   {t('what_we_handle.points', { returnObjects: true }).map((item, index) => (
                     <li key={`handle-${index}`}>
-                      <Translate>{item}</Translate>
+                      <Translate i18nKey={`what_we_handle.points.${index}`} ns="carAccident" />
                     </li>
                   ))}
                 </ul>
@@ -77,7 +77,7 @@ export default ProjectsSection;
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['amazonTruckAccident']))
+      ...(await serverSideTranslations(locale, ['carAccident'])) // Adjusted namespace for correct translation file
     }
   };
 }

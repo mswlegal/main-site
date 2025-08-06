@@ -61,7 +61,7 @@ function CarAccident() {
               </Link>
             </Col>
             <Col xs={12}>
-              <Translate>{t('copyright')}</Translate>
+              <Translate i18nKey="copyright" ns="carAccident" />
             </Col>
           </Row>
         </Container>

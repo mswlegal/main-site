@@ -31,7 +31,7 @@ function Design2({ showFloatingButton }) {
 
               <IsInViewProvider>
                 <p className={cx(styles.subheader, 'mt-4')}>
-                  <Translate>{t('subtitle')}</Translate>
+                  <Translate i18nKey="subtitle" ns="amazonTruckAccident" />
                 </p>
               </IsInViewProvider>
             </Col>
@@ -47,7 +47,9 @@ function Design2({ showFloatingButton }) {
                 )}
                 onClick={toggleForm}
               >
-                <span className="text-capitalize">Start your free case review</span>
+                <span className="text-capitalize">
+                  <Translate i18nKey="start_free_case_review" ns="amazonTruckAccident" />
+                </span>
               </Button>
 
               <Suspense fallback={null}>
@@ -64,12 +66,12 @@ function Design2({ showFloatingButton }) {
           <Row className="gx-4 gx-lg-5 justify-content-center">
             <Col lg={8} xs={12}>
               <h2 className="text-white mb-4">
-                <Translate>{t('compensation_message')}</Translate>
+                <Translate i18nKey="compensation_message" ns="amazonTruckAccident" />
               </h2>
               <p className="text-white">
-                <Translate>{t('urgent_cases.intro')}</Translate>{' '}
+                <Translate i18nKey="urgent_cases.intro" ns="amazonTruckAccident" />{' '}
                 <a onClick={() => scrollToSection('faq')}>
-                  <Translate>{t('read_more')}</Translate>
+                  <Translate i18nKey="read_more" ns="amazonTruckAccident" />
                 </a>
               </p>
             </Col>

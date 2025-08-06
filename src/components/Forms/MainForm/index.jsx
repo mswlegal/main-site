@@ -152,6 +152,7 @@ function MainForm({ className, isLandingPage = false, phoneNumber = '3238381444'
               <Translate
                 i18nKey="disclaimer_with_link"
                 components={[<a href="/legal/terms-conditions" target="_blank" rel="noopener noreferrer" />]}
+                ns="common"
               />
             </span>
             <button className={styles.button} id="submitButton" type="submit">

@@ -4,7 +4,6 @@ import cx from 'classnames';
 import { scrollToSection } from '@/utilities';
 import Form from '../Form';
 import { useTranslation } from 'next-i18next';
-// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Trans as Translate } from 'next-i18next';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -27,10 +26,10 @@ function HeroSection() {
                 dangerouslySetInnerHTML={{ __html: t('title') }}
               />
               <h2 className="mx-auto mt-2 mb-5">
-                <Translate>{t('subtitle')}</Translate>
+                <Translate i18nKey="subtitle" ns="amazonTruckAccident" />
               </h2>
               <a className={styles.button} onClick={() => scrollToSection('headerForm')}>
-                <Translate>{t('get_started')}</Translate>
+                <Translate i18nKey="get_started" ns="amazonTruckAccident" />
               </a>
             </Col>
           </Row>
@@ -43,7 +42,7 @@ function HeroSection() {
           <Row className={cx(styles['form-row'], styles['animate-slide-in'])}>
             <Col xs={12} className="mx-auto text-center">
               <h2 className="text-white mb-5">
-                <Translate>{t('free_case_review')}</Translate>
+                <Translate i18nKey="free_case_review" ns="amazonTruckAccident" />
               </h2>
               <Form />
             </Col>
@@ -51,12 +50,12 @@ function HeroSection() {
           <Row className="gx-4 gx-lg-5 justify-content-center">
             <Col lg={8} xs={12}>
               <h2 className="text-white mb-4">
-                <Translate>{t('compensation_message')}</Translate>
+                <Translate i18nKey="compensation_message" ns="amazonTruckAccident" />
               </h2>
               <p className="text-white">
-                <Translate>{t('urgent_cases.intro')}</Translate>{' '}
+                <Translate i18nKey="urgent_cases.intro" ns="amazonTruckAccident" />{' '}
                 <a onClick={() => scrollToSection('faq')}>
-                  <Translate>{t('read_more')}</Translate>
+                  <Translate i18nKey="read_more" ns="amazonTruckAccident" />
                 </a>
               </p>
             </Col>
@@ -66,13 +65,5 @@ function HeroSection() {
     </>
   );
 }
-
-// export async function getStaticProps({ locale }) {
-//   return {
-//     props: {
-//       ...(await serverSideTranslations(locale, ['amazonTruckAccident']))
-//     }
-//   };
-// }
 
 export default HeroSection;

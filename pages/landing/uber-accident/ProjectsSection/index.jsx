@@ -29,17 +29,17 @@ function ProjectsSection() {
             <Col lg={6} xs={12}>
               <div className={cx(styles['featured-text'], 'text-left')}>
                 <h2>
-                  <Translate>{t('why_choose_us.title')}</Translate>
+                  <Translate i18nKey="why_choose_us.title" ns="uberAccident" />
                 </h2>
                 <ol className="mb-5">
                   {t('why_choose_us.points', { returnObjects: true }).map((item, index) => (
                     <li key={`choose-${index}`} data-number={index + 1}>
-                      <Translate>{item}</Translate>
+                      <Translate i18nKey={item} ns="uberAccident" />
                     </li>
                   ))}
                 </ol>
                 <a className={styles.button} onClick={() => scrollToSection('bottomForm')}>
-                  <Translate>{t('get_started')}</Translate>
+                  <Translate i18nKey="get_started" ns="uberAccident" />
                 </a>
               </div>
             </Col>
@@ -48,12 +48,12 @@ function ProjectsSection() {
             <Col lg={6} xs={12} className="order-md-0 order-1">
               <div className={cx(styles['featured-text'], 'text-left')}>
                 <h2>
-                  <Translate>{t('what_we_handle.title')}</Translate>
+                  <Translate i18nKey="what_we_handle.title" ns="uberAccident" />
                 </h2>
                 <ul className="text-black-50">
                   {t('what_we_handle.points', { returnObjects: true }).map((item, index) => (
                     <li key={`handle-${index}`}>
-                      <Translate>{item}</Translate>
+                      <Translate i18nKey={item} ns="uberAccident" />
                     </li>
                   ))}
                 </ul>
