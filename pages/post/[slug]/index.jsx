@@ -12,6 +12,7 @@ import staticPosts from '@/posts/staticPosts';
 import { generateSmartKeywords } from '@/utilities';
 import Image from 'next/image';
 import { topLegalKeywords } from '@/data/keywords';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 // Dynamically imported components to reduce initial JS payload
 const ModalForm = dynamic(() => import('@/components/Forms/ModalForm'), { ssr: false });
@@ -199,30 +200,35 @@ function PostPage({ post }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
+  // Try to find a static post first
   const staticPost = staticPosts.find((p) => p.slug === params.slug);
   if (staticPost) {
     return {
-      props: { post: staticPost }
+      props: {
+        post: staticPost,
+        ...(await serverSideTranslations(locale, ['common']))
+      }
     };
   }
 
+  // Fetch dynamic posts from the API if not found in staticPosts
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/webflow-posts`);
-  const data = await res.json();
-  const posts = data.items;
+  const { items: posts } = await res.json();
 
+  // Find the post from the fetched dynamic posts
   const postRaw = posts.find((p) => p.fieldData.slug === params.slug);
   if (!postRaw) return { notFound: true };
 
-  const options = {
+  // Generate smart keywords
+  const extractedKeywords = generateSmartKeywords({
     title: postRaw.fieldData.name,
     description: postRaw.fieldData['post-summary'],
     topKnownKeywords: topLegalKeywords,
     maxKeywords: 10
-  };
+  });
 
-  const extractedKeywords = generateSmartKeywords(options);
-
+  // Construct the post object
   const post = {
     title: postRaw.fieldData.name,
     slug: postRaw.fieldData.slug,
@@ -237,8 +243,12 @@ export async function getStaticProps({ params }) {
     }
   };
 
+  // Return the final props with translations
   return {
-    props: { post },
+    props: {
+      post,
+      ...(await serverSideTranslations(locale, ['common']))
+    },
     revalidate: 60
   };
 }

@@ -12,6 +12,7 @@ import Seo from '@/components/Seo';
 import { IsInViewProvider } from '@/hooks/viewportListener';
 import { generateSmartKeywords } from '@/utilities';
 import { topLegalKeywords } from '@/data/keywords';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 function ExpertisePage({ expertise }) {
   const [currentUrl, setCurrentUrl] = React.useState('');
@@ -183,14 +184,16 @@ function ExpertisePage({ expertise }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
+  // Fetch expertise data from the API
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/webflow-expertise`);
-  const data = await res.json();
-  const items = data.items;
+  const { items } = await res.json();
 
+  // Find the item based on the slug
   const item = items.find((entry) => entry.fieldData.slug === params.slug);
   if (!item) return { notFound: true };
 
+  // Combine the long descriptions, filtering out any null/undefined values
   const contentHtml = [
     item.fieldData['expertise-long-description'],
     item.fieldData['expertise-long-description-2'],
@@ -199,15 +202,17 @@ export async function getStaticProps({ params }) {
     .filter(Boolean)
     .join('');
 
+  // Generate smart keywords based on the item data
   const options = {
     title: item.fieldData.name,
-    description: item?.fieldData['meta-discription'],
+    description: item.fieldData['meta-discription'],
     topKnownKeywords: topLegalKeywords,
     maxKeywords: 10
   };
 
   const extractedKeywords = generateSmartKeywords(options);
 
+  // Prepare the expertise object
   const expertise = {
     title: item.fieldData.name,
     slug: item.fieldData.slug,
@@ -223,7 +228,10 @@ export async function getStaticProps({ params }) {
   };
 
   return {
-    props: { expertise },
+    props: {
+      expertise,
+      ...(await serverSideTranslations(locale, ['common']))
+    },
     revalidate: 60
   };
 }
