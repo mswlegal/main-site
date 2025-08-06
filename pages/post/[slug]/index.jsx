@@ -12,7 +12,6 @@ import staticPosts from '@/posts/staticPosts';
 import { generateSmartKeywords } from '@/utilities';
 import Image from 'next/image';
 import { topLegalKeywords } from '@/data/keywords';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import heroImage from '@images/hero/hero.webp';
 
 // Dynamically imported components to reduce initial JS payload

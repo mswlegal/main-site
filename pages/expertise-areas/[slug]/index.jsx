@@ -12,7 +12,6 @@ import Seo from '@/components/Seo';
 import { IsInViewProvider } from '@/hooks/viewportListener';
 import { generateSmartKeywords } from '@/utilities';
 import { topLegalKeywords } from '@/data/keywords';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import heroImage from '@images/hero/hero.webp';
 
 function ExpertisePage({ expertise }) {
@@ -185,7 +184,7 @@ function ExpertisePage({ expertise }) {
   );
 }
 
-export async function getStaticProps({ params, locale }) {
+export async function getStaticProps({ params }) {
   // Fetch expertise data from the API
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/webflow-expertise`);
   const { items } = await res.json();
@@ -231,7 +230,6 @@ export async function getStaticProps({ params, locale }) {
   return {
     props: {
       expertise,
-      ...(await serverSideTranslations(locale, ['common']))
     },
     revalidate: 60
   };

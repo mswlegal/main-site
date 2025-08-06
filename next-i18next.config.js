@@ -14,7 +14,4 @@ module.exports = {
     escapeValue: false, // React already does escaping
   },
   reloadOnPrerender: true, // Ensure that translations reload on prerender
-  react: {
-    useSuspense: false, // Disable suspense if you're not using it
-  }
 };
