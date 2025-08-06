@@ -49,7 +49,7 @@ function ExpertisePage({ expertise }) {
         description={expertise.description}
         ogImage={expertise.mainImage.src}
         keywords={expertise.keywords.join(', ')}
-        canonicalUrl={`https://www.mendezsanchezlaw.com/post/${expertise.slug}`}
+        canonicalUrl={`https://www.mendezsanchezlaw.com/expertise/${expertise.slug}`}
         noIndex={false}
       >
         <link rel="preload" as="image" href={require('@images/hero/hero.webp')} type="image/webp" />
