@@ -7,10 +7,12 @@ import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands
 import MainForm from '@/components/Forms/MainForm';
 import { formatPhoneNumber } from '@/utilities';
 import { Trans as Translate } from 'next-i18next';
+import { useTranslation } from 'next-i18next';
 import { Container, Row, Col } from 'react-bootstrap';
 
 function ContactSection() {
   const phone = '4243690775';
+  const { t } = useTranslation();
 
   return (
     <>
@@ -23,7 +25,17 @@ function ContactSection() {
               </h2>
             </Col>
             <Col md={6} xs={12}>
-              <MainForm />
+              <MainForm
+                isLandingPage
+                translations={{
+                  fullNamePlaceholder: t('fields.full_name'),
+                  phonePlaceholder: t('fields.phone_number'),
+                  emailPlaceholder: t('fields.email'),
+                  summaryPlaceholder: t('fields.summary'),
+                  startCaseText: t('start_case'),
+                  disclaimerWithLink: t('disclaimer_with_link')
+                }}
+              />
             </Col>
           </Row>
           <Row className="gx-4 gx-lg-5">

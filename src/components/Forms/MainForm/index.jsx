@@ -10,8 +10,6 @@ import PropTypes from 'prop-types';
 import ErrorMessage from './ErrorMessage';
 import SuccessMessage from './SuccessMessage';
 import { useUtmData } from '@/hooks/useUtmData';
-import { useTranslation } from 'next-i18next';
-import { Trans as Translate } from 'next-i18next';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -26,8 +24,16 @@ const sources = {
   google: 'Google Ads'
 };
 
-function MainForm({ className, isLandingPage = false, phoneNumber = '3238381444' }) {
-  const { t } = useTranslation('common');
+function MainForm({ className, isLandingPage = false, phoneNumber = '3238381444', translations = {} }) {
+  const {
+    fullNamePlaceholder = 'Full Name',
+    phonePlaceholder = 'Phone Number',
+    emailPlaceholder = 'Email Address',
+    summaryPlaceholder = 'Tell Us About your case...',
+    startCaseText = 'Start Your Case',
+    disclaimerWithLink = 'By providing your information, you agree to receive SMS messages, including appointment updates, reminders, and follow-ups. Message/data rates may apply. Frequency varies. You may opt out anytime by texting STOP. <a href="/legal/terms-conditions" target="_blank">Terms & Conditions</a>.'
+  } = translations;
+
   const [formData, setFormData] = React.useState(initialData);
   const [hasSubmitted, setHasSubmitted] = React.useState(false);
   const [hasError, setHasError] = React.useState(false);
@@ -98,7 +104,6 @@ function MainForm({ className, isLandingPage = false, phoneNumber = '3238381444'
   return (
     <BootstrapForm className={cx(styles['form-signup'], className)} onSubmit={handleSubmit}>
       {mounted && hasSubmitted && <SuccessMessage firstName={getFirstAndLastName(fullName)?.firstName} />}
-
       {mounted && hasError && <ErrorMessage onRetry={handleRetry} />}
 
       {mounted && !(hasSubmitted || hasError) && (
@@ -107,8 +112,8 @@ function MainForm({ className, isLandingPage = false, phoneNumber = '3238381444'
             <BootstrapForm.Control
               name="fullName"
               type="text"
-              placeholder={t('fields.full_name')}
-              aria-label={t('fields.full_name')}
+              placeholder={fullNamePlaceholder}
+              aria-label={fullNamePlaceholder}
               value={fullName}
               onChange={handleChange}
               required
@@ -118,8 +123,8 @@ function MainForm({ className, isLandingPage = false, phoneNumber = '3238381444'
             <BootstrapForm.Control
               name="phone"
               type="text"
-              placeholder={t('fields.phone_number')}
-              aria-label={t('fields.phone_number')}
+              placeholder={phonePlaceholder}
+              aria-label={phonePlaceholder}
               value={phone}
               onChange={handleChange}
               required
@@ -129,8 +134,8 @@ function MainForm({ className, isLandingPage = false, phoneNumber = '3238381444'
             <BootstrapForm.Control
               name="email"
               type="email"
-              placeholder={t('fields.email')}
-              aria-label={t('fields.email')}
+              placeholder={emailPlaceholder}
+              aria-label={emailPlaceholder}
               value={email}
               onChange={handleChange}
               required
@@ -142,21 +147,15 @@ function MainForm({ className, isLandingPage = false, phoneNumber = '3238381444'
               name="summary"
               value={summary}
               onChange={handleChange}
-              placeholder={t('fields.summary')}
-              aria-label={t('fields.summary')}
+              placeholder={summaryPlaceholder}
+              aria-label={summaryPlaceholder}
               rows={5}
             />
           </Col>
           <Col xs={12} className="text-center">
-            <span className={styles.disclaimer}>
-              <Translate
-                i18nKey="disclaimer_with_link"
-                components={[<a href="/legal/terms-conditions" target="_blank" rel="noopener noreferrer" />]}
-                ns="common"
-              />
-            </span>
+            <span className={styles.disclaimer} dangerouslySetInnerHTML={{ __html: disclaimerWithLink }} />
             <button className={styles.button} id="submitButton" type="submit">
-              {t('start_case')}
+              {startCaseText}
             </button>
           </Col>
         </Row>
@@ -168,7 +167,15 @@ function MainForm({ className, isLandingPage = false, phoneNumber = '3238381444'
 MainForm.propTypes = {
   className: PropTypes.string,
   isLandingPage: PropTypes.bool,
-  phoneNumber: PropTypes.string
+  phoneNumber: PropTypes.string,
+  translations: PropTypes.shape({
+    fullNamePlaceholder: PropTypes.string,
+    phonePlaceholder: PropTypes.string,
+    emailPlaceholder: PropTypes.string,
+    summaryPlaceholder: PropTypes.string,
+    startCaseText: PropTypes.string,
+    disclaimerWithLink: PropTypes.string
+  })
 };
 
 export default MainForm;

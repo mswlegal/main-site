@@ -16,6 +16,6 @@
     "cta": "Call Us"
   },
   "start_case": "Submit you case",
-  "disclaimer_with_link": "By providing your information, you agree to receive SMS messages, including appointment updates, reminders, and follow-ups. Message/data rates may apply. Frequency varies. You may opt out anytime by texting STOP. <0>Terms and Conditions.</0>",
+  "disclaimer_with_link": "By providing your information, you agree to receive SMS messages, including appointment updates, reminders, and follow-ups. Message/data rates may apply. Frequency varies. You may opt out anytime by texting STOP. <a href='/legal/terms-conditions' target='_blank' rel='noopener noreferrer'>Terms & Conditions</a>",
   "disclaimer": "By providing your information, you agree to receive SMS messages, including appointment updates, reminders, and follow-ups. Message/data rates may apply. Frequency varies. You may opt out anytime by texting STOP."
 }

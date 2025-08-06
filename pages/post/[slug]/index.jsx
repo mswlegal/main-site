@@ -206,8 +206,7 @@ export async function getStaticProps({ params, locale }) {
   if (staticPost) {
     return {
       props: {
-        post: staticPost,
-        ...(await serverSideTranslations(locale, ['common']))
+        post: staticPost
       }
     };
   }
@@ -246,8 +245,7 @@ export async function getStaticProps({ params, locale }) {
   // Return the final props with translations
   return {
     props: {
-      post,
-      ...(await serverSideTranslations(locale, ['common']))
+      post
     },
     revalidate: 60
   };

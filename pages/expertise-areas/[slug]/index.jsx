@@ -229,7 +229,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      expertise,
+      expertise
     },
     revalidate: 60
   };

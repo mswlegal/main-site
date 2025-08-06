@@ -12,7 +12,7 @@ import { scrollToSection } from '@/utilities';
 const ModalForm = lazy(() => import('@/components/Forms/ModalForm'));
 
 function Design2({ showFloatingButton }) {
-  const { t } = useTranslation('amazonTruckAccident');
+  const { t } = useTranslation();
   const [openForm, setOpenForm] = React.useState(false);
 
   function toggleForm() {
@@ -37,7 +37,17 @@ function Design2({ showFloatingButton }) {
             </Col>
             <Col lg={5} xs={12}>
               <div className="d-md-block d-none">
-                <MainForm isLandingPage />
+                <MainForm
+                  isLandingPage
+                  translations={{
+                    fullNamePlaceholder: t('fields.full_name'),
+                    phonePlaceholder: t('fields.phone_number'),
+                    emailPlaceholder: t('fields.email'),
+                    summaryPlaceholder: t('fields.summary'),
+                    startCaseText: t('start_case'),
+                    disclaimerWithLink: t('disclaimer_with_link')
+                  }}
+                />
               </div>
               <Button
                 className={cx(

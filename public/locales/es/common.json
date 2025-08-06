@@ -16,6 +16,6 @@
     "cta": "Llámanos"
   },
   "start_case": "Inicia tu caso",
-  "disclaimer_with_link": "Al proporcionar tu información, aceptas recibir mensajes SMS, incluyendo actualizaciones de citas, recordatorios y seguimientos. Pueden aplicarse tarifas de mensajes/datos. La frecuencia varía. Puedes darte de baja en cualquier momento enviando STOP. <0>Términos y Condiciones.</0>",
+  "disclaimer_with_link": "Al proporcionar tu información, aceptas recibir mensajes SMS, incluyendo actualizaciones de citas, recordatorios y seguimientos. Pueden aplicarse tarifas de mensajes/datos. La frecuencia varía. Puedes darte de baja en cualquier momento enviando STOP. <a href='/legal/terms-conditions' target='_blank' rel='noopener noreferrer'>Términos y Condiciones.</a>",
   "disclaimer": "By providing your information, you agree to receive SMS messages, including appointment updates, reminders, and follow-ups. Message/data rates may apply. Frequency varies. You may opt out anytime by texting STOP."
 }
