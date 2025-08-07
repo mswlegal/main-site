@@ -1,8 +1,20 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 import styles from './index.module.scss';
+import { sanitizeInput, formatPhoneNumber } from '@/utilities';
 
 export function StepTwo({ formData, handleChange }) {
+  const handleOnChange = React.useCallback((e) => {
+    const { name, value: originalValue } = e.target;
+
+    if (name === 'phone') {
+      e.target.value = formatPhoneNumber(originalValue);
+    } else {
+      e.target.value = sanitizeInput(originalValue);
+    }
+    handleChange(e);
+  }, []);
+
   return (
     <Form>
       <div className={styles.formGroup}>
@@ -14,7 +26,7 @@ export function StepTwo({ formData, handleChange }) {
           type="email"
           name="email"
           value={formData.email}
-          onChange={handleChange}
+          onChange={handleOnChange}
           placeholder="Enter your email"
           className={styles.input}
         />
@@ -26,7 +38,7 @@ export function StepTwo({ formData, handleChange }) {
           type="tel"
           name="phone"
           value={formData.phone}
-          onChange={handleChange}
+          onChange={handleOnChange}
           placeholder="Phone number"
           className={styles.input}
         />
@@ -39,9 +51,9 @@ export function StepTwo({ formData, handleChange }) {
       </div>
 
       <div className={styles.alternativeOptions}>
-        <button type="button" className={styles.alternativeButton}>
+        <a href="tel:+132383814444" className={styles.alternativeButton}>
           <span>Give us a call now</span>
-        </button>
+        </a>
       </div>
 
       <div className={styles.helpText}>

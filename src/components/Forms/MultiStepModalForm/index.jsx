@@ -27,6 +27,14 @@ export default function MultiStepFormModal() {
   const [hasError, setHasError] = useState(false);
   const totalSteps = 4;
   const progress = (step / totalSteps) * 100;
+
+  const stepTitles = {
+    1: "Let's Get to know you",
+    2: 'How can we reach you?',
+    3: 'Optional Details',
+    4: isSubmitted ? 'Thank you for your submission!' : 'Oops!'
+  };
+
   const handleClose = async () => {
     setIsExiting(true);
     await delay(400);
@@ -88,7 +96,14 @@ export default function MultiStepFormModal() {
       case 3:
         return <StepThree formData={formData} handleChange={handleChange} />;
       case 4:
-        return <StepFour isSuccess={isSubmitted} hasError={hasError} handleClose={handleClose} />;
+        return (
+          <StepFour
+            isSuccess={isSubmitted}
+            hasError={hasError}
+            handleClose={handleClose}
+            formData={formData}
+          />
+        );
       default:
         return null;
     }
@@ -122,12 +137,7 @@ export default function MultiStepFormModal() {
               />
             </div>
           )}
-          <h3 className={styles.stepTitle}>
-            {step === 1 && "Let's Get to know you"}
-            {step === 2 && 'How can we reach you?'}
-            {step === 3 && 'Additional details'}
-            {step === 4 && (isSubmitted ? 'Thank you!' : 'Oops!')}
-          </h3>
+          <h3 className={styles.stepTitle}>{stepTitles[step]}</h3>
           {renderStep()}
           {step < 4 && (
             <div className={styles.buttonContainer}>
