@@ -12,6 +12,7 @@ import { useUtmData } from '@/hooks/useUtmData';
 import InputField from './InputField';
 import SuccessMessage from './SuccessMessage';
 import ErrorMessage from './ErrorMessage';
+import { useSwipeGesture } from '@/hooks/useSwipeGesture';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -126,6 +127,10 @@ function ModalForm({ show, setShow, isLandingPage = false, phoneNumber = '323838
     [fullName, email, phone, summary, mutate, utmData, sources]
   );
 
+  const swipeEvents = useSwipeGesture({
+    onSwipeDown: handleClose
+  });
+
   return (
     <Modal
       show={show}
@@ -135,7 +140,7 @@ function ModalForm({ show, setShow, isLandingPage = false, phoneNumber = '323838
       contentClassName={styles.cardModal}
       dialogClassName={cx(styles.modalDialog, { [styles.isExiting]: isExiting })}
     >
-      <Modal.Header className={styles.cardImage} closeButton>
+      <Modal.Header className={styles.cardImage} closeButton {...swipeEvents}>
         <Modal.Title className={styles.cardHeading}>
           Get started
           <small>Tell us about your case</small>

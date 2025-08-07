@@ -18,11 +18,32 @@
 
 .modalHeader {
   border-bottom: 1px solid #e5e7eb;
-  padding: 16px; /* 1rem */
+  padding: 16px;
+  padding-top: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.closeSwipeIndicator {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.swipeLine {
+  width: 50px;
+  height: 4px;
+  background-color: #ccc;
+  border-radius: 2px;
+  margin-bottom: 5px;
 }
 
 .closeButton {

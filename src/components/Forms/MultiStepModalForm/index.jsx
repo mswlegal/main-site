@@ -5,24 +5,23 @@ import { StepTwo } from './FormSteps/StepTwo';
 import { StepThree } from './FormSteps/StepThree';
 import { StepFour } from './FormSteps/StepFour';
 import styles from './index.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import cx from 'classnames';
+import { useSwipeGesture } from '@/hooks/useSwipeGesture';
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-
+const initialFormData = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  location: '',
+  message: ''
+};
 export default function MultiStepFormModal() {
   const [isExiting, setIsExiting] = useState(false);
   const [show, setShow] = useState(false);
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    location: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState(initialFormData);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [hasError, setHasError] = useState(false);
   const totalSteps = 4;
@@ -40,21 +39,14 @@ export default function MultiStepFormModal() {
     await delay(400);
     setShow(false);
     setIsExiting(false);
-    setTimeout(() => {
-      setStep(1);
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        location: '',
-        message: ''
-      });
-      setIsSubmitted(false);
-      setHasError(false);
-    }, 300);
+    setStep(1);
+    setFormData(initialFormData);
+    setIsSubmitted(false);
+    setHasError(false);
   };
+
   const handleShow = () => setShow(true);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -62,21 +54,22 @@ export default function MultiStepFormModal() {
       [name]: value
     }));
   };
+
   const nextStep = () => {
     if (step < totalSteps) {
       setStep(step + 1);
     }
   };
+
   const prevStep = () => {
     if (step > 1) {
       setStep(step - 1);
     }
   };
+
   const handleSubmit = () => {
-    // Here you would typically send the data to an API
     try {
       console.log('Form submitted:', formData);
-      // Simulate API call success
       setIsSubmitted(true);
       setHasError(false);
       nextStep();
@@ -87,6 +80,7 @@ export default function MultiStepFormModal() {
       nextStep();
     }
   };
+
   const renderStep = () => {
     switch (step) {
       case 1:
@@ -108,11 +102,18 @@ export default function MultiStepFormModal() {
         return null;
     }
   };
+
+  // Use the custom hook and pass the functions for each swipe direction
+  const swipeEvents = useSwipeGesture({
+    onSwipeDown: handleClose
+  });
+
   return (
     <>
       <button onClick={handleShow} className={styles.openButton}>
         Get a Free Consultation
       </button>
+
       <Modal
         show={show}
         onHide={handleClose}
@@ -121,12 +122,13 @@ export default function MultiStepFormModal() {
         contentClassName={styles.modalContent}
         dialogClassName={cx(styles.modalDialog, { [styles.isExiting]: isExiting })}
       >
-        <div className={styles.modalHeader}>
-          <button onClick={handleClose} className={styles.closeButton}>
-            <FontAwesomeIcon icon={faTimes} />
-          </button>
+        <div className={styles.modalHeader} {...swipeEvents}>
+          <div className={styles.closeSwipeIndicator} onClick={handleClose}>
+            <div className={styles.swipeLine}></div>
+          </div>
           <h5 className={styles.modalTitle}>{step < 4 ? 'Get a Free Evaluation' : 'Submission Status'}</h5>
         </div>
+
         <div className={styles.modalBody}>
           {step < 4 && (
             <div className={styles.progressContainer}>
