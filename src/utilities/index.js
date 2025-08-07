@@ -712,3 +712,11 @@ export function generateSmartKeywords({
 
   return Array.from(finalSet).slice(0, maxKeywords);
 }
+
+export function getLastMonthYear() {
+  const now = new Date();
+  const lastMonthDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+  const monthName = lastMonthDate.toLocaleString('default', { month: 'long' });
+  const year = lastMonthDate.getFullYear();
+  return `${monthName} ${year}`;
+}

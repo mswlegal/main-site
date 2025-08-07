@@ -13,6 +13,7 @@ import { IsInViewProvider } from '@/hooks/viewportListener';
 import { generateSmartKeywords } from '@/utilities';
 import { topLegalKeywords } from '@/data/keywords';
 import heroImage from '@images/hero/hero.webp';
+import staticExpertise from '@/data/staticExpertise';
 
 function ExpertisePage({ expertise }) {
   const [currentUrl, setCurrentUrl] = React.useState('');
@@ -185,6 +186,15 @@ function ExpertisePage({ expertise }) {
 }
 
 export async function getStaticProps({ params }) {
+  const foundExpertise = staticExpertise.find((e) => e.slug === params.slug);
+  if (foundExpertise) {
+    return {
+      props: {
+        expertise: foundExpertise
+      }
+    };
+  }
+
   // Fetch expertise data from the API
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/webflow-expertise`);
   const { items } = await res.json();
@@ -240,12 +250,16 @@ export async function getStaticPaths() {
   const data = await res.json();
   const items = data.items.filter((entry) => !entry.isDraft && !entry.isArchived);
 
-  const paths = items.map((item) => ({
+  const cmsPaths = items.map((item) => ({
     params: { slug: item.fieldData.slug }
   }));
 
+  const staticPaths = staticExpertise.map((expertise) => ({
+    params: { slug: expertise.slug }
+  }));
+
   return {
-    paths,
+    paths: [...cmsPaths, ...staticPaths],
     fallback: false
   };
 }

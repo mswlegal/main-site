@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCalendarAlt, faTag, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import dynamic from 'next/dynamic';
-import staticPosts from '@/posts/staticPosts';
+import staticPosts from '@/data/staticPosts';
 import { generateSmartKeywords } from '@/utilities';
 import Image from 'next/image';
 import { topLegalKeywords } from '@/data/keywords';
@@ -200,7 +200,7 @@ function PostPage({ post }) {
   );
 }
 
-export async function getStaticProps({ params, locale }) {
+export async function getStaticProps({ params }) {
   // Try to find a static post first
   const staticPost = staticPosts.find((p) => p.slug === params.slug);
   if (staticPost) {
