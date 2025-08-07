@@ -8,7 +8,7 @@ const staticExpertise = [
     description:
       'Injured in a car crash? Mendez & Sanchez APC fights for maximum compensation after auto accidents in California and Nevada. Free consultation available.',
     content: `
-      <h1>What to Do Immediately After a Car Accident in California or Nevada</h1>
+      <h2>What to Do Immediately After a Car Accident in California or Nevada</h2>
       <p><strong>After a car crash</strong>, your actions can greatly impact your physical recovery and legal rights. First, seek medical attention—even if you feel fine, internal injuries may take time to appear. Call the police and get a formal report. Document the scene by taking photos, collecting witness info, and noting road and weather conditions. These steps create a solid foundation for your personal injury claim.</p>
 
       <p>If your car was totaled or you got injured in the crash, it's important to seek legal advice promptly to protect your rights and maximize your compensation.</p>
