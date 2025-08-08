@@ -86,16 +86,18 @@ function AboutPage() {
               </IsInViewProvider>
               <IsInViewProvider>
                 <p>
-                  Mendez & Sanchez APC is a top-rated personal injury law firm proudly serving clients in Los
-                  Angeles, Pasadena, and Las Vegas, NV. Our skilled car accident attorneys and personal injury
-                  lawyers are dedicated to helping victims recover the compensation and justice they deserve —
-                  whether it's a car accident with no injury, a serious auto accident, or a property damage
-                  claim. With over a billion dollars recovered, we’re recognized among the best car accident
-                  lawyers in Los Angeles, Las Vegas, and across California. Clients turn to Mendez & Sanchez
-                  for our relentless advocacy, attention to detail, and compassionate support. We offer free
-                  consultations and there are no fees unless we win. If you’re looking for a trusted car
-                  accident lawyer near Pasadena, CA, or need a non-injury car accident lawyer near you, we’re
-                  here to fight for you every step of the way.
+                  Looking for a personal injury lawyer in Pasadena, Los Angeles, or Las Vegas?{' '}
+                  <strong>Mendez & Sanchez APC</strong> is one of the top-rated law firms in the region, with
+                  a proven track record of helping injury victims recover the compensation and justice they
+                  deserve. Whether you were involved in a car accident with no injuries, a serious crash, or
+                  need help with a property damage claim, our skilled attorneys are here to guide you every
+                  step of the way. With <strong>over $1 BILLION RECOVERED</strong> and{' '}
+                  <strong>more than 5,000 cases settled</strong>, we’re recognized among the best car accident
+                  lawyers in Las Vegas, Los Angeles and throughout California. Clients trust Mendez & Sanchez
+                  for our relentless advocacy, compassionate support, and attention to detail. We offer{' '}
+                  <strong>free consultations</strong> — and there are <strong>no fees unless we win</strong>.
+                  If you’re searching for a trusted car accident lawyer near Pasadena or need help after a
+                  crash, contact us today.
                 </p>
               </IsInViewProvider>
             </Col>
