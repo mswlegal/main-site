@@ -13,9 +13,15 @@ export function PostHogProvider({ children }) {
         api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
         person_profiles: 'identified_only',
         capture_pageview: false, // We'll handle pageviews manually
-        session_recording: false,
-        enable_recording_console_log: true, // Optional: captures console.log, console.error, etc.
-        // Automatically captures uncaught exceptions and unhandled promise rejections
+        session_recording: {
+          maskAllInputs: false,
+          maskInputOptions: {
+            password: true,
+            email: false,
+            text: false,
+            textarea: false
+          }
+        },
         capture_uncaught_exceptions: true,
         capture_unhandled_rejections: true
       });
