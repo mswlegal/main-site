@@ -7,7 +7,8 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'placehold.co',
+        hostname: 'cdn.prod.website-files.com',
+        pathname: '**',
       },
     ],
   },

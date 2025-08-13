@@ -13,6 +13,7 @@ import { generateSmartKeywords } from '@/utilities';
 import Image from 'next/image';
 import { topLegalKeywords } from '@/data/keywords';
 import heroImage from '@images/hero/hero.webp';
+import ImageWithFallback from '@/hooks/imageWithFallback';
 
 // Dynamically imported components to reduce initial JS payload
 const ModalForm = dynamic(() => import('@/components/Forms/ModalForm'), { ssr: false });
@@ -115,7 +116,7 @@ function PostPage({ post }) {
               <Col lg={8} xs={12}>
                 <Card className={styles.card}>
                   <div className={styles.imageWrapper}>
-                    <Image
+                    <ImageWithFallback
                       src={post.mainImage.src}
                       alt={post.mainImage.alt || 'Post image'}
                       fill
