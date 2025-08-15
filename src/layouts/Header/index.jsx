@@ -126,7 +126,6 @@ const Header = ({ dark }) => {
                     <a onClick={() => handleChangeRoute('/about')}>About Us</a>
                   </li>
                   <li>
-                    {/* <a onClick={() => handleMenuOnClick('services')}>Services</a> */}
                     <ServicesDropDown
                       onDropDownShow={handleShowDropDown}
                       onChangeRoute={handleChangeRoute}

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -45,42 +45,49 @@ const SERVICE_ITEMS = [
   }
 ];
 
+// Scroll Arrow Button Component
+const ScrollArrowButton = ({ direction, onClick }) => (
+  <button
+    className={cx(styles.arrowButton, direction === 'right' && styles.right, 'd-none d-md-block')}
+    onClick={onClick}
+    aria-label={`Scroll ${direction}`}
+  >
+    <FontAwesomeIcon icon={faChevronRight} rotation={direction === 'left' ? 180 : undefined} />
+  </button>
+);
+
 const ServicesDropDown = ({ onDropDownShow, onChangeRoute, forceClose }) => {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const scrollContainerRef = useRef(null);
 
-  const toggleServicesDropdown = useCallback(() => {
+  const toggleDropdown = useCallback(() => {
     setServicesDropdownOpen((prev) => !prev);
   }, []);
 
   const handleChangeRoute = (path) => {
-    if (onChangeRoute) {
-      onChangeRoute(path);
+    if (onChangeRoute) onChangeRoute(path);
+  };
+
+  const handleScroll = (direction) => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.scrollBy({
+        left: direction === 'left' ? -300 : 300,
+        behavior: 'smooth'
+      });
     }
   };
 
   useEffect(() => {
-    if (onDropDownShow) {
-      onDropDownShow(servicesDropdownOpen);
-    }
+    if (onDropDownShow) onDropDownShow(servicesDropdownOpen);
   }, [onDropDownShow, servicesDropdownOpen]);
 
   useEffect(() => {
-    if (forceClose) {
-      setServicesDropdownOpen(false);
-    }
+    if (forceClose) setServicesDropdownOpen(false);
   }, [forceClose]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setServicesDropdownOpen(false);
-    };
-
-    const handleResize = () => {
-      setServicesDropdownOpen(false);
-    };
-
     const handleClickOutside = (e) => {
-      // Close only if click is outside the dropdown
       const dropdownElement = document.querySelector(`.${styles['custom-dropdown']}`);
       if (dropdownElement && !dropdownElement.contains(e.target)) {
         setServicesDropdownOpen(false);
@@ -88,14 +95,14 @@ const ServicesDropDown = ({ onDropDownShow, onChangeRoute, forceClose }) => {
     };
 
     if (servicesDropdownOpen) {
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      window.addEventListener('resize', handleResize);
+      window.addEventListener('scroll', () => setServicesDropdownOpen(false), { passive: true });
+      window.addEventListener('resize', () => setServicesDropdownOpen(false));
       document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', () => {});
+      window.removeEventListener('resize', () => {});
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [servicesDropdownOpen]);
@@ -103,36 +110,44 @@ const ServicesDropDown = ({ onDropDownShow, onChangeRoute, forceClose }) => {
   return (
     <NavDropdown
       title={
-        <span className={styles.dropdownTitle}>
+        <span className={styles.dropdownTitle} onClick={() => toggleDropdown()}>
           Services <FontAwesomeIcon icon={faChevronDown} className={styles.caretIcon} />
         </span>
       }
       show={servicesDropdownOpen}
-      onClick={toggleServicesDropdown}
       className={styles['custom-dropdown']}
     >
       {servicesDropdownOpen && (
-        <Container fluid="sm" className={cx(styles.container, 'd-md-flex d-block')}>
-          {SERVICE_ITEMS.map((item, index) => (
-            <NavDropdown.Item
-              key={`service-item-${index}`}
-              onClick={() => handleChangeRoute(item.path)}
-              style={{ animationDelay: `${index * 0.1}s` }}
-              className={styles.dropdownItem}
-            >
-              <Card className={cx(styles.card, 'bg-dark text-white d-md-block d-none')}>
-                <Card.Img src={item.backgroundImage} alt="Card image" />
-                <Card.ImgOverlay>
-                  <Card.Text dangerouslySetInnerHTML={{ __html: item.copy }} />
-                  <Card.Title>{item.title}</Card.Title>
-                </Card.ImgOverlay>
-              </Card>
-              <span className="d-md-none d-block">
-                {item.title}{' '}
-                <FontAwesomeIcon icon={faChevronRight} className={cx(styles.caretIcon, 'mt-n1')} />
-              </span>
-            </NavDropdown.Item>
-          ))}
+        <Container fluid="sm" className={cx(styles.container, 'd-md-flex d-block position-relative')}>
+          <ScrollArrowButton direction="left" onClick={() => handleScroll('left')} />
+
+          <div
+            ref={scrollContainerRef}
+            className={cx(styles.scrollContainer, 'd-flex overflow-auto flex-md-row flex-column')}
+          >
+            {SERVICE_ITEMS.map((item, index) => (
+              <NavDropdown.Item
+                key={`service-item-${index}`}
+                onClick={() => handleChangeRoute(item.path)}
+                style={{ animationDelay: `${index * 0.1}s` }}
+                className={styles.dropdownItem}
+              >
+                <Card className={cx(styles.card, 'bg-dark text-white d-md-block d-none')}>
+                  <Card.Img src={item.backgroundImage} alt={item.title} />
+                  <Card.ImgOverlay>
+                    <Card.Text dangerouslySetInnerHTML={{ __html: item.copy }} />
+                    <Card.Title>{item.title}</Card.Title>
+                  </Card.ImgOverlay>
+                </Card>
+                <span className="d-md-none d-block">
+                  {item.title}{' '}
+                  <FontAwesomeIcon icon={faChevronRight} className={cx(styles.caretIcon, 'mt-n1')} />
+                </span>
+              </NavDropdown.Item>
+            ))}
+          </div>
+
+          <ScrollArrowButton direction="right" onClick={() => handleScroll('right')} />
         </Container>
       )}
     </NavDropdown>
