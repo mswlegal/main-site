@@ -10,7 +10,6 @@ import { faFacebookF, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-s
 import dynamic from 'next/dynamic';
 import staticPosts from '@/data/staticPosts';
 import { generateSmartKeywords } from '@/utilities';
-import Image from 'next/image';
 import { topLegalKeywords } from '@/data/keywords';
 import heroImage from '@images/hero/hero.webp';
 import ImageWithFallback from '@/hooks/imageWithFallback';
